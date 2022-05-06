@@ -5,15 +5,15 @@ import time
 i2c = machine.I2C(0, scl=machine.Pin(17), sda=machine.Pin(16), freq=400000)
 
 # Print out any addresses found
-devices = i2c.scan()
-
-if devices:
-    print("I2C device(s) found at: ",end='')
-    for d in devices:
-        print(hex(d),end=' ')
-    print()
-else:
-    print("No I2C devices found")
+# devices = i2c.scan()
+# 
+# if devices:
+#     print("I2C device(s) found at: ",end='')
+#     for d in devices:
+#         print(hex(d),end=' ')
+#     print()
+# else:
+#     print("No I2C devices found")
 
 MCP23008_BASEADDR=0x20
 
@@ -87,12 +87,23 @@ def digitalRead(bit):			# Reads a single bit
 	rdVal=readRegister(MCP23008_GPIO)
 	return ((rdVal>>(bit&7))&0x01)
 
+def doLEDs():
+    for _ in range(10):
+        for i in range(4):
+            digitalWrite(i,1)
+            time.sleep(0.1)
+            digitalWrite(i,0)
+
+def loopBack():
+    for i in range(4):
+        digitalWrite(i,digitalRead(i))
+
 pinMode(0,OUTPUT)
 pinMode(1,OUTPUT)
 pinMode(2,OUTPUT)
 pinMode(3,OUTPUT)
-for _ in range(100):
-    for i in range(4):
-        digitalWrite(i,1)
-        time.sleep(0.1)
-        digitalWrite(i,0)
+pinMode(4,INPUT)
+pinMode(5,INPUT)
+pinMode(6,INPUT)
+pinMode(7,INPUT)
+
