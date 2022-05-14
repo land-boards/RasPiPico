@@ -2,7 +2,7 @@
 
 From [https://github.com/ExtremeElectronics/RC2040](https://github.com/ExtremeElectronics/RC2040)
 
-[EMULATING A Z80 RC2014 WITH CPM AND IDE DRIVES VIA AN SD CARD Project BLOG](https://www.extremeelectronics.co.uk/emulating-a-z80-rc2014-with-cpm-and-ide-drives-via-an-sd-card/?fbclid=IwAR2SpCy6k0L9dJLwQDoQpEs33P0iwLk9EMd7RJukmF0W3G4tjbyC7-igIoY)
+[EMULATING A Z80 RC2014 WITH CPM AND IDE DRIVES VIA AN SD CARD](https://www.extremeelectronics.co.uk/emulating-a-z80-rc2014-with-cpm-and-ide-drives-via-an-sd-card/?fbclid=IwAR2SpCy6k0L9dJLwQDoQpEs33P0iwLk9EMd7RJukmF0W3G4tjbyC7-igIoY) Project BLOG
 
 Initial aim was to get the [EtchedPixels](https://github.com/EtchedPixels) Linuxibased Z80 emulation including an SD Card based IDE running on a Pi Pico as a standalone.
 I have ripped out much of EtchedPixels's great work, to which I'm truly sorry, but I was only interested in the Z80 emulation, and I needed to get it to fit in an RP2040
