@@ -207,7 +207,7 @@ Raspberry Pi Pico is a low-cost, high-performance microcontroller board with fle
 |-
 |}
 
-= Adapter Card =
+= PiPico-01 Card =
 
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico PiPico-01 Card] - Our design
 
