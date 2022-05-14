@@ -4,6 +4,8 @@
 
 [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico Wiki page]
 
+= Adapter Card =
+
 * Socketed Pico
 * All Pico pins brought to Male Header pins
 * Power and ground header pins
