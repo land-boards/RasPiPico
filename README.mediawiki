@@ -4,7 +4,7 @@
 
 [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico Wiki page]
 
-= Raspberry Pi Pico Features =
+== Features ==
 
 Raspberry Pi Pico is a low-cost, high-performance microcontroller board with flexible digital interfaces. Key features include:
 
