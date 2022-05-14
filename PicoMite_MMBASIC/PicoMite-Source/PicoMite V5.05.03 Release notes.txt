@@ -1,0 +1,122 @@
+=================================================================================
+PicoMite V5.07.03 Changes from V5.07.01
+
+When first loaded this version will force a complete flash wipe removing all options, saved variables, and any prorams stored in flash
+
+General changes
+PicoMiteVGA introduced - see manual for details
+Program now runs from flash memory freeing up much more memory
+Maximum program size now 124Kbytes (108 for VGA version
+Flash slots reduced from 10 to 7 (8 for VGA version).
+FLASH RUN and FLASH CHAIN now execute direct from the specified flash slot without changing the main program
+Support for a PS2 Keyboard added
+Significant performance tuning
+Improved USB console receive
+Increased the maximum display width in OPTION DISPLAY to 240 characters
+Enables F1 as a user programmable function key
+Implements support for SSD1963 parallel displays
+Support for 240x240 round GC9A01 display
+Reduces maximum file name length to 63 characters but increase maximum files that can be listed with FILES command to 1000
+Increases drive level for SDcard output pins (CD, MOSI and CLOCK)
+New font added FONT 8 is a very small 6x4 font useful for 320x240 screens
+OPTION MEMORY removed as no longer relevant
+OPTION BAUDRATE n now sets the baudrate for when a serial console is used
+AUTOSAVE can now be terminated by entering Control-Z  or F1 which will then cause the received data to be transferred into program memory 
+overwriting the previous program. Use F2 to exit and immediately run the program.
+Reading from the framebuffer now available and bug fixed on SSD1963, ILI9341, ST7789_320 and ILI9488
+This enables the following on these displays:
+PIXEL(x,y) function
+SAVE IMAGE command
+Transparent text
+BLIT
+
+
+Bug Fixes and functional corrections
+Various bug fixes to CSUB code, new header files for CSubs
+Fixes bug in ON KEY keyno,int
+Fixed memory leak caused by ctrl-C out of FILES command 
+Fixes bug in loading F6-F9 user function definitions
+Fixed bug in PWM timings
+Fixes a bug where LINE INPUT would not read the last line in a file if it was not terminated with a CR
+Fixes bug in cursor positioning in editor
+Fixed bug error message when an invalid flash page is selected
+Fixes bug in day$(now) function
+Fixes bug where writing text to an SPI LCD that overlapped the bottom of the screen would fail to de-assert LCD_CS
+Fixes bug that added an extra space after a REM command each time the program was edited.
+Fixes bug in BACKLIGHT 0
+Fixes bug in using SYSTEM I2C or I2C2 for general I2C use if I2C READ does not use a string as the variable. 
+Fixes bug in COM1 where buffer overrun is losing characters.
+Tidied up system response when OPTION LCDPANEL has an error
+Change to DIR$() function to allow use with a single parameter as specified in the manual
+Changes to FILE command to properly deal with relative paths from a sub-directory
+
+
+New or enhanced commands and functions
+LOAD JPG fname$ [,xleft%] [,ytop%]
+FORMAT$()
+FLUSH [#]filenumber
+INTERRUPT [myint]
+OPTION KEYBOARD nn [,capslock] [,numlock] [repeatstart] [repeatrate]
+PRINT @(x, y [,mode])
+OPTION LCDPANEL CONSOLE [font] [,foregroundcolour] [backgroundcolour] [backlight]
+OPTION LCDPANEL NOCONSOLE
+POKE DISPLAY command [,data1] [,data2] [,datan]
+SETPIN pinno,CIN [,change]
+SETTICK PAUSE, myint [,tickno] 
+SETTICK RESUME, myint [,tickno] 
+FLASH LIST no [,all]
+FILES [fspec$] [, sort]
+POKE DISPLAY HRES n
+POKE DISPLAY VRES m
+
+
+
+=================================================================================
+PicoMite V5.07.01 Changes from V5.07.00
+
+You should load CLear_Flash.uf2 before loading this firmware if upgrading from V5.07.00 or from a beta version of V5.07.01 before b5
+
+Fixed Bug in epoch function which changed date$. 
+Changed maximum WS2812 LEDs to 256
+MM.INFO(pinno GPnn) implemented to give physical pin number for a given GP number
+
+
+Improvement to terminal serial output used by command stacking
+Implements a logarithmic scale for the volume control so that PLAY VOLUME 50,50 should sound half as loud as 100,100
+Also applies to PLAY SOUND n, ch, type, freq [,vol]
+
+
+Fixes bug in SETPIN pinno,IR
+Fixes bug in parameters following subcommands/sub-functions that are enclosed in brackets e.g. POKE WORD (anything),anything or ? PEEK(WORD (anything))
+Allows variables or string literals in the SOUND command for both the channel and sound type. The original syntax is still also allowed
+
+
+Implements the option of using a standard uart as the console
+OPTION SERIAL CONSOLE uartapin, uartbpin
+uartapin and uartbpin can be any valid pair of rx and tx pins for either com1 (uart0) or com2( uart1). The order you specify them is not important
+Use:
+OPTION SERIAL CONSOLE DISABLE
+to revert to normal the USB console
+
+
+Re-compile and build under pico-sdk V1.3
+
+Fixes bug in GPS receipt where the first read of GPS(DATE) may give an incorrect answer.
+Fixes bug in reporting the line of an error when goto/gosub to a line number is used. 
+Fixes bug where OPTION SERIAL CONSOLE DISABLE doesn't work after reboot
+
+Implements LIST ALL fname$
+Fixes bug in GUI SWITCH
+Restores original program if AUTOSAVE is terminated with Ctrl-C or XMODEM R terminates with an error
+
+
+Clears variable memory after Ctrl-C out of Autosave
+Removes creation of spurious "Reset" USB device
+
+
+Further rework of GUI SWITCH. 
+Rename FileIO.c for Linux. 
+AUTOSAVE "file" now reports a "Syntax Error" rather than "Unknown command". 
+EDIT "file" reporting an error rather than just ignoring the argument.
+
+OPTION AUDIO now forces reset to avoid user confusion
