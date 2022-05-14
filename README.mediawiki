@@ -2,6 +2,14 @@
 
 <img src="http://land-boards.com/blwiki/images/6/68/Pico_Plastic_Box_P18136_720px.jpg"></img>
 
+* Breadboard PCB
+* Socketed Pico
+* All Pico pins brought to Male Header pins
+* Power and ground header pins
+* Fits in 100x60x25mm Project Box
+* 5V jack
+* Can by Mounted on [http://land-boards.com/blwiki/index.php?title=CARRIER95TO49MM ODAS Adapter card]
+
 [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico Wiki page]
 
 == Features ==
@@ -203,14 +211,18 @@ Raspberry Pi Pico is a low-cost, high-performance microcontroller board with fle
 
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico PiPico-01 Card] - Our design
 
-<img src="http://land-boards.com/blwiki/images/9/93/PiPico-01_3D.png"></img>
+== Features ==
 
-* Socketed Pico
-* All Pico pins brought to Male Header pins
-* Power and ground header pins
-* Fits in 100x60x25mm Project Box
-* 5V jack
-* Can by Mounted on [http://land-boards.com/blwiki/index.php?title=CARRIER95TO49MM ODAS Adapter card]
+* [[Raspberry Pi Pico]] adapter
+* VGA
+** 5:6:5 R:G:B
+* SD Card
+* Stereo Audio
+* USB B power
+* 16-Bit I/O expander
+* 2x20 pin headers breaks out all Pico pins
+
+<img src="http://land-boards.com/blwiki/images/9/93/PiPico-01_3D.png"></img>
 
 = Reference Documents =
 
