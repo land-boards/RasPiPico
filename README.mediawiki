@@ -4,5 +4,9 @@
 
 [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico Wiki page]
 
-* Breakout all Pico pins to header pins
+* Socketed Pico
+* All Pico pins brought to Male Header pins
 * Power and ground header pins
+* Fits in 100x60x25mm Project Box
+* 5V jack
+* Can by Mounted on [http://land-boards.com/blwiki/index.php?title=CARRIER95TO49MM ODAS Adapter card]
