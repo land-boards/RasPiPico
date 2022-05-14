@@ -10,3 +10,12 @@
 * Fits in 100x60x25mm Project Box
 * 5V jack
 * Can by Mounted on [http://land-boards.com/blwiki/index.php?title=CARRIER95TO49MM ODAS Adapter card]
+
+== Reference Documents ==
+
+* [https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf Raspberry Pi Pico data sheet]
+* [https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf RP2040 Datasheet]
+* [https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf Hardware Design Guide]
+* [https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf Getting started with Raspberry Pi Pico] - C/C++ development with Raspberry Pi Pico and other RP2040-based microcontroller boards
+* [https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf Raspberry Pi Pico C/C++ SDK]
+* [https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf Raspberry Pi Pico Python SDK]
