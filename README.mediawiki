@@ -4,6 +4,10 @@
 
 [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico Wiki page]
 
+= Pinout =
+
+<img src="http://land-boards.com/blwiki/images/3/39/PiPico_Pins.PNG></img>
+
 = Adapter Card =
 
 * Socketed Pico
