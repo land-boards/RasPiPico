@@ -1,6 +1,7 @@
 # RC2040
 
 From [https://github.com/ExtremeElectronics/RC2040](https://github.com/ExtremeElectronics/RC2040)
+[Project BLOG](https://www.extremeelectronics.co.uk/emulating-a-z80-rc2014-with-cpm-and-ide-drives-via-an-sd-card/?fbclid=IwAR2SpCy6k0L9dJLwQDoQpEs33P0iwLk9EMd7RJukmF0W3G4tjbyC7-igIoY)
 
 Z80 emulation of RC2014 using the RP2040 processor.
 
