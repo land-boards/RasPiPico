@@ -1,0 +1,62 @@
+PicoMiteVGA PCB BOM
+
+Raspberry Pi Pico  Farnell 3643332 £2.95
+Header 20 way 2 off Farnell 3221741 £0.793 = £1.586 (cheaper on ebay etc.)
+PCB socket 20-way 2 off Farnell 1593469 £0.434 (min 5 off) = £2.17 (cheaper on ebay etc.)
+
+
+VGA section
+R12, R13, R14, R19, R20, R21, R22  220ohm 1% metal film resistor Farnell 2329643 £0.0172 = £0.1204 
+VGA connector Amphenol L77HDE15SD1CH4F Farnell 2401182 £1.35 
+D2, D3 1N4148 Farnell 2322485 £0.119 (min 5 off) = £0.595
+VR1 Vishay T93YA201KT20 Farnell 1141398 £1.54
+Colour select header 3-pin Farnell 3049569 £0.191 (cheaper on ebay etc.)
+
+Optional Box
+G738 or G738A £5.02 Farnell 1094711
+
+Optional SDcard
+Adafruit Micro SD SPI or SDIO Card Breakout Board - 3V ONLY Pimoroni £2.25
+C2 0.1uF Ceramic 2.5mm pitch capacitor Farnell 2860097 £0.114 (min 10 off) £1.14
+C1 10uF tantalum cpacitor 2.5mm pitch Farnell 2852753 £0.453
+R42 2.2 ohm resistor 1% metal film resistor Farnell 2330095 £0.0375
+
+Optional Reset Switch
+Tactile switch  Farnell 3133597 £0.0615 (min 10 off) £ £0.615
+
+Optional Keyboard I/F
+PS2 socket 5749265-1 Farnell 2452347 £2.09 (cheaper on ebay etc.)
+R15, R16, R17, R18 10Kohm 1% metal film resistor Farnell 1700251 £0.0284 (min 5 off) £0.142
+Q1, Q2 n-channel enhancement mosfet, max GS threshold 2V 
+Tested with BST72A and silkscreen matches this part. Suggest TN0702N3-G Farnell 2920846 £1.25 = £2.5 (check pinout against silkscreen)
+
+Optional Audio I/F
+R26, R27, R28, R33 1Kohm 1% metal film resistor Farnell 1700237 £0.0284 (min 5 off) £0.142
+R34, R35 4.7Kohm 1% metal film resistor Farnell 1700245 £0.0284 (min 5 off) £0.142
+C25, C26 47nF Ceramic capacitor 5mm pitch Farnell 2840671 £0.0629 (min 10 off) £0.629
+Audio output header 3-pin Farnell 3049569 £0.191 (cheaper on ebay etc.)
+
+Optional Linear power supply
+Linear power select header 2-pin Farnell 3049569 £0.191 (break off one pin, cheaper on ebay etc.)
+2.1mm Power connector Farnell 3498419  £0.54
+TC1264 low dropout regulator Farnell 1852189 £1.08
+C17 0.1uF Ceramic 2.5mm pitch capacitor Farnell 2860097 £0.114 (min 10 off, already purchased if SDcard installed) £1.14
+C11 100uF elctrolytic capacitor Farnell 2068999 £0.064
+D1 Schottky rectifier diode MBR360G Farnell 2535570 £0.403 (min 5 off) £2.015
+
+Optional Power LED
+R29  1Kohm 1% metal film resistor Farnell 1700237 £0.0284 (min 5 off, already purchased if Audio installed) £0.142
+LED1 3mm red low current Farnell 1581113 £0.114 (min 5 off) = £0.57
+
+Optional edge connector
+40-pin 2.54mm 2 row right angle Farnell 2843551 £0.69
+
+Optional Pico Shield headers
+Header 20 way 4 off Farnell 3221741 £0.793 = £3.172 (cheaper on ebay etc.)
+
+Optional RTC
+R23, R24 10Kohm 1% metal film resistor Farnell 1700251 £0.0284 (min 5 off) £0.142
+DDS3231 AT24C32 I2C Precision Real Time Clock & Memory Module for Arduino Makers Hut £3.49 
+
+Optional 3V ADC reference
+IC2 LM4040C30ILP Farnell 3009204 £1.06
