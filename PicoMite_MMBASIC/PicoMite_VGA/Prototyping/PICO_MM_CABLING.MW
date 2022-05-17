@@ -7,6 +7,14 @@
 ! PIN
 ! COLOUR
 |-
+| AUDIO-GND
+| GND
+| 8
+| GRID49
+| AUD-GND
+| D1
+| BLK
+|-
 | AUDIO-L
 | GP6
 | 9
@@ -19,38 +27,14 @@
 | GP7
 | 10
 | GRID49
-| AUD-GND
-| D1
-| BLK
-|-
-| AUDIO-GND
-| GND
-| 8
-| GRID49
 | AUD-R
 | E1
 | YEL
 |-
-| PS2_3.3V
-| 3.3V
-| 
-| 
-| 3.3V
-| 4
-| RED
-|-
-| PS2_5V
-| VSYS
-| 39
-| 
-| PWR1
-| 2
-| ORG
-|-
 | PS2_CLK
 | GP8
 | 11
-| 
+| PS2X49 
 | CLK1
 | 6
 | VIO
@@ -58,7 +42,7 @@
 | PS2_DATA
 | GP9
 | 12
-| 
+| PS2X49 
 | DAT1
 | 8
 | YEL
@@ -66,58 +50,74 @@
 | PS2_GND
 | GND
 | 13
-| 
+| PS2X49 
 | GND
 | 10
 | BLK
 |-
-| SD_3.3V
-| 3.3V
-| 
-| 
-| 3.3V
-| 7
-| RED
-|-
-| SD_MISO
-| GP12
-| 16
-| 
-| MISO
-| 2
-| YEL
+| SD_SCK
+| GP10
+| 14
+| SD_CARD_X49 
+| SCLK
+| 3
+| VIO
 |-
 | SD_MOSI
 | GP11
 | 15
-| 
+| SD_CARD_X49 
 | MOSI
 | 4
 | BLU
 |-
-| SD_SCK
-| GP10
-| 14
-| 
-| SCLK
-| 
-| VIO
+| SD_MISO
+| GP12
+| 16
+| SD_CARD_X49 
+| MISO
+| 2
+| YEL
 |-
 | SD_SLVSEL
 | GP13
 | 17
-| 
+| SD_CARD_X49 
 | -SDCS
-| 
+| 5
 | GRY
 |-
 | SD_GND
 | GND
 | 18
-| 
+| SD_CARD_X49 
 | GND
-| 
+| 1
 | BLK
+|-
+| VGA_HSYNC
+| GP16
+| 21
+| VGA
+| HS
+| 17
+| GRY
+|-
+| VGA_VSYNC
+| GP17
+| 22
+| VGA
+| VS
+| 18
+| WHT
+|-
+| VGA_GND
+| GND
+| 23
+| VGA
+| GND
+| 19
+| BRN
 |-
 | VGA_BLU
 | GP18
@@ -127,12 +127,12 @@
 | 12
 | BLU
 |-
-| VGA_GND
-| GND
-| 23
+| VGA_GRN_LO
+| GP19
+| 25
 | VGA
-| GND
-| 19
+| G4
+| 7
 | GRN
 |-
 | VGA_GRN_HI
@@ -143,22 +143,6 @@
 | 6
 | GRN
 |-
-| VGA_GRN_LO
-| GP19
-| 25
-| VGA
-| G4
-| 7
-| GRN
-|-
-| VGA_HSYNC
-| GP16
-| 21
-| VGA
-| HS
-| 17
-| GRY
-|-
 | VGA_RED
 | GP21
 | 27
@@ -167,12 +151,28 @@
 | 1
 | ORG
 |-
-| VGA_VSYNC
-| GP17
-| 22
-| VGA
-| VS
-| 18
-| WHT
+| PS2_5V
+| VSYS
+| 39
+| PS2X49 
+| PWR1
+| 2
+| ORG
+|-
+| PS2_3.3V
+| 3.3V
+| BUS
+| PS2X49 
+| 3.3V
+| 4
+| RED
+|-
+| SD_3.3V
+| 3.3V
+| BUS
+| SD_CARD_X49 
+| 3.3V
+| 7
+| RED
 |-
 |}
