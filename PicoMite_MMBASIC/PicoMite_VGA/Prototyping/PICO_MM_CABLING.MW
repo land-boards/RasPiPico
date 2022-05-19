@@ -7,6 +7,14 @@
 ! PIN
 ! COLOUR
 |-
+| I2C1GND
+| GND
+| 3
+| MCP23017
+| 
+| 
+| 
+|-
 | AUDIO-GND
 | GND
 | 8
@@ -94,6 +102,22 @@
 | GND
 | 1
 | BLK
+|-
+| I2C1_SDA
+| GP14
+| 19
+| MCP23017
+| SDA
+| 
+| YEL
+|-
+| I2C1_SCL
+| GP15
+| 20
+| MCP23017
+| SCL
+| 
+| WHT
 |-
 | VGA_HSYNC
 | GP16
