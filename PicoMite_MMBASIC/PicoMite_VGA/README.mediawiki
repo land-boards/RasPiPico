@@ -1,9 +1,26 @@
 <img src="http://land-boards.com/blwiki/images/7/73/PicoMite_Proto_P18159_720px.jpg"></img>
 
+= Features =
 * Runs PicoMite (MaxiMite) BASIC (VGA, PS/2)
 * Uses Land Boards cards
 ** Raspberry Pico on Breadboard
 ** [http://land-boards.com/blwiki/index.php?title=VGAX49 VGAX49]
-** [http://land-boards.com/blwiki/index.php?title=VGAX49 PS2X49]
+** [http://land-boards.com/blwiki/index.php?title=PS2X49 PS2X49]
 ** [http://land-boards.com/blwiki/index.php?title=SD_CARD_X49 SD CARD X49]
 ** [http://land-boards.com/blwiki/index.php?title=GRID49 GRID49]
+
+== VGAX49 ==
+
+<img src="http://land-boards.com/blwiki/images/7/7b/VGAX49_P901-cropped-720px.jpg"></img>
+
+== PS2X49 ==
+
+<img src="http://land-boards.com/blwiki/images/6/64/PS2X49_P897_cropped_512pxV.jpg"></img>
+
+== SD CARD X49 ==
+
+<img src="http://land-boards.com/blwiki/images/e/ea/SDCARDX49_P935_cropped-512px.jpg"></img>
+
+== GRID49 ==
+
+<img src="http://land-boards.com/blwiki/images/7/7e/GRID49_AUDIO.png"></img>
