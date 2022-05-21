@@ -1,5 +1,7 @@
 [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
 
+<img src="https://geoffg.net/Images/picomite/PicoVGAicon.jpg"></img>
+
 <img src="http://land-boards.com/blwiki/images/7/73/PicoMite_Proto_P18159_720px.jpg"></img>
 
 = Features =
