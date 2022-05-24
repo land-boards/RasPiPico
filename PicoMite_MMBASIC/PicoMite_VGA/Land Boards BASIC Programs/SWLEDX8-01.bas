@@ -1,5 +1,5 @@
-' GPIO16-01.bas
-' Alternate patterns then bounce a LED
+' SWLEDX8-01.bas
+' Read Switches, Write LEDs
 '
 ' Doug Gillland
 ' Land Boards LLC 2022
@@ -28,43 +28,33 @@ MCP23017_GPIOB    = &H13
 MCP23017_OLATA    = &H14
 MCP23017_OLATB    = &H15
 
+pauseMS = 250
+
 Print "Looping through LEDs"
 Print "Hit a key to stop"
 
 ' Pin setups
 SetPin GP14, GP15, I2C2
 I2C2 OPEN 400, 100
-I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_IODIRA, &H00
+I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_IODIRA, &HFF
 I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_IODIRB, &H00
 
 ' Alternating patterns
-I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_OLATA, &H55
 I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_OLATB, &HAA
 Pause 1000
-I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_OLATA, &HAA
 I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_OLATB, &H55
 Pause 200
-I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_OLATA, &H00
 I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_OLATB, &H00
 Pause 00
 
 loopBack:
 loopVal = &H01
-loop1:
-I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_OLATA, loopVal
-Pause 200
-If Inkey$ <> "" GoTo Done
-loopVal = loopVal * 2
-If loopVal < 256 GoTo loop1
-I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_OLATA, 0
-
-loopVal = &H80
 loop2:
 I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_OLATB, loopVal
-Pause 200
+Pause pauseMS
 If Inkey$ <> "" GoTo Done
-loopVal = loopVal / 2
-If loopVal >= 1 GoTo loop2
+loopVal = loopVal * 2
+If loopVal < 256 GoTo loop2
 I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_OLATB, 0
 GoTo loopBack
 
