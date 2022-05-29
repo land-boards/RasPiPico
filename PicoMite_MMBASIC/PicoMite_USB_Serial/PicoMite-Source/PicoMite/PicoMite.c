@@ -1154,13 +1154,13 @@ void __not_in_flash_func(QVgaLine0)()
 		// image scanlines
 		else
 		{
-			// prepare image line
+        // prepare image line
             if(DISPLAY_TYPE==MONOVGA){
-            	int ytile=line>>4;
+                int ytile=line>>4;
                 for(int i=0,j=0;i<80;i++,j+=2){
                     int xtile=i>>1;
-                    int low= FrameBuf[line * 80 + i] & 0xF;
-                    int high=FrameBuf[line * 80 + i] >>4;
+                    int low= DisplayBuf[line * 80 + i] & 0xF;
+                    int high=DisplayBuf[line * 80 + i] >>4;
                     int pos=ytile*40+xtile;
                     fbuff[nextbuf][j]=(M_Foreground[low] & tilefcols[pos]) | (M_Background[low] & tilebcols[pos]) ;
                     fbuff[nextbuf][j+1]=(M_Foreground[high]& tilefcols[pos]) | (M_Background[high] & tilebcols[pos]) ;
@@ -1168,8 +1168,8 @@ void __not_in_flash_func(QVgaLine0)()
             } else {
                 line>>=1;
                 for(int i=0;i<160;i++){
-                    int low= FrameBuf[line * 160 + i] & 0xF;
-                    int high=FrameBuf[line * 160 + i] >>4;
+                    int low= DisplayBuf[line * 160 + i] & 0xF;
+                    int high=DisplayBuf[line * 160 + i] >>4;
                     fbuff[nextbuf][i]=(low | (low<<4) | (high<<8) | (high<<12));
                 }
             }
@@ -1200,7 +1200,108 @@ void __not_in_flash_func(QVgaLine0)()
 	// restore integer divider state
 //	hw_divider_restore_state(&SaveDividerState);
 }
+void __not_in_flash_func(QVgaLine1)()
+{
+    static int nextbuf=0,nowbuf=1,i,line,bufinx;
+	// Clear the interrupt request for DMA control channel
+	dma_hw->ints0 = (1u << QVGA_DMA_PIO);
 
+	// update DMA control channel and run it
+	dma_channel_set_read_addr(QVGA_DMA_CB, ScanLineCBNext, true);
+
+	// save integer divider state
+//	hw_divider_save_state(&SaveDividerState);
+
+	// switch current buffer index (bufinx = current preparing buffer, MiniVgaBufInx = current running buffer)
+	bufinx = QVgaBufInx;
+	QVgaBufInx = bufinx ^ 1;
+
+	// prepare control buffer to be processed
+	uint32_t* cb = &ScanLineCB[bufinx*CB_MAX];
+	ScanLineCBNext = cb;
+
+	// increment scanline (1..)
+	line = QVgaScanLine; // current scanline
+	line++; 		// new current scanline
+	if (line >= QVGA_VTOT) // last scanline?
+	{
+		QVgaFrame++;	// increment frame counter
+		line = 0; 	// restart scanline
+	}
+	QVgaScanLine = line;	// store new scanline
+
+	// check scanline
+	line -= QVGA_VSYNC;
+	if (line < 0)
+	{
+		// VSYNC
+		*cb++ = 2;
+		*cb++ = (uint32_t)&ScanLineSync[0];
+	}
+	else
+	{
+		// front porch and back porch
+		line -= QVGA_VBACK;
+		if ((line < 0) || (line >= QVGA_VACT))
+		{
+			// dark line
+			*cb++ = 2;
+			*cb++ = (uint32_t)&ScanLineDark[0];
+		}
+
+		// image scanlines
+		else
+		{
+			// prepare image line
+            if(DISPLAY_TYPE==MONOVGA){
+                int ytile=line>>4;
+                for(int i=0,j=0;i<80;i++,j+=2){
+                    int xtile=i>>1;
+                    int low= (DisplayBuf[line * 80 + i] & 0xF) | (LayerBuf[line * 80 + i] & 0xF);
+                    int high=(DisplayBuf[line * 80 + i] >>4) | (LayerBuf[line * 80 + i] >>4);
+                    int pos=ytile*40+xtile;
+                    fbuff[nextbuf][j]=(M_Foreground[low] & tilefcols[pos]) | (M_Background[low] & tilebcols[pos]) ;
+                    fbuff[nextbuf][j+1]=(M_Foreground[high]& tilefcols[pos]) | (M_Background[high] & tilebcols[pos]) ;
+                }
+            } else {
+                line>>=1;
+                for(int i=0;i<160;i++){
+                    int low= DisplayBuf[line * 160 + i] & 0xF;
+                    int high=DisplayBuf[line * 160 + i] >>4;
+                    int low2= LayerBuf[line * 160 + i] & 0xF;
+                    int high2=LayerBuf[line * 160 + i] >>4;
+                    if(low2)low=low2;
+                    if(high2)high=high2;
+                    fbuff[nextbuf][i]=(low | (low<<4) | (high<<8) | (high<<12));
+                }
+            }
+            if(nextbuf){
+                nextbuf=0;nowbuf=1;
+            } else {
+                nextbuf=1;nowbuf=0;
+            }
+
+			// HSYNC ... back porch ... image command
+			*cb++ = 3;
+			*cb++ = (uint32_t)&ScanLineImg[0];
+
+			// image data
+			*cb++ = 80;
+			*cb++ = (uint32_t)fbuff[nowbuf];
+
+			// front porch
+			*cb++ = 1;
+			*cb++ = (uint32_t)&ScanLineFp;
+		}
+	}
+
+	// end mark
+	*cb++ = 0;
+	*cb = 0;
+
+	// restore integer divider state
+//	hw_divider_restore_state(&SaveDividerState);
+}
 // initialize QVGA PIO
 void QVgaPioInit()
 {
@@ -1356,7 +1457,8 @@ void QVgaDmaInit()
 	dma_channel_set_irq0_enabled(QVGA_DMA_PIO, true);
 
 	// set DMA IRQ handler
-    irq_set_exclusive_handler(DMA_IRQ_0, QVgaLine0);
+    if(Option.CPU_Speed==126000)irq_set_exclusive_handler(DMA_IRQ_0, QVgaLine0);
+    else irq_set_exclusive_handler(DMA_IRQ_0, QVgaLine1);
 	// set highest IRQ priority
 	irq_set_priority(DMA_IRQ_0, 0);
 }
@@ -1482,7 +1584,7 @@ int main(){
     while((i=getConsole())!=-1){}
 #ifdef PICOMITEVGA
     multicore_launch_core1_with_stack(QVgaCore,core1stack,256);
-	memset(FrameBuf, 0, 38400);
+	memset(WriteBuf, 0, 38400);
     if(Option.DISPLAY_TYPE!=MONOVGA)ClearScreen(Option.DefaultBC);
 #endif
     if(!(_excep_code == RESTART_NOAUTORUN || _excep_code == WATCHDOG_TIMEOUT)){

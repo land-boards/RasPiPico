@@ -1073,6 +1073,8 @@ void fun_pin(void) {
         case EXT_INT_LO:
         case EXT_INT_BOTH:
         case EXT_DIG_OUT:
+        case EXT_PIO0_OUT:
+        case EXT_PIO1_OUT:
                             iret = ExtInp(pin);
                             targ = T_INT;
                             return;
@@ -1811,7 +1813,7 @@ void cmd_lcd(unsigned char *lcd)
         }
     } else if((p = checkstring(lcd, "CLEAR"))) {                // clear the display
         LCD_Byte(0b00000001, 0, 3000);
-    } else if((p = checkstring(cmdline, "CMD")) || (p = checkstring(cmdline, "DATA"))) { // send a command or data
+    } else if((p = checkstring(lcd, "CMD")) || (p = checkstring(lcd, "DATA"))) { // send a command or data
         getargs(&p, MAX_ARG_COUNT * 2, ",");
         for(i = 0; i < argc; i += 2) {
             j = getint(argv[i], 0, 255);

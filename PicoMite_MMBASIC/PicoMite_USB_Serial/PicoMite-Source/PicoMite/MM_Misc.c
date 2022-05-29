@@ -1871,7 +1871,7 @@ void cmd_option(void) {
         }
         SaveOptions();
         DISPLAY_TYPE= Option.DISPLAY_TYPE;
-	    memset(FrameBuf, 0, 38400);
+	    memset(WriteBuf, 0, 38400);
         ResetDisplay();
         CurrentX = CurrentY =0;
         if(Option.DISPLAY_TYPE!=MONOVGA)ClearScreen(Option.DefaultBC);

@@ -90,7 +90,7 @@ void __not_in_flash_func(cmd_null)(void) {
 	// do nothing (this is just a placeholder for commands that have no action)
 }
 
-void __not_in_flash_func(cmd_inc)(void){
+void cmd_inc(void){
 	unsigned char *p;
     int vtype;
 	getargs(&cmdline,3,",");
@@ -1354,7 +1354,7 @@ void cmd_subfun(void) {
 
 
 
-void __not_in_flash_func(cmd_gosub)(void) {
+void cmd_gosub(void) {
 	if(gosubindex >= MAXGOSUB) error("Too many nested GOSUB");
     errorstack[gosubindex] = CurrentLinePtr;
 	gosubstack[gosubindex++] = nextstmt;

@@ -59,6 +59,9 @@ unsigned char __attribute__ ((aligned (32))) AllMemory[ALL_MEMORY_SIZE];
 #ifndef PICOMITEVGA
 unsigned char *CTRLS=&AllMemory[HEAP_MEMORY_SIZE +  MAXVARS * sizeof(struct s_vartbl) + 2048];
 #else
+unsigned char *WriteBuf=&AllMemory[HEAP_MEMORY_SIZE + MAXVARS * sizeof(struct s_vartbl) + 2048];
+unsigned char *DisplayBuf=&AllMemory[HEAP_MEMORY_SIZE + MAXVARS * sizeof(struct s_vartbl) + 2048];
+unsigned char *LayerBuf=&AllMemory[HEAP_MEMORY_SIZE + MAXVARS * sizeof(struct s_vartbl) + 2048];
 unsigned char *FrameBuf=&AllMemory[HEAP_MEMORY_SIZE + MAXVARS * sizeof(struct s_vartbl) + 2048];
 #endif
 unsigned char *MMHeap=AllMemory;

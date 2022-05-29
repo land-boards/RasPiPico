@@ -2755,6 +2755,9 @@ void ClearRuntime(void) {
     findlabel(NULL);                                                // clear the label cache
     OptionErrorSkip = 0;
     MMerrno = 0;                                                    // clear the error flags
+    #ifdef PICOMITEVGA
+        closeframebuffer();
+    #endif
     *MMErrMsg = 0;
 	#if defined(MMFAMILY) || defined(DOS)
 	    NbrModules = 0;
@@ -3161,7 +3164,7 @@ static unsigned char charmap[] = {
  */
 
 
-int __not_in_flash_func(mystrncasecmp)(
+int mystrncasecmp(
     const unsigned char *s1,         /* First string. */
     const unsigned char *s2,         /* Second string. */
     size_t  length)      /* Maximum number of characters to compare

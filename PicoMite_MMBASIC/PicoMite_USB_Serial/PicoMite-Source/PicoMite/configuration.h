@@ -29,12 +29,16 @@ extern "C" {
 #endif
 #define FLASH_TARGET_OFFSET (1024 * 1024) 
 #ifdef PICOMITEVGA
-#define MagicKey 0x67AA22F4
+#define MagicKey 0x67BB22F4
 #else
 #define MagicKey 0x86AA33E7
 #endif
 
 #define MMFLOAT double
+#define FLOAT3D float
+#define sqrt3d sqrtf
+#define round3d roundf
+#define fabs3d fabsf
 #define ALL_MEMORY_SIZE (180*1024) 
 #ifdef PICOMITEVGA
 #define HEAP_MEMORY_SIZE (108*1024) 
@@ -90,6 +94,9 @@ extern "C" {
 #define SAVEDVARS_FLASH_SIZE 16384
 #define FLASH_ERASE_SIZE 4096
 #define MAX_CPU     252000
+#define MAX3D   8
+#define MAXCAM  3
+#define MAX_POLYGON_VERTICES 10
 #define MAXBLITBUF 32
 #define MAXRESTORE          16
 #define CONFIG_TITLE		0

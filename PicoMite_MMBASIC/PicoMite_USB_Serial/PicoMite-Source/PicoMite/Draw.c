@@ -123,6 +123,8 @@ int gui_font_width, gui_font_height, last_bcolour, last_fcolour;
 volatile int CursorTimer=0;               // used to time the flashing cursor
 void (*DrawPixel)(int x1, int y1, int c) = (void (*)(int , int , int ))DisplayNotSet;
 extern volatile int QVgaScanLine;
+struct D3D* struct3d[MAX3D + 1] = { NULL };
+s_camera camera[MAXCAM + 1];
 #endif
 void (*DrawRectangle)(int x1, int y1, int x2, int y2, int c) = (void (*)(int , int , int , int , int ))DisplayNotSet;
 void (*DrawBitmap)(int x1, int y1, int width, int height, int scale, int fc, int bc, unsigned char *bitmap) = (void (*)(int , int , int , int , int , int , int , unsigned char *))DisplayNotSet;
@@ -136,6 +138,7 @@ void DrawTriangle(int x0, int y0, int x1, int y1, int x2, int y2, int c, int fil
 // in the case of the MX170 this function is called directly by MMBasic when the GUI command is used
 // in the case of the MX470 it is called by MX470GUI in GUI.c
 const int colours[16]={0x00,0xFF,0x4000,0x40ff,0x8000,0x80ff,0xff00,0xffff,0xff0000,0xff00FF,0xff4000,0xff40ff,0xff8000,0xff80ff,0xffff00,0xffffff};
+
 void cmd_guiMX170(void) {
     unsigned char *p;
 
@@ -737,16 +740,84 @@ void ClearTriangle(int x0, int y0, int x1, int y1, int x2, int y2, int ints_per_
                 y = y + 1;
             }
 }
-/**********************************************************************************************
-Draw a triangle
-    Thanks to Peter Mather (matherp on the Back Shed forum)
-     x0, y0 - the first corner
-     x1, y1 - the second corner
-     x2, y2 - the third corner
-     c      - the colour to use for sides of the triangle
-     fill   - the colour to fill the triangle (-1 for no fill)
-***********************************************************************************************/
-void DrawTriangle(int x0, int y0, int x1, int y1, int x2, int y2, int c, int fill) {
+#define ABS(X) ((X)>0 ? (X) : (-(X)))
+
+void CalcLine(int x1, int y1, int x2, int y2, short *xmin, short *xmax) {
+
+    if(y1 == y2) {
+    	if(y1<0)y1=0;
+    	if(y1>=480)y1=479;
+    	if(y2<0)y2=0;
+    	if(y2>=480)y2=479;
+		if(x1<xmin[y1])xmin[y1]=x1;
+		if(x2<xmin[y1])xmin[y1]=x2;
+		if(x1>xmax[y1])xmax[y1]=x1;
+		if(x2>xmax[y1])xmax[y1]=x2;
+        return;
+    }
+    if(x1 == x2) {
+		if(y2<y1)swap(y2,y1);
+    	if(y1<0)y1=0;
+    	if(y1>=480)y1=479;
+    	if(y2<0)y2=0;
+    	if(y2>=480)y2=479;
+		for(int y=y1;y<=y2;y++) {
+			if(x1<xmin[y])xmin[y]=x1;
+			if(x1>xmax[y])xmax[y]=x1;
+		}
+        return;
+    }
+	// uses a variant of Bresenham's line algorithm:
+	//   https://en.wikipedia.org/wiki/Talk:Bresenham%27s_line_algorithm
+	if (y1 > y2) {
+		swap(y1, y2);
+		swap(x1, x2);
+	}
+	if(y1<0)y1=0;
+	if(y1>=480)y1=479;
+	if(y2<0)y2=0;
+	if(y2>=480)y2=479;
+	int absX = ABS(x1-x2);          // absolute value of coordinate distances
+	int absY = ABS(y1-y2);
+	int offX = x2<x1 ? 1 : -1;      // line-drawing direction offsets
+	int offY = y2<y1 ? 1 : -1;
+	int x = x2;                     // incremental location
+	int y = y2;
+	int err;
+	if(x<xmin[y])xmin[y]=x;
+	if(x>xmax[y])xmax[y]=x;
+	if (absX > absY) {
+
+		// line is more horizontal; increment along x-axis
+		err = absX / 2;
+		while (x != x1) {
+			err = err - absY;
+			if (err < 0) {
+				y   += offY;
+				err += absX;
+			}
+			x += offX;
+    		if(x<xmin[y])xmin[y]=x;
+    		if(x>xmax[y])xmax[y]=x;
+		}
+	} else {
+
+		// line is more vertical; increment along y-axis
+		err = absY / 2;
+		while (y != y1) {
+			err = err - absX;
+			if (err < 0) {
+				x   += offX;
+				err += absY;
+			}
+			y += offY;
+    		if(x<xmin[y])xmin[y]=x;
+    		if(x>xmax[y])xmax[y]=x;
+		}
+	}
+}
+
+void DrawTriangle(int x0, int y0, int x1, int y1, int x2, int y2, int c, int f) {
 	if(x0 * (y1 - y2) +  x1 * (y2 - y0) +  x2 * (y0 - y1)==0){ // points are co-linear i.e zero area
 		if (y0 > y1) {
 			swap(y0, y1);
@@ -762,55 +833,50 @@ void DrawTriangle(int x0, int y0, int x1, int y1, int x2, int y2, int c, int fil
 		}
 		DrawLine(x0,y0,x2,y2,1,c);
 	} else {
-    if(fill == -1){
-        // draw only the outline
-        DrawLine(x0, y0, x1, y1, 1, c);
-        DrawLine(x1, y1, x2, y2, 1, c);
-        DrawLine(x2, y2, x0, y0, 1, c);
-    } else {
-        //we are drawing a filled triangle which may also have an outline
-        int a, b, y, last;
+		if(f == -1){
+			// draw only the outline
+			DrawLine(x0, y0, x1, y1, 1, c);
+			DrawLine(x1, y1, x2, y2, 1, c);
+			DrawLine(x2, y2, x0, y0, 1, c);
+		} else {
+			if (y0 > y1) {
+				swap(y0, y1);
+				swap(x0, x1);
+			}
+			if (y1 > y2) {
+				swap(y2, y1);
+				swap(x2, x1);
+			}
+			if (y0 > y1) {
+				swap(y0, y1);
+				swap(x0, x1);
+			}
+			short *xmin=(short *)GetMemory(480*sizeof(short));
+			short *xmax=(short *)GetMemory(480*sizeof(short));
 
-        if (y0 > y1) {
-            swap(y0, y1);
-            swap(x0, x1);
-        }
-        if (y1 > y2) {
-            swap(y2, y1);
-            swap(x2, x1);
-        }
-        if (y0 > y1) {
-            swap(y0, y1);
-            swap(x0, x1);
-        }
-
-            if(y1 == y2) {
-                last = y1;                                          //Include y1 scanline
-            } else {
-                last = y1 - 1;                                      // Skip it
+			int y;
+			for(y=y0; y<=y2; y++){
+				if(y>=0 && y<480){
+					xmin[y]=32767;
+					xmax[y]=-1;
+				}
+			}
+			CalcLine(x0, y0, x1, y1, xmin, xmax);
+			CalcLine(x1, y1, x2, y2, xmin, xmax);
+			CalcLine(x2, y2, x0, y0, xmin, xmax);
+			for(y=y0;y<=y2;y++){
+				if(y>=0 && y<VRes)DrawRectangle(xmin[y], y, xmax[y], y, c);
+			}
+            if(c!=f){
+				DrawLine(x0, y0, x1, y1, 1, c);
+				DrawLine(x1, y1, x2, y2, 1, c);
+				DrawLine(x2, y2, x0, y0, 1, c);
             }
-            for (y = y0; y <= last; y++){
-                a = x0 + (x1 - x0) * (y - y0) / (y1 - y0);
-                b = x0 + (x2 - x0) * (y - y0) / (y2 - y0);
-                if(a > b)swap(a, b);
-                DrawRectangle(a, y, b, y, fill);
-            }
-            while (y <= y2){
-                a = x1 + (x2 - x1) * (y - y1) / (y2 - y1);
-                b = x0 + (x2 - x0) * (y - y0) / (y2 - y0);
-                if(a > b) swap(a, b);
-                DrawRectangle(a, y, b, y, fill);
-                y = y + 1;
-            }
-            // we also need an outline but we do this last to overwrite the edge of the fill area
-            if(c!=fill){
-	            DrawLine(x0, y0, x1, y1, 1, c);
-	            DrawLine(x1, y1, x2, y2, 1, c);
-	            DrawLine(x2, y2, x0, y0, 1, c);
-	        }
-	    }
-    if(Option.Refresh)Display_Refresh();
+            FreeMemory((unsigned char *)xmin);
+            FreeMemory((unsigned char *)xmax);
+		}
 	}
+
 }
 
 
@@ -2537,7 +2603,7 @@ void cmd_mode(void){
     } else {
         DISPLAY_TYPE=MONOVGA;
     }
-    memset(FrameBuf, 0, 38400);
+    memset(WriteBuf, 0, 38400);
 //    uSec(10000);
     ResetDisplay();
     CurrentX = CurrentY =0;
@@ -2591,7 +2657,7 @@ void Display_Refresh(void){
 
 void DrawPixelMono(int x, int y, int c){
     if(x<0 || y<0 || x>=HRes || y>=VRes)return;
-	uint8_t *p=(uint8_t *)(((uint32_t) FrameBuf)+(y*(HRes>>3))+(x>>3));
+	uint8_t *p=(uint8_t *)(((uint32_t) WriteBuf)+(y*(HRes>>3))+(x>>3));
 	uint8_t bit = 1<<(x % 8);
 	if(c)*p |=bit;
 	else *p &= ~bit;
@@ -2614,7 +2680,7 @@ void DrawRectangleMono(int x1, int y1, int x2, int y2, int c){
     if(y2 <= y1) { t = y1; y1 = y2; y2 = t; }
     if(x1==x2){
         for(y=y1;y<=y2;y++){
-            p=&FrameBuf[(y*(HRes>>3))+(x1>>3)];
+            p=&WriteBuf[(y*(HRes>>3))+(x1>>3)];
             mask=1<<(x1 % 8); //get the bit position for this bit
             if(c){
                 *p|=mask;
@@ -2627,7 +2693,7 @@ void DrawRectangleMono(int x1, int y1, int x2, int y2, int c){
             x1p=x1;
             x2p=x2;
             if((x1 % 8) !=0){
-                p=&FrameBuf[(y*(HRes>>3))+(x1>>3)];
+                p=&WriteBuf[(y*(HRes>>3))+(x1>>3)];
                 for(x=x1;x<=x2 && (x % 8)!=0;x++){
                     mask=1<<(x % 8); //get the bit position for this bit
                     if(c){
@@ -2639,7 +2705,7 @@ void DrawRectangleMono(int x1, int y1, int x2, int y2, int c){
                 }
             }
             if(x1p-1!=x2 && (x2 % 8)!=7){
-                p=&FrameBuf[(y*(HRes>>3))+(x2p>>3)];
+                p=&WriteBuf[(y*(HRes>>3))+(x2p>>3)];
                 for(x=(x2 & 0xFFF8);x<=x2 ;x++){
                     mask=1<<(x % 8); //get the bit position for this bit
                     if(c){
@@ -2650,7 +2716,7 @@ void DrawRectangleMono(int x1, int y1, int x2, int y2, int c){
                     x2p--;
                 }
             }
-            p=&FrameBuf[(y*(HRes>>3))+(x1p>>3)];
+            p=&WriteBuf[(y*(HRes>>3))+(x1p>>3)];
             for(x=x1p;x<x2p;x+=8){
                 if(c){
                     *p++=0xFF;
@@ -2677,15 +2743,15 @@ void DrawBitmapMono(int x1, int y1, int width, int height, int scale, int fc, in
                         loc=(y*(HRes>>3))+(x>>3);
                         if((bitmap[((i * width) + k)/8] >> (((height * width) - ((i * width) + k) - 1) %8)) & 1) {
                             if(fc){
-                            	FrameBuf[loc]|=mask;
+                            	WriteBuf[loc]|=mask;
                              } else {
-                            	 FrameBuf[loc]&= ~mask;
+                            	 WriteBuf[loc]&= ~mask;
                              }
                        } else {
                             if(bc>0){
-                            	FrameBuf[loc]|=mask;
+                            	WriteBuf[loc]|=mask;
                             } else if(bc==0) {
-                            	FrameBuf[loc]&= ~mask;
+                            	WriteBuf[loc]&= ~mask;
                             }
                         }
                    }
@@ -2701,14 +2767,14 @@ void ScrollLCDMono(int lines){
      if(lines >= 0) {
         for(int i=0;i<VRes-lines;i++) {
             int d=i*(HRes>>3),s=(i+lines)*(HRes>>3); 
-            for(int c=0;c<(HRes>>3);c++)FrameBuf[d+c]=FrameBuf[s+c];
+            for(int c=0;c<(HRes>>3);c++)WriteBuf[d+c]=WriteBuf[s+c];
         }
         DrawRectangle(0, VRes-lines, HRes - 1, VRes - 1, 0); // erase the lines to be scrolled off
     } else {
     	lines=-lines;
         for(int i=VRes-1;i>=lines;i--) {
             int d=i*(HRes>>3),s=(i-lines)*(HRes>>3); 
-            for(int c=0;c<(HRes>>3);c++)FrameBuf[d+c]=FrameBuf[s+c];
+            for(int c=0;c<(HRes>>3);c++)WriteBuf[d+c]=WriteBuf[s+c];
         }
         DrawRectangle(0, 0, HRes - 1, lines - 1, 0); // erase the lines introduced at the top
     }
@@ -2741,9 +2807,9 @@ void DrawBufferMono(int x1, int y1, int x2, int y2, unsigned char *p){
             loc=(y*(HRes>>3))+(x>>3);
             mask=1<<(x % 8); //get the bit position for this bit
             if(c.rgb){
-            	FrameBuf[loc]|=mask;
+            	WriteBuf[loc]|=mask;
             } else {
-            	FrameBuf[loc]&=(~mask);
+            	WriteBuf[loc]&=(~mask);
             }
         }
     }
@@ -2767,9 +2833,9 @@ void DrawBufferMonoFast(int x1, int y1, int x2, int y2, unsigned char *p){
             loc=(y*(HRes>>3))+(x>>3);
             mask=1<<(x % 8); //get the bit position for this bit
             if(*p++){
-            	FrameBuf[loc]|=mask;
+            	WriteBuf[loc]|=mask;
             } else {
-            	FrameBuf[loc]&=(~mask);
+            	WriteBuf[loc]&=(~mask);
             }
         }
     }
@@ -2794,7 +2860,7 @@ void ReadBufferMono(int x1, int y1, int x2, int y2, unsigned char *c){
     	for(x=x1;x<=x2;x++){
             loc=(y*(HRes>>3))+(x>>3);
             mask=1<<(x % 8); //get the bit position for this bit
-            if(FrameBuf[loc]&mask){
+            if(WriteBuf[loc]&mask){
                 *c++=0xFF;
                 *c++=0xFF;
                 *c++=0xFF;
@@ -2825,7 +2891,7 @@ void ReadBufferMonoFast(int x1, int y1, int x2, int y2, unsigned char *c){
     	for(x=x1;x<=x2;x++){
             loc=(y*(HRes>>3))+(x>>3);
             mask=1<<(x % 8); //get the bit position for this bit
-            if(FrameBuf[loc]&mask){
+            if(WriteBuf[loc]&mask){
                 *c++=0xFF;
             } else {
                 *c++=0x00;
@@ -2836,7 +2902,7 @@ void ReadBufferMonoFast(int x1, int y1, int x2, int y2, unsigned char *c){
 void DrawPixelColour(int x, int y, int c){
     if(x<0 || y<0 || x>=HRes || y>=VRes)return;
     unsigned char colour = ((c & 0x800000)>> 20) | ((c & 0xC000)>>13) | ((c & 0x80)>>7);
-	uint8_t *p=(uint8_t *)(((uint32_t) FrameBuf)+(y*(HRes>>1))+(x>>1));
+	uint8_t *p=(uint8_t *)(((uint32_t) WriteBuf)+(y*(HRes>>1))+(x>>1));
     if(x & 1){
         *p &=0x0F;
         *p |=(colour<<4);
@@ -2865,7 +2931,7 @@ void DrawRectangleColour(int x1, int y1, int x2, int y2, int c){
     for(y=y1;y<=y2;y++){
         x1p=x1;
         x2p=x2;
-        uint8_t *p=(uint8_t *)(((uint32_t) FrameBuf)+(y*(HRes>>1))+(x1>>1));
+        uint8_t *p=(uint8_t *)(((uint32_t) WriteBuf)+(y*(HRes>>1))+(x1>>1));
         if((x1 % 2) == 1){
             *p &=0x0F;
             *p |=(colour<<4);
@@ -2873,7 +2939,7 @@ void DrawRectangleColour(int x1, int y1, int x2, int y2, int c){
             x1p++;
         }
         if((x2 % 2) == 0){
-            uint8_t *q=(uint8_t *)(((uint32_t) FrameBuf)+(y*(HRes>>1))+(x2>>1));
+            uint8_t *q=(uint8_t *)(((uint32_t) WriteBuf)+(y*(HRes>>1))+(x2>>1));
             *q &=0xF0;
             *q |= colour;
             x2p--;
@@ -2897,7 +2963,7 @@ void DrawBitmapColour(int x1, int y1, int width, int height, int scale, int fc, 
                     x=x1 + k * scale + m ;
                     y=y1 + i * scale + j ;
                     if(x >= 0 && x < HRes && y >= 0 && y < VRes) {  // if the coordinates are valid
-	                    uint8_t *p=(uint8_t *)(((uint32_t) FrameBuf)+(y*(HRes>>1))+(x>>1));
+	                    uint8_t *p=(uint8_t *)(((uint32_t) WriteBuf)+(y*(HRes>>1))+(x>>1));
                         if((bitmap[((i * width) + k)/8] >> (((height * width) - ((i * width) + k) - 1) %8)) & 1) {
                             if(x & 1){
                                 *p &=0x0F;
@@ -2930,14 +2996,14 @@ void ScrollLCDColour(int lines){
      if(lines >= 0) {
         for(int i=0;i<VRes-lines;i++) {
             int d=i*(HRes>>1),s=(i+lines)*(HRes>>1); 
-            for(int c=0;c<(HRes>>1);c++)FrameBuf[d+c]=FrameBuf[s+c];
+            for(int c=0;c<(HRes>>1);c++)WriteBuf[d+c]=WriteBuf[s+c];
         }
         DrawRectangle(0, VRes-lines, HRes - 1, VRes - 1, PromptBC); // erase the lines to be scrolled off
     } else {
     	lines=-lines;
         for(int i=VRes-1;i>=lines;i--) {
             int d=i*(HRes>>1),s=(i-lines)*(HRes>>1); 
-            for(int c=0;c<(HRes>>1);c++)FrameBuf[d+c]=FrameBuf[s+c];
+            for(int c=0;c<(HRes>>1);c++)WriteBuf[d+c]=WriteBuf[s+c];
         }
         DrawRectangle(0, 0, HRes - 1, lines - 1, PromptBC); // erase the lines introduced at the top
     }
@@ -2968,7 +3034,7 @@ void DrawBufferColour(int x1, int y1, int x2, int y2, unsigned char *p){
 	        c.rgbbytes[1]=*p++;
 	        c.rgbbytes[2]=*p++;
             fcolour = ((c.rgb & 0x800000)>> 20) | ((c.rgb & 0xC000)>>13) | ((c.rgb & 0x80)>>7);
-            pp=(uint8_t *)(((uint32_t) FrameBuf)+(y*(HRes>>1))+(x>>1));
+            pp=(uint8_t *)(((uint32_t) WriteBuf)+(y*(HRes>>1))+(x>>1));
             if(x & 1){
                 *pp &=0x0F;
                 *pp |=(fcolour<<4);
@@ -3001,7 +3067,7 @@ void DrawBufferColourFast(int x1, int y1, int x2, int y2, unsigned char *p){
     if(y2 >= VRes) y2 = VRes - 1;
 	for(y=y1;y<=y2;y++){
     	for(x=x1;x<=x2;x++){
-            pp=(uint8_t *)(((uint32_t) FrameBuf)+(y*(HRes>>1))+(x>>1));
+            pp=(uint8_t *)(((uint32_t) WriteBuf)+(y*(HRes>>1))+(x>>1));
             if(x & 1){
                 *pp &=0x0F;
                 *pp |=((*p++)<<4);
@@ -3028,7 +3094,7 @@ void ReadBufferColour(int x1, int y1, int x2, int y2, unsigned char *c){
     if(y2 >= VRes) yy2 = VRes - 1;
 	for(y=y1;y<=y2;y++){
     	for(x=x1;x<=x2;x++){
-	        pp=(uint8_t *)(((uint32_t) FrameBuf)+(y*(HRes>>1))+(x>>1));
+	        pp=(uint8_t *)(((uint32_t) WriteBuf)+(y*(HRes>>1))+(x>>1));
             if(x & 1){
                 t=colours[(*pp)>>4];
             } else {
@@ -3056,7 +3122,7 @@ void ReadBufferColourFast(int x1, int y1, int x2, int y2, unsigned char *c){
     if(y2 >= VRes) yy2 = VRes - 1;
 	for(y=y1;y<=y2;y++){
     	for(x=x1;x<=x2;x++){
-	        pp=(uint8_t *)(((uint32_t) FrameBuf)+(y*(HRes>>1))+(x>>1));
+	        pp=(uint8_t *)(((uint32_t) WriteBuf)+(y*(HRes>>1))+(x>>1));
             if(!(x & 1)){
                 *c++=((*pp)&0x0F);
             } else {
@@ -3332,3 +3398,832 @@ void ShowCursor(int show) {
   visible = newstate;                                               // draw the cursor BELOW the font
     DrawLine(CurrentX, CurrentY + gui_font_height-1, CurrentX + gui_font_width, CurrentY + gui_font_height-1, (gui_font_height<=8 ? 1 : 2), visible ? gui_fcolour : gui_bcolour);
 }
+#ifdef PICOMITEVGA
+
+#define ABS(X) ((X)>0 ? (X) : (-(X)))
+
+void DrawPolygon(int n, short *xcoord, short *ycoord, int face){
+	int i, facecount=struct3d[n]->facecount[face];
+    int c=struct3d[n]->line[face];
+    int f=struct3d[n]->fill[face];
+	// first deal with outline only
+	if(struct3d[n]->fill[face]==0xFFFFFFFF){
+	    for(i=0;i<facecount;i++){
+       		if(i<facecount-1){
+       			DrawLine(xcoord[i],ycoord[i],xcoord[i+1],ycoord[i+1],1,c);
+       		} else {
+       			DrawLine(xcoord[i],ycoord[i],xcoord[0],ycoord[0],1,c);
+       		}
+	    }
+	} else {
+		if(facecount==3){
+			DrawTriangle(xcoord[0],ycoord[0],xcoord[1],ycoord[1],xcoord[2],ycoord[2],c,f);
+		} else if(facecount==4){
+			DrawTriangle(xcoord[0],ycoord[0],xcoord[1],ycoord[1],xcoord[2],ycoord[2],f,f);
+			DrawTriangle(xcoord[0],ycoord[0],xcoord[2],ycoord[2],xcoord[3],ycoord[3],f,f);
+			if(f!=c){
+				DrawLine(xcoord[0],ycoord[0],xcoord[1],ycoord[1],1,c);
+				DrawLine(xcoord[1],ycoord[1],xcoord[2],ycoord[2],1,c);
+				DrawLine(xcoord[2],ycoord[2],xcoord[3],ycoord[3],1,c);
+				DrawLine(xcoord[0],ycoord[0],xcoord[3],ycoord[3],1,c);
+			}
+		} else {
+			int  ymax=-1000000, ymin=1000000;
+        	fill_set_pen_color((c>>16) & 0xFF, (c>>8) & 0xFF , c & 0xFF);
+    		fill_set_fill_color((f>>16) & 0xFF, (f>>8) & 0xFF , f & 0xFF);
+            fill_begin_fill();
+			main_fill_poly_vertex_count=0;
+			for(i=0;i<facecount;i++){
+				main_fill_polyX[main_fill_poly_vertex_count] = (TFLOAT)xcoord[i];
+				main_fill_polyY[main_fill_poly_vertex_count] = (TFLOAT)ycoord[i];
+				if(main_fill_polyY[main_fill_poly_vertex_count]>ymax)ymax=main_fill_polyY[main_fill_poly_vertex_count];
+				if(main_fill_polyY[main_fill_poly_vertex_count]<ymin)ymin=main_fill_polyY[main_fill_poly_vertex_count];
+				main_fill_polyX[main_fill_poly_vertex_count] = (TFLOAT)xcoord[i];
+				main_fill_poly_vertex_count++;
+			 }
+			 if(main_fill_polyY[main_fill_poly_vertex_count]!=main_fill_polyY[0] || main_fill_polyX[main_fill_poly_vertex_count] != main_fill_polyX[0]){
+					main_fill_polyX[main_fill_poly_vertex_count]=main_fill_polyX[0];
+					main_fill_polyY[main_fill_poly_vertex_count]=main_fill_polyY[0];
+					main_fill_poly_vertex_count++;
+			 }
+			 fill_end_fill(main_fill_poly_vertex_count-1,ymin,ymax);
+		}
+	}
+
+}
+
+
+void Free3DMemory(int i){
+	FreeMemorySafe((void *)&struct3d[i]->q_vertices);//array of original vertices
+	FreeMemorySafe((void *)&struct3d[i]->r_vertices); //array of rotated vertices
+	FreeMemorySafe((void *)&struct3d[i]->q_centroids);//array of original vertices
+	FreeMemorySafe((void *)&struct3d[i]->r_centroids); //array of rotated vertices
+	FreeMemorySafe((void *)&struct3d[i]->facecount); //number of vertices for each face
+	FreeMemorySafe((void *)&struct3d[i]->facestart); //index into the face_x_vert table of the start of a given face
+	FreeMemorySafe((void *)&struct3d[i]->fill); //fill colours
+	FreeMemorySafe((void *)&struct3d[i]->line); //line colours
+	FreeMemorySafe((void *)&struct3d[i]->colours);
+	FreeMemorySafe((void *)&struct3d[i]->face_x_vert); //list of vertices for each face
+	FreeMemorySafe((void *)&struct3d[i]->dots);
+	FreeMemorySafe((void *)&struct3d[i]->depth);
+	FreeMemorySafe((void *)&struct3d[i]->depthindex);
+	FreeMemorySafe((void *)&struct3d[i]->normals);
+	FreeMemorySafe((void *)&struct3d[i]->flags);
+	FreeMemorySafe((void *)&struct3d[i]);
+}
+void closeall3d(void){
+    int i;
+    for(i = 0; i < MAX3D; i++) {
+    	if(struct3d[i]!=NULL){
+    		Free3DMemory(i);
+    	}
+    }
+    for(i=1; i<4;i++){
+    	camera[i].viewplane=-32767;
+    }
+}
+void T_Mult(FLOAT3D *q1, FLOAT3D *q2, FLOAT3D *n){
+    FLOAT3D a1=q1[0],a2=q2[0],b1=q1[1],b2=q2[1],c1=q1[2],c2=q2[2],d1=q1[3],d2=q2[3];
+    n[0]=a1*a2-b1*b2-c1*c2-d1*d2;
+    n[1]=a1*b2+b1*a2+c1*d2-d1*c2;
+    n[2]=a1*c2-b1*d2+c1*a2+d1*b2;
+    n[3]=a1*d2+b1*c2-c1*b2+d1*a2;
+    n[4]=q1[4]*q2[4];
+}
+
+void T_Invert(FLOAT3D *q, FLOAT3D *n){
+    n[0]=q[0];
+    n[1]=-q[1];
+    n[2]=-q[2];
+    n[3]=-q[3];
+    n[4]=q[4];
+}
+
+void depthsort(FLOAT3D *farray, int n, int *index){
+    int i, j = n, s = 1;
+    int t;
+    FLOAT3D f;
+	while (s) {
+		s = 0;
+		for (i = 1; i < j; i++) {
+			if (farray[i] > farray[i - 1]) {
+				f = farray[i];
+				farray[i] = farray[i - 1];
+				farray[i - 1] = f;
+				s = 1;
+				if(index!=NULL){
+					t=index[i-1];
+					index[i-1]=index[i];
+					index[i]=t;
+				}
+			}
+		}
+		j--;
+	}
+}
+void q_rotate(s_quaternion *in, s_quaternion rotate, s_quaternion *out){
+//	PFlt(in->x);PFltComma(in->y);PFltComma(in->z);PFltComma(in->m);PRet();
+	s_quaternion temp, qtemp;
+	T_Mult((FLOAT3D *)&rotate, (FLOAT3D *)in, (FLOAT3D *)&temp);
+	T_Invert((FLOAT3D *)&rotate, (FLOAT3D *)&qtemp);
+	T_Mult((FLOAT3D *)&temp, (FLOAT3D *)&qtemp, (FLOAT3D *)out);
+//	PFlt(out->x);PFltComma(out->y);PFltComma(out->z);PFltComma(out->m);PRet();
+}
+void normalise(s_vector *v){
+	FLOAT3D n = sqrt3d((v->x) * (v->x) + (v->y) * (v->y) + (v->z) * (v->z) );
+	v->x /= n;
+	v->y /= n;
+	v->z /= n;
+}
+void display3d(int n, FLOAT3D x, FLOAT3D y, FLOAT3D z, int clear, int nonormals){
+	s_vector ray, lighting={0};
+	s_vector p1, p2, p3, U, V;
+	FLOAT3D x1, y1, z1, tmp;
+	FLOAT3D at, bt, ct, t, /*A=0, B=0, */C=1, D=-camera[struct3d[n]->camera].viewplane;
+	int maxH=VRes;
+	int maxW=HRes;
+	int vp, v, f, sortindex, csave=0, fsave=0;
+	if(struct3d[n]->vmax>4){ //needed for polygon fill
+		main_fill_polyX=(TFLOAT  *)GetMemory(struct3d[n]->tot_face_x_vert * sizeof(TFLOAT));
+		main_fill_polyY=(TFLOAT  *)GetMemory(struct3d[n]->tot_face_x_vert * sizeof(TFLOAT));
+	}
+	if(struct3d[n]->xmin!=32767 && clear)DrawRectangle(struct3d[n]->xmin,struct3d[n]->ymin,struct3d[n]->xmax,struct3d[n]->ymax,0);
+	struct3d[n]->xmin=32767;
+	struct3d[n]->ymin=32767;
+	struct3d[n]->xmax=-32767;
+	struct3d[n]->ymax=-32767;
+	short xcoord[MAX_POLYGON_VERTICES],ycoord[MAX_POLYGON_VERTICES];
+	struct3d[n]->distance=0.0;
+	for(f=0;f<struct3d[n]->nf;f++){
+// calculate the surface normals for each face
+		vp=struct3d[n]->facestart[f];
+		p1.x=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].x * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].m + x;
+		p1.y=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].y  *struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].m + y;
+		p1.z=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].z * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].m + z;
+		p2.x=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].x * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].m + x;
+		p2.y=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].y * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].m + y;
+		p2.z=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].z * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].m + z;
+		p3.x=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].x * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].m + x;
+		p3.y=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].y * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].m + y;
+		p3.z=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].z * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].m + z;
+		U.x=p2.x-p1.x;  U.y=p2.y-p1.y;  U.z=p2.z-p1.z;
+		V.x=p3.x-p1.x;  V.y=p3.y-p1.y;  V.z=p3.z-p1.z;
+		struct3d[n]->normals[f].x=U.y * V.z - U.z * V.y;
+		struct3d[n]->normals[f].y=U.z * V.x - U.x * V.z;
+		struct3d[n]->normals[f].z=U.x * V.y - U.y * V.x;
+		normalise(&struct3d[n]->normals[f]);
+		ray.x=p1.x - camera[struct3d[n]->camera].x;
+		ray.y=p1.y - camera[struct3d[n]->camera].y;
+		ray.z=p1.z - camera[struct3d[n]->camera].z;
+		normalise(&ray);
+		lighting.x=p1.x - struct3d[n]->light.x;
+		lighting.y=p1.y - struct3d[n]->light.y;
+		lighting.z=p1.z - struct3d[n]->light.z;
+		normalise(&lighting);
+		struct3d[n]->dots[f] = ray.x * struct3d[n]->normals[f].x + ray.y * struct3d[n]->normals[f].y + ray.z * struct3d[n]->normals[f].z;
+		tmp=struct3d[n]->r_centroids[f].m;
+		struct3d[n]->depth[f]=sqrt3d(
+				(struct3d[n]->r_centroids[f].z * tmp + z - camera[struct3d[n]->camera].z) *
+				(struct3d[n]->r_centroids[f].z * tmp + z - camera[struct3d[n]->camera].z) +
+				(struct3d[n]->r_centroids[f].y * tmp + y - camera[struct3d[n]->camera].y) *
+				(struct3d[n]->r_centroids[f].y * tmp + y - camera[struct3d[n]->camera].y) +
+				(struct3d[n]->r_centroids[f].x * tmp + x - camera[struct3d[n]->camera].x) *
+				(struct3d[n]->r_centroids[f].x * tmp + x - camera[struct3d[n]->camera].x)
+				);
+		struct3d[n]->depthindex[f]=f;
+		struct3d[n]->distance+=struct3d[n]->depth[f];
+	}
+	struct3d[n]->distance/=f;
+	// sort the distances from the faces to the camera
+	depthsort(struct3d[n]->depth, struct3d[n]->nf, struct3d[n]->depthindex);
+	// display the forward facing faces in the order of the furthest away first
+	for(f=0;f<struct3d[n]->nf;f++){
+		sortindex=struct3d[n]->depthindex[f];
+		vp=struct3d[n]->facestart[sortindex];
+		if(struct3d[n]->flags[sortindex] & 4)struct3d[n]->dots[sortindex]=-struct3d[n]->dots[sortindex];
+		if(nonormals || struct3d[n]->dots[sortindex]<0){
+			for(v=0;v<struct3d[n]->facecount[sortindex];v++){
+				x1=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+v]].x * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+v]].m + x;
+				y1=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+v]].y * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+v]].m + y;
+				z1=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+v]].z * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+v]].m + z;
+// We now have the coordinates in real space so project them
+				at=x1-camera[struct3d[n]->camera].x;
+				bt=y1-camera[struct3d[n]->camera].y;
+				ct=z1-camera[struct3d[n]->camera].z;
+				t=-(/*A * x1 + B * y1*/ + C * z1 + D)/(/*A * at + B * bt + */C *ct);
+				xcoord[v]=x1+round3d(at*t)+(maxW>>1)-camera[struct3d[n]->camera].x-camera[struct3d[n]->camera].panx;
+				ycoord[v]=maxH-round3d(y1+bt*t)-1;
+				ycoord[v]-=(maxH>>1)-camera[struct3d[n]->camera].y-camera[struct3d[n]->camera].pany;
+				if(clear){
+					if(xcoord[v]>struct3d[n]->xmax)struct3d[n]->xmax=xcoord[v];
+					if(xcoord[v]<struct3d[n]->xmin)struct3d[n]->xmin=xcoord[v];
+					if(ycoord[v]>struct3d[n]->ymax)struct3d[n]->ymax=ycoord[v];
+					if(ycoord[v]<struct3d[n]->ymin)struct3d[n]->ymin=ycoord[v];
+				}
+			}
+			if((struct3d[n]->flags[sortindex] & 1) == 0) {
+				if(struct3d[n]->flags[sortindex] & 10) {
+					fsave=struct3d[n]->fill[sortindex];
+					csave=struct3d[n]->line[sortindex];
+					if(struct3d[n]->flags[sortindex] & 2)struct3d[n]->fill[sortindex]=0xFF0000;
+					if(struct3d[n]->flags[sortindex] & 8){
+						FLOAT3D lightratio=fabs3d(lighting.x * struct3d[n]->normals[sortindex].x + lighting.y * struct3d[n]->normals[sortindex].y + lighting.z * struct3d[n]->normals[sortindex].z);
+						lightratio=(lightratio*struct3d[n]->ambient)+struct3d[n]->ambient;
+						int red=(struct3d[n]->fill[sortindex] & 0xFF0000)>>16;
+						int green=(struct3d[n]->fill[sortindex] & 0xFF00)>>8;
+						int blue=(struct3d[n]->fill[sortindex] & 0xFF);
+						red=(round3d)((FLOAT3D)red*lightratio);
+						green=(round3d)((FLOAT3D)green*lightratio);
+						blue=(round3d)((FLOAT3D)blue*lightratio);
+						struct3d[n]->fill[sortindex]=(red<<16) | (green<<8) | blue;
+						red=(struct3d[n]->line[sortindex] & 0xFF0000)>>16;
+						green=(struct3d[n]->line[sortindex] & 0xFF00)>>8;
+						blue=(struct3d[n]->line[sortindex] & 0xFF);
+						red=(round3d)((FLOAT3D)red*lightratio);
+						green=(round3d)((FLOAT3D)green*lightratio);
+						blue=(round3d)((FLOAT3D)blue*lightratio);
+						struct3d[n]->line[sortindex]=(red<<16) | (green<<8) | blue;
+					}
+				}
+				DrawPolygon(n, xcoord, ycoord, sortindex);
+				if(struct3d[n]->flags[sortindex] & 10){
+					struct3d[n]->fill[sortindex]=fsave;
+					struct3d[n]->line[sortindex]=csave;
+				}
+			}
+		}
+	}
+	// Save information about how it was displayed for DRAW3D function and RESTORE command
+	struct3d[n]->current.x=x;
+	struct3d[n]->current.y=y;
+	struct3d[n]->current.z=z;
+	struct3d[n]->nonormals=nonormals;
+	if(struct3d[n]->vmax>4){ //needed for polygon fill
+		FreeMemory((unsigned char *)main_fill_polyX);
+		FreeMemory((unsigned char *)main_fill_polyY);
+	}
+
+}
+
+void diagnose3d(int n, FLOAT3D x, FLOAT3D y, FLOAT3D z, int sort){
+	s_vector ray, normals;
+	s_vector p1, p2, p3, U, V;
+	FLOAT3D tmp;
+	int vp, f, sortindex;
+	for(f=0;f<struct3d[n]->nf;f++){
+// calculate the surface normals for each face
+		vp=struct3d[n]->facestart[f];
+		p1.x=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].x * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].m + x;
+		p1.y=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].y  *struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].m + y;
+		p1.z=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].z * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+1]].m + z;
+		p2.x=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].x * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].m + x;
+		p2.y=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].y * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].m + y;
+		p2.z=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].z * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp+2]].m + z;
+		p3.x=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].x * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].m + x;
+		p3.y=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].y * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].m + y;
+		p3.z=struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].z * struct3d[n]->r_vertices[struct3d[n]->face_x_vert[vp]].m + z;
+		U.x=p2.x-p1.x;  U.y=p2.y-p1.y;  U.z=p2.z-p1.z;
+		V.x=p3.x-p1.x;  V.y=p3.y-p1.y;  V.z=p3.z-p1.z;
+		normals.x=U.y * V.z - U.z * V.y;
+		normals.y=U.z * V.x - U.x * V.z;
+		normals.z=U.x * V.y - U.y * V.x;
+		normalise(&normals);
+		ray.x=p1.x - camera[struct3d[n]->camera].x;
+		ray.y=p1.y - camera[struct3d[n]->camera].y;
+		ray.z=p1.z/*  -camera[struct3d[n]->camera].z*/;
+		normalise(&ray);
+		struct3d[n]->dots[f] = ray.x * normals.x + ray.y * normals.y + ray.z * normals.z;
+		tmp=struct3d[n]->r_centroids[f].m;
+		struct3d[n]->depth[f]=sqrt3d(
+				(struct3d[n]->r_centroids[f].z * tmp + z - camera[struct3d[n]->camera].z) *
+				(struct3d[n]->r_centroids[f].z * tmp + z - camera[struct3d[n]->camera].z) +
+				(struct3d[n]->r_centroids[f].y * tmp + y - camera[struct3d[n]->camera].y) *
+				(struct3d[n]->r_centroids[f].y * tmp + y - camera[struct3d[n]->camera].y) +
+				(struct3d[n]->r_centroids[f].x * tmp + x - camera[struct3d[n]->camera].x) *
+				(struct3d[n]->r_centroids[f].x * tmp + x - camera[struct3d[n]->camera].x)
+				);
+		struct3d[n]->depthindex[f]=f;
+	}
+	// sort the dot products
+	depthsort(struct3d[n]->depth, struct3d[n]->nf, struct3d[n]->depthindex);
+	// display the forward facing faces in the order of the furthest away first
+	for(f=0;f<struct3d[n]->nf;f++){
+		if(sort)sortindex=struct3d[n]->depthindex[f];
+		else sortindex=f;
+		vp=struct3d[n]->facestart[sortindex];
+		MMPrintString("Face ");PInt(sortindex);
+		MMPrintString(" at distance ");PFlt(struct3d[n]->depth[f]);
+		MMPrintString(" dot product is ");PFlt(struct3d[n]->dots[sortindex]);
+		MMPrintString(" so the face is ");MMPrintString(struct3d[n]->dots[sortindex]>0 ? "Hidden" : "Showing");PRet();
+	}
+}
+void cmd_3D(void){
+	unsigned char *p;
+	if((p=checkstring(cmdline, "CREATE"))) {
+	   // parameters are
+		// 3D object number (1 to MAX3D
+		// # of vertices = nv
+		// # of faces = nf
+		// vertex structure (nv)
+		// face array (face number, vertex number)
+		// colours array
+		// edge colour index array [nf]
+		// fill colour index array [nf]
+		// centroid structure [nf]
+		// normals structure [nf]
+		MMFLOAT *vertex;
+		TFLOAT tmp;
+		long long int *faces, *facecount, *facecountindex, *colours, *linecolour=NULL, *fillcolour=NULL;
+		getargs(&p,19,",");
+		if(argc<17)error("Argument count");
+		int c, colourcount=0, vp, v, f, fc=0, n=getint(argv[0],1,MAX3D);
+		if(struct3d[n]!=NULL)error("Object already exists");
+		int nv=getinteger(argv[2]);
+		if(nv<3)error("3D object must have a minimum of 3 vertices");
+		int nf=getinteger(argv[4]);
+		if(nf<1)error("3D object must have a minimum of 1 face");
+		int cam=getint(argv[6],1,MAXCAM);
+		vertex = (MMFLOAT *)findvar(argv[8], V_FIND | V_EMPTY_OK | V_NOFIND_ERR);
+		if((uint32_t)vertex!=(uint32_t)vartbl[VarIndex].val.s)error("Vertex array must be a 2D floating point array");
+		if(vartbl[VarIndex].type & T_NBR) {
+			if(vartbl[VarIndex].dims[2] != 0) error("Vertex array must be a 2D floating point array");
+			if(vartbl[VarIndex].dims[0] - OptionBase!= 2) {		// Not an array
+				error("Vertex array must have 3 elements in first dimension");
+			}
+			if(vartbl[VarIndex].dims[1] - OptionBase < nv-1) {		// Not an array
+				error("Vertex array too small");
+			}
+		} else error("Vertex array must be a 2D floating point array");
+
+		facecount = (long long int *)findvar(argv[10], V_FIND | V_EMPTY_OK | V_NOFIND_ERR);
+		if((uint32_t)facecount!=(uint32_t)vartbl[VarIndex].val.s)error("Vertex count array must be a 1D integer array");
+		if(vartbl[VarIndex].type & T_INT) {
+			if(vartbl[VarIndex].dims[1] != 0) error("Vertex count array must be a 1D integer array");
+			if(vartbl[VarIndex].dims[0] - OptionBase< nf-1) {		// Not an array
+				error("Vertex count array too small");
+			}
+		} else error("Vertex count array must be a 1D integer array");
+		facecountindex=facecount;
+		for(f=0;f<nf;f++)fc += (*facecountindex++);
+
+		faces = (long long int *)findvar(argv[12], V_FIND | V_EMPTY_OK | V_NOFIND_ERR);
+		if((uint32_t)faces!=(uint32_t)vartbl[VarIndex].val.s)error("Face/vertex array must be a 1D integer array");
+		if(vartbl[VarIndex].type & T_INT) {
+			if(vartbl[VarIndex].dims[1] != 0) error("Face/vertex array must be a 1D integer array");
+			if(vartbl[VarIndex].dims[0] - OptionBase< fc-1) {		// Not an array
+				error("Face/vertex array too small");
+			}
+		} else error("Face/vertex array must be a 1D integer array");
+
+		colours = (long long int *)findvar(argv[14], V_FIND | V_EMPTY_OK | V_NOFIND_ERR);
+		if((uint32_t)colours!=(uint32_t)vartbl[VarIndex].val.s)error("Colour array must be a 1D integer array");
+		if(vartbl[VarIndex].type & T_INT) {
+			if(vartbl[VarIndex].dims[1] != 0) error("Colour array must be a 1D integer array");
+			colourcount=vartbl[VarIndex].dims[0] - OptionBase + 1;
+		} else error("Colour array must be a 1D integer array");
+
+
+		if(argc>=17 && *argv[16]){
+			linecolour = (long long int *)findvar(argv[16], V_FIND | V_EMPTY_OK | V_NOFIND_ERR);
+			if((uint32_t)linecolour!=(uint32_t)vartbl[VarIndex].val.s)error("Line colour array must be a 1D integer array");
+			if(vartbl[VarIndex].type & T_INT) {
+				if(vartbl[VarIndex].dims[1] != 0) error("Line colour  array must be a 1D integer array");
+				if(vartbl[VarIndex].dims[0] - OptionBase< nf-1) {		// Not an array
+					error("Line colour  array too small");
+				}
+			} else error("Line colour must be a 1D integer array");
+		}
+
+		if(argc==19){
+			fillcolour = (long long int *)findvar(argv[18], V_FIND | V_EMPTY_OK | V_NOFIND_ERR);
+			if((uint32_t)fillcolour!=(uint32_t)vartbl[VarIndex].val.s)error("Fill colour array must be a 1D integer array");
+			if(vartbl[VarIndex].type & T_INT) {
+				if(vartbl[VarIndex].dims[1] != 0) error("Fill colour array must be a 1D integer array");
+				if(vartbl[VarIndex].dims[0] - OptionBase< nf-1) {		// Not an array
+					error("Fill colour array too small");
+				}
+			} else error("Fill colour must be a 1D integer array");
+		}
+		// The data look valid so now create the object in memory
+		struct3d[n]=GetMemory(sizeof(struct D3D));
+		struct3d[n]->nf=nf;
+		struct3d[n]->nv=nv;
+		struct3d[n]->current.x=-32767;
+		struct3d[n]->current.y=-32767;
+		struct3d[n]->current.z=-32767;
+		struct3d[n]->xmin=32767;
+		struct3d[n]->ymin=32767;
+		struct3d[n]->xmax=-32767;
+		struct3d[n]->ymax=-32767;
+		struct3d[n]->camera=cam;
+		struct3d[n]->q_vertices=NULL;//array of original vertices
+		struct3d[n]->r_vertices=NULL; //array of rotated vertices
+		struct3d[n]->q_centroids=NULL;//array of original vertices
+		struct3d[n]->r_centroids=NULL; //array of rotated vertices
+		struct3d[n]->facecount=NULL; //number of vertices for each face
+		struct3d[n]->facestart=NULL; //index into the face_x_vert table of the start of a given face
+		struct3d[n]->fill=NULL; //fill colours
+		struct3d[n]->line=NULL; //line colours
+		struct3d[n]->colours=NULL;
+		struct3d[n]->face_x_vert=NULL; //list of vertices for each face
+		struct3d[n]->light.x=0;
+		struct3d[n]->light.y=0;
+		struct3d[n]->light.z=0;
+		struct3d[n]->ambient=0;
+		// load up things that have one entry per vertex
+		struct3d[n]->q_vertices=GetMemory(struct3d[n]->nv * sizeof(struct t_quaternion));
+		struct3d[n]->r_vertices=GetMemory(struct3d[n]->nv * sizeof(struct t_quaternion));
+		for(v=0;v<struct3d[n]->nv;v++){
+			FLOAT3D m=0.0;
+			struct3d[n]->q_vertices[v].x=(FLOAT3D)(*vertex++);
+			m+=struct3d[n]->q_vertices[v].x*struct3d[n]->q_vertices[v].x;
+			struct3d[n]->q_vertices[v].y=*vertex++;
+			m+=struct3d[n]->q_vertices[v].y*struct3d[n]->q_vertices[v].y;
+			struct3d[n]->q_vertices[v].z=*vertex++;
+			m+=struct3d[n]->q_vertices[v].z*struct3d[n]->q_vertices[v].z;
+			if(m){
+				m=sqrt(m);
+				struct3d[n]->q_vertices[v].x=struct3d[n]->q_vertices[v].x/m;
+				struct3d[n]->q_vertices[v].y=struct3d[n]->q_vertices[v].y/m;
+				struct3d[n]->q_vertices[v].z=struct3d[n]->q_vertices[v].z/m;
+				struct3d[n]->q_vertices[v].w=0.0;
+				struct3d[n]->q_vertices[v].m=m;
+			} else {
+				struct3d[n]->q_vertices[v].x=0;
+				struct3d[n]->q_vertices[v].y=0;
+				struct3d[n]->q_vertices[v].z=0;
+				struct3d[n]->q_vertices[v].w=0.0;
+				struct3d[n]->q_vertices[v].m=1.0;
+			}
+			memcpy(&struct3d[n]->r_vertices[v],&struct3d[n]->q_vertices[v], sizeof(s_quaternion));
+		}
+		struct3d[n]->tot_face_x_vert=0;
+		//load up things that have one entry per face
+		struct3d[n]->vmax=0;
+		struct3d[n]->facecount=GetMemory(struct3d[n]->nf * sizeof(uint16_t));
+		struct3d[n]->facestart=GetMemory(struct3d[n]->nf * sizeof(uint16_t));
+		struct3d[n]->fill=GetMemory(struct3d[n]->nf * sizeof(uint32_t));
+		struct3d[n]->line=GetMemory(struct3d[n]->nf * sizeof(uint32_t));
+		struct3d[n]->r_centroids=GetMemory(struct3d[n]->nf * sizeof(struct t_quaternion));
+		struct3d[n]->q_centroids=GetMemory(struct3d[n]->nf * sizeof(struct t_quaternion));
+		struct3d[n]->dots=GetMemory(struct3d[n]->nf * sizeof(MMFLOAT));
+		struct3d[n]->depth=GetMemory(struct3d[n]->nf * sizeof(MMFLOAT));
+		struct3d[n]->flags=GetMemory(struct3d[n]->nf * sizeof(uint8_t));
+		struct3d[n]->depthindex=GetMemory(struct3d[n]->nf * sizeof(int));
+		struct3d[n]->normals=GetMemory(struct3d[n]->nf * sizeof(struct SVD));
+		for(f=0;f<struct3d[n]->nf;f++){
+			struct3d[n]->facecount[f]=*facecount++;
+			if(struct3d[n]->facecount[f]<3){
+				Free3DMemory(n);
+				error("Vertex count less than 3 for face %",f+OptionBase);
+			}
+			if(struct3d[n]->facecount[f]>struct3d[n]->vmax)struct3d[n]->vmax=struct3d[n]->facecount[f];
+			struct3d[n]->facestart[f]=struct3d[n]->tot_face_x_vert;
+			struct3d[n]->tot_face_x_vert+=struct3d[n]->facecount[f];
+		}
+		// load up the array that holds all the face vertex information
+		struct3d[n]->face_x_vert=GetMemory(struct3d[n]->tot_face_x_vert * sizeof(uint16_t)); // allocate memory for the list of vertices per face
+		struct3d[n]->colours=GetMemory(colourcount * sizeof(uint32_t));
+		for(c=0; c<colourcount;c++){
+			struct3d[n]->colours[c]=(uint32_t)*colours++;
+		}
+		for(f=0;f<struct3d[n]->tot_face_x_vert;f++){
+			struct3d[n]->face_x_vert[f]=*faces++;
+		}
+		for(f=0;f<struct3d[n]->nf;f++){
+			if(linecolour!=NULL){
+				int index=(*linecolour++) - OptionBase;
+				if(index>=colourcount || index<0){
+					Free3DMemory(n);
+					error("Edge colour Index %",index);
+				}
+				struct3d[n]->line[f]=struct3d[n]->colours[index];
+			} else struct3d[n]->line[f]=gui_fcolour;
+			if(fillcolour!=NULL){
+				int index=(*fillcolour++) - OptionBase;
+				if(index>=colourcount || index<0){
+					Free3DMemory(n);
+					error("Fill colour Index %",index);
+				}
+				struct3d[n]->fill[f]=struct3d[n]->colours[index];
+			} else struct3d[n]->fill[f]=0xFFFFFFFF;
+			FLOAT3D x=0, y=0, z=0, scale;
+			vp=struct3d[n]->facestart[f];
+// calculate the centroids of each face
+
+			for(v=0;v<struct3d[n]->facecount[f];v++){
+				tmp=struct3d[n]->q_vertices[struct3d[n]->face_x_vert[vp+v]].m;
+				x+=struct3d[n]->q_vertices[struct3d[n]->face_x_vert[vp+v]].x*tmp;
+				y+=struct3d[n]->q_vertices[struct3d[n]->face_x_vert[vp+v]].y*tmp;
+				z+=struct3d[n]->q_vertices[struct3d[n]->face_x_vert[vp+v]].z*tmp;
+			}
+			x/=(FLOAT3D)struct3d[n]->facecount[f];
+			y/=(FLOAT3D)struct3d[n]->facecount[f];
+			z/=(FLOAT3D)struct3d[n]->facecount[f];
+			struct3d[n]->q_centroids[f].x=x;
+			struct3d[n]->q_centroids[f].y=y;
+			struct3d[n]->q_centroids[f].z=z;
+			scale=sqrt(struct3d[n]->q_centroids[f].x*struct3d[n]->q_centroids[f].x +
+					struct3d[n]->q_centroids[f].y*struct3d[n]->q_centroids[f].y +
+					struct3d[n]->q_centroids[f].z*struct3d[n]->q_centroids[f].z);
+			struct3d[n]->q_centroids[f].x/=scale;
+			struct3d[n]->q_centroids[f].y/=scale;
+			struct3d[n]->q_centroids[f].z/=scale;
+			struct3d[n]->q_centroids[f].m=scale;
+			struct3d[n]->q_centroids[f].w=0;
+			memcpy(&struct3d[n]->r_centroids[f],&struct3d[n]->q_centroids[f], sizeof(s_quaternion));
+			}
+		return;
+	} else if((p=checkstring(cmdline, "DIAGNOSE"))) {
+		getargs(&p,9,",");
+		if(argc<7)error("Argument count");
+		int n=getint(argv[0],1,MAX3D);
+		int x=getint(argv[2],-32766,32766);
+		int y=getint(argv[4],-32766,32766);
+		int z=getinteger(argv[6]);
+		int sort=1;
+		if(argc==9)sort=getint(argv[8],0,1);
+		if(struct3d[n]==NULL)error("Object % does not exist",n);
+		if(camera[struct3d[n]->camera].viewplane==-32767)error("Camera position not defined");
+		diagnose3d(n, x, y, z, sort);
+		return;
+	} else if((p=checkstring(cmdline, "LIGHT"))) {
+		getargs(&p,9,",");
+		if(argc!=9)error("Argument count");
+		int n=getint(argv[0],1,MAX3D);
+		struct3d[n]->light.x=getint(argv[2],-32766,32766);
+		struct3d[n]->light.y=getint(argv[4],-32766,32766);
+		struct3d[n]->light.z=getint(argv[6],-32766,32766);
+		struct3d[n]->ambient=(FLOAT3D)(getint(argv[8],0,100))/100.0;
+		return;
+	} else if((p=checkstring(cmdline, "SHOW"))) {
+		getargs(&p,9,",");
+		if(argc<7)error("Argument count");
+		int n=getint(argv[0],1,MAX3D);
+		int x=getint(argv[2],-32766,32766);
+		int y=getint(argv[4],-32766,32766);
+		int z=getinteger(argv[6]);
+		int nonormals=0;
+		if(argc==9)nonormals=getint(argv[8],0,1);
+		if(struct3d[n]==NULL)error("Object % does not exist",n);
+		if(camera[struct3d[n]->camera].viewplane==-32767)error("Camera position not defined");
+		display3d(n, x, y, z, 1, nonormals);
+		return;
+	} else if((p=checkstring(cmdline, "SET FLAGS"))) {
+		int i, face, nbr;
+		getargs(&p, ((MAX_ARG_COUNT-1) * 2) - 1, ",");
+		if((argc & 0b11) != 0b11) error("Invalid syntax");
+		int n=getint(argv[0],1,MAX3D);
+		int flag=getint(argv[2],0,255);
+	    // step over the equals sign and get the value for the assignment
+	    for(i = 4; i < argc; i += 4) {
+	        face = getinteger(argv[i]);
+	        nbr = getinteger(argv[i + 2]);
+
+	        if(nbr <= 0 || nbr>struct3d[n]->nf-face) error("Invalid argument");
+
+	        while(--nbr>=0) {
+	        	struct3d[n]->flags[face+nbr]=flag;
+	        }
+	    }
+	} else if((p=checkstring(cmdline, "ROTATE"))) {
+		void *ptr1 = NULL;
+		int i, n, v, f;
+		s_quaternion q1;
+		MMFLOAT *q=NULL;
+		getargs(&p, (MAX_ARG_COUNT * 2) - 1, ",");				// getargs macro must be the first executable stmt in a block
+		if((argc & 0x01 || argc<3) == 0) error("Argument count");
+		ptr1 = findvar(argv[0], V_FIND | V_EMPTY_OK | V_NOFIND_ERR);
+		if(vartbl[VarIndex].type & T_NBR) {
+			if(vartbl[VarIndex].dims[1] != 0) error("Invalid variable");
+			if(vartbl[VarIndex].dims[0] <= 0) {		// Not an array
+				error("Argument 1 must be a 5 element floating point array");
+			}
+			if(vartbl[VarIndex].dims[0] - OptionBase!=4)error("Argument 1 must be a 5 element floating point array");
+			q = (MMFLOAT *)ptr1;
+			if((uint32_t)ptr1!=(uint32_t)vartbl[VarIndex].val.s)error("Syntax");
+		} else error("Argument 1 must be a 5 element floating point array");
+		q1.w=(FLOAT3D)(*q++);
+		q1.x=(FLOAT3D)(*q++);
+		q1.y=(FLOAT3D)(*q++);
+		q1.z=(FLOAT3D)(*q++);
+		q1.m=(FLOAT3D)(*q);
+		for(i = 2; i < argc; i += 2) {
+			n=getint(argv[i],1,MAX3D);
+			if(struct3d[n]==NULL)error("Object % does not exist",n);
+			for(v=0;v<struct3d[n]->nv;v++){
+				q_rotate(&struct3d[n]->q_vertices[v],q1,&struct3d[n]->r_vertices[v]);
+			}
+			for(f=0;f<struct3d[n]->nf;f++){
+				q_rotate(&struct3d[n]->q_centroids[f],q1,&struct3d[n]->r_centroids[f]);
+			}
+		}
+		return;
+	} else if((p=checkstring(cmdline, "HIDE ALL"))) {
+		for(int i=1;i<=MAX3D;i++){
+			if(struct3d[i]!=NULL && struct3d[i]->xmin!=32767){
+				DrawRectangle(struct3d[i]->xmin,struct3d[i]->ymin,struct3d[i]->xmax,struct3d[i]->ymax,0);
+				struct3d[i]->xmin=32767;
+				struct3d[i]->ymin=32767;
+				struct3d[i]->xmax=-32767;
+				struct3d[i]->ymax=-32767;
+			}
+		}
+		return;
+	} else if((p=checkstring(cmdline, "RESET"))) {
+		int i, n;
+		int v, f;
+		getargs(&p, (MAX_ARG_COUNT * 2) - 1, ",");				// getargs macro must be the first executable stmt in a block
+		if((argc & 0x01 || argc<3) == 0) error("Argument count");
+		for(i = 0; i < argc; i += 2) {
+			n=getint(argv[i],1,MAX3D);
+			for(v=0;v<struct3d[n]->nv;v++){
+				memcpy(&struct3d[n]->q_vertices[v],&struct3d[n]->r_vertices[v], sizeof(s_quaternion));
+			}
+			for(f=0;f<struct3d[n]->nf;f++){
+				memcpy(&struct3d[n]->q_centroids[f],&struct3d[n]->r_centroids[f], sizeof(s_quaternion));
+			}
+		}
+		return;
+	} else if((p=checkstring(cmdline, "HIDE"))) {
+		int i, n;
+		getargs(&p, (MAX_ARG_COUNT * 2) - 1, ",");				// getargs macro must be the first executable stmt in a block
+		if((argc & 0x01 || argc<3) == 0) error("Argument count");
+		for(i = 0; i < argc; i += 2) {
+			n=getint(argv[i],1,MAX3D);
+			if(struct3d[n]==NULL)error("Object % does not exist",n);
+			if(struct3d[n]->xmin==32767)return;
+			DrawRectangle(struct3d[n]->xmin,struct3d[n]->ymin,struct3d[n]->xmax,struct3d[n]->ymax,0);
+			struct3d[n]->xmin=32767;
+			struct3d[n]->ymin=32767;
+			struct3d[n]->xmax=-32767;
+			struct3d[n]->ymax=-32767;
+		}
+		return;
+	} else if((p=checkstring(cmdline, "RESTORE"))) {
+		int i, n;
+		getargs(&p, (MAX_ARG_COUNT * 2) - 1, ",");				// getargs macro must be the first executable stmt in a block
+		if((argc & 0x01 || argc<3) == 0) error("Argument count");
+		for(i = 0; i < argc; i += 2) {
+			n=getint(argv[i],1,MAX3D);
+			if(struct3d[n]==NULL)error("Object % does not exist",n);
+			if(struct3d[n]->xmin!=32767)error("Object % is not hidden",n);
+			display3d(n, struct3d[n]->current.x, struct3d[n]->current.y, struct3d[n]->current.z, 1, struct3d[n]->nonormals);
+		}
+		return;
+	} else if((p=checkstring(cmdline, "WRITE"))) {
+		getargs(&p,9,",");
+		if(argc<7)error("Argument count");
+		int n=getint(argv[0],1,MAX3D);
+		int x=getint(argv[2],-32766,32766);
+		int y=getint(argv[4],-32766,32766);
+		int z=getinteger(argv[6]);
+		int nonormals=0;
+		if(argc==9)nonormals=getint(argv[8],0,1);
+		if(struct3d[n]==NULL)error("Object % does not exist",n);
+		if(camera[struct3d[n]->camera].viewplane==-32767)error("Camera position not defined");
+		display3d(n, x, y, z, 0, nonormals);
+		return;
+	} else if((p=checkstring(cmdline, "CLOSE ALL"))) {
+		closeall3d();
+		return;
+	} else if((p=checkstring(cmdline, "CLOSE"))) {
+		int i, n;
+		getargs(&p, (MAX_ARG_COUNT * 2) - 1, ",");				// getargs macro must be the first executable stmt in a block
+		if((argc & 0x01 || argc<3) == 0) error("Argument count");
+		for(i = 0; i < argc; i += 2) {
+			n=getint(argv[i],1,MAX3D);
+			if(struct3d[n]==NULL)error("Object % does not exist",n);
+			if(struct3d[n]->xmin!=32767)DrawRectangle(struct3d[n]->xmin,struct3d[n]->ymin,struct3d[n]->xmax,struct3d[n]->ymax,0);
+			Free3DMemory(n);
+		}
+		return;
+	} else if((p=checkstring(cmdline, "CAMERA"))) {
+		getargs(&p,11,",");
+		if(argc<3)error("Argument count");
+		int n=getint(argv[0],1,MAXCAM);
+		camera[n].viewplane=getnumber(argv[2]);
+		camera[n].x=(FLOAT3D)0;
+		camera[n].y=(FLOAT3D)0;
+		camera[n].panx=(FLOAT3D)0;
+		camera[n].pany=(FLOAT3D)0;
+		camera[n].z=0.0;
+		if(argc>=5 && *argv[4])	camera[n].x=getnumber(argv[4]);
+		if(camera[n].x > 32766 || camera[n].x < -32766 )error("Valid is -32766 to 32766");
+		if(argc>=7 && *argv[6])	camera[n].y=getnumber(argv[6]);
+		if(camera[n].y > 32766 || camera[n].x < -32766 )error("Valid is -32766 to 32766");
+		if(argc>=9 && *argv[8])	camera[n].panx=getint(argv[8],-32766-camera[n].x,32766-camera[n].x);
+		if(argc==11 )camera[n].pany=getint(argv[10],-32766-camera[n].y,32766-camera[n].y);
+		return;
+	} else {
+		error("Syntax");
+	}
+}
+void fun_3D(void){
+	unsigned char *p;
+	if((p=checkstring(ep, "XMIN"))) {
+    	getargs(&p,1,",");
+    	int n=getint(argv[0],1,MAX3D);
+		if(struct3d[n]==NULL)error("Object does not exist");
+    	fret=struct3d[n]->xmin;
+	} else if((p=checkstring(ep, "XMAX"))) {
+    	getargs(&p,1,",");
+    	int n=getint(argv[0],1,MAX3D);
+		if(struct3d[n]==NULL)error("Object does not exist");
+    	fret=struct3d[n]->xmax;
+	} else if((p=checkstring(ep, "YMIN"))) {
+    	getargs(&p,1,",");
+    	int n=getint(argv[0],1,MAX3D);
+		if(struct3d[n]==NULL)error("Object does not exist");
+    	fret=struct3d[n]->ymin;
+	} else if((p=checkstring(ep, "YMAX"))) {
+    	getargs(&p,1,",");
+    	int n=getint(argv[0],1,MAX3D);
+		if(struct3d[n]==NULL)error("Object does not exist");
+    	fret=struct3d[n]->ymax;
+	} else if((p=checkstring(ep, "X"))) {
+    	getargs(&p,1,",");
+    	int n=getint(argv[0],1,MAX3D);
+		if(struct3d[n]==NULL)error("Object does not exist");
+    	fret=struct3d[n]->current.x;
+	} else if((p=checkstring(ep, "Y"))) {
+    	getargs(&p,1,",");
+    	int n=getint(argv[0],1,MAX3D);
+		if(struct3d[n]==NULL)error("Object does not exist");
+		fret=struct3d[n]->current.y;
+	} else if((p=checkstring(ep, "DISTANCE"))) {
+    	getargs(&p,1,",");
+    	int n=getint(argv[0],1,MAX3D);
+		if(struct3d[n]==NULL)error("Object does not exist");
+    	fret=struct3d[n]->distance;
+	} else if((p=checkstring(ep, "Z"))) {
+    	getargs(&p,1,",");
+    	int n=getint(argv[0],1,MAX3D);
+		if(struct3d[n]==NULL)error("Object does not exist");
+    	fret=struct3d[n]->current.z;
+	} else error("Syntax");
+	targ=T_NBR;
+}
+void closeframebuffer(void){
+    if(FrameBuf!=DisplayBuf)FreeMemory(FrameBuf);
+    if(DisplayBuf!=LayerBuf){
+        unsigned char *temp= LayerBuf;
+        LayerBuf=DisplayBuf;
+        FreeMemory(temp);
+    }
+    FrameBuf=DisplayBuf;
+    WriteBuf=DisplayBuf;
+}
+void cmd_framebuffer(void){
+    unsigned char *p;
+    if((p=checkstring(cmdline, "CREATE"))) {
+        if(FrameBuf==DisplayBuf){
+            FrameBuf=GetMemory(38400);
+            if(checkstring(p, "R"))memcpy(FrameBuf,DisplayBuf,38400);
+        }
+        else error("Framebuffer already exists");
+    } else if((p=checkstring(cmdline, "WRITE"))) {
+        if(checkstring(p, "N"))WriteBuf=DisplayBuf;
+        else if(checkstring(p, "L"))WriteBuf=LayerBuf;
+        else if(checkstring(p, "F"))WriteBuf=FrameBuf;
+        else error("Syntax");
+    } else if((p=checkstring(cmdline, "WAIT"))) {
+            while(QVgaScanLine!=480){}
+    } else if((p=checkstring(cmdline, "LAYER"))) {
+        if(Option.CPU_Speed!=252000)error("OPTION CPUSPEED 252000 required for layers");
+        if(LayerBuf==DisplayBuf){
+            LayerBuf=GetMemory(38400);
+        } else error("Layer already exists");
+    } else if((p=checkstring(cmdline, "CLOSE"))) {
+        if(checkstring(p, "F")){
+            if(WriteBuf==FrameBuf)WriteBuf=DisplayBuf;
+            if(FrameBuf!=DisplayBuf)FreeMemory(FrameBuf);
+            FrameBuf=DisplayBuf;
+        } else if(checkstring(p, "L")){
+            if(WriteBuf==LayerBuf)WriteBuf=DisplayBuf;
+            if(DisplayBuf!=LayerBuf){
+                unsigned char *temp= LayerBuf;
+                LayerBuf=DisplayBuf;
+                FreeMemory(temp);
+            }
+        } else  closeframebuffer();
+    } else if((p=checkstring(cmdline, "COPY"))) {
+        getargs(&p,5,",");
+        if(!(argc==3 || argc==5))error("Syntax");
+        uint8_t *s,*d;
+        if(checkstring(argv[0],"N"))s=DisplayBuf;
+        else if(checkstring(argv[0],"L"))s=LayerBuf;
+        else if(checkstring(argv[0],"F"))s=FrameBuf;
+        else error("Syntax");
+        if(checkstring(argv[2],"N"))d=DisplayBuf;
+        else if(checkstring(argv[2],"L"))d=LayerBuf;
+        else if(checkstring(argv[2],"F"))d=FrameBuf;
+        else error("Syntax");
+        if(argc==5){
+            if(checkstring(argv[4],"B"))while(QVgaScanLine!=480){}
+            else error("Syntax");
+        }
+        if(d!=s)memcpy(d,s,38400);
+    } else error("Syntax");
+}
+#endif

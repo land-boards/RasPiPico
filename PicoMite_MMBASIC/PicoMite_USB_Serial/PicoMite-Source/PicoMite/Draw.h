@@ -53,6 +53,8 @@ void cmd_polygon(void);
 void cmd_gui(void);
 void cmd_tile(void);
 void cmd_mode(void);
+void cmd_3D(void);
+void cmd_framebuffer(void);
 
 void fun_rgb(void);
 void fun_mmhres(void);
@@ -62,6 +64,7 @@ void fun_mmcharheight(void);
 void fun_at(void);
 void fun_pixel(void);
 void fun_getscanline(void);
+void fun_3D(void);
 
 #endif
 
@@ -93,6 +96,8 @@ void fun_getscanline(void);
   	{ (unsigned char *)"GUI",            T_CMD,                      0, cmd_guiMX170   },
   	{ (unsigned char *)"TILE",            T_CMD,                     0, cmd_tile   },
   	{ (unsigned char *)"MODE",            T_CMD,                     0, cmd_mode   },
+  	{ (unsigned char *)"FRAMEBUFFER",     T_CMD,                     0, cmd_framebuffer   },
+    { (unsigned char *)"Draw3D",         T_CMD,                      0, cmd_3D },
 #else
   	{ (unsigned char *)"GUI",            T_CMD,                      0, cmd_gui   },
 	{ (unsigned char *)"Refresh",        T_CMD,                      0, cmd_refresh	},
@@ -111,6 +116,7 @@ void fun_getscanline(void);
 	{ (unsigned char *)"MM.VRes",	    	T_FNA | T_INT,		0, fun_mmvres 	    },
 	{ (unsigned char *)"@(",				T_FUN | T_STR,		0, fun_at		},
 #ifdef PICOMITEVGA
+	{ (unsigned char*)"DRAW3D(",	    T_FUN | T_INT,		0, fun_3D, },
 	{ (unsigned char *)"GetScanLine",	    	T_FNA | T_INT,		0, fun_getscanline 	    },
 #endif
 //	{ (unsigned char *)"MM.FontWidth",   T_FNA | T_INT,		0, fun_mmcharwidth 	},
@@ -224,5 +230,58 @@ extern unsigned char *FontTable[];
 extern int CurrentX, CurrentY;
 extern int PrintPixelMode;
 extern int CMM1;
+typedef struct SVD {
+	FLOAT3D x;
+	FLOAT3D y;
+	FLOAT3D z;
+}s_vector;
+typedef struct t_quaternion {
+	FLOAT3D w;
+	FLOAT3D x;
+	FLOAT3D y;
+	FLOAT3D z;
+	FLOAT3D m;
+}s_quaternion;
+struct D3D {
+	s_quaternion* q_vertices;//array of original vertices
+	s_quaternion* r_vertices; //array of rotated vertices
+	s_quaternion* q_centroids;//array of original vertices
+	s_quaternion* r_centroids; //array of rotated vertices
+	s_vector* normals;
+	uint8_t* facecount; //number of vertices for each face
+	uint16_t* facestart; //index into the face_x_vert table of the start of a given face
+	int32_t* fill; //fill colours
+	int32_t* line; //line colours
+	int32_t* colours;
+	uint16_t* face_x_vert; //list of vertices for each face
+	uint8_t* flags;
+	FLOAT3D* dots;
+	FLOAT3D* depth;
+	FLOAT3D distance;
+	FLOAT3D ambient;
+	int* depthindex;
+	s_vector light;
+	s_vector current;
+	short tot_face_x_vert;
+	short xmin, xmax, ymin, ymax;
+	uint16_t nv;	//number of vertices to describe the object
+	uint16_t nf; // number of faces in the object
+	uint8_t dummy;
+	uint8_t vmax;  // maximum verticies for any face on the object
+	uint8_t camera; // camera to use for the object
+	uint8_t nonormals;
+};
+typedef struct {
+	FLOAT3D x;
+	FLOAT3D y;
+	FLOAT3D z;
+	FLOAT3D viewplane;
+	FLOAT3D panx;
+	FLOAT3D pany;
+}s_camera;
+extern struct D3D* struct3d[MAX3D + 1];
+extern s_camera camera[MAXCAM + 1];
+extern void closeall3d(void);
+extern void closeframebuffer(void);
 #endif
 #endif

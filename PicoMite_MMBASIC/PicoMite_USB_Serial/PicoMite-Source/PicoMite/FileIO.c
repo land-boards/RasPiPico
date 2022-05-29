@@ -961,6 +961,9 @@ int FindFreeFileNbr(void) {
 
 void CloseAllFiles(void) {
   int i;
+#ifdef PICOMITEVGA
+  closeall3d();
+#endif
   for(i = 1; i <= MAXOPENFILES; i++) {
         if(FileTable[i].com != 0) {
             if(FileTable[i].com > MAXCOMPORTS) {
