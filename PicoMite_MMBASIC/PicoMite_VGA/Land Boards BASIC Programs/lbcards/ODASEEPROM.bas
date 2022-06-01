@@ -62,17 +62,17 @@ For buffOff=0 To 15
   Next buffOff
 Print ""
 I2C READ i2cAdr, 0, 2, BUF()
-Print " Product ID =";;(buf(0)+(256*buf(1)));"";
-If BUF(0)=1 Then Print " (DigIO16-I2C)"
-If BUF(0)=2 Then Print " (DIGIO-128)"
-If BUF(0)=3 Then Print " (DIGIO-128/64)"
-If BUF(0)=4 Then Print " (OptoIn8-I2C)"
-If BUF(0)=5 Then Print " (OptoOut8-I2C)"
-If BUF(0)=6 Then Print " (DIGIO32-I2C)"
-If BUF(0)=7 Then Print " (PROTO16-I2C)"
-If BUF(0)=8 Then Print " (ODAS-PSOC5)"
-If BUF(0)=9 Then Print " (ODAS-RELAY16)"
-If BUF(0)>9 Then Print " Unknown Card"
+Print " Product ID =";;(buf(0)+(256*buf(1)));" ";
+If BUF(0)=1 Then Print "(DigIO16-I2C)"
+If BUF(0)=2 Then Print "(DIGIO-128)"
+If BUF(0)=3 Then Print "(DIGIO-128/64)"
+If BUF(0)=4 Then Print "(OptoIn8-I2C)"
+If BUF(0)=5 Then Print "(OptoOut8-I2C)"
+If BUF(0)=6 Then Print "(DIGIO32-I2C)"
+If BUF(0)=7 Then Print "(PROTO16-I2C)"
+If BUF(0)=8 Then Print "(ODAS-PSOC5)"
+If BUF(0)=9 Then Print "(ODAS-RELAY16)"
+If BUF(0)>9 Then Print "Unknown Card"
 
 I2C READ i2cAdr, 0, 1, BUF()
 Print " vslen =";:Print BUF(0)
