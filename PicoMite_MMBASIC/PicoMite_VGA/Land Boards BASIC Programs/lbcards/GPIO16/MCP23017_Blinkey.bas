@@ -1,6 +1,9 @@
 ' MCP23017_Blinkey.bas
 ' Blink an LED on GPA GG0
 '
+' There is a lot of extra initialization code that is not necessary
+'   for this simple application. It is included as a code base for expansion.
+'
 ' MCP23017 Datasheet
 '   https://ww1.microchip.com/downloads/en/devicedoc/20001952c.pdf
 '
