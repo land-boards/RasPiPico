@@ -1,5 +1,4 @@
-' MCP23017_Blinkey.bas
-' Blink an LED on GPA GG0
+' MCP23017_Blinkey.bas - Blink an LED on PORTA GP0
 '
 ' There is a lot of extra initialization code that is not necessary
 '   for this simple application. It is included as a code base for expansion.
