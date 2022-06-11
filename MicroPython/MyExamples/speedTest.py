@@ -8,3 +8,4 @@ while i < 100000:
     i=i+1
 delta = time.ticks_diff(time.ticks_ms(), start) # compute time differenceprint("start")
 print("end",delta)
+
