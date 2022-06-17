@@ -51,11 +51,11 @@ Raspberry Pi Pico is a low-cost, high-performance microcontroller board with fle
 * Accelerated floating-point libraries on-chip
 * 8 × Programmable I/O (PIO) state machines for custom peripheral support
 
-= Pinout =
+== Pinout ==
 
 <img src="http://land-boards.com/blwiki/images/3/39/PiPico_Pins.PNG></img>
 
-== Pin Table ==
+=== Pin Table ===
 
 {| class="wikitable"
 ! Pico Pin
