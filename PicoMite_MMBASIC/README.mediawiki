@@ -1,9 +1,258 @@
 <a href="https://www.tindie.com/products/26931/"><img src="http://land-boards.com/blwiki/images/5/51/Tindie-mediums.png"></img></a>
 
-<img src="http://land-boards.com/blwiki/images/b/b4/PiPicoMite01_P18182_720px.jpg"></img>
+= Land Boards PiPicoMite01 card] =
 
-= Features =
+<img src="http://land-boards.com/blwiki/images/b/b4/PiPicoMite01_P18182_720px.jpg"></img>
 
 * Uses [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 Land Boards PiPicoMite01 card]
 ** Runs PicoMite (MaxiMite) BASIC (VGA, PS/2)
-** [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
+* [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
+
+== Features ==
+
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
+* VGA
+** 1:2:1 R:G:B
+* SD Card
+* Stereo Audio
+* USB B power
+* 16-Bit I/O expander
+* 2x20 pin headers breaks out all Pico pins
+
+= Land Boards PiPicoMite02 card] =
+
+<img src="http://land-boards.com/blwiki/images/d/de/PiPicoMite-02_P18268_720px.jpg"></img>
+
+* Uses [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 Land Boards PiPicoMite02 card]
+** Runs PicoMite (MaxiMite) BASIC (VGA, PS/2)
+* [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
+
+== Features ==
+
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
+* VGA
+** 1:2:1 R:G:B
+* SD Card
+* Stereo Audio
+* USB B power
+* 32-Bit I/O expander
+* 2x20 pin headers breaks out all Pico pins
+
+= Raspberry Pi Pico Prototyping =
+
+<img src="http://land-boards.com/blwiki/images/6/68/Pico_Plastic_Box_P18136_720px.jpg"></img>
+
+* Breadboard PCB
+* Socketed Pico
+* All Pico pins brought to Male Header pins
+* Power and ground header pins
+* Fits in 100x60x25mm Project Box
+* 5V jack
+* Can by Mounted on [http://land-boards.com/blwiki/index.php?title=CARRIER95TO49MM ODAS Adapter card]
+
+[http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico Wiki page]
+
+== Features ==
+
+Raspberry Pi Pico is a low-cost, high-performance microcontroller board with flexible digital interfaces. Key features include:
+
+* RP2040 microcontroller chip designed by Raspberry Pi in the United Kingdom
+* Dual-core Arm Cortex M0+ processor, flexible clock running up to 133 MHz
+* 264KB of SRAM, and 2MB of on-board Flash memory
+* Castellated module allows soldering direct to carrier boards
+* USB 1.1 with device and host support
+* Low-power sleep and dormant modes
+* Drag-and-drop programming using mass storage over USB
+* 26 × multi-function GPIO pins
+* 2 × SPI, 2 × I2C, 2 × UART, 3 × 12-bit ADC, 16 × controllable PWM channels
+* Accurate clock and timer on-chip
+* Temperature sensor
+* Accelerated floating-point libraries on-chip
+* 8 × Programmable I/O (PIO) state machines for custom peripheral support
+
+== Pinout ==
+
+<img src="http://land-boards.com/blwiki/images/3/39/PiPico_Pins.PNG></img>
+
+=== Pin Table ===
+
+{| class="wikitable"
+! Pico Pin
+! BB Pin
+! Signal
+! 
+! Pico Pin
+! BB Pin
+! Signal
+|-
+| 1
+| 30
+| GP0
+| 
+| 40
+| 30
+| VUSB
+|-
+| 2
+| 29
+| GP1
+| 
+| 39
+| 29
+| VSYS
+|-
+| 3
+| 28
+| GND
+| 
+| 38
+| 28
+| GND
+|-
+| 4
+| 27
+| GP2
+| 
+| 37
+| 27
+| 3V3EN
+|-
+| 5
+| 26
+| GP3
+| 
+| 36
+| 26
+| 3V3OUT
+|-
+| 6
+| 25
+| GP4
+| 
+| 35
+| 25
+| ADCVREF
+|-
+| 7
+| 24
+| GP5
+| 
+| 34
+| 24
+| GP28
+|-
+| 8
+| 23
+| GND
+| 
+| 33
+| 23
+| GND
+|-
+| 9
+| 22
+| GP6
+| 
+| 32
+| 22
+| GP27
+|-
+| 10
+| 21
+| GP7
+| 
+| 31
+| 21
+| GP26
+|-
+| 11
+| 20
+| GP8
+| 
+| 30
+| 20
+| RUN
+|-
+| 12
+| 19
+| GP9
+| 
+| 29
+| 19
+| GP22
+|-
+| 13
+| 18
+| GND
+| 
+| 28
+| 18
+| GND
+|-
+| 14
+| 17
+| GP10
+| 
+| 27
+| 17
+| GP21
+|-
+| 15
+| 16
+| GP11
+| 
+| 26
+| 16
+| GP20
+|-
+| 16
+| 15
+| GP12
+| 
+| 25
+| 15
+| GP19
+|-
+| 17
+| 14
+| GP13
+| 
+| 24
+| 14
+| GP18
+|-
+| 18
+| 13
+| GND
+| 
+| 23
+| 13
+| GND
+|-
+| 19
+| 12
+| GP14
+| 
+| 22
+| 12
+| GP17
+|-
+| 20
+| 11
+| GP15
+| 
+| 21
+| 11
+| GP16
+|-
+|}
+
+= Reference Documents =
+
+* [https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf Raspberry Pi Pico data sheet]
+* [https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf RP2040 Datasheet]
+* [https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf Hardware Design Guide]
+* [https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf Getting started with Raspberry Pi Pico]
+** C/C++ development with Raspberry Pi Pico and other RP2040-based microcontroller boards
+* [https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf Raspberry Pi Pico C/C++ SDK]
+* [https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf Raspberry Pi Pico Python SDK]
