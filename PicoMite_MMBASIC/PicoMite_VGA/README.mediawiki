@@ -4,6 +4,6 @@
 
 = Features =
 
-* Runs PicoMite (MaxiMite) BASIC (VGA, PS/2)
-** [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
 * Uses [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 Land Boards PiPicoMite01 card]
+** Runs PicoMite (MaxiMite) BASIC (VGA, PS/2)
+** [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
