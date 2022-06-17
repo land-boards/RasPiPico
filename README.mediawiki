@@ -8,15 +8,6 @@
 ** Runs PicoMite (MaxiMite) BASIC (VGA, PS/2)
 * [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
 
-= Land Boards PiPicoMite02 card] =
-
-<img src="http://land-boards.com/blwiki/images/d/de/PiPicoMite-02_P18268_720px.jpg"></img>
-
-* Uses [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 Land Boards PiPicoMite02 card]
-** Runs PicoMite (MaxiMite) BASIC (VGA, PS/2)
-* [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
-
-
 == Features ==
 
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
@@ -26,6 +17,25 @@
 * Stereo Audio
 * USB B power
 * 16-Bit I/O expander
+* 2x20 pin headers breaks out all Pico pins
+
+= Land Boards PiPicoMite02 card] =
+
+<img src="http://land-boards.com/blwiki/images/d/de/PiPicoMite-02_P18268_720px.jpg"></img>
+
+* Uses [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 Land Boards PiPicoMite02 card]
+** Runs PicoMite (MaxiMite) BASIC (VGA, PS/2)
+* [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
+
+== Features ==
+
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
+* VGA
+** 5:6:5 R:G:B
+* SD Card
+* Stereo Audio
+* USB B power
+* 32-Bit I/O expander
 * 2x20 pin headers breaks out all Pico pins
 
 = Raspberry Pi Pico Prototyping =
