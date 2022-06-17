@@ -1,4 +1,14 @@
-= Raspberry Pi Pico =
+<a href="https://www.tindie.com/products/26931/"><img src="http://land-boards.com/blwiki/images/5/51/Tindie-mediums.png"></img></a>
+
+<img src="http://land-boards.com/blwiki/images/b/b4/PiPicoMite01_P18182_720px.jpg"></img>
+
+= Land Boards PiPicoMite01 card] =
+
+* Uses [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 Land Boards PiPicoMite01 card]
+** Runs PicoMite (MaxiMite) BASIC (VGA, PS/2)
+** [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
+
+= Raspberry Pi Pico Prototyping =
 
 <img src="http://land-boards.com/blwiki/images/6/68/Pico_Plastic_Box_P18136_720px.jpg"></img>
 
