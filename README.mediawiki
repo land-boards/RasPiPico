@@ -7,6 +7,14 @@
 * Uses [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 Land Boards PiPicoMite01 card]
 ** Runs PicoMite (MaxiMite) BASIC (VGA, PS/2)
 ** [https://geoffg.net/picomitevga.html Geoff's PicoMiteVGA Project Page]
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
+* VGA
+** 5:6:5 R:G:B
+* SD Card
+* Stereo Audio
+* USB B power
+* 16-Bit I/O expander
+* 2x20 pin headers breaks out all Pico pins
 
 = Raspberry Pi Pico Prototyping =
 
@@ -216,23 +224,6 @@ Raspberry Pi Pico is a low-cost, high-performance microcontroller board with fle
 | GP16
 |-
 |}
-
-= PiPico-01 Card =
-
-* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico PiPico-01 Card] - Our design
-
-== Features ==
-
-* [[Raspberry Pi Pico]] adapter
-* VGA
-** 5:6:5 R:G:B
-* SD Card
-* Stereo Audio
-* USB B power
-* 16-Bit I/O expander
-* 2x20 pin headers breaks out all Pico pins
-
-<img src="http://land-boards.com/blwiki/images/9/93/PiPico-01_3D.png"></img>
 
 = Reference Documents =
 
