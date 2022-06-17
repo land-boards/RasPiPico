@@ -12,7 +12,7 @@
 
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
 * VGA
-** 5:6:5 R:G:B
+** 1:2:1 R:G:B
 * SD Card
 * Stereo Audio
 * USB B power
@@ -31,7 +31,7 @@
 
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
 * VGA
-** 5:6:5 R:G:B
+** 1:2:1 R:G:B
 * SD Card
 * Stereo Audio
 * USB B power
