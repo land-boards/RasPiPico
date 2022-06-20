@@ -97,9 +97,6 @@ End
 
 testStnOK2:
 
-I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_IODIRA, &H00
-I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_IODIRB, &H00
-
 ' Initialize the internal MCP23017 parts
 initIntDigios()
 
@@ -107,22 +104,44 @@ initIntDigios()
 initExtDIGIO32()
 
 loopCount = 0
-wrVal% = 1
-loopVals:
-  WriteDIGIO32(wrVal%)
+doAgain:
+  setIntDigiosIn()
+  setUUTDigiosOut()
+  wrVal% = 1
+loopVals1:
+  WriteUUTDIGIO32(wrVal%)
   Pause delayTime
   rdVal% = ReadIntlMCP23017()
-  If rdVal% = wrVal% Then GoTo rwOK
+  If rdVal% = wrVal% Then GoTo rwOK1
   If rdVal% <> wrVal% Then Print "Bad: Wrote";wrVal%;", Read";rdVal%
   End
-rwOK:
+rwOK1:
   wrVal% = wrVal% * 2
+  If wrVal% < &H100000000 Then GoTo loopVals1
   If Inkey$ <> "" GoTo Done
-'  If wrVal% >= &H100000000 Then End
-  If wrVal% >= &H100000000 Then wrVal% = 1
+  wrVal% = 1
+
+
+  setUUTDigiosIn()
+  setIntDigiosOut()
+  wrVal% = 1
+loopVals2:
+  WriteIntDIGIO32(wrVal%)
+  Pause delayTime
+  rdVal% = ReadUUTMCP23017()
+  If rdVal% = wrVal% Then GoTo rwOK2
+  If rdVal% <> wrVal% Then Print "Bad: Wrote";wrVal%;", Read";rdVal%
+  End
+rwOK2:
+  wrVal% = wrVal% * 2
+  If wrVal% < &H100000000 Then GoTo loopVals2
+  If Inkey$ <> "" GoTo Done
+  wrVal% = 1
+
   loopCount = loopCount + 1
   Print "Passed";loopCount
-GoTo loopVals
+
+GoTo doAgain
 
 Function ReadIntlMCP23017()
   I2C2 WRITE TEST_STN_I2CADR0, 1, 1, MCP23017_GPIOB
@@ -139,17 +158,61 @@ Function ReadIntlMCP23017()
   ReadIntlMCP23017 = (rdVal% * 256) + buf(0)
 End Function
 
-' Write a 32-bit value to the DIGIO32-I2C card
-Sub WriteDIGIO32(writeVal%)
+Function ReadUUTMCP23017()
+  I2C WRITE UUT_I2CADR0, 1, 1, MCP23017_GPIOB
+  I2C READ UUT_I2CADR0, 0, 1, BUF():'DO THE READ
+  rdVal% = buf(0)
+  I2C WRITE UUT_I2CADR0, 1, 1, MCP23017_GPIOA
+  I2C READ UUT_I2CADR0, 0, 1, BUF():'DO THE READ
+  rdVal% = (rdVal% * 256) + buf(0)
+  I2C WRITE UUT_I2CADR1, 1, 1, MCP23017_GPIOB
+  I2C READ UUT_I2CADR1, 0, 1, BUF():'DO THE READ
+  rdVal% = (rdVal% * 256) + buf(0)
+  I2C WRITE UUT_I2CADR1, 1, 1, MCP23017_GPIOA
+  I2C READ UUT_I2CADR1, 0, 1, BUF():'DO THE READ
+  ReadUUTMCP23017 = (rdVal% * 256) + buf(0)
+End Function
+
+' Write a 32-bit value to the Internal 32-bits
+Sub WriteIntDigio32(writeVal%)
 '  Print writeVal
-  llByte% = writeVal% And &H000000FF
-  lmByte% = (writeVal% And &H0000FF00) / 256
-  umByte% = (writeVal% And &H00FF0000) / 65536
-  uuByte% = (writeVal% And &HFF000000) / 16777216
-  I2C WRITE UUT_I2CADR0, 0, 2, MCP23017_OLATA, llByte%
-  I2C WRITE UUT_I2CADR0, 0, 2, MCP23017_OLATB, lmByte%
-  I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_OLATA, umByte%
-  I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_OLATB, uuByte%
+  llByte = writeVal% And &H000000FF
+  lmByte = (writeVal% And &H0000FF00) / 256
+  umByte = (writeVal% And &H00FF0000) / 65536
+  uuByte = (writeVal% And &HFF000000) / 16777216
+  I2C2 WRITE TEST_STN_I2CADR0, 0, 2, MCP23017_OLATA, llByte
+  I2C2 WRITE TEST_STN_I2CADR0, 0, 2, MCP23017_OLATB, lmByte
+  I2C2 WRITE TEST_STN_I2CADR1, 0, 2, MCP23017_OLATA, umByte
+  I2C2 WRITE TEST_STN_I2CADR1, 0, 2, MCP23017_OLATB, uuByte
+End Sub
+
+' Write a 32-bit value to the UUT DIGIO32-I2C card
+Sub WriteUUTDIGIO32(writeVal%)
+'  Print writeVal%
+  llByte = writeVal% And &H000000FF
+  lmByte = (writeVal% And &H0000FF00) / 256
+  umByte = (writeVal% And &H00FF0000) / 65536
+  uuByte = (writeVal% And &HFF000000) / 16777216
+  I2C WRITE UUT_I2CADR0, 0, 2, MCP23017_OLATA, llByte
+  I2C WRITE UUT_I2CADR0, 0, 2, MCP23017_OLATB, lmByte
+  I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_OLATA, umByte
+  I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_OLATB, uuByte
+End Sub
+
+Sub setUUTDigiosIn()
+  'Set all UUT pins to inputs
+  I2C WRITE UUT_I2CADR0, 0, 2, MCP23017_IODIRA, &HFF
+  I2C WRITE UUT_I2CADR0, 0, 2, MCP23017_IODIRB, &HFF
+  I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_IODIRA, &HFF
+  I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_IODIRB, &HFF
+End Sub
+
+Sub setUUTDigiosOut()
+  'Set all UUT pins to outputs
+  I2C WRITE UUT_I2CADR0, 0, 2, MCP23017_IODIRA, &H00
+  I2C WRITE UUT_I2CADR0, 0, 2, MCP23017_IODIRB, &H00
+  I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_IODIRA, &H00
+  I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_IODIRB, &H00
 End Sub
 
 Sub initExtDIGIO32()
@@ -194,6 +257,22 @@ Sub initExtDIGIO32()
   'Bit 0 = X - Unused
   I2C WRITE UUT_I2CADR0, 0, 2, MCP23017_IOCON, &H64
   I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_IOCON, &H64
+End Sub
+
+Sub setIntDigiosIn()
+  'Set all internal pins to inputs
+  I2C2 WRITE TEST_STN_I2CADR0, 0, 2, MCP23017_IODIRA, &HFF
+  I2C2 WRITE TEST_STN_I2CADR0, 0, 2, MCP23017_IODIRB, &HFF
+  I2C2 WRITE TEST_STN_I2CADR1, 0, 2, MCP23017_IODIRA, &HFF
+  I2C2 WRITE TEST_STN_I2CADR1, 0, 2, MCP23017_IODIRB, &HFF
+End Sub
+
+Sub setIntDigiosOut()
+  'Set all internal pins to outputs
+  I2C2 WRITE TEST_STN_I2CADR0, 0, 2, MCP23017_IODIRA, &H00
+  I2C2 WRITE TEST_STN_I2CADR0, 0, 2, MCP23017_IODIRB, &H00
+  I2C2 WRITE TEST_STN_I2CADR1, 0, 2, MCP23017_IODIRA, &H00
+  I2C2 WRITE TEST_STN_I2CADR1, 0, 2, MCP23017_IODIRB, &H00
 End Sub
 
 Sub initIntDigios()
@@ -246,4 +325,4 @@ I2C WRITE UUT_I2CADR0, 0, 2, MCP23017_OLATB, &H00
 I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_OLATA, &H00
 I2C WRITE UUT_I2CADR1, 0, 2, MCP23017_OLATB, &H00
 Print "Done"
-End        
+End
