@@ -53,8 +53,8 @@ Print "Hit a key to stop"
 ' Install J1 jumper to use interrupt line on Rev 1
 ' Install H2 jumper to use interrupt line on Rev 2 and higher card(s)
 ' Comment/Un-comment out one of the two next lines depending on board rev
-SetPin GP0,DIN,PULLUP:'GP0 on Rev 1 card
-'SetPin GP2,DIN,PULLUP:'GP2 on Rev 2 and higher card(s)
+'SetPin GP0,DIN,PULLUP:'GP0 on Rev 1 card
+SetPin GP2,DIN,PULLUP:'GP2 on Rev 2 and higher card(s)
 
 ' Setup the I2C port for the MCP23017
 ' Applies to all rev cards
