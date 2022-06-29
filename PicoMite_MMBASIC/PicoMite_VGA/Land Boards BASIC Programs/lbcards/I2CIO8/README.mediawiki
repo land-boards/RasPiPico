@@ -1,3 +1,15 @@
 = I2CIO8 Card =
 
-* Programs that exercise the external [http://land-boards.com/blwiki/index.php?title=I2CIO-8 I2CIO-8] card
+Programs that exercise the external [http://land-boards.com/blwiki/index.php?title=I2CIO-8 I2CIO-8] card
+
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/I2CIO8/I2CIO8-Bounce-0.bas I2CIO8-Bounce-0.bas]
+** Bounce a LED across the (4) LEDs
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/I2CIO8/I2CIO8-Bounce-4x.bas I2CIO8-Bounce-4x.bas]
+** Auto-detects how many cards are attached
+** Bounce a LED across the LEDs on Multiple [http://land-boards.com/blwiki/index.php?title=I2CIO-8 I2CIO-8] cards
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/I2CIO8/I2CIO8-Bounce.bas I2CIO8-Bounce.bas] - same as I2CIO8-Bounce-0.bas with additional initialization code
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/I2CIO8/I2CIO8-ReadWrite.bas I2CIO8-ReadWrite.bas]
+** Read  4 jumpers, write out to 4 LEDs
+** Move jumper to see LED move
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/I2CIO8/I2CIO8-ReadWriteV3.bas I2CIO8-ReadWriteV3.bas] - same as I2CIO8-ReadWrite.bas with additional initialization code
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/I2CIO8/I2CIO8_Test.bas I2CIO8_Test.bas] - Same as I2CIO8-ReadWrite.bas with Subroutines and Functions
