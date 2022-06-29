@@ -1,4 +1,4 @@
-- Write EEPROM on External ODAS Card =
+= Write EEPROM on External ODAS Card =
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/ODAS_EEPROM/ODASEEPROM.bas ODASEEPROM.bas]
 ** Read/Write EEPROM on ODAS cards
