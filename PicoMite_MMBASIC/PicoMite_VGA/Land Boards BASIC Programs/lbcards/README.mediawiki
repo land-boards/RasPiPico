@@ -1,5 +1,7 @@
 = Example Code for Raspberry Pi Pico VGA =
 
+Exercise internal MCP23017 I2C Expanders and external I2C cards.
+
 * [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16 GPIO16]
 ** Exercise internal MCP23017 I2C Port Expander on [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01] card
 ** Exercise external MCP23017 cards
