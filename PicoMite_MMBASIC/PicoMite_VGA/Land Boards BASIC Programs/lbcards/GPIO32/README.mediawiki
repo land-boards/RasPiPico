@@ -1,4 +1,4 @@
-= Internal =
+= On-Board MCP23017 32-bit Port Expanders Example =
 
 Used with [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02] card
 
