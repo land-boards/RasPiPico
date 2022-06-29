@@ -1,7 +1,7 @@
 = On-Board MCP23017 16-bit Port Expander Examples =
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/MCP23017_Blinkey.bas MCP23017_Blinkey.bas] - Blink an LED
-** LED (with series resistor) on GPA0
+** Single LED (with series resistor) on GPA0
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/GPIO16-01.bas GPIO16-01.bas]
 ** [http://land-boards.com/blwiki/index.php?title=LED-32 Attached to LED-32 card]
 ** Exercise the MCP23017 I2C Port Expander on the PicoMite01 card
