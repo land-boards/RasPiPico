@@ -1,0 +1,11 @@
+= Internal =
+
+Used with [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02] card
+
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/GPIO32-01.bas GPIO32-01.bas]
+** Test the (2) MCP23017 parts on the PiPicoMite02 card
+** Light all of the output pins one at a time
+** Alternate patterns then bounce a LED
+** Attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
+
+= External =
