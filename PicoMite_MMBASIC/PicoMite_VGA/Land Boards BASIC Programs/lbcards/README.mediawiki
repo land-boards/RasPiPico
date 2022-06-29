@@ -2,5 +2,11 @@
 
 * [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16 GPIO16]
 ** Exercise internal MCP23017 I2C Port Expander on [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01] card
+** Exercise external MCP23017 cards
+*** [http://land-boards.com/blwiki/index.php?title=SWLEDX8 SWLEDX8] card
+*** [http://land-boards.com/blwiki/index.php?title=PROTO16-I2C PROTO16-I2C] card
+*** [http://land-boards.com/blwiki/index.php?title=I2CIO16-DB25 I2CIO16-DB25] card
 * [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32 GPIO32]
 ** Exercise (2) internal MCP23017 I2C Port Expanders on [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02] card
+** Exercise external MCP23017 cards
+*** [http://land-boards.com/blwiki/index.php?title=DIGIO32-I2C DIGIO32-I2C] card
