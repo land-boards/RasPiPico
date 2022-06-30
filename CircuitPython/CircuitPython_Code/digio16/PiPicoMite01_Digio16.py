@@ -1,17 +1,14 @@
 ###############################################################################
-# PiPicoMite02_Digio32.py
-# CircuitPython library
-# Module gets imported from application code
-# Control the (2) MCP23017 parts on the PiPicoMite02
-# Provides Arduino-like functions
+# PiPicoMite01_Digio16.py
+# Arduino-like functions
 # digitalWrite(bit,value)
-#    bit = 0-31
-#    value = 0,1
+#    bit = 0-15
+#    value = 0, 1
 # digitalRead(bit)
-#    bit = 0-31
-#    returns 0,1
+#    bit = 0-15
+#    returns 0, 1
 # pinMode(bit,value)
-#    bit = 0-31
+#    bit = 0-15
 #    value = INPUT, OUTPUT, INPUT_PULLUP
 # pinMode(bit,value)
 # CircuitPython
@@ -54,23 +51,11 @@ INPUT_PULLUP=0x2
 
 class OnBoardDigio():
 
-    def initMCP23017x2(self,i2c):
+    def initMCP23017(self,i2c):
         global chipAddr
         chipAddr=0x20
-        self.writeRegister(i2c,MCP23017_IODIRA,0xFF)
-        self.writeRegister(i2c,MCP23017_IODIRB,0xFF)
-        self.writeRegister(i2c,MCP23017_IPOLA, 0x00)
-        self.writeRegister(i2c,MCP23017_IPOLB, 0x00)
-        self.writeRegister(i2c,MCP23017_GPINTENA, 0x00)
-        self.writeRegister(i2c,MCP23017_GPINTENB, 0x00)
-        self.writeRegister(i2c,MCP23017_INTCONA, 0x00)
-        self.writeRegister(i2c,MCP23017_INTCONB, 0x00)
-        self.writeRegister(i2c,MCP23017_GPPUA, 0x00)
-        self.writeRegister(i2c,MCP23017_GPPUB, 0x00)
-        self.writeRegister(i2c,MCP23017_IOCONA,0x64)
-        chipAddr=0x21
-        self.writeRegister(i2c,MCP23017_IODIRA,0xFF)
-        self.writeRegister(i2c,MCP23017_IODIRB,0xFF)
+        self.writeRegister(i2c,MCP23017_IODIRA,0x00)
+        self.writeRegister(i2c,MCP23017_IODIRB,0x00)
         self.writeRegister(i2c,MCP23017_IPOLA, 0x00)
         self.writeRegister(i2c,MCP23017_IPOLB, 0x00)
         self.writeRegister(i2c,MCP23017_GPINTENA, 0x00)
@@ -84,7 +69,6 @@ class OnBoardDigio():
 
     def digitalWrite(self,i2c,bit,value):     # Writes to a single bit
         global chipAddr
-        chipAddr = MCP23017_BASEADDR | ((bit & 0x10) >> 4)
         if ((bit & 0x08) == 0):
             regAdr=MCP23017_OLATA
         else:
@@ -99,7 +83,6 @@ class OnBoardDigio():
 
     def digitalRead(self,i2c,bit):            # Reads a single bit
         global chipAddr
-        chipAddr = MCP23017_BASEADDR | ((bit & 0x10) >> 4)
         if ((bit & 0x08) == 0):
             regAdr=MCP23017_GPIOA
         else:
@@ -109,7 +92,6 @@ class OnBoardDigio():
 
     def pinMode(self,i2c,bit,value):            # Set the single bit direction (INPUT, INPUT_PULLUP, OUTPUT)
         global chipAddr
-        chipAddr = MCP23017_BASEADDR | ((bit & 0x10) >> 4)
         changeBit = 1 << (bit & 0x7)
         if ((bit & 0x08) == 0):
             puRegAdr=MCP23017_GPPUA
@@ -139,7 +121,7 @@ class OnBoardDigio():
         i2c.writeto_then_readfrom(chipAddr, bytes([reg]), result)
         return result[0]
 
-    def writeRegister(self,i2c, reg, val):
+    def writeRegister(self,i2c,reg, val):
         global chipAddr
         passVal = bytearray([reg, val])
         i2c.writeto(chipAddr, passVal)
