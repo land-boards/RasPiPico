@@ -1,12 +1,15 @@
 ###############################################################################
 # PiPicoMite02_Digio32.py
-# Arduino-like functions
+# CircuitPython library
+# Module gets imported from application code
+# Control the (2) MCP23017 parts on the PiPicoMite02
+# Provides Arduino-like functions
 # digitalWrite(bit,value)
 #    bit = 0-31
-#    value = 0, 1
+#    value = 0,1
 # digitalRead(bit)
 #    bit = 0-31
-#    returns 0, 1
+#    returns 0,1
 # pinMode(bit,value)
 #    bit = 0-31
 #    value = INPUT, OUTPUT, INPUT_PULLUP
@@ -49,129 +52,94 @@ INPUT=0x0
 OUTPUT=0x1
 INPUT_PULLUP=0x2
 
-def initMCP23017x2():
-    global chipAddr
-    chipAddr=0x20
-    writeRegister(MCP23017_IODIRA,0x00)
-    writeRegister(MCP23017_IODIRB,0x00)
-    writeRegister(MCP23017_IPOLA, 0x00)
-    writeRegister(MCP23017_IPOLB, 0x00)
-    writeRegister(MCP23017_GPINTENA, 0x00)
-    writeRegister(MCP23017_GPINTENB, 0x00)
-    writeRegister(MCP23017_INTCONA, 0x00)
-    writeRegister(MCP23017_INTCONB, 0x00)
-    writeRegister(MCP23017_GPPUA, 0x00)
-    writeRegister(MCP23017_GPPUB, 0x00)
-    writeRegister(MCP23017_IOCONA,0x64)
-    chipAddr=0x21
-    writeRegister(MCP23017_IODIRA,0x00)
-    writeRegister(MCP23017_IODIRB,0x00)
-    writeRegister(MCP23017_IPOLA, 0x00)
-    writeRegister(MCP23017_IPOLB, 0x00)
-    writeRegister(MCP23017_GPINTENA, 0x00)
-    writeRegister(MCP23017_GPINTENB, 0x00)
-    writeRegister(MCP23017_INTCONA, 0x00)
-    writeRegister(MCP23017_INTCONB, 0x00)
-    writeRegister(MCP23017_GPPUA, 0x00)
-    writeRegister(MCP23017_GPPUB, 0x00)
-    writeRegister(MCP23017_IOCONA,0x64)
-    return
+class OnBoardDigio():
 
-def digitalWrite(bit,value):     # Writes to a single bit
-    global chipAddr
-    chipAddr = MCP23017_BASEADDR | ((bit & 0x10) >> 4)
-    if ((bit & 0x08) == 0):
-        regAdr=MCP23017_OLATA
-    else:
-        regAdr=MCP23017_OLATB
-    rwValue=readRegister(regAdr)
-    if (value == 0):
-        rwValue &= ~(1 << (bit&0x7))
-    else:
-        rwValue |= (1 << (bit&0x7))
-    writeRegister(regAdr,rwValue)
-    return
+    def initMCP23017x2(self,i2c):
+        global chipAddr
+        chipAddr=0x20
+        self.writeRegister(i2c,MCP23017_IODIRA,0xFF)
+        self.writeRegister(i2c,MCP23017_IODIRB,0xFF)
+        self.writeRegister(i2c,MCP23017_IPOLA, 0x00)
+        self.writeRegister(i2c,MCP23017_IPOLB, 0x00)
+        self.writeRegister(i2c,MCP23017_GPINTENA, 0x00)
+        self.writeRegister(i2c,MCP23017_GPINTENB, 0x00)
+        self.writeRegister(i2c,MCP23017_INTCONA, 0x00)
+        self.writeRegister(i2c,MCP23017_INTCONB, 0x00)
+        self.writeRegister(i2c,MCP23017_GPPUA, 0x00)
+        self.writeRegister(i2c,MCP23017_GPPUB, 0x00)
+        self.writeRegister(i2c,MCP23017_IOCONA,0x64)
+        chipAddr=0x21
+        self.writeRegister(i2c,MCP23017_IODIRA,0xFF)
+        self.writeRegister(i2c,MCP23017_IODIRB,0xFF)
+        self.writeRegister(i2c,MCP23017_IPOLA, 0x00)
+        self.writeRegister(i2c,MCP23017_IPOLB, 0x00)
+        self.writeRegister(i2c,MCP23017_GPINTENA, 0x00)
+        self.writeRegister(i2c,MCP23017_GPINTENB, 0x00)
+        self.writeRegister(i2c,MCP23017_INTCONA, 0x00)
+        self.writeRegister(i2c,MCP23017_INTCONB, 0x00)
+        self.writeRegister(i2c,MCP23017_GPPUA, 0x00)
+        self.writeRegister(i2c,MCP23017_GPPUB, 0x00)
+        self.writeRegister(i2c,MCP23017_IOCONA,0x64)
+        return
 
-def digitalRead(bit):            # Reads a single bit
-    global chipAddr
-    chipAddr = MCP23017_BASEADDR | ((bit & 0x10) >> 4)
-    if ((bit & 0x08) == 0):
-        regAdr=MCP23017_GPIOA
-    else:
-        regAdr=MCP23017_GPIOB
-    rdVal=readRegister(regAdr)
-    return ((rdVal>>(bit&7))&0x01)
+    def digitalWrite(self,i2c,bit,value):     # Writes to a single bit
+        global chipAddr
+        chipAddr = MCP23017_BASEADDR | ((bit & 0x10) >> 4)
+        if ((bit & 0x08) == 0):
+            regAdr=MCP23017_OLATA
+        else:
+            regAdr=MCP23017_OLATB
+        rwValue=self.readRegister(i2c,regAdr)
+        if (value == 0):
+            rwValue &= ~(1 << (bit&0x7))
+        else:
+            rwValue |= (1 << (bit&0x7))
+        self.writeRegister(i2c,regAdr,rwValue)
+        return
 
-def pinMode(bit,value):            # Set the single bit direction (INPUT, INPUT_PULLUP, OUTPUT)
-    global chipAddr
-#     print("pinMode: bit,value",hex(bit),hex(value))
-    chipAddr = MCP23017_BASEADDR | ((bit & 0x10) >> 4)
-#     print("pinMode: chipAddr",hex(chipAddr))
-    changeBit = 1 << (bit & 0x7)
-    if ((bit & 0x08) == 0):
-        puRegAdr=MCP23017_GPPUA
-        dirRegAdr=MCP23017_IODIRA
-    else:
-        puRegAdr=MCP23017_GPPUB
-        dirRegAdr=MCP23017_IODIRB
-    rdPuVal=readRegister(puRegAdr)
-    rdDirVal=readRegister(dirRegAdr)
-    if (value == INPUT_PULLUP): 
-        rdPuVal |= changeBit
-        writeRegister(puRegAdr,rdPuVal)
-        rdDirVal |= changeBit
-        writeRegister(dirRegAdr,rdDirVal)
-    elif (value == INPUT):
-        rdPuVal &= ~changeBit
-        writeRegister(puRegAdr,rdPuVal)
-        rdDirVal |= changeBit
-        writeRegister(dirRegAdr,rdDirVal)
-    elif (value == OUTPUT):
-        rdDirVal &= ~changeBit
-        writeRegister(dirRegAdr,rdDirVal)
+    def digitalRead(self,i2c,bit):            # Reads a single bit
+        global chipAddr
+        chipAddr = MCP23017_BASEADDR | ((bit & 0x10) >> 4)
+        if ((bit & 0x08) == 0):
+            regAdr=MCP23017_GPIOA
+        else:
+            regAdr=MCP23017_GPIOB
+        rdVal=self.readRegister(i2c,regAdr)
+        return ((rdVal>>(bit&7))&0x01)
 
-def readRegister(reg):
-    global chipAddr
-#     print("readRegister: reg",hex(reg))
-    result = bytearray(1)
-    i2c.writeto_then_readfrom(chipAddr, bytes([reg]), result)
-    return result[0]
+    def pinMode(self,i2c,bit,value):            # Set the single bit direction (INPUT, INPUT_PULLUP, OUTPUT)
+        global chipAddr
+        chipAddr = MCP23017_BASEADDR | ((bit & 0x10) >> 4)
+        changeBit = 1 << (bit & 0x7)
+        if ((bit & 0x08) == 0):
+            puRegAdr=MCP23017_GPPUA
+            dirRegAdr=MCP23017_IODIRA
+        else:
+            puRegAdr=MCP23017_GPPUB
+            dirRegAdr=MCP23017_IODIRB
+        rdPuVal=self.readRegister(i2c,puRegAdr)
+        rdDirVal=self.readRegister(i2c,dirRegAdr)
+        if (value == INPUT_PULLUP): 
+            rdPuVal |= changeBit
+            self.writeRegister(i2c,puRegAdr,rdPuVal)
+            rdDirVal |= changeBit
+            self.writeRegister(i2c,dirRegAdr,rdDirVal)
+        elif (value == INPUT):
+            rdPuVal &= ~changeBit
+            self.writeRegister(i2c,puRegAdr,rdPuVal)
+            rdDirVal |= changeBit
+            self.writeRegister(i2c,dirRegAdr,rdDirVal)
+        elif (value == OUTPUT):
+            rdDirVal &= ~changeBit
+            self.writeRegister(i2c,dirRegAdr,rdDirVal)
 
-def writeRegister(reg, val):
-    global chipAddr
-    passVal = bytearray([reg, val])
-    i2c.writeto(chipAddr, passVal)
+    def readRegister(self,i2c,reg):
+        global chipAddr
+        result = bytearray(1)
+        i2c.writeto_then_readfrom(chipAddr, bytes([reg]), result)
+        return result[0]
 
-i2c = busio.I2C(board.GP15, board.GP14, frequency=400000)    # Pi Pico RP2040
-
-# Lock the I2C device before we try to scan
-while not i2c.try_lock():
-    pass
-
-# Print the addresses found once
-print("I2C addresses found:", [hex(device_address) for device_address in i2c.scan()])
-if len(i2c.scan()) != 2:
-    assert False,"Bad count"
-
-chipAddr = MCP23017_BASEADDR
-
-initMCP23017x2()
-
-for bit in range(32):
-    pinMode(bit,OUTPUT)
-
-speed = 0.20
-while True:
-    for bit in range(32):
-        digitalWrite(bit,1)
-        time.sleep(speed)
-        digitalWrite(bit,0)
-    speed -= 0.01
-    if speed <= 0.00:
-        speed = 0.20
-    
-# for bit in range(32):
-#     digitalWrite(bit,0)
-#     time.sleep(0.1)
-    
-i2c.unlock()
+    def writeRegister(self,i2c, reg, val):
+        global chipAddr
+        passVal = bytearray([reg, val])
+        i2c.writeto(chipAddr, passVal)
