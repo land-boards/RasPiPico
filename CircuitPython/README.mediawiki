@@ -1,7 +1,7 @@
 = CircuitPython Libraries and Example Code =
 
 * Snapshot of Pico library
-** See CircuitPython repository for latest code
+** See [https://circuitpython.org/libraries CircuitPython repository] for latest code
 
 == Example code ==
 
