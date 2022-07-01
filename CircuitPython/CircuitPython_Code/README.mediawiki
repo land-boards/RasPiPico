@@ -16,6 +16,15 @@
 * Exercise the MCP23017 Port Expander on the [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01]
 * [https://github.com/land-boards/RasPiPico/tree/main/CircuitPython/CircuitPython_Code/digio16 16-bit Digital I/O code]
 ** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio16/PiPicoMite01_Digio16.py PiPicoMite01_Digio16.py] - Import module that creates an Arduino-like code interface
+*** digitalWrite(bit,value)
+**** bit = 0-15
+**** value = 0, 1
+*** digitalRead(bit)
+**** bit = 0-15
+**** returns 0, 1
+*** pinMode(bit,value)
+**** bit = 0-15
+**** value = INPUT, OUTPUT, INPUT_PULLUP
 ** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio16/Digio16Test.py Digio16Test.py] - Example bounces 16 LEDs
 
 == Digio32 Code ==
