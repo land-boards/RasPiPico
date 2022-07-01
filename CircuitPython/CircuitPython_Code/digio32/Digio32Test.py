@@ -9,7 +9,7 @@
 import board
 import busio
 import time
-from PiPicoMite02_Digio32 import OnBoardDigio
+from PiPicoMite02_Digio32 import OnBoardDigio32
 
 INPUT=0x0
 OUTPUT=0x1
@@ -30,7 +30,7 @@ if (0x20 not in i2cScanList) or (0x21 not in i2cScanList):
     print("i2cScanList",i2cScanList)
     assert False,"Didn't find 2x MCP23017 parts at expected locations"
 
-digio32 = OnBoardDigio()
+digio32 = OnBoardDigio32()
 
 digio32.initMCP23017x2(i2c)
 

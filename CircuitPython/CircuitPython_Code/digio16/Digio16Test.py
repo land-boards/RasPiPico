@@ -9,7 +9,7 @@
 import board
 import busio
 import time
-from PiPicoMite01_Digio16 import OnBoardDigio
+from PiPicoMite01_Digio16 import OnBoardDigio16
 
 INPUT=0x0
 OUTPUT=0x1
@@ -24,13 +24,13 @@ while not i2c.try_lock():
 # Print the addresses found once
 i2cScanList = i2c.scan()
 # print("I2C addresses found:", [hex(device_address) for device_address in i2cScanList])
-if len(i2cScanList) < 2:
+if len(i2cScanList) < 1:
     assert False,"Bad count"
-if (0x20 not in i2cScanList) or (0x21 not in i2cScanList):
+if (0x20 not in i2cScanList):
     print("i2cScanList",i2cScanList)
-    assert False,"Didn't find 2x MCP23017 parts at expected locations"
+    assert False,"Didn't find MCP23017 parts at expected location"
 
-digio16 = OnBoardDigio()
+digio16 = OnBoardDigio16()
 
 digio16.initMCP23017(i2c)
 

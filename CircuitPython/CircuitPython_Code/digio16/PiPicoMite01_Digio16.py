@@ -49,7 +49,7 @@ INPUT=0x0
 OUTPUT=0x1
 INPUT_PULLUP=0x2
 
-class OnBoardDigio():
+class OnBoardDigio16():
 
     def initMCP23017(self,i2c):
         global chipAddr
