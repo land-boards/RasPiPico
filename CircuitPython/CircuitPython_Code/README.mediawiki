@@ -25,7 +25,7 @@
 *** pinMode(bit,value)
 **** bit = 0-15
 **** value = INPUT, OUTPUT, INPUT_PULLUP
-** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio16/Digio16Test.py Digio16Test.py] - Example bounces 16 LEDs
+** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio16/Digio16Test.py Digio16Test.py] - Example uses import module and bounces 16 LEDs
 
 == Digio32 Code ==
 
@@ -41,4 +41,4 @@
 *** pinMode(bit,value)
 **** bit = 0-31
 **** value = INPUT, OUTPUT, INPUT_PULLUP
-** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio32/Digio32Test.py Digio32Test.py] - Example bounces 32 LEDs
+** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio32/Digio32Test.py Digio32Test.py] - Example uses import module and bounces 32 LEDs
