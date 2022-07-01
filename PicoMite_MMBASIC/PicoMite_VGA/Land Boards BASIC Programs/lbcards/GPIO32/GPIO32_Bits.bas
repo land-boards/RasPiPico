@@ -32,7 +32,7 @@ MCP23017_INTCAPB  = &H11
 MCP23017_GPIOA    = &H12
 MCP23017_GPIOB    = &H13
 MCP23017_OLATA    = &H14
-MCP23017_OLATB    = &H31
+MCP23017_OLATB    = &H15
 
 Print "Read Switches, Write LEDs"
 Print "Hit a key to stop"
@@ -45,7 +45,7 @@ SetPin GP2,DIN,PULLUP
 
 ' Setup the I2C port for the MCP23017
 ' Applies to all rev cards
-SetPin GP14, GP31, I2C2
+SetPin GP14, GP15, I2C2
 I2C2 OPEN 400, 100
 
 initMCP23017x2()
@@ -56,25 +56,24 @@ BIT_IN = 1
 Dim ioBuf(1)
 
 ' Port A wired to LEDs in this example
-For outBit = 0 To 15
+For outBit = 0 To 31
   PinMode(outBit,BIT_OUT)
 Next outBit
 
-' Port B wired to switches in this case
-For outBit = 16 To 31
-  PinMode(outBit,BIT_IN)
-Next outBit
-
+I2C2 WRITE MCP23017_I2CADR0, 0, 2, MCP23017_OLATA, &H55
+I2C2 WRITE MCP23017_I2CADR0, 0, 2, MCP23017_OLATB, &H55
+I2C2 WRITE MCP23017_I2CADR1, 0, 2, MCP23017_OLATA, &H55
+I2C2 WRITE MCP23017_I2CADR1, 0, 2, MCP23017_OLATB, &H55
 Pause 100
 
 Dim buf(1)
 
-' Read Chip 1 Port B bit 0
-' Write Chip 0 Port A bit 0
 loop1:
-inVal = DigitalRead(16)
-Pause 10
-DigitalWrite(0,inVal)
+  For loopVal = 0 To 31
+    DigitalWrite(loopVal,1)
+    Pause 100
+    DigitalWrite(loopVal,0)
+  Next loopVal
 If Inkey$ <> "" GoTo Done
 GoTo loop1
 
@@ -129,7 +128,7 @@ writeC0A:
   bitVal = 1 << writeBit
   If val = 0 Then wrVal = wrVal And (INV bitVal)
   If val = 1 Then wrVal = wrVal Or bitVal
-  I2C2 WRITE MCP23017_I2CADR0, 0, 2, MCP23017_OLATA, wrVal
+  I2C2 WRITE MCP23017_I2CADR0, 0, 2, MCP23017_OLATA, (wrVal And 255)
   GoTo doneWrite
 writeC0B:
   I2C2 WRITE MCP23017_I2CADR0, 1, 1, MCP23017_OLATB
@@ -138,25 +137,25 @@ writeC0B:
   bitVal = 1 << (writeBit - 8)
   If val = 0 Then wrVal = wrVal And (INV bitVal)
   If val = 1 Then wrVal = wrVal Or bitVal
-  I2C2 WRITE MCP23017_I2CADR0, 0, 2, MCP23017_OLATB, wrVal
+  I2C2 WRITE MCP23017_I2CADR0, 0, 2, MCP23017_OLATB, (wrVal And 255)
   GoTo doneWrite
 writeC1A:
   I2C2 WRITE MCP23017_I2CADR1, 1, 1, MCP23017_OLATA
   I2C2 read MCP23017_I2CADR1, 0, 1, iobuf()
   wrVal = iobuf(0)
-  bitVal = 1 << writeBit
+  bitVal = 1 << (writeBit - 16)
   If val = 0 Then wrVal = wrVal And (INV bitVal)
   If val = 1 Then wrVal = wrVal Or bitVal
-  I2C2 WRITE MCP23017_I2CADR1, 0, 2, MCP23017_OLATA, wrVal
+  I2C2 WRITE MCP23017_I2CADR1, 0, 2, MCP23017_OLATA, (wrVal And 255)
   GoTo doneWrite
 writeC1B:
   I2C2 WRITE MCP23017_I2CADR1, 1, 1, MCP23017_OLATB
   I2C2 read MCP23017_I2CADR1, 0, 1, iobuf()
   wrVal = iobuf(0)
-  bitVal = 1 << (writeBit - 8)
+  bitVal = 1 << (writeBit - 24)
   If val = 0 Then wrVal = wrVal And (INV bitVal)
   If val = 1 Then wrVal = wrVal Or bitVal
-  I2C2 WRITE MCP23017_I2CADR1, 0, 2, MCP23017_OLATB, wrVal
+  I2C2 WRITE MCP23017_I2CADR1, 0, 2, MCP23017_OLATB, (wrVal And 255)
   GoTo doneWrite
 doneWrite:
 End Sub
@@ -177,7 +176,8 @@ SetDirC0A:
   ioRegVal = iobuf(0)
   bitVal = 1 << bit
   If dir = 1 Then ioRegVal = (bitVal Or ioRegVal) And 255
-  If dir = 0 Then ioRegVal = ((INV bitVal) And ioRegVal)
+  If dir = 0 Then ioRegVal = ((INV bitVal) And ioRegVal) And 255
+  Print "c0a bitVal",bitVal,"ioRegVal",ioRegVal
   I2C2 WRITE MCP23017_I2CADR0, 0, 2, MCP23017_IODIRA, ioRegVal
   GoTo doneSetBit
 SetDirC0B:
@@ -186,25 +186,28 @@ SetDirC0B:
   ioRegVal = iobuf(0)
   bitVal = 1 << (bit-8)
   If dir = 1 Then ioRegVal = (bitVal Or ioRegVal) And 255
-  If dir = 0 Then ioRegVal = ((INV bitVal) And ioRegVal)
+  If dir = 0 Then ioRegVal = ((INV bitVal) And ioRegVal) And 255
+  Print "c0b bitVal",bitVal,"ioRegVal",ioRegVal
   I2C2 WRITE MCP23017_I2CADR0, 0, 2, MCP23017_IODIRB, ioRegVal
   GoTo doneSetBit
 SetDirC1A:
   I2C2 WRITE MCP23017_I2CADR1, 1, 1, MCP23017_IODIRA
   I2C2 read MCP23017_I2CADR1, 0, 1, iobuf()
   ioRegVal = iobuf(0)
-  bitVal = 1 << bit
+  bitVal = 1 << (bit-16)
   If dir = 1 Then ioRegVal = (bitVal Or ioRegVal) And 255
-  If dir = 0 Then ioRegVal = ((INV bitVal) And ioRegVal)
+  If dir = 0 Then ioRegVal = ((INV bitVal) And ioRegVal) And 255
+  Print "c1a bitVal",bitVal,"ioRegVal",ioRegVal
   I2C2 WRITE MCP23017_I2CADR1, 0, 2, MCP23017_IODIRA, ioRegVal
   GoTo doneSetBit
 SetDirC1B:
   I2C2 WRITE MCP23017_I2CADR1, 1, 1, MCP23017_IODIRB
   I2C2 read MCP23017_I2CADR1, 0, 1, iobuf()
   ioRegVal = iobuf(0)
-  bitVal = 1 << (bit-8)
+  bitVal = 1 << (bit-24)
   If dir = 1 Then ioRegVal = (bitVal Or ioRegVal) And 255
-  If dir = 0 Then ioRegVal = ((INV bitVal) And ioRegVal)
+  If dir = 0 Then ioRegVal = ((INV bitVal) And ioRegVal) And 255
+  Print "c1b bitVal",bitVal,"ioRegVal",ioRegVal
   I2C2 WRITE MCP23017_I2CADR1, 0, 2, MCP23017_IODIRB, ioRegVal
   GoTo doneSetBit
 doneSetBit:
@@ -251,4 +254,4 @@ Sub initMCP23017x2()
   'Bit 0 = X - Unused
   I2C2 WRITE MCP23017_I2CADR0, 0, 2, MCP23017_IOCON, &H64
   I2C2 WRITE MCP23017_I2CADR1, 0, 2, MCP23017_IOCON, &H64
-End Sub
+End Sub                                                                                     
