@@ -33,4 +33,13 @@
 * Runs on [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02]
 * [https://github.com/land-boards/RasPiPico/tree/main/CircuitPython/CircuitPython_Code/digio32 32-bit Digital I/O code]
 ** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio32/PiPicoMite02_Digio32.py PiPicoMite02_Digio32.py] - Import module that creates an Arduino-like code interface
+*** digitalWrite(bit,value)
+**** bit = 0-31
+**** value = 0, 1
+*** digitalRead(bit)
+**** bit = 0-31
+**** returns 0, 1
+*** pinMode(bit,value)
+**** bit = 0-31
+**** value = INPUT, OUTPUT, INPUT_PULLUP
 ** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio32/Digio32Test.py Digio32Test.py] - Example bounces 32 LEDs
