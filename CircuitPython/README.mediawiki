@@ -5,7 +5,7 @@
 
 == Example code ==
 
-* Runs on on Land Boards cards
+* [https://github.com/land-boards/RasPiPico/tree/main/CircuitPython/CircuitPython_Code Example code] that runs on on Land Boards cards
 ** [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01]
 ** [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02]
 ** [http://land-boards.com/blwiki/index.php?title=PiPicoMite03 PiPicoMite03]
