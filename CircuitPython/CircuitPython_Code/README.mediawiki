@@ -24,4 +24,4 @@
 * Runs on [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02]
 * [https://github.com/land-boards/RasPiPico/tree/main/CircuitPython/CircuitPython_Code/digio32 32-bit Digital I/O code]
 ** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio32/PiPicoMite02_Digio32.py PiPicoMite02_Digio32.py] - Import module that creates an Arduino-like code interface
-** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio32/Digio32Test.py /Digio32Test.py] - Bounce 32 LEDs example
+** [https://github.com/land-boards/RasPiPico/blob/main/CircuitPython/CircuitPython_Code/digio32/Digio32Test.py Digio32Test.py] - Bounce 32 LEDs example
