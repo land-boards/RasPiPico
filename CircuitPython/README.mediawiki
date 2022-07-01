@@ -1,0 +1,14 @@
+= CircuitPython Libraries and Example Code =
+
+* Snapshot of Pico library
+** See CircuitPython repository for latest code
+
+== Example code ==
+
+* Runs on on Land Boards cards
+** [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01]
+** [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02]
+** [http://land-boards.com/blwiki/index.php?title=PiPicoMite03 PiPicoMite03]
+* SD card code
+* Digio16 code for use on [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01]
+* Digio32 code for use on [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02]
