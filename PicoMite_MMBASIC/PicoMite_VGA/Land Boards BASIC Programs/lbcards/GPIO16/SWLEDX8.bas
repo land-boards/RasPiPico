@@ -103,4 +103,4 @@ I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_IODIRB, &HFF
   'Bit 1 - INTPOL = 0 - Active Low Interrupt level
   'Bit 0 = X - Unused
   I2C2 WRITE MCP23017_I2CADR, 0, 2, MCP23017_IOCON, &H64
-End Sub�������������������������������������������������������������������������������������������������������
+End Sub
