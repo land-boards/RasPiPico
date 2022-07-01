@@ -8,7 +8,7 @@ Exercise the MCP23017 32-bit Port Expanders on the [http://land-boards.com/blwik
 ** Alternate patterns then bounce a LED
 ** Attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/GPIO32_Bits.bas GPIO32_Bits.bas]
-** Arduino-style fumctions
+** Arduino-style DigitalRead, DigitalWrite, PinMode functions
 
 = External =
 
