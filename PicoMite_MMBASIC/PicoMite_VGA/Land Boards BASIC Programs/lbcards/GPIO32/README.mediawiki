@@ -33,6 +33,8 @@ Exercise the MCP23017 32-bit Port Expanders on the [http://land-boards.com/blwik
 
 == External 32-Bit Digital I/O Cards Examples ==
 
+<img src="http://land-boards.com/blwiki/images/5/53/DIGIO32-I2C-P232-720px.jpg"></img>
+
 === DIGIO32I2C-01.bas Code ===
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/DIGIO32I2C-01.bas DIGIO32I2C-01.bas]
