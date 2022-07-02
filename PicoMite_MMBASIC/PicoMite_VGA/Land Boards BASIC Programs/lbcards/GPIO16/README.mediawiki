@@ -47,7 +47,7 @@ Exercise the MCP23017 16-bit Port Expander on the [http://land-boards.com/blwiki
 ** Alternate patterns then bounce a LED
 ** External MCP23017 cards such as
 *** [http://land-boards.com/blwiki/index.php?title=PROTO16-I2C PROTO16-I2C] built with 16 LEDs
-*** [http://land-boards.com/blwiki/index.php?title=SWLEDX8-I2C SWLEDZ8-I2C] = (8) Switches, (8) LEDs, I2C interface
+*** [http://land-boards.com/blwiki/index.php?title=SWLEDX8-I2C SWLEDX8-I2C] = (8) Switches, (8) LEDs, I2C interface
 
 === I2CIO16-DB25.bas ===
 
