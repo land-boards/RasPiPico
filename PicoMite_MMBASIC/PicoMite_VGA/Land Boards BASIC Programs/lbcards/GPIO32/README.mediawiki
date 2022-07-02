@@ -1,41 +1,8 @@
-= 32-Bit Digital I/O Code =
-
-* Test internal and external 32-bit Digital I/O functions
-** Internal 32-bit I/O on [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02] card
-** External 32-bit Digital I/O cards tests
-
-== On-Board MCP23017 32-bit Port Expanders Examples ==
-
-<img src="http://land-boards.com/blwiki/images/d/de/PiPicoMite-02_P18268_720px.jpg"></img>
-
-Exercise the MCP23017 32-bit Port Expanders on the [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02] card
-
-=== GPIO32-01.bas Code ===
-
-* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/GPIO32-01.bas GPIO32-01.bas]
-** Test the (2) MCP23017 parts on the PiPicoMite02 card
-** Sets all pins to outputs
-** Light all of the output pins one at a time
-** Alternate patterns then bounce a LED
-** Operates a byte at a time
-** Attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
-
-=== GPIO32_Bits.bas Code ===
-
-* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/GPIO32_Bits.bas GPIO32_Bits.bas]
-** Test the (2) MCP23017 parts on the PiPicoMite02 card
-** Sets all pins to outputs
-** Light all of the output pins one at a time
-** Alternate patterns then bounce a LED
-** Operates a bit at a time
-*** Provides Arduino style [https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/ DigitalRead], [https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/ DigitalWrite], [https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/ PinMode] functions
-** Attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
-
-== External 32-Bit Digital I/O Cards Examples ==
+= External 32-Bit Digital I/O Cards Examples =
 
 <img src="http://land-boards.com/blwiki/images/5/53/DIGIO32-I2C-P232-720px.jpg"></img>
 
-=== DIGIO32I2C-01.bas Code ===
+== DIGIO32I2C-01.bas Code ==
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/DIGIO32I2C-01.bas DIGIO32I2C-01.bas]
 ** Test the (2) MCP23017 parts on the external [http://land-boards.com/blwiki/index.php?title=DIGIO32-I2C DIGIO32-I2C] card
@@ -44,7 +11,7 @@ Exercise the MCP23017 32-bit Port Expanders on the [http://land-boards.com/blwik
 ** Alternate patterns then bounce a LED
 *** [http://land-boards.com/blwiki/index.php?title=DIGIO32-I2C DIGIO32-I2C] card gets attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
 
-=== DIGIO32I2C-02.bas Code ===
+== DIGIO32I2C-02.bas Code ==
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/DIGIO32I2C-02.bas DIGIO32I2C-02.bas] 
 ** Loops pins from internal 32-bit Digio to the external [http://land-boards.com/blwiki/index.php?title=DIGIO32-I2C DIGIO32-I2C] card
