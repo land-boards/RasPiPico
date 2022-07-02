@@ -42,7 +42,7 @@ Exercise the MCP23017 32-bit Port Expanders on the [http://land-boards.com/blwik
 ** Can also be used with the [http://land-boards.com/blwiki/index.php?title=PROTO16-I2C PROTO16-I2C] card
 ** Light all of the output pins one at a time
 ** Alternate patterns then bounce a LED
-*** Attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
+*** [http://land-boards.com/blwiki/index.php?title=DIGIO32-I2C DIGIO32-I2C] card gets attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
 
 === DIGIO32I2C-02.bas Code ===
 
