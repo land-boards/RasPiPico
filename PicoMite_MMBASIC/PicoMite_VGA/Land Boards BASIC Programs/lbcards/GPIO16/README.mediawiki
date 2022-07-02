@@ -52,5 +52,7 @@ Exercise the MCP23017 16-bit Port Expander on the [http://land-boards.com/blwiki
 === I2CIO16-DB25.bas ===
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/I2CIO16-DB25.bas I2CIO16-DB25.bas]
+** Light all of the output pins one at a time
+** Alternate patterns then bounce a LED
 ** Attached to [http://land-boards.com/blwiki/index.php?title=I2CIO16-DB25 I2CIO16-DB25] card
 *** Attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
