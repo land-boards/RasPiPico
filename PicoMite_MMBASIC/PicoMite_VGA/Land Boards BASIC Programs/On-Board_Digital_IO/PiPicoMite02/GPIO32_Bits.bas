@@ -34,7 +34,7 @@ MCP23017_GPIOB    = &H13
 MCP23017_OLATA    = &H14
 MCP23017_OLATB    = &H15
 
-Print "Read Switches, Write LEDs"
+Print "Write 32 LEDs"
 Print "Hit a key to stop"
 
 ' Pin setups
@@ -268,4 +268,4 @@ Sub initMCP23017x2()
   'Bit 0 = X - Unused
   I2C2 WRITE MCP23017_I2CADR0, 0, 2, MCP23017_IOCON, &H64
   I2C2 WRITE MCP23017_I2CADR1, 0, 2, MCP23017_IOCON, &H64
-End Sub            
+End Sub                        
