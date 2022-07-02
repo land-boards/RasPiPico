@@ -6,7 +6,7 @@ Exercise the MCP23017 32-bit Port Expanders on the [http://land-boards.com/blwik
 
 == GPIO32-01.bas Code ==
 
-* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/GPIO32-01.bas GPIO32-01.bas]
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/On-Board_Digital_IO/PiPicoMite02/GPIO32-01.bas GPIO32-01.bas]
 ** Test the (2) MCP23017 parts on the PiPicoMite02 card
 ** Sets all pins to outputs
 ** Light all of the output pins one at a time
@@ -16,7 +16,7 @@ Exercise the MCP23017 32-bit Port Expanders on the [http://land-boards.com/blwik
 
 == GPIO32_Bits.bas Code ==
 
-* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/GPIO32_Bits.bas GPIO32_Bits.bas]
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/On-Board_Digital_IO/PiPicoMite02/GPIO32_Bits.bas GPIO32_Bits.bas]
 ** Test the (2) MCP23017 parts on the PiPicoMite02 card
 ** Sets all pins to outputs
 ** Light all of the output pins one at a time
