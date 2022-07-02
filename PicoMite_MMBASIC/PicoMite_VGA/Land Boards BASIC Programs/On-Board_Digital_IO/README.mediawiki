@@ -1,4 +1,5 @@
 = On-Board Digital I/O =
 
-* 16-bit port expander on [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01] card
-* 32-bit port expander on [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02] card
+* MMBASIC example code to use the On-Board port expanders
+** 16-bit port expander on [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01] card
+** 32-bit port expander on [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 PiPicoMite02] card
