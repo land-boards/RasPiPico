@@ -1,46 +1,6 @@
-= Internal and External 16-Bit Digital I/O Examples =
+= External MCP23017 16-bit Port Expander Examples =
 
-* Test internal and external 16-bit Digital I/O functions
-** Internal 16-bit I/O on [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01] card
-** External 16-bit Digital I/O cards tests
-
-== On-Board MCP23017 16-bit Port Expander Examples ==
-
-<img src="http://land-boards.com/blwiki/images/1/15/PiPicoMite01_Rev2_P18315-720px.jpg"></img>
-
-Exercise the MCP23017 16-bit Port Expander on the [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01] card
-
-=== MCP23017_Blinkey.bas ===
-
-* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/MCP23017_Blinkey.bas MCP23017_Blinkey.bas] - Blink an LED
-** Single LED (with series resistor) on GPA0
-
-=== MCP23017_Bits.bas ===
-
-* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/MCP23017_Bits.bas MCP23017_Bits.bas]
-** Subroutine to set individual bit direction
-** SetBitDir(bit,dir)
-*** bit = 0-15
-**** 0-7 = PORT A
-**** 8-15 = PORT B
-*** dir, 1=in, 0=out
-
-=== GPIO16-01.bas ===
-
-* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/GPIO16-01.bas GPIO16-01.bas]
-** Exercise the MCP23017 I2C Port Expander on the PicoMite01 card
-** Light all the output pins one at a time
-** Alternate patterns then bounce a LED
-** Attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
-
-=== SWLEDX8.bas ===
-
-* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/SWLEDX8.bas SWLEDX8.bas] - Read (8) Switches, write back to (8) LEDS
-** Uses [http://land-boards.com/blwiki/index.php?title=SWLEDX8 SWLEDX8 card]
-
-== External MCP23017 16-bit Port Expander Examples ==
-
-=== GPIO16-02.bas ===
+== GPIO16-02.bas ==
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/GPIO16-02.bas GPIO16-02.bas]
 ** Light all of the output pins one at a time
@@ -49,7 +9,7 @@ Exercise the MCP23017 16-bit Port Expander on the [http://land-boards.com/blwiki
 *** [http://land-boards.com/blwiki/index.php?title=PROTO16-I2C PROTO16-I2C] built with 16 LEDs
 *** [http://land-boards.com/blwiki/index.php?title=SWLEDX8-I2C SWLEDX8-I2C] = (8) Switches, (8) LEDs, I2C interface
 
-=== I2CIO16-DB25.bas ===
+== I2CIO16-DB25.bas ==
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/I2CIO16-DB25.bas I2CIO16-DB25.bas]
 ** Light all of the output pins one at a time

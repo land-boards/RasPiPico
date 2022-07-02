@@ -1,0 +1,33 @@
+= On-Board MCP23017 16-bit Port Expander Examples =
+
+<img src="http://land-boards.com/blwiki/images/1/15/PiPicoMite01_Rev2_P18315-720px.jpg"></img>
+
+Exercise the MCP23017 16-bit Port Expander on the [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01] card
+
+== MCP23017_Blinkey.bas ==
+
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/MCP23017_Blinkey.bas MCP23017_Blinkey.bas] - Blink an LED
+** Single LED (with series resistor) on GPA0
+
+== MCP23017_Bits.bas ==
+
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/MCP23017_Bits.bas MCP23017_Bits.bas]
+** Subroutine to set individual bit direction
+** SetBitDir(bit,dir)
+*** bit = 0-15
+**** 0-7 = PORT A
+**** 8-15 = PORT B
+*** dir, 1=in, 0=out
+
+== GPIO16-01.bas ==
+
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/GPIO16-01.bas GPIO16-01.bas]
+** Exercise the MCP23017 I2C Port Expander on the PicoMite01 card
+** Light all the output pins one at a time
+** Alternate patterns then bounce a LED
+** Attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
+
+== SWLEDX8.bas ==
+
+* [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/SWLEDX8.bas SWLEDX8.bas] - Read (8) Switches, write back to (8) LEDS
+** Uses [http://land-boards.com/blwiki/index.php?title=SWLEDX8 SWLEDX8 card]
