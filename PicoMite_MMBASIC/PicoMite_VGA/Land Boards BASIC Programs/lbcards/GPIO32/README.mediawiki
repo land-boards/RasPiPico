@@ -8,6 +8,7 @@ Exercise the MCP23017 32-bit Port Expanders on the [http://land-boards.com/blwik
 ** Test the (2) MCP23017 parts on the PiPicoMite02 card
 ** Light all of the output pins one at a time
 ** Alternate patterns then bounce a LED
+** Operates a byte at a time
 ** Attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/GPIO32_Bits.bas GPIO32_Bits.bas]
 ** Provides Arduino style [https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/ DigitalRead], [https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/ DigitalWrite], [https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/ PinMode] functions
