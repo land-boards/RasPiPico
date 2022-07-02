@@ -12,12 +12,9 @@ Exercise the MCP23017 16-bit Port Expander on the [http://land-boards.com/blwiki
 == GPIO16_Bits.bas ==
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/On-Board_Digital_IO/PiPicoMite01/GPIO16_Bits.bas GPIO16_Bits.bas]
-** Subroutine to set individual bit direction
-** SetBitDir(bit,dir)
-*** bit = 0-15
-**** 0-7 = PORT A
-**** 8-15 = PORT B
-*** dir, 1=in, 0=out
+** Provide Arduino style DigitalRead, DigitalWrite, PinMode functions
+** Using http://land-boards.com/blwiki/index.php?title=SWLEDX8
+** Read switch on GPB0, echo to LED on GPA0
 
 == MCP23017_Bits.bas ==
 
