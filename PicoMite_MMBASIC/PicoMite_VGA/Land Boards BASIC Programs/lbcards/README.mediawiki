@@ -1,6 +1,6 @@
 = Example Code for Raspberry Pi Pico VGA =
 
-Exercise/test Land Boards cards.
+Exercise/test Land Boards cards using MMBASIC.
 
 * [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16 GPIO16]
 *** [http://land-boards.com/blwiki/index.php?title=SWLEDX8 SWLEDX8] card
