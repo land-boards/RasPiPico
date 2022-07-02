@@ -1,4 +1,10 @@
-= On-Board MCP23017 16-bit Port Expander Examples =
+= Internal and External 16-Bit Digital I/O Examples =
+
+* Test internal and external 16-bit Digital I/O functions
+** Internal 16-bit I/O on [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 PiPicoMite01] card
+** External 16-bit Digital I/O cards tests
+
+== On-Board MCP23017 16-bit Port Expander Examples ==
 
 <img src="http://land-boards.com/blwiki/images/1/15/PiPicoMite01_Rev2_P18315-720px.jpg"></img>
 
@@ -21,7 +27,7 @@ Exercise the MCP23017 16-bit Port Expander on the [http://land-boards.com/blwiki
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/SWLEDX8.bas SWLEDX8.bas] - Read (8) Switches, write back to (8) LEDS
 ** Uses [http://land-boards.com/blwiki/index.php?title=SWLEDX8 SWLEDX8 card]
 
-= External MCP23017 16-bit Port Expander Examples =
+== External MCP23017 16-bit Port Expander Examples ==
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO16/GPIO16-02.bas GPIO16-02.bas]
 ** Light all of the output pins one at a time
