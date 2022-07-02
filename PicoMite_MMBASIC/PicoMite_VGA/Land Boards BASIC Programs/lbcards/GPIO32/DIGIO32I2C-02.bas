@@ -1,6 +1,6 @@
 ' DIGIO32I2C-02.bas - Test external DIGIO32-I2C on PiPicoMite02
 ' Test the (2) MCP23017 parts on the DIGIO32-I2C card
-' Loops pins from interbal 32-bit Digio to external DIGIO32-I2C card
+' Loops pins from internal 32-bit Digio to external DIGIO32-I2C card
 '
 ' I2C is the UUT
 '    UUT_I2CADR0, UUT_I2CADR1
