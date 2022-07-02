@@ -23,10 +23,9 @@ Exercise the MCP23017 32-bit Port Expanders on the [http://land-boards.com/blwik
 = External 32-Bit Digital I/O Cards =
 
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/DIGIO32I2C-01.bas DIGIO32I2C-01.bas]
-** Test the (2) MCP23017 parts on the DIGIO32-I2C card
+** Test the (2) MCP23017 parts on the [http://land-boards.com/blwiki/index.php?title=DIGIO32-I2C DIGIO32-I2C] card
 ** Light all of the output pins one at a time
 ** Alternate patterns then bounce a LED
-** Used with [http://land-boards.com/blwiki/index.php?title=DIGIO32-I2C DIGIO32-I2C] card
 *** Attached to [http://land-boards.com/blwiki/index.php?title=LED-32 LED-32] card
 * [https://github.com/land-boards/RasPiPico/blob/main/PicoMite_MMBASIC/PicoMite_VGA/Land%20Boards%20BASIC%20Programs/lbcards/GPIO32/DIGIO32I2C-02.bas DIGIO32I2C-02.bas] 
 ** Loops pins from internal 32-bit Digio to external DIGIO32-I2C card
