@@ -1,1 +1,3 @@
 = Firmware Versions =
+
+* [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/PicoMiteVGA_Firmware/PicoMiteVGAV5.07.04 PicoMiteVGAV5.07.04] works
