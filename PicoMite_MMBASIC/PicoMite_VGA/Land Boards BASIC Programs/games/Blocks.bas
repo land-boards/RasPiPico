@@ -1,4 +1,4 @@
-' Blocks V1.0
+' Blocks V1.0 - Tetris Clone
 ' Geoff Graham March 2022
 
 ' Written for the PicoMiteVGA although it will also
@@ -482,4 +482,4 @@ Data RGB(green)
 Data 1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0
 Data 0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0
 Data 1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0
-Data 0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0
+Data 0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0      
