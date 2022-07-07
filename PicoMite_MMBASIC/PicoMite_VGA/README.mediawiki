@@ -11,7 +11,7 @@
 == Features ==
 
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
-* VGA
+* VGA - 16 colors
 ** 1:2:1 R:G:B
 * SD Card
 * Stereo Audio
