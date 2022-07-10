@@ -13,7 +13,7 @@
 ** Working beta version (on all Picos I tested)
 * PicoMiteVGAV5.07.05b13
 ** Has unstable video
-* [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/PicoMiteVGA_Firmware/2022-05-23_171027_PicoMiteVGA 2022-05-23_171027_PicoMiteVGA]
+* [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/PicoMiteVGA_Firmware/2022-05-23_171027_PicoMiteVGA 2022-05-23_171027_PicoMiteVGA] - Version 5.07.05b2
 ** Reported to be stable on a different Pico card where others were not stable
 
 = PiPicoMite0x Configuration =
