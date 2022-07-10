@@ -1,7 +1,0 @@
-This is a list of known bugs and issues in PicoMite MMBasic 5.07.04.  
-These should be fixed in later versions.
-
-==================================================================================
-
-Bug in PIO READ - fixed in V5.07.05b1
-
