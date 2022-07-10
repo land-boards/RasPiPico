@@ -1,7 +1,7 @@
 = Support =
 
 * [https://www.thebackshed.com/forum/ViewTopic.php?FID=16&TID=14854 Support site for PicomiteVGA firmware is TheBackShed]
-** You can find thelatest Beta builds there
+** You can find the latest Beta builds there
 
 = Firmware Versions =
 
