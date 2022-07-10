@@ -1,1 +1,1 @@
-= Stable Beta Version 5.07.04 =
+= Stable Version 5.07.04 =
