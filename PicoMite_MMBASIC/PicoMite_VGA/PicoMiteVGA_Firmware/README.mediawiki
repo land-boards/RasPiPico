@@ -3,7 +3,7 @@
 * [https://www.thebackshed.com/forum/ViewTopic.php?FID=16&TID=14854 TheBackShed Forum] - Support site for PicomiteVGA firmware
 ** You can find the latest Beta builds there
 ** The firmware is under very active development so features change often
-*** On net things get better, some features are deleted
+*** Gets better with new features, some features are added, some are deleted
 
 = Firmware Versions =
 
