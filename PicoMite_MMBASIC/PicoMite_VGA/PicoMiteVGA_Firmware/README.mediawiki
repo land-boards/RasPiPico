@@ -6,9 +6,9 @@
 = Firmware Versions =
 
 * [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/PicoMiteVGA_Firmware/PicoMiteVGAV5.07.04 PicoMiteVGAV5.07.04]
-** Stable released version
+** Stable released version (on all Picos I tested)
 * [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/PicoMiteVGA_Firmware/PicoMiteVGA_V6.07.05b2 PicoMiteVGA_V6.07.05b2]
-** Working beta version
+** Working beta version (on all Picos I tested)
 * PicoMiteVGAV5.07.05b13
 ** Has unstable video
 * [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/PicoMiteVGA_Firmware/2022-05-23_171027_PicoMiteVGA 2022-05-23_171027_PicoMiteVGA]
