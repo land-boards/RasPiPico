@@ -10,7 +10,7 @@
 * [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/PicoMiteVGA_Firmware/PicoMiteVGAV5.07.04 PicoMiteVGAV5.07.04]
 ** Stable released version (on all Picos I tested)
 * [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/PicoMiteVGA_Firmware/2022-05-23_171027_PicoMiteVGA 2022-05-23_171027_PicoMiteVGA]
-** Screen also shows Version 5.07.05b2
+** Screen shows Version 5.07.05b2
 ** Reported to be stable on a different Pico card where others were not stable
 * [https://github.com/land-boards/RasPiPico/tree/main/PicoMite_MMBASIC/PicoMite_VGA/PicoMiteVGA_Firmware/PicoMiteVGA_V6.07.05b2 PicoMiteVGA_V6.07.05b2]
 ** Screen also shows Version Version 5.07.05b2
