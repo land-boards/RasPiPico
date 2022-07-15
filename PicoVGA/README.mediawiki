@@ -13,13 +13,13 @@ Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
 * To compile demo project, run c.bat (or c_all.bat to compile all).
 * To clear demo project, run d.bat (or d_all.bat to clear all).
 * To write demo project to the Pico board:
-** press and hold BOOTSEL button on the Pico board
-** connect USB cable
-** release BOOTSEL button
-** edit destination drive (now there is r:) in file _e1.bat, command:
-*** copy /b program.uf2 r:
+** Press and hold BOOTSEL button on the Pico board
+** Connect USB cable
+** Release BOOTSEL button
+** Edit destination drive (now there is r:) in file _e1.bat, command:
+*** Copy /b program.uf2 r:
 ** and then run e.bat 
-*** or drag and drop file 'program.uf2' to Pico drive.
+** or drag and drop file 'program.uf2' to Pico drive.
 
 
 == How to connect VGA display ==
