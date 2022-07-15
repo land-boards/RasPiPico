@@ -21,7 +21,6 @@ Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
 ** and then run e.bat 
 ** or drag and drop file 'program.uf2' to Pico drive.
 
-
 == How to connect VGA display ==
 
 <pre>
@@ -61,8 +60,9 @@ DEFINE += -DPICO_STDIO_UART=1
    ---          GND |.3    38.| GND  K diode A
                 GP2 |.4    37.| 3V3_EN
                 GP3 |.5    36.| 3V3_OUT
-</pre>
                       ......
+</pre>
+
 * Note: in simple case, you need not diode, you can connect +5V directly on board.
 * connect USB/UART adaptor PL2303TA:
 
