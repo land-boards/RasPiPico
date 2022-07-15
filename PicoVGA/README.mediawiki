@@ -8,12 +8,8 @@ Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
 
 * Install compiler gcc-arm-none-eabi-10-2020 into folder C:\ARM10
 * Unpack this package into some folder
-* If you have gcc compiler installed in another folder,
-<pre>
-edit PATH in files _c1.bat and _boot2\c.bat
-</pre>
-
-* I recommend FAR Manager as program editor - it contains very useful console output.
+* If you have gcc compiler installed in another folder, edit PATH in files _c1.bat and _boot2\c.bat
+* I [Miroslav Nemecek] recommend FAR Manager as program editor - it contains very useful console output.
 * To compile demo project, run c.bat (or c_all.bat to compile all).
 * To clear demo project, run d.bat (or d_all.bat to clear all).
 * To write demo project to the Pico board:
