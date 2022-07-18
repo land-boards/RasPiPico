@@ -38,6 +38,16 @@ We will use 32-bit integer with highest 7 bits as integer part and 25 lower bits
 #define RES_MED	 1	// medium resolution 264x200
 #define RES_HIGH 2	// high resolution 528x400
 
+// JOYPAD pushbutton to Pico pin mounting
+#define PB_UL 16		// Upper Left pushbutton
+#define PB_RT 17		// Right direction
+#define PB_FR 18		// Fire
+#define PB_LT 20		// Left direction
+#define PB_CF 21		// Center Fire
+#define PB_DN 22		// Down direction
+#define PB_UR 26		// Upper right
+#define PB_UP 27		// Up direction
+
 int HighRes = RES_MED; // resolution
 int Arithm = USE_INT; // used arithmetics
 
@@ -374,6 +384,51 @@ void Help()
 	printf("space ... redraw\n");
 }
 
+// Init the JoyPad pins
+// #define PB_UL 16		// Upper Left pushbutton
+// #define PB_RT 17		// Right direction
+// #define PB_FR 18		// Fire
+// #define PB_LT 20		// Left direction
+// #define PB_CF 21		// Center Fire
+// #define PB_DN 22		// Down direction
+// #define PB_UR 26		// Upper right
+// #define PB_UP 27		// Up direction
+void initJoyPad()
+{
+	gpio_init(PB_UL);
+	gpio_set_dir(PB_UL, GPIO_IN);
+	gpio_pull_up(PB_UL);
+	
+	gpio_init(PB_FR);
+	gpio_set_dir(PB_FR, GPIO_IN);
+	gpio_pull_up(PB_FR);
+	
+	gpio_init(PB_UP);
+	gpio_set_dir(PB_UP, GPIO_IN);
+	gpio_pull_up(PB_UP);
+	
+	gpio_init(PB_UR);
+	gpio_set_dir(PB_UR, GPIO_IN);
+	gpio_pull_up(PB_UR);
+	
+	gpio_init(PB_DN);
+	gpio_set_dir(PB_DN, GPIO_IN);
+	gpio_pull_up(PB_DN);
+	
+	gpio_init(PB_LT);
+	gpio_set_dir(PB_LT, GPIO_IN);
+	gpio_pull_up(PB_LT);
+	
+	gpio_init(PB_RT);
+	gpio_set_dir(PB_RT, GPIO_IN);
+	gpio_pull_up(PB_RT);
+	
+	gpio_init(PB_CF);
+	gpio_set_dir(PB_CF, GPIO_IN);
+	gpio_pull_up(PB_CF);
+
+}
+
 int main()
 {
 	int c;
@@ -390,6 +445,8 @@ int main()
 	// initialize debug LED
 	gpio_init(LED_PIN);
 	gpio_set_dir(LED_PIN, GPIO_OUT);
+	
+	initJoyPad();
 
 	// start new image
 	MandelStart();
@@ -401,7 +458,53 @@ int main()
 	{
 		// keys
 		c = getchar_timeout_us(0);
-		if ((c != 0) && (c != PICO_ERROR_TIMEOUT))
+		if (c == -1)
+		{
+			c = 0;
+			//printf("Timeout val, %d",c);
+		}
+		if (c == 0)
+		{
+			if (!gpio_get(PB_LT))	// Left
+			{
+				while (!gpio_get(PB_LT))
+					sleep_ms(20);
+				c =  'S';
+			}
+			else if (!gpio_get(PB_UP))	// Up
+			{
+				while (!gpio_get(PB_UP))
+					sleep_ms(20);
+				c =  'E';
+			}
+			else if (!gpio_get(PB_RT))	// Right
+			{
+				while (!gpio_get(PB_RT))
+					sleep_ms(20);
+				c =  'D';
+			}
+			else if (!gpio_get(PB_DN))	// Down
+			{
+				while (!gpio_get(PB_DN))
+					sleep_ms(20);
+				c =  'X';
+			}
+			else if (!gpio_get(PB_UL))	// Zoom Out
+			{
+				while (!gpio_get(PB_UL))
+					sleep_ms(20);
+				c =  'A';
+			}
+			else if (!gpio_get(PB_FR))	//Zoom In
+			{
+				while (!gpio_get(PB_FR))
+					sleep_ms(20);
+				c =  'Q';
+			}
+			else
+				c = 0;
+		}
+		if (c != 0)
 		{
 			if ((c >= 'a') && (c <= 'z')) c -= 32;
 
@@ -502,7 +605,7 @@ int main()
 				break;
 
 			default:
-				printf("\nInvalid key command\n");
+				printf("\nInvalid key command %d\n",c);
 				Help();
 				State();
 			}
