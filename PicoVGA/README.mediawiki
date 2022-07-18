@@ -23,21 +23,14 @@ Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
 ** and then run e.bat 
 ** or drag and drop file 'program.uf2' to Pico drive.
 
-== How to connect VGA display ==
+== Hardware ==
 
-<pre>
-GP0 ... VGA B0 ... resistor 1K0 to Blue output
-GP1 ... VGA B1 ... resistor 390 to Blue output
-GP2 ... VGA G0 ... resistor 2K2 to Green output
-GP3 ... VGA G1 ... resistor 1K0 to Green output
-GP4 ... VGA G2 ... resistor 470 to Green output
-GP5 ... VGA R0 ... resistor 2K2 to Red output
-GP6 ... VGA R1 ... resistor 1K0 to Red output
-GP7 ... VGA R2 ... resistor 470 to Red output
-GP8 ... VGA SYNC synchronization ... resistor 100 to HSYNC or composite sync CSYNC
-
-GP19 ... PWM sound output (RC LOW filter 1K5 resistor + 10n capacitor)
-</pre>
+* Uses cards
+** Raspberry Pi Pico Breakout Board
+** Raspberry Pi Pico
+** VGAX49
+** Audio Filter Card
+** JOYPAD Card
 
 == How to connect Pico to PC with serial port ==
 
@@ -80,7 +73,6 @@ DEFINE += -DPICO_STDIO_UART=1
 * In Device Manager, USB adaptor can be found under name:
 ** "Prolific USB-to-Serial Comm Port (COM10)".
 
-
 == PicoVGA examples ==
 
 * filenameJS = My Joystick version of the programs
@@ -106,6 +98,9 @@ EggsJS - game of Eggs+Chickens+Hens, variant of the Reversi game
 
 Fifteen - game
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'Q' new game
+
+FifteenJS - game
+	     JoyPad control: right, up, left, down, upper right = new game
 
 Flag - animation of flag fluttering in the wind
 
