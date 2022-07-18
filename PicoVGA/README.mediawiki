@@ -107,6 +107,9 @@ Flag - animation of flag fluttering in the wind
 Ghost Racing - car racing game, racing with player's ghost copy, demonstration of 3D perspective projection
 	keyboard control: 'I' gear up, 'K' gear down, 'J' turn left, 'L' turn right
 
+Ghost RacingJS - car racing game, racing with player's ghost copy, demonstration of 3D perspective projection
+	keyboard control: up = gear up, down = gear down, left = turn left, right = turn right
+
 Ginger House - picture fairy tale book
 	keyboard control: 'J' previous page, 'L' next page
 
