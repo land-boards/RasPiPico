@@ -1,6 +1,6 @@
 = PicoVGA - VGA/TV display on Raspberry Pico =
 
-<img src="http://land-boards.com/blwiki/images/2/24/PicoVGA_P18425-720px.jpg"></img>
+<img src="http://land-boards.com/blwiki/images/6/66/PicoVGA_P1080432-720px.jpg"></img>
 
 Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
 
