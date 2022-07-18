@@ -15,11 +15,15 @@
 
 #define LEVELNUM	10	// number of levels
 
-#define PB_RT 16
-#define PB_LT 17
-#define PB_CF 18
-#define PB_DN 20
-#define PB_UR 21
+// JOYPAD pushbutton to Pico pin mounting
+#define PB_UL 16		// Upper Left pushbutton
+#define PB_RT 17		// Right direction
+#define PB_FR 18		// Fire
+#define PB_LT 20		// Left direction
+#define PB_CF 21		// Center Fire
+#define PB_DN 22		// Down direction
+#define PB_UR 26		// Upper right
+#define PB_UP 27		// Up direction
 
 u8 Level;	// current level (1..)
 u8 LevelBest;	// best level
@@ -230,11 +234,14 @@ void DispHelp()
 
 // get character from keyboard (0 = no key)
 // Tetris - game
-// #define PB_RT 16
-// #define PB_LT 17
-// #define PB_CF 18
-// #define PB_DN 20
-// #define PB_UR 21
+// #define PB_UL 16		// Upper Left pushbutton
+// #define PB_RT 17		// Right direction
+// #define PB_FR 18		// Fire
+// #define PB_LT 20		// Left direction
+// #define PB_CF 21		// Center Fire
+// #define PB_DN 22		// Down direction
+// #define PB_UR 26		// Upper right
+// #define PB_UP 27		// Up direction
 //	keyboard control: 
 //		'L' right, RT - BRN - RIGHT
 //		'I' turn, CF - YEL - CENTER FIRE ROTATE
@@ -1041,13 +1048,29 @@ void PlayDemo()
 }
 
 // Init the JoyPad pins
-// GP16=Up
-// GP18=Down
-// GP20=Left
-// GP21=Right
-// GP17=Fire
+// #define PB_UL 16		// Upper Left pushbutton
+// #define PB_RT 17		// Right direction
+// #define PB_FR 18		// Fire
+// #define PB_LT 20		// Left direction
+// #define PB_CF 21		// Center Fire
+// #define PB_DN 22		// Down direction
+// #define PB_UR 26		// Upper right
+// #define PB_UP 27		// Up direction
+
 void initJoyPad()
 {
+	gpio_init(PB_UL);
+	gpio_set_dir(PB_UL, GPIO_IN);
+	gpio_pull_up(PB_UL);
+	
+	gpio_init(PB_FR);
+	gpio_set_dir(PB_FR, GPIO_IN);
+	gpio_pull_up(PB_FR);
+	
+	gpio_init(PB_UP);
+	gpio_set_dir(PB_UP, GPIO_IN);
+	gpio_pull_up(PB_UP);
+	
 	gpio_init(PB_UR);
 	gpio_set_dir(PB_UR, GPIO_IN);
 	gpio_pull_up(PB_UR);

@@ -17885,7 +17885,7 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
                 0x10000100                __boot2_end__ = .
                 0x00000001                ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
-.text           0x10000100    0x10240
+.text           0x10000100    0x10280
                 0x10000100                __logical_binary_start = .
  *(.vectors)
  .vectors       0x10000100       0xd4 ./build/crt0.o
@@ -18576,155 +18576,155 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
                 0x1000c014      0xb18 ./build/main.o
                 0x1000c014                PlayDemo()
  .text._Z10initJoyPadv
-                0x1000cb2c       0x78 ./build/main.o
+                0x1000cb2c       0xb8 ./build/main.o
                 0x1000cb2c                initJoyPad()
  .text.startup.main
-                0x1000cba4      0x168 ./build/main.o
-                0x1000cba4                main
+                0x1000cbe4      0x168 ./build/main.o
+                0x1000cbe4                main
  .text._Z10VgaDmaInitv
-                0x1000cd0c      0x11c ./build/vga.o
-                0x1000cd0c                VgaDmaInit()
+                0x1000cd4c      0x11c ./build/vga.o
+                0x1000cd4c                VgaDmaInit()
  .text._Z10VgaPioInitv
-                0x1000ce28      0x1ac ./build/vga.o
-                0x1000ce28                VgaPioInit()
+                0x1000ce68      0x1ac ./build/vga.o
+                0x1000ce68                VgaPioInit()
  .text._Z10VgaBufInitv
-                0x1000cfd4      0x1ac ./build/vga.o
-                0x1000cfd4                VgaBufInit()
+                0x1000d014      0x1ac ./build/vga.o
+                0x1000d014                VgaBufInit()
  .text._Z7VgaTermv
-                0x1000d180       0xc8 ./build/vga.o
-                0x1000d180                VgaTerm()
+                0x1000d1c0       0xc8 ./build/vga.o
+                0x1000d1c0                VgaTerm()
  .text._Z16ScanlineTypeInitPK6sVmode
-                0x1000d248      0x1bc ./build/vga.o
-                0x1000d248                ScanlineTypeInit(sVmode const*)
+                0x1000d288      0x1bc ./build/vga.o
+                0x1000d288                ScanlineTypeInit(sVmode const*)
  .text._Z7VgaInitPK6sVmode
-                0x1000d404      0x1d0 ./build/vga.o
-                0x1000d404                VgaInit(sVmode const*)
+                0x1000d444      0x1d0 ./build/vga.o
+                0x1000d444                VgaInit(sVmode const*)
  .text._Z7VgaCorev
-                0x1000d5d4       0x4c ./build/vga.o
-                0x1000d5d4                VgaCore()
+                0x1000d614       0x4c ./build/vga.o
+                0x1000d614                VgaCore()
  .text._Z10VgaInitReqPK6sVmode
-                0x1000d620       0x28 ./build/vga.o
-                0x1000d620                VgaInitReq(sVmode const*)
+                0x1000d660       0x28 ./build/vga.o
+                0x1000d660                VgaInitReq(sVmode const*)
  .text._Z7LayerOnh
-                0x1000d648       0x20 ./build/vga_layer.o
-                0x1000d648                LayerOn(unsigned char)
+                0x1000d688       0x20 ./build/vga_layer.o
+                0x1000d688                LayerOn(unsigned char)
  .text._Z10LayerSetuphPKhPK6sVmodetthPKv
-                0x1000d668      0x108 ./build/vga_layer.o
-                0x1000d668                LayerSetup(unsigned char, unsigned char const*, sVmode const*, unsigned short, unsigned short, unsigned char, void const*)
+                0x1000d6a8      0x108 ./build/vga_layer.o
+                0x1000d6a8                LayerSetup(unsigned char, unsigned char const*, sVmode const*, unsigned short, unsigned short, unsigned char, void const*)
  .text._Z11ScreenClearP7sScreen
-                0x1000d770       0x10 ./build/vga_screen.o
-                0x1000d770                ScreenClear(sScreen*)
+                0x1000d7b0       0x10 ./build/vga_screen.o
+                0x1000d7b0                ScreenClear(sScreen*)
  .text._Z14ScreenAddStripP7sScreeni
-                0x1000d780       0x24 ./build/vga_screen.o
-                0x1000d780                ScreenAddStrip(sScreen*, int)
+                0x1000d7c0       0x24 ./build/vga_screen.o
+                0x1000d7c0                ScreenAddStrip(sScreen*, int)
  .text._Z13ScreenAddSegmP6sStripi
-                0x1000d7a4       0x38 ./build/vga_screen.o
-                0x1000d7a4                ScreenAddSegm(sStrip*, int)
+                0x1000d7e4       0x38 ./build/vga_screen.o
+                0x1000d7e4                ScreenAddSegm(sStrip*, int)
  .text._Z15ScreenSegmColorP5sSegmmm
-                0x1000d7dc       0x14 ./build/vga_screen.o
-                0x1000d7dc                ScreenSegmColor(sSegm*, unsigned long, unsigned long)
+                0x1000d81c       0x14 ./build/vga_screen.o
+                0x1000d81c                ScreenSegmColor(sSegm*, unsigned long, unsigned long)
  .text._Z16ScreenSegmGraph8P5sSegmPKvi
-                0x1000d7f0       0x1c ./build/vga_screen.o
-                0x1000d7f0                ScreenSegmGraph8(sSegm*, void const*, int)
+                0x1000d830       0x1c ./build/vga_screen.o
+                0x1000d830                ScreenSegmGraph8(sSegm*, void const*, int)
  .text._Z13GenPal16TransPtPKh
-                0x1000d80c       0x28 ./build/vga_screen.o
-                0x1000d80c                GenPal16Trans(unsigned short*, unsigned char const*)
+                0x1000d84c       0x28 ./build/vga_screen.o
+                0x1000d84c                GenPal16Trans(unsigned short*, unsigned char const*)
  .text._Z16ScreenSegmGraph4P5sSegmPKvS2_i
-                0x1000d834       0x20 ./build/vga_screen.o
-                0x1000d834                ScreenSegmGraph4(sSegm*, void const*, void const*, int)
+                0x1000d874       0x20 ./build/vga_screen.o
+                0x1000d874                ScreenSegmGraph4(sSegm*, void const*, void const*, int)
  .text._Z16ScreenSegmGraph1P5sSegmPKvhhi
-                0x1000d854       0x28 ./build/vga_screen.o
-                0x1000d854                ScreenSegmGraph1(sSegm*, void const*, unsigned char, unsigned char, int)
+                0x1000d894       0x28 ./build/vga_screen.o
+                0x1000d894                ScreenSegmGraph1(sSegm*, void const*, unsigned char, unsigned char, int)
  .text._Z15ScreenSegmMTextP5sSegmPKvS2_thhi
-                0x1000d87c       0x30 ./build/vga_screen.o
-                0x1000d87c                ScreenSegmMText(sSegm*, void const*, void const*, unsigned short, unsigned char, unsigned char, int)
+                0x1000d8bc       0x30 ./build/vga_screen.o
+                0x1000d8bc                ScreenSegmMText(sSegm*, void const*, void const*, unsigned short, unsigned char, unsigned char, int)
  .text._Z15ScreenSegmATextP5sSegmPKvS2_tS2_i
-                0x1000d8ac       0x28 ./build/vga_screen.o
-                0x1000d8ac                ScreenSegmAText(sSegm*, void const*, void const*, unsigned short, void const*, int)
+                0x1000d8ec       0x28 ./build/vga_screen.o
+                0x1000d8ec                ScreenSegmAText(sSegm*, void const*, void const*, unsigned short, void const*, int)
  .text._Z14ScreenSegmTileP5sSegmPKvS2_iii
-                0x1000d8d4       0x4c ./build/vga_screen.o
-                0x1000d8d4                ScreenSegmTile(sSegm*, void const*, void const*, int, int, int)
+                0x1000d914       0x4c ./build/vga_screen.o
+                0x1000d914                ScreenSegmTile(sSegm*, void const*, void const*, int, int, int)
  .text._Z6DecNumPcl
-                0x1000d920       0xa0 ./build/vga_util.o
-                0x1000d920                DecNum(char*, long)
+                0x1000d960       0xa0 ./build/vga_util.o
+                0x1000d960                DecNum(char*, long)
  .text._Z6VgaCfgPK7sVgaCfgP6sVmode
-                0x1000d9c0      0x5f0 ./build/vga_vmode.o
-                0x1000d9c0                VgaCfg(sVgaCfg const*, sVmode*)
+                0x1000da00      0x5f0 ./build/vga_vmode.o
+                0x1000da00                VgaCfg(sVgaCfg const*, sVmode*)
  .text._Z5VideohhhPhPKv
-                0x1000dfb0      0x2b8 ./build/vga_vmode.o
-                0x1000dfb0                Video(unsigned char, unsigned char, unsigned char, unsigned char*, void const*)
+                0x1000dff0      0x2b8 ./build/vga_vmode.o
+                0x1000dff0                Video(unsigned char, unsigned char, unsigned char, unsigned char*, void const*)
  .text._Z9DrawPointP7sCanvasiih.part.0
-                0x1000e268      0x280 ./build/canvas.o
+                0x1000e2a8      0x280 ./build/canvas.o
  .text._Z8DrawRectP7sCanvasiiiih
-                0x1000e4e8      0xd8c ./build/canvas.o
-                0x1000e4e8                DrawRect(sCanvas*, int, int, int, int, unsigned char)
+                0x1000e528      0xd8c ./build/canvas.o
+                0x1000e528                DrawRect(sCanvas*, int, int, int, int, unsigned char)
  .text._Z10DrawTextBgP7sCanvasPKciihhPKviii
-                0x1000f274      0x164 ./build/canvas.o
-                0x1000f274                DrawTextBg(sCanvas*, char const*, int, int, unsigned char, unsigned char, void const*, int, int, int)
+                0x1000f2b4      0x164 ./build/canvas.o
+                0x1000f2b4                DrawTextBg(sCanvas*, char const*, int, int, unsigned char, unsigned char, void const*, int, int, int)
  .text._Z12FindSysClockmPmS_PtPhS1_
-                0x1000f3d8      0x274 ./build/overclock.o
-                0x1000f3d8                FindSysClock(unsigned long, unsigned long*, unsigned long*, unsigned short*, unsigned char*, unsigned char*)
+                0x1000f418      0x274 ./build/overclock.o
+                0x1000f418                FindSysClock(unsigned long, unsigned long*, unsigned long*, unsigned short*, unsigned char*, unsigned char*)
  .text._Z10PrintSetupPhiii
-                0x1000f64c       0x54 ./build/print.o
-                0x1000f64c                PrintSetup(unsigned char*, int, int, int)
+                0x1000f68c       0x54 ./build/print.o
+                0x1000f68c                PrintSetup(unsigned char*, int, int, int)
  .text._Z10PrintClearv
-                0x1000f6a0       0x98 ./build/print.o
-                0x1000f6a0                PrintClear()
+                0x1000f6e0       0x98 ./build/print.o
+                0x1000f6e0                PrintClear()
  .text._ZN7cRandom8InitSeedEv
-                0x1000f738       0x6c ./build/rand.o
-                0x1000f738                cRandom::InitSeed()
+                0x1000f778       0x6c ./build/rand.o
+                0x1000f778                cRandom::InitSeed()
  .text._ZN7cRandom2U8Ev
-                0x1000f7a4       0x28 ./build/rand.o
-                0x1000f7a4                cRandom::U8()
+                0x1000f7e4       0x28 ./build/rand.o
+                0x1000f7e4                cRandom::U8()
  .text._ZN7cRandom5U8MaxEh
-                0x1000f7cc       0x50 ./build/rand.o
-                0x1000f7cc                cRandom::U8Max(unsigned char)
+                0x1000f80c       0x50 ./build/rand.o
+                0x1000f80c                cRandom::U8Max(unsigned char)
  .text._Z9PWMSndIrqv
-                0x1000f81c       0x6c ./build/pwmsnd.o
-                0x1000f81c                PWMSndIrq()
+                0x1000f85c       0x6c ./build/pwmsnd.o
+                0x1000f85c                PWMSndIrq()
  .text._Z10PWMSndInitv
-                0x1000f888       0x78 ./build/pwmsnd.o
-                0x1000f888                PWMSndInit()
+                0x1000f8c8       0x78 ./build/pwmsnd.o
+                0x1000f8c8                PWMSndInit()
  .text._Z9PlaySoundPKhihf
-                0x1000f900       0x6c ./build/pwmsnd.o
-                0x1000f900                PlaySound(unsigned char const*, int, unsigned char, float)
- .text.calloc   0x1000f96c       0x18 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-calloc.o)
-                0x1000f96c                calloc
+                0x1000f940       0x6c ./build/pwmsnd.o
+                0x1000f940                PlaySound(unsigned char const*, int, unsigned char, float)
+ .text.calloc   0x1000f9ac       0x18 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-calloc.o)
+                0x1000f9ac                calloc
  .text._calloc_r
-                0x1000f984       0x9c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-callocr.o)
-                0x1000f984                _calloc_r
- .text.__errno  0x1000fa20        0xc c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-errno.o)
-                0x1000fa20                __errno
- .text.malloc   0x1000fa2c       0x14 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-malloc.o)
-                0x1000fa2c                malloc
+                0x1000f9c4       0x9c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-callocr.o)
+                0x1000f9c4                _calloc_r
+ .text.__errno  0x1000fa60        0xc c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-errno.o)
+                0x1000fa60                __errno
+ .text.malloc   0x1000fa6c       0x14 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-malloc.o)
+                0x1000fa6c                malloc
  .text._malloc_r
-                0x1000fa40      0x584 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mallocr.o)
-                0x1000fa40                _malloc_r
+                0x1000fa80      0x584 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mallocr.o)
+                0x1000fa80                _malloc_r
  .text.__malloc_lock
-                0x1000ffc4       0x10 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mlock.o)
-                0x1000ffc4                __malloc_lock
+                0x10010004       0x10 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mlock.o)
+                0x10010004                __malloc_lock
  .text.__malloc_unlock
-                0x1000ffd4       0x10 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mlock.o)
-                0x1000ffd4                __malloc_unlock
- .text._sbrk_r  0x1000ffe4       0x24 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-sbrkr.o)
-                0x1000ffe4                _sbrk_r
- .text.strlen   0x10010008       0x5c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
-                0x10010008                strlen
+                0x10010014       0x10 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mlock.o)
+                0x10010014                __malloc_unlock
+ .text._sbrk_r  0x10010024       0x24 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-sbrkr.o)
+                0x10010024                _sbrk_r
+ .text.strlen   0x10010048       0x5c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+                0x10010048                strlen
  .text._malloc_trim_r
-                0x10010064       0x9c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-freer.o)
-                0x10010064                _malloc_trim_r
- .text._free_r  0x10010100      0x1c4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-freer.o)
-                0x10010100                _free_r
+                0x100100a4       0x9c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-freer.o)
+                0x100100a4                _malloc_trim_r
+ .text._free_r  0x10010140      0x1c4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-freer.o)
+                0x10010140                _free_r
  .text.__retarget_lock_acquire_recursive
-                0x100102c4        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-lock.o)
-                0x100102c4                __retarget_lock_acquire_recursive
+                0x10010304        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-lock.o)
+                0x10010304                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x100102c8        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-lock.o)
-                0x100102c8                __retarget_lock_release_recursive
+                0x10010308        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-lock.o)
+                0x10010308                __retarget_lock_release_recursive
  *(.fini)
- .fini          0x100102cc        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
-                0x100102cc                _fini
- .fini.__stub   0x100102d0       0x70 linker stubs
+ .fini          0x1001030c        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
+                0x1001030c                _fini
+ .fini.__stub   0x10010310       0x70 linker stubs
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -18736,258 +18736,258 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
  *(.eh_frame*)
- .eh_frame      0x10010340        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
-                0x10010340                . = ALIGN (0x4)
+ .eh_frame      0x10010380        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x10010380                . = ALIGN (0x4)
 
-.glue_7         0x10010340        0x0
- .glue_7        0x10010340        0x0 linker stubs
+.glue_7         0x10010380        0x0
+ .glue_7        0x10010380        0x0 linker stubs
 
-.glue_7t        0x10010340        0x0
- .glue_7t       0x10010340        0x0 linker stubs
+.glue_7t        0x10010380        0x0
+ .glue_7t       0x10010380        0x0 linker stubs
 
-.vfp11_veneer   0x10010340        0x0
- .vfp11_veneer  0x10010340        0x0 linker stubs
+.vfp11_veneer   0x10010380        0x0
+ .vfp11_veneer  0x10010380        0x0 linker stubs
 
-.v4_bx          0x10010340        0x0
- .v4_bx         0x10010340        0x0 linker stubs
+.v4_bx          0x10010380        0x0
+ .v4_bx         0x10010380        0x0 linker stubs
 
-.iplt           0x10010340        0x0
- .iplt          0x10010340        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x10010380        0x0
+ .iplt          0x10010380        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x10010340    0x1cc84
+.rodata         0x10010380    0x1cc84
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .rodata*)
  .rodata.str1.4
-                0x10010340       0x54 ./build/binary_info.o
+                0x10010380       0x54 ./build/binary_info.o
  .rodata.__bi_40
-                0x10010394        0xc ./build/binary_info.o
+                0x100103d4        0xc ./build/binary_info.o
  .rodata.__bi_65
-                0x100103a0        0xc ./build/binary_info.o
+                0x100103e0        0xc ./build/binary_info.o
  .rodata.__bi_71
-                0x100103ac        0xc ./build/binary_info.o
+                0x100103ec        0xc ./build/binary_info.o
  .rodata.pio_add_program.str1.4
-                0x100103b8       0x11 ./build/pio.o
- *fill*         0x100103c9        0x3 
+                0x100103f8       0x11 ./build/pio.o
+ *fill*         0x10010409        0x3 
  .rodata._ftoa.str1.4
-                0x100103cc       0x15 ./build/printf.o
- *fill*         0x100103e1        0x3 
+                0x1001040c       0x15 ./build/printf.o
+ *fill*         0x10010421        0x3 
  .rodata._vsnprintf
-                0x100103e4      0x1e0 ./build/printf.o
- *fill*         0x100105c4        0x4 
+                0x10010424      0x1e0 ./build/printf.o
+ *fill*         0x10010604        0x4 
  .rodata.pow10.0
-                0x100105c8       0x50 ./build/printf.o
+                0x10010608       0x50 ./build/printf.o
  .rodata.panic.str1.4
-                0x10010618       0x10 ./build/runtime.o
+                0x10010658       0x10 ./build/runtime.o
                                  0x12 (size before relaxing)
  .rodata.hard_assertion_failure.str1.4
-                0x10010628        0xc ./build/runtime.o
+                0x10010668        0xc ./build/runtime.o
  .rodata.crlf_str.0
-                0x10010634        0x2 ./build/stdio.o
- *fill*         0x10010636        0x2 
+                0x10010674        0x2 ./build/stdio.o
+ *fill*         0x10010676        0x2 
  .rodata.str1.4
-                0x10010638       0x13 ./build/stdio_usb.o
- *fill*         0x1001064b        0x1 
+                0x10010678       0x13 ./build/stdio_usb.o
+ *fill*         0x1001068b        0x1 
  .rodata.__bi_93.0
-                0x1001064c        0xc ./build/stdio_usb.o
+                0x1001068c        0xc ./build/stdio_usb.o
  .rodata.str1.4
-                0x10010658       0x32 ./build/stdio_usb_descriptors.o
- *fill*         0x1001068a        0x2 
+                0x10010698       0x32 ./build/stdio_usb_descriptors.o
+ *fill*         0x100106ca        0x2 
  .rodata.usbd_desc_cfg
-                0x1001068c       0x4b ./build/stdio_usb_descriptors.o
- *fill*         0x100106d7        0x1 
+                0x100106cc       0x4b ./build/stdio_usb_descriptors.o
+ *fill*         0x10010717        0x1 
  .rodata.usbd_desc_device
-                0x100106d8       0x12 ./build/stdio_usb_descriptors.o
- *fill*         0x100106ea        0x2 
+                0x10010718       0x12 ./build/stdio_usb_descriptors.o
+ *fill*         0x1001072a        0x2 
  .rodata.usbd_desc_str
-                0x100106ec       0x14 ./build/stdio_usb_descriptors.o
+                0x1001072c       0x14 ./build/stdio_usb_descriptors.o
  .rodata.spin_lock_claim_unused.str1.4
-                0x10010700       0x1b ./build/sync.o
- *fill*         0x1001071b        0x1 
+                0x10010740       0x1b ./build/sync.o
+ *fill*         0x1001075b        0x1 
  .rodata.hardware_alarm_claim.str1.4
-                0x1001071c       0x22 ./build/timer.o
- *fill*         0x1001073e        0x2 
+                0x1001075c       0x22 ./build/timer.o
+ *fill*         0x1001077e        0x2 
  .rodata.tud_task
-                0x10010740       0x8c ./build/usbd.o
+                0x10010780       0x8c ./build/usbd.o
  .rodata._usbd_driver
-                0x100107cc       0x1c ./build/usbd.o
+                0x1001080c       0x1c ./build/usbd.o
  .rodata.dcd_rp2040_irq.str1.4
-                0x100107e8       0x14 ./build/dcd_rp2040.o
+                0x10010828       0x14 ./build/dcd_rp2040.o
  .rodata.dcd_edpt_open.str1.4
-                0x100107fc       0x28 ./build/dcd_rp2040.o
+                0x1001083c       0x28 ./build/dcd_rp2040.o
  .rodata._hw_endpoint_buffer_control_update32.part.0.isra.0.str1.4
-                0x10010824       0x1f ./build/rp2040_usb.o
- *fill*         0x10010843        0x1 
+                0x10010864       0x1f ./build/rp2040_usb.o
+ *fill*         0x10010883        0x1 
  .rodata._hw_endpoint_xfer_continue.str1.4
-                0x10010844       0x50 ./build/rp2040_usb.o
+                0x10010884       0x50 ./build/rp2040_usb.o
  .rodata.str1.4
-                0x10010894        0x7 ./build/rp2040_usb.o
- *fill*         0x1001089b        0x1 
+                0x100108d4        0x7 ./build/rp2040_usb.o
+ *fill*         0x100108db        0x1 
  .rodata._Z8DispHelpv.str1.4
-                0x1001089c       0x52 ./build/main.o
- *fill*         0x100108ee        0x2 
+                0x100108dc       0x52 ./build/main.o
+ *fill*         0x1001092e        0x2 
  .rodata._Z8CheckEndv.part.0.str1.4
-                0x100108f0        0xb ./build/main.o
- *fill*         0x100108fb        0x1 
+                0x10010930        0xb ./build/main.o
+ *fill*         0x1001093b        0x1 
  .rodata._Z10DelAllRowsv.part.0.str1.4
-                0x100108fc        0x9 ./build/main.o
- *fill*         0x10010905        0x3 
+                0x1001093c        0x9 ./build/main.o
+ *fill*         0x10010945        0x3 
  .rodata._Z4Gamev.part.0.str1.4
-                0x10010908        0x9 ./build/main.o
- *fill*         0x10010911        0x3 
- .rodata        0x10010914      0x21c ./build/main.o
+                0x10010948        0x9 ./build/main.o
+ *fill*         0x10010951        0x3 
+ .rodata        0x10010954      0x21c ./build/main.o
  .rodata._ZL12NextLevelTab
-                0x10010b30       0x28 ./build/main.o
+                0x10010b70       0x28 ./build/main.o
  .rodata._ZL8BrickRot
-                0x10010b58       0x13 ./build/main.o
- *fill*         0x10010b6b        0x1 
+                0x10010b98       0x13 ./build/main.o
+ *fill*         0x10010bab        0x1 
  .rodata._ZL8LevScore
-                0x10010b6c       0x28 ./build/main.o
+                0x10010bac       0x28 ./build/main.o
  .rodata._ZL9BrickTemp
-                0x10010b94      0x130 ./build/main.o
+                0x10010bd4      0x130 ./build/main.o
  .rodata.TilesImg
-                0x10010cc4     0xa200 ./build/tiles.o
-                0x10010cc4                TilesImg
+                0x10010d04     0xa200 ./build/tiles.o
+                0x10010d04                TilesImg
  .rodata.BrickSnd
-                0x1001aec4      0x932 ./build/brick.o
-                0x1001aec4                BrickSnd
- *fill*         0x1001b7f6        0x2 
+                0x1001af04      0x932 ./build/brick.o
+                0x1001af04                BrickSnd
+ *fill*         0x1001b836        0x2 
  .rodata.GameOverSnd
-                0x1001b7f8     0x3938 ./build/gameover.o
-                0x1001b7f8                GameOverSnd
+                0x1001b838     0x3938 ./build/gameover.o
+                0x1001b838                GameOverSnd
  .rodata.LevelUpSnd
-                0x1001f130     0xabc3 ./build/levelup.o
-                0x1001f130                LevelUpSnd
- *fill*         0x10029cf3        0x1 
+                0x1001f170     0xabc3 ./build/levelup.o
+                0x1001f170                LevelUpSnd
+ *fill*         0x10029d33        0x1 
  .rodata.LineSnd
-                0x10029cf4     0x1ca2 ./build/line.o
-                0x10029cf4                LineSnd
- *fill*         0x1002b996        0x2 
- .rodata        0x1002b998       0x74 ./build/vga.o
+                0x10029d34     0x1ca2 ./build/line.o
+                0x10029d34                LineSnd
+ *fill*         0x1002b9d6        0x2 
+ .rodata        0x1002b9d8       0x74 ./build/vga.o
  .rodata._ZL24vga_program_instructions
-                0x1002ba0c       0x1e ./build/vga.o
- *fill*         0x1002ba2a        0x2 
+                0x1002ba4c       0x1e ./build/vga.o
+ *fill*         0x1002ba6a        0x2 
  .rodata._Z10LayerSetuphPKhPK6sVmodetthPKv
-                0x1002ba2c       0x4c ./build/vga_layer.o
+                0x1002ba6c       0x4c ./build/vga_layer.o
  .rodata.LayerMode
-                0x1002ba78       0x39 ./build/vga_layer.o
-                0x1002ba78                LayerMode
- *fill*         0x1002bab1        0x3 
+                0x1002bab8       0x39 ./build/vga_layer.o
+                0x1002bab8                LayerMode
+ *fill*         0x1002baf1        0x3 
  .rodata.LayerProg
-                0x1002bab4      0x120 ./build/vga_layer.o
-                0x1002bab4                LayerProg
+                0x1002baf4      0x120 ./build/vga_layer.o
+                0x1002baf4                LayerProg
  .rodata._ZL11vga_program
-                0x1002bbd4        0x6 ./build/vga_layer.o
- *fill*         0x1002bbda        0x2 
+                0x1002bc14        0x6 ./build/vga_layer.o
+ *fill*         0x1002bc1a        0x2 
  .rodata._ZL16keylayer_program
-                0x1002bbdc        0x6 ./build/vga_layer.o
- *fill*         0x1002bbe2        0x2 
- .rodata._ZL16rlelayer_program
-                0x1002bbe4        0x6 ./build/vga_layer.o
- *fill*         0x1002bbea        0x2 
- .rodata._ZL17monolayer_program
-                0x1002bbec        0x6 ./build/vga_layer.o
- *fill*         0x1002bbf2        0x2 
- .rodata._ZL18blacklayer_program
-                0x1002bbf4        0x6 ./build/vga_layer.o
- *fill*         0x1002bbfa        0x2 
- .rodata._ZL18whitelayer_program
-                0x1002bbfc        0x6 ./build/vga_layer.o
- *fill*         0x1002bc02        0x2 
- .rodata._ZL24vga_program_instructions
-                0x1002bc04       0x1e ./build/vga_layer.o
+                0x1002bc1c        0x6 ./build/vga_layer.o
  *fill*         0x1002bc22        0x2 
- .rodata._ZL29keylayer_program_instructions
-                0x1002bc24       0x1a ./build/vga_layer.o
- *fill*         0x1002bc3e        0x2 
- .rodata._ZL29rlelayer_program_instructions
-                0x1002bc40       0x22 ./build/vga_layer.o
+ .rodata._ZL16rlelayer_program
+                0x1002bc24        0x6 ./build/vga_layer.o
+ *fill*         0x1002bc2a        0x2 
+ .rodata._ZL17monolayer_program
+                0x1002bc2c        0x6 ./build/vga_layer.o
+ *fill*         0x1002bc32        0x2 
+ .rodata._ZL18blacklayer_program
+                0x1002bc34        0x6 ./build/vga_layer.o
+ *fill*         0x1002bc3a        0x2 
+ .rodata._ZL18whitelayer_program
+                0x1002bc3c        0x6 ./build/vga_layer.o
+ *fill*         0x1002bc42        0x2 
+ .rodata._ZL24vga_program_instructions
+                0x1002bc44       0x1e ./build/vga_layer.o
  *fill*         0x1002bc62        0x2 
+ .rodata._ZL29keylayer_program_instructions
+                0x1002bc64       0x1a ./build/vga_layer.o
+ *fill*         0x1002bc7e        0x2 
+ .rodata._ZL29rlelayer_program_instructions
+                0x1002bc80       0x22 ./build/vga_layer.o
+ *fill*         0x1002bca2        0x2 
  .rodata._ZL30monolayer_program_instructions
-                0x1002bc64       0x20 ./build/vga_layer.o
+                0x1002bca4       0x20 ./build/vga_layer.o
  .rodata._ZL31blacklayer_program_instructions
-                0x1002bc84       0x16 ./build/vga_layer.o
- *fill*         0x1002bc9a        0x2 
+                0x1002bcc4       0x16 ./build/vga_layer.o
+ *fill*         0x1002bcda        0x2 
  .rodata._ZL31whitelayer_program_instructions
-                0x1002bc9c       0x14 ./build/vga_layer.o
+                0x1002bcdc       0x14 ./build/vga_layer.o
  .rodata._Z5VideohhhPhPKv
-                0x1002bcb0       0x3c ./build/vga_vmode.o
+                0x1002bcf0       0x3c ./build/vga_vmode.o
  .rodata.str1.4
-                0x1002bcec       0x4e ./build/vga_vmode.o
- *fill*         0x1002bd3a        0x2 
+                0x1002bd2c       0x4e ./build/vga_vmode.o
+ *fill*         0x1002bd7a        0x2 
  .rodata.VideoEGA
-                0x1002bd3c       0x38 ./build/vga_vmode.o
-                0x1002bd3c                VideoEGA
+                0x1002bd7c       0x38 ./build/vga_vmode.o
+                0x1002bd7c                VideoEGA
  .rodata.VideoHD
-                0x1002bd74       0x38 ./build/vga_vmode.o
-                0x1002bd74                VideoHD
+                0x1002bdb4       0x38 ./build/vga_vmode.o
+                0x1002bdb4                VideoHD
  .rodata.VideoNTSC
-                0x1002bdac       0x38 ./build/vga_vmode.o
-                0x1002bdac                VideoNTSC
+                0x1002bdec       0x38 ./build/vga_vmode.o
+                0x1002bdec                VideoNTSC
  .rodata.VideoNTSCp
-                0x1002bde4       0x38 ./build/vga_vmode.o
-                0x1002bde4                VideoNTSCp
+                0x1002be24       0x38 ./build/vga_vmode.o
+                0x1002be24                VideoNTSCp
  .rodata.VideoPAL
-                0x1002be1c       0x38 ./build/vga_vmode.o
-                0x1002be1c                VideoPAL
+                0x1002be5c       0x38 ./build/vga_vmode.o
+                0x1002be5c                VideoPAL
  .rodata.VideoPALp
-                0x1002be54       0x38 ./build/vga_vmode.o
-                0x1002be54                VideoPALp
+                0x1002be94       0x38 ./build/vga_vmode.o
+                0x1002be94                VideoPALp
  .rodata.VideoSVGA
-                0x1002be8c       0x38 ./build/vga_vmode.o
-                0x1002be8c                VideoSVGA
+                0x1002becc       0x38 ./build/vga_vmode.o
+                0x1002becc                VideoSVGA
  .rodata.VideoVGA
-                0x1002bec4       0x38 ./build/vga_vmode.o
-                0x1002bec4                VideoVGA
+                0x1002bf04       0x38 ./build/vga_vmode.o
+                0x1002bf04                VideoVGA
  .rodata.VideoXGA
-                0x1002befc       0x38 ./build/vga_vmode.o
-                0x1002befc                VideoXGA
+                0x1002bf3c       0x38 ./build/vga_vmode.o
+                0x1002bf3c                VideoXGA
  .rodata._ZL11VideoResReq
-                0x1002bf34       0x20 ./build/vga_vmode.o
+                0x1002bf74       0x20 ./build/vga_vmode.o
  .rodata._Z9DrawPointP7sCanvasiih.part.0
-                0x1002bf54       0x58 ./build/canvas.o
+                0x1002bf94       0x58 ./build/canvas.o
  .rodata._Z8DrawRectP7sCanvasiiiih
-                0x1002bfac       0x18 ./build/canvas.o
+                0x1002bfec       0x18 ./build/canvas.o
  .rodata.FontBold8x16
-                0x1002bfc4     0x1000 ./build/font_bold_8x16.o
-                0x1002bfc4                FontBold8x16
-                0x1002cfc4                . = ALIGN (0x4)
+                0x1002c004     0x1000 ./build/font_bold_8x16.o
+                0x1002c004                FontBold8x16
+                0x1002d004                . = ALIGN (0x4)
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.flashdata*)))
-                0x1002cfc4                . = ALIGN (0x4)
+                0x1002d004                . = ALIGN (0x4)
 
-.rel.dyn        0x1002cfc4        0x0
- .rel.iplt      0x1002cfc4        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x1002d004        0x0
+ .rel.iplt      0x1002d004        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x1002cfc4                __exidx_start = .
+                0x1002d004                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x1002cfc4                __exidx_end = .
-                0x1002cfc4                . = ALIGN (0x4)
-                0x1002cfc4                __binary_info_start = .
+                0x1002d004                __exidx_end = .
+                0x1002d004                . = ALIGN (0x4)
+                0x1002d004                __binary_info_start = .
 
-.binary_info    0x1002cfc4       0x20
+.binary_info    0x1002d004       0x20
  *(.binary_info.keep.*)
  .binary_info.keep.__bi_ptr18
-                0x1002cfc4        0x4 ./build/binary_info.o
+                0x1002d004        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr26
-                0x1002cfc8        0x4 ./build/binary_info.o
+                0x1002d008        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr34
-                0x1002cfcc        0x4 ./build/binary_info.o
+                0x1002d00c        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr40
-                0x1002cfd0        0x4 ./build/binary_info.o
+                0x1002d010        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr46
-                0x1002cfd4        0x4 ./build/binary_info.o
+                0x1002d014        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr65
-                0x1002cfd8        0x4 ./build/binary_info.o
+                0x1002d018        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr71
-                0x1002cfdc        0x4 ./build/binary_info.o
+                0x1002d01c        0x4 ./build/binary_info.o
  *(.binary_info.*)
  .binary_info.__bi_ptr93
-                0x1002cfe0        0x4 ./build/stdio_usb.o
-                0x1002cfe4                __binary_info_end = .
-                0x1002cfe4                . = ALIGN (0x4)
-                0x1002cfe4                __etext = .
+                0x1002d020        0x4 ./build/stdio_usb.o
+                0x1002d024                __binary_info_end = .
+                0x1002d024                . = ALIGN (0x4)
+                0x1002d024                __etext = .
 
 .ram_vector_table
                 0x20000000       0xc0
@@ -18996,7 +18996,7 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
                 0x20000000       0xc0 ./build/runtime.o
                 0x20000000                ram_vector_table
 
-.data           0x200000c0     0x2f90 load address 0x1002cfe4
+.data           0x200000c0     0x2f90 load address 0x1002d024
                 0x200000c0                __data_start__ = .
  *(vtable)
  *(.time_critical*)
@@ -19238,27 +19238,27 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
                 0x20003050                . = ALIGN (0x4)
                 0x20003050                __data_end__ = .
 
-.igot.plt       0x20003050        0x0 load address 0x1002ff74
+.igot.plt       0x20003050        0x0 load address 0x1002ffb4
  .igot.plt      0x20003050        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
 .uninitialized_data
-                0x20003050        0x0 load address 0x1002ff74
+                0x20003050        0x0 load address 0x1002ffb4
                 0x20003050                . = ALIGN (0x4)
  *(.uninitialized_data*)
 
-.scratch_x      0x20040000        0x0 load address 0x1002ff74
+.scratch_x      0x20040000        0x0 load address 0x1002ffb4
                 0x20040000                __scratch_x_start__ = .
  *(.scratch_x.*)
                 0x20040000                . = ALIGN (0x4)
                 0x20040000                __scratch_x_end__ = .
-                0x1002ff74                __scratch_x_source__ = LOADADDR (.scratch_x)
+                0x1002ffb4                __scratch_x_source__ = LOADADDR (.scratch_x)
 
-.scratch_y      0x20041000        0x0 load address 0x1002ff74
+.scratch_y      0x20041000        0x0 load address 0x1002ffb4
                 0x20041000                __scratch_y_start__ = .
  *(.scratch_y.*)
                 0x20041000                . = ALIGN (0x4)
                 0x20041000                __scratch_y_end__ = .
-                0x1002ff74                __scratch_y_source__ = LOADADDR (.scratch_y)
+                0x1002ffb4                __scratch_y_source__ = LOADADDR (.scratch_y)
 
 .bss            0x20003050     0xf728
                 0x20003050                . = ALIGN (0x4)
@@ -19539,8 +19539,8 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
  *(.stack*)
  .stack         0x20041000      0x800 ./build/crt0.o
 
-.flash_end      0x1002ff74        0x0
-                0x1002ff74                __flash_binary_end = .
+.flash_end      0x1002ffb4        0x0
+                0x1002ffb4                __flash_binary_end = .
                 0x20040000                __StackLimit = (ORIGIN (RAM) + LENGTH (RAM))
                 0x20041000                __StackOneTop = (ORIGIN (SCRATCH_X) + LENGTH (SCRATCH_X))
                 0x20042000                __StackTop = (ORIGIN (SCRATCH_Y) + LENGTH (SCRATCH_Y))
@@ -20008,7 +20008,7 @@ LOAD linker stubs
  .comment       0x00000049       0x4a ./build/pwmsnd.o
  .comment       0x00000049       0x4a ./build/font_bold_8x16.o
 
-.debug_info     0x00000000    0x59d24
+.debug_info     0x00000000    0x59f8e
  .debug_info    0x00000000      0x2fa ./build/binary_info.o
  .debug_info    0x000002fa      0x285 ./build/bootrom.o
  .debug_info    0x0000057f      0xb40 ./build/claim.o
@@ -20046,24 +20046,24 @@ LOAD linker stubs
  .debug_info    0x00022b42     0x1a86 ./build/dcd_rp2040.o
  .debug_info    0x000245c8      0xfa6 ./build/rp2040_usb.o
  .debug_info    0x0002556e      0x134 ./build/tusb.o
- .debug_info    0x000256a2     0x7e28 ./build/main.o
- .debug_info    0x0002d4ca     0x1a67 ./build/tiles.o
- .debug_info    0x0002ef31     0x1a66 ./build/brick.o
- .debug_info    0x00030997     0x1a66 ./build/gameover.o
- .debug_info    0x000323fd     0x1a66 ./build/levelup.o
- .debug_info    0x00033e63     0x1a66 ./build/line.o
- .debug_info    0x000358c9     0x4c7b ./build/vga.o
- .debug_info    0x0003a544     0x2c3f ./build/vga_layer.o
- .debug_info    0x0003d183     0x1c67 ./build/vga_pal.o
- .debug_info    0x0003edea     0x3488 ./build/vga_screen.o
- .debug_info    0x00042272     0x2210 ./build/vga_util.o
- .debug_info    0x00044482     0x2e8a ./build/vga_vmode.o
- .debug_info    0x0004730c     0x57a8 ./build/canvas.o
- .debug_info    0x0004cab4     0x20ad ./build/overclock.o
- .debug_info    0x0004eb61     0x2357 ./build/print.o
- .debug_info    0x00050eb8     0x5004 ./build/rand.o
- .debug_info    0x00055ebc     0x2401 ./build/pwmsnd.o
- .debug_info    0x000582bd     0x1a67 ./build/font_bold_8x16.o
+ .debug_info    0x000256a2     0x8092 ./build/main.o
+ .debug_info    0x0002d734     0x1a67 ./build/tiles.o
+ .debug_info    0x0002f19b     0x1a66 ./build/brick.o
+ .debug_info    0x00030c01     0x1a66 ./build/gameover.o
+ .debug_info    0x00032667     0x1a66 ./build/levelup.o
+ .debug_info    0x000340cd     0x1a66 ./build/line.o
+ .debug_info    0x00035b33     0x4c7b ./build/vga.o
+ .debug_info    0x0003a7ae     0x2c3f ./build/vga_layer.o
+ .debug_info    0x0003d3ed     0x1c67 ./build/vga_pal.o
+ .debug_info    0x0003f054     0x3488 ./build/vga_screen.o
+ .debug_info    0x000424dc     0x2210 ./build/vga_util.o
+ .debug_info    0x000446ec     0x2e8a ./build/vga_vmode.o
+ .debug_info    0x00047576     0x57a8 ./build/canvas.o
+ .debug_info    0x0004cd1e     0x20ad ./build/overclock.o
+ .debug_info    0x0004edcb     0x2357 ./build/print.o
+ .debug_info    0x00051122     0x5004 ./build/rand.o
+ .debug_info    0x00056126     0x2401 ./build/pwmsnd.o
+ .debug_info    0x00058527     0x1a67 ./build/font_bold_8x16.o
 
 .debug_abbrev   0x00000000     0xa865
  .debug_abbrev  0x00000000       0xb0 ./build/binary_info.o
@@ -20234,7 +20234,7 @@ LOAD linker stubs
  .debug_aranges
                 0x00001460       0x18 ./build/font_bold_8x16.o
 
-.debug_macro    0x00000000    0x33f09
+.debug_macro    0x00000000    0x33f1b
  .debug_macro   0x00000000      0x182 ./build/binary_info.o
  .debug_macro   0x00000182       0x16 ./build/binary_info.o
  .debug_macro   0x00000198       0xbe ./build/binary_info.o
@@ -20343,122 +20343,122 @@ LOAD linker stubs
  .debug_macro   0x0002174b       0x16 ./build/dcd_rp2040.o
  .debug_macro   0x00021761      0x391 ./build/rp2040_usb.o
  .debug_macro   0x00021af2      0x3c9 ./build/tusb.o
- .debug_macro   0x00021ebb      0xb27 ./build/main.o
- .debug_macro   0x000229e2      0xc10 ./build/main.o
- .debug_macro   0x000235f2      0x118 ./build/main.o
- .debug_macro   0x0002370a       0x34 ./build/main.o
- .debug_macro   0x0002373e      0x17b ./build/main.o
- .debug_macro   0x000238b9       0x43 ./build/main.o
- .debug_macro   0x000238fc      0x364 ./build/main.o
- .debug_macro   0x00023c60       0x35 ./build/main.o
- .debug_macro   0x00023c95      0x1ea ./build/main.o
- .debug_macro   0x00023e7f      0x6e7 ./build/main.o
- .debug_macro   0x00024566     0x172e ./build/main.o
- .debug_macro   0x00025c94      0x3f1 ./build/main.o
- .debug_macro   0x00026085      0x376 ./build/main.o
- .debug_macro   0x000263fb      0x1d2 ./build/main.o
- .debug_macro   0x000265cd       0x1c ./build/main.o
- .debug_macro   0x000265e9       0x16 ./build/main.o
- .debug_macro   0x000265ff       0x5e ./build/main.o
- .debug_macro   0x0002665d      0x18a ./build/main.o
- .debug_macro   0x000267e7       0x10 ./build/main.o
- .debug_macro   0x000267f7       0xac ./build/main.o
- .debug_macro   0x000268a3       0xf7 ./build/main.o
- .debug_macro   0x0002699a      0x33e ./build/main.o
- .debug_macro   0x00026cd8       0x10 ./build/main.o
- .debug_macro   0x00026ce8       0x10 ./build/main.o
- .debug_macro   0x00026cf8       0x16 ./build/main.o
- .debug_macro   0x00026d0e       0x16 ./build/main.o
- .debug_macro   0x00026d24       0x10 ./build/main.o
- .debug_macro   0x00026d34       0x10 ./build/main.o
- .debug_macro   0x00026d44       0x10 ./build/main.o
- .debug_macro   0x00026d54       0x10 ./build/main.o
- .debug_macro   0x00026d64       0x10 ./build/main.o
- .debug_macro   0x00026d74       0x16 ./build/main.o
- .debug_macro   0x00026d8a       0x16 ./build/main.o
- .debug_macro   0x00026da0       0x10 ./build/main.o
- .debug_macro   0x00026db0       0x10 ./build/main.o
- .debug_macro   0x00026dc0       0x10 ./build/main.o
- .debug_macro   0x00026dd0       0x10 ./build/main.o
- .debug_macro   0x00026de0       0x16 ./build/main.o
- .debug_macro   0x00026df6       0x10 ./build/main.o
- .debug_macro   0x00026e06       0x10 ./build/main.o
- .debug_macro   0x00026e16       0x10 ./build/main.o
- .debug_macro   0x00026e26       0x16 ./build/main.o
- .debug_macro   0x00026e3c       0x16 ./build/main.o
- .debug_macro   0x00026e52       0xaf ./build/main.o
- .debug_macro   0x00026f01       0x10 ./build/main.o
- .debug_macro   0x00026f11       0x10 ./build/main.o
- .debug_macro   0x00026f21       0x22 ./build/main.o
- .debug_macro   0x00026f43       0x54 ./build/main.o
- .debug_macro   0x00026f97       0x1c ./build/main.o
- .debug_macro   0x00026fb3       0x28 ./build/main.o
- .debug_macro   0x00026fdb       0x10 ./build/main.o
- .debug_macro   0x00026feb       0x1c ./build/main.o
- .debug_macro   0x00027007       0x34 ./build/main.o
- .debug_macro   0x0002703b       0x16 ./build/main.o
- .debug_macro   0x00027051       0x10 ./build/main.o
- .debug_macro   0x00027061       0x1c ./build/main.o
- .debug_macro   0x0002707d       0x3a ./build/main.o
- .debug_macro   0x000270b7       0x16 ./build/main.o
- .debug_macro   0x000270cd       0x34 ./build/main.o
- .debug_macro   0x00027101       0x18 ./build/main.o
- .debug_macro   0x00027119      0x194 ./build/main.o
- .debug_macro   0x000272ad       0x10 ./build/main.o
- .debug_macro   0x000272bd       0x10 ./build/main.o
- .debug_macro   0x000272cd      0x3ce ./build/main.o
- .debug_macro   0x0002769b       0x16 ./build/main.o
- .debug_macro   0x000276b1       0x1c ./build/main.o
- .debug_macro   0x000276cd       0x4f ./build/main.o
- .debug_macro   0x0002771c       0x6a ./build/main.o
- .debug_macro   0x00027786       0x19 ./build/main.o
- .debug_macro   0x0002779f       0x28 ./build/main.o
- .debug_macro   0x000277c7       0x2e ./build/main.o
- .debug_macro   0x000277f5       0x1f ./build/main.o
- .debug_macro   0x00027814       0x88 ./build/main.o
- .debug_macro   0x0002789c       0x19 ./build/main.o
- .debug_macro   0x000278b5      0x120 ./build/main.o
- .debug_macro   0x000279d5       0x11 ./build/main.o
- .debug_macro   0x000279e6       0x17 ./build/main.o
- .debug_macro   0x000279fd       0x17 ./build/main.o
- .debug_macro   0x00027a14       0x17 ./build/main.o
- .debug_macro   0x00027a2b       0x17 ./build/main.o
- .debug_macro   0x00027a42       0x17 ./build/main.o
- .debug_macro   0x00027a59       0x17 ./build/main.o
- .debug_macro   0x00027a70       0x1c ./build/main.o
- .debug_macro   0x00027a8c      0x137 ./build/main.o
- .debug_macro   0x00027bc3       0x10 ./build/main.o
- .debug_macro   0x00027bd3      0x100 ./build/main.o
- .debug_macro   0x00027cd3      0x2d7 ./build/main.o
- .debug_macro   0x00027faa       0x34 ./build/main.o
- .debug_macro   0x00027fde       0xb8 ./build/main.o
- .debug_macro   0x00028096       0x11 ./build/main.o
- .debug_macro   0x000280a7       0x3a ./build/main.o
- .debug_macro   0x000280e1      0x1a2 ./build/main.o
- .debug_macro   0x00028283       0x10 ./build/main.o
- .debug_macro   0x00028293       0x46 ./build/main.o
- .debug_macro   0x000282d9       0x4c ./build/main.o
- .debug_macro   0x00028325      0x139 ./build/main.o
- .debug_macro   0x0002845e      0x202 ./build/main.o
- .debug_macro   0x00028660      0xadc ./build/tiles.o
- .debug_macro   0x0002913c      0xadc ./build/brick.o
- .debug_macro   0x00029c18      0xadc ./build/gameover.o
- .debug_macro   0x0002a6f4      0xadc ./build/levelup.o
- .debug_macro   0x0002b1d0      0xadc ./build/line.o
- .debug_macro   0x0002bcac      0xadc ./build/vga.o
- .debug_macro   0x0002c788      0xadc ./build/vga_layer.o
- .debug_macro   0x0002d264      0xae2 ./build/vga_pal.o
- .debug_macro   0x0002dd46      0xadc ./build/vga_screen.o
- .debug_macro   0x0002e822      0xadc ./build/vga_util.o
- .debug_macro   0x0002f2fe      0xae3 ./build/vga_vmode.o
- .debug_macro   0x0002fde1      0xadc ./build/canvas.o
- .debug_macro   0x000308bd      0xadc ./build/overclock.o
- .debug_macro   0x00031399      0xadc ./build/print.o
- .debug_macro   0x00031e75      0xadc ./build/rand.o
- .debug_macro   0x00032951      0xadc ./build/pwmsnd.o
- .debug_macro   0x0003342d      0xadc ./build/font_bold_8x16.o
+ .debug_macro   0x00021ebb      0xb39 ./build/main.o
+ .debug_macro   0x000229f4      0xc10 ./build/main.o
+ .debug_macro   0x00023604      0x118 ./build/main.o
+ .debug_macro   0x0002371c       0x34 ./build/main.o
+ .debug_macro   0x00023750      0x17b ./build/main.o
+ .debug_macro   0x000238cb       0x43 ./build/main.o
+ .debug_macro   0x0002390e      0x364 ./build/main.o
+ .debug_macro   0x00023c72       0x35 ./build/main.o
+ .debug_macro   0x00023ca7      0x1ea ./build/main.o
+ .debug_macro   0x00023e91      0x6e7 ./build/main.o
+ .debug_macro   0x00024578     0x172e ./build/main.o
+ .debug_macro   0x00025ca6      0x3f1 ./build/main.o
+ .debug_macro   0x00026097      0x376 ./build/main.o
+ .debug_macro   0x0002640d      0x1d2 ./build/main.o
+ .debug_macro   0x000265df       0x1c ./build/main.o
+ .debug_macro   0x000265fb       0x16 ./build/main.o
+ .debug_macro   0x00026611       0x5e ./build/main.o
+ .debug_macro   0x0002666f      0x18a ./build/main.o
+ .debug_macro   0x000267f9       0x10 ./build/main.o
+ .debug_macro   0x00026809       0xac ./build/main.o
+ .debug_macro   0x000268b5       0xf7 ./build/main.o
+ .debug_macro   0x000269ac      0x33e ./build/main.o
+ .debug_macro   0x00026cea       0x10 ./build/main.o
+ .debug_macro   0x00026cfa       0x10 ./build/main.o
+ .debug_macro   0x00026d0a       0x16 ./build/main.o
+ .debug_macro   0x00026d20       0x16 ./build/main.o
+ .debug_macro   0x00026d36       0x10 ./build/main.o
+ .debug_macro   0x00026d46       0x10 ./build/main.o
+ .debug_macro   0x00026d56       0x10 ./build/main.o
+ .debug_macro   0x00026d66       0x10 ./build/main.o
+ .debug_macro   0x00026d76       0x10 ./build/main.o
+ .debug_macro   0x00026d86       0x16 ./build/main.o
+ .debug_macro   0x00026d9c       0x16 ./build/main.o
+ .debug_macro   0x00026db2       0x10 ./build/main.o
+ .debug_macro   0x00026dc2       0x10 ./build/main.o
+ .debug_macro   0x00026dd2       0x10 ./build/main.o
+ .debug_macro   0x00026de2       0x10 ./build/main.o
+ .debug_macro   0x00026df2       0x16 ./build/main.o
+ .debug_macro   0x00026e08       0x10 ./build/main.o
+ .debug_macro   0x00026e18       0x10 ./build/main.o
+ .debug_macro   0x00026e28       0x10 ./build/main.o
+ .debug_macro   0x00026e38       0x16 ./build/main.o
+ .debug_macro   0x00026e4e       0x16 ./build/main.o
+ .debug_macro   0x00026e64       0xaf ./build/main.o
+ .debug_macro   0x00026f13       0x10 ./build/main.o
+ .debug_macro   0x00026f23       0x10 ./build/main.o
+ .debug_macro   0x00026f33       0x22 ./build/main.o
+ .debug_macro   0x00026f55       0x54 ./build/main.o
+ .debug_macro   0x00026fa9       0x1c ./build/main.o
+ .debug_macro   0x00026fc5       0x28 ./build/main.o
+ .debug_macro   0x00026fed       0x10 ./build/main.o
+ .debug_macro   0x00026ffd       0x1c ./build/main.o
+ .debug_macro   0x00027019       0x34 ./build/main.o
+ .debug_macro   0x0002704d       0x16 ./build/main.o
+ .debug_macro   0x00027063       0x10 ./build/main.o
+ .debug_macro   0x00027073       0x1c ./build/main.o
+ .debug_macro   0x0002708f       0x3a ./build/main.o
+ .debug_macro   0x000270c9       0x16 ./build/main.o
+ .debug_macro   0x000270df       0x34 ./build/main.o
+ .debug_macro   0x00027113       0x18 ./build/main.o
+ .debug_macro   0x0002712b      0x194 ./build/main.o
+ .debug_macro   0x000272bf       0x10 ./build/main.o
+ .debug_macro   0x000272cf       0x10 ./build/main.o
+ .debug_macro   0x000272df      0x3ce ./build/main.o
+ .debug_macro   0x000276ad       0x16 ./build/main.o
+ .debug_macro   0x000276c3       0x1c ./build/main.o
+ .debug_macro   0x000276df       0x4f ./build/main.o
+ .debug_macro   0x0002772e       0x6a ./build/main.o
+ .debug_macro   0x00027798       0x19 ./build/main.o
+ .debug_macro   0x000277b1       0x28 ./build/main.o
+ .debug_macro   0x000277d9       0x2e ./build/main.o
+ .debug_macro   0x00027807       0x1f ./build/main.o
+ .debug_macro   0x00027826       0x88 ./build/main.o
+ .debug_macro   0x000278ae       0x19 ./build/main.o
+ .debug_macro   0x000278c7      0x120 ./build/main.o
+ .debug_macro   0x000279e7       0x11 ./build/main.o
+ .debug_macro   0x000279f8       0x17 ./build/main.o
+ .debug_macro   0x00027a0f       0x17 ./build/main.o
+ .debug_macro   0x00027a26       0x17 ./build/main.o
+ .debug_macro   0x00027a3d       0x17 ./build/main.o
+ .debug_macro   0x00027a54       0x17 ./build/main.o
+ .debug_macro   0x00027a6b       0x17 ./build/main.o
+ .debug_macro   0x00027a82       0x1c ./build/main.o
+ .debug_macro   0x00027a9e      0x137 ./build/main.o
+ .debug_macro   0x00027bd5       0x10 ./build/main.o
+ .debug_macro   0x00027be5      0x100 ./build/main.o
+ .debug_macro   0x00027ce5      0x2d7 ./build/main.o
+ .debug_macro   0x00027fbc       0x34 ./build/main.o
+ .debug_macro   0x00027ff0       0xb8 ./build/main.o
+ .debug_macro   0x000280a8       0x11 ./build/main.o
+ .debug_macro   0x000280b9       0x3a ./build/main.o
+ .debug_macro   0x000280f3      0x1a2 ./build/main.o
+ .debug_macro   0x00028295       0x10 ./build/main.o
+ .debug_macro   0x000282a5       0x46 ./build/main.o
+ .debug_macro   0x000282eb       0x4c ./build/main.o
+ .debug_macro   0x00028337      0x139 ./build/main.o
+ .debug_macro   0x00028470      0x202 ./build/main.o
+ .debug_macro   0x00028672      0xadc ./build/tiles.o
+ .debug_macro   0x0002914e      0xadc ./build/brick.o
+ .debug_macro   0x00029c2a      0xadc ./build/gameover.o
+ .debug_macro   0x0002a706      0xadc ./build/levelup.o
+ .debug_macro   0x0002b1e2      0xadc ./build/line.o
+ .debug_macro   0x0002bcbe      0xadc ./build/vga.o
+ .debug_macro   0x0002c79a      0xadc ./build/vga_layer.o
+ .debug_macro   0x0002d276      0xae2 ./build/vga_pal.o
+ .debug_macro   0x0002dd58      0xadc ./build/vga_screen.o
+ .debug_macro   0x0002e834      0xadc ./build/vga_util.o
+ .debug_macro   0x0002f310      0xae3 ./build/vga_vmode.o
+ .debug_macro   0x0002fdf3      0xadc ./build/canvas.o
+ .debug_macro   0x000308cf      0xadc ./build/overclock.o
+ .debug_macro   0x000313ab      0xadc ./build/print.o
+ .debug_macro   0x00031e87      0xadc ./build/rand.o
+ .debug_macro   0x00032963      0xadc ./build/pwmsnd.o
+ .debug_macro   0x0003343f      0xadc ./build/font_bold_8x16.o
 
-.debug_line     0x00000000    0x49232
+.debug_line     0x00000000    0x49301
  .debug_line    0x00000000      0x335 ./build/binary_info.o
  .debug_line    0x00000335      0x3ca ./build/bootrom.o
  .debug_line    0x000006ff      0x8c5 ./build/claim.o
@@ -20496,26 +20496,26 @@ LOAD linker stubs
  .debug_line    0x00019469     0x1141 ./build/dcd_rp2040.o
  .debug_line    0x0001a5aa      0xde7 ./build/rp2040_usb.o
  .debug_line    0x0001b391      0x64b ./build/tusb.o
- .debug_line    0x0001b9dc     0xd859 ./build/main.o
- .debug_line    0x00029235     0x1098 ./build/tiles.o
- .debug_line    0x0002a2cd     0x1098 ./build/brick.o
- .debug_line    0x0002b365     0x109b ./build/gameover.o
- .debug_line    0x0002c400     0x109a ./build/levelup.o
- .debug_line    0x0002d49a     0x1097 ./build/line.o
- .debug_line    0x0002e531     0x36d2 ./build/vga.o
- .debug_line    0x00031c03     0x1a6a ./build/vga_layer.o
- .debug_line    0x0003366d     0x118f ./build/vga_pal.o
- .debug_line    0x000347fc     0x24cd ./build/vga_screen.o
- .debug_line    0x00036cc9     0x2375 ./build/vga_util.o
- .debug_line    0x0003903e     0x1e68 ./build/vga_vmode.o
- .debug_line    0x0003aea6     0x5da9 ./build/canvas.o
- .debug_line    0x00040c4f     0x1755 ./build/overclock.o
- .debug_line    0x000423a4     0x1b5e ./build/print.o
- .debug_line    0x00043f02     0x2d8e ./build/rand.o
- .debug_line    0x00046c90     0x14f4 ./build/pwmsnd.o
- .debug_line    0x00048184     0x10ae ./build/font_bold_8x16.o
+ .debug_line    0x0001b9dc     0xd928 ./build/main.o
+ .debug_line    0x00029304     0x1098 ./build/tiles.o
+ .debug_line    0x0002a39c     0x1098 ./build/brick.o
+ .debug_line    0x0002b434     0x109b ./build/gameover.o
+ .debug_line    0x0002c4cf     0x109a ./build/levelup.o
+ .debug_line    0x0002d569     0x1097 ./build/line.o
+ .debug_line    0x0002e600     0x36d2 ./build/vga.o
+ .debug_line    0x00031cd2     0x1a6a ./build/vga_layer.o
+ .debug_line    0x0003373c     0x118f ./build/vga_pal.o
+ .debug_line    0x000348cb     0x24cd ./build/vga_screen.o
+ .debug_line    0x00036d98     0x2375 ./build/vga_util.o
+ .debug_line    0x0003910d     0x1e68 ./build/vga_vmode.o
+ .debug_line    0x0003af75     0x5da9 ./build/canvas.o
+ .debug_line    0x00040d1e     0x1755 ./build/overclock.o
+ .debug_line    0x00042473     0x1b5e ./build/print.o
+ .debug_line    0x00043fd1     0x2d8e ./build/rand.o
+ .debug_line    0x00046d5f     0x14f4 ./build/pwmsnd.o
+ .debug_line    0x00048253     0x10ae ./build/font_bold_8x16.o
 
-.debug_str      0x00000000   0x127079
+.debug_str      0x00000000   0x127094
  .debug_str     0x00000000     0x82be ./build/binary_info.o
                                0x84e8 (size before relaxing)
  .debug_str     0x000082be       0xdf ./build/bootrom.o
@@ -20590,44 +20590,44 @@ LOAD linker stubs
                               0x32f1b (size before relaxing)
  .debug_str     0x000ea8e6      0x158 ./build/tusb.o
                               0x17716 (size before relaxing)
- .debug_str     0x000eaa3e    0x3a062 ./build/main.o
-                             0x117258 (size before relaxing)
- .debug_str     0x00124aa0        0xe ./build/tiles.o
+ .debug_str     0x000eaa3e    0x3a07d ./build/main.o
+                             0x117273 (size before relaxing)
+ .debug_str     0x00124abb        0xe ./build/tiles.o
                              0x116506 (size before relaxing)
- .debug_str     0x00124aae        0xe ./build/brick.o
+ .debug_str     0x00124ac9        0xe ./build/brick.o
                              0x116506 (size before relaxing)
- .debug_str     0x00124abc       0x11 ./build/gameover.o
+ .debug_str     0x00124ad7       0x11 ./build/gameover.o
                              0x11650c (size before relaxing)
- .debug_str     0x00124acd       0x10 ./build/levelup.o
+ .debug_str     0x00124ae8       0x10 ./build/levelup.o
                              0x11650a (size before relaxing)
- .debug_str     0x00124add        0xd ./build/line.o
+ .debug_str     0x00124af8        0xd ./build/line.o
                              0x116504 (size before relaxing)
- .debug_str     0x00124aea      0xb22 ./build/vga.o
+ .debug_str     0x00124b05      0xb22 ./build/vga.o
                              0x11772c (size before relaxing)
- .debug_str     0x0012560c      0x1c4 ./build/vga_layer.o
+ .debug_str     0x00125627      0x1c4 ./build/vga_layer.o
                              0x1168e2 (size before relaxing)
- .debug_str     0x001257d0       0xcb ./build/vga_pal.o
+ .debug_str     0x001257eb       0xcb ./build/vga_pal.o
                              0x1165c8 (size before relaxing)
- .debug_str     0x0012589b      0x7f5 ./build/vga_screen.o
+ .debug_str     0x001258b6      0x7f5 ./build/vga_screen.o
                              0x116d55 (size before relaxing)
- .debug_str     0x00126090       0xee ./build/vga_util.o
+ .debug_str     0x001260ab       0xee ./build/vga_util.o
                              0x11665f (size before relaxing)
- .debug_str     0x0012617e      0x1b1 ./build/vga_vmode.o
+ .debug_str     0x00126199      0x1b1 ./build/vga_vmode.o
                              0x116cad (size before relaxing)
- .debug_str     0x0012632f      0x5e3 ./build/canvas.o
+ .debug_str     0x0012634a      0x5e3 ./build/canvas.o
                              0x116c9f (size before relaxing)
- .debug_str     0x00126912       0xd0 ./build/overclock.o
+ .debug_str     0x0012692d       0xd0 ./build/overclock.o
                              0x116750 (size before relaxing)
- .debug_str     0x001269e2      0x1fc ./build/print.o
+ .debug_str     0x001269fd      0x1fc ./build/print.o
                              0x11672f (size before relaxing)
- .debug_str     0x00126bde      0x22b ./build/rand.o
+ .debug_str     0x00126bf9      0x22b ./build/rand.o
                              0x116c07 (size before relaxing)
- .debug_str     0x00126e09      0x24c ./build/pwmsnd.o
+ .debug_str     0x00126e24      0x24c ./build/pwmsnd.o
                              0x1169f9 (size before relaxing)
- .debug_str     0x00127055       0x24 ./build/font_bold_8x16.o
+ .debug_str     0x00127070       0x24 ./build/font_bold_8x16.o
                              0x116520 (size before relaxing)
 
-.debug_loc      0x00000000    0x5616e
+.debug_loc      0x00000000    0x562c4
  .debug_loc     0x00000000      0x264 ./build/bootrom.o
  .debug_loc     0x00000264      0x789 ./build/claim.o
  .debug_loc     0x000009ed     0x1e3b ./build/clocks.o
@@ -20663,18 +20663,18 @@ LOAD linker stubs
  .debug_loc     0x0001c911      0x58c ./build/usbd_control.o
  .debug_loc     0x0001ce9d     0x19c5 ./build/dcd_rp2040.o
  .debug_loc     0x0001e862      0xaba ./build/rp2040_usb.o
- .debug_loc     0x0001f31c    0x1dd7c ./build/main.o
- .debug_loc     0x0003d098     0x2a61 ./build/vga.o
- .debug_loc     0x0003faf9     0x238b ./build/vga_layer.o
- .debug_loc     0x00041e84      0x232 ./build/vga_pal.o
- .debug_loc     0x000420b6     0x1635 ./build/vga_screen.o
- .debug_loc     0x000436eb     0x1bd4 ./build/vga_util.o
- .debug_loc     0x000452bf     0x101e ./build/vga_vmode.o
- .debug_loc     0x000462dd     0xaa72 ./build/canvas.o
- .debug_loc     0x00050d4f      0xa53 ./build/overclock.o
- .debug_loc     0x000517a2      0xc9c ./build/print.o
- .debug_loc     0x0005243e     0x39d7 ./build/rand.o
- .debug_loc     0x00055e15      0x359 ./build/pwmsnd.o
+ .debug_loc     0x0001f31c    0x1ded2 ./build/main.o
+ .debug_loc     0x0003d1ee     0x2a61 ./build/vga.o
+ .debug_loc     0x0003fc4f     0x238b ./build/vga_layer.o
+ .debug_loc     0x00041fda      0x232 ./build/vga_pal.o
+ .debug_loc     0x0004220c     0x1635 ./build/vga_screen.o
+ .debug_loc     0x00043841     0x1bd4 ./build/vga_util.o
+ .debug_loc     0x00045415     0x101e ./build/vga_vmode.o
+ .debug_loc     0x00046433     0xaa72 ./build/canvas.o
+ .debug_loc     0x00050ea5      0xa53 ./build/overclock.o
+ .debug_loc     0x000518f8      0xc9c ./build/print.o
+ .debug_loc     0x00052594     0x39d7 ./build/rand.o
+ .debug_loc     0x00055f6b      0x359 ./build/pwmsnd.o
 
 .debug_ranges   0x00000000     0xd710
  .debug_ranges  0x00000000       0x60 ./build/bootrom.o
