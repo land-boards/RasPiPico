@@ -200,7 +200,7 @@ char GetChar()
 		rVal =  'K';
 	else if (!gpio_get(PB_UR))
 	{
-		while (!gpio_get(PB_UR))
+		while (!gpio_get(PB_UR))	// debounce pause key
 			sleep_ms(20);
 		rVal =  'A';
 		
