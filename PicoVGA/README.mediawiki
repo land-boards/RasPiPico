@@ -101,6 +101,9 @@ Earth - rotating Earth globe
 Eggs - game of Eggs+Chickens+Hens, variant of the Reversi game
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help, 'Q' quit, 'P' 2 players, 'D' demo, space stone, Enter ok
 
+EggsJS - game of Eggs+Chickens+Hens, variant of the Reversi game
+	  JoyPad control: right, up, left, down, fire = help, uper right = quit, 'P' 2 players, 'D' demo, center fire = stone, upper left = ok
+
 Fifteen - game
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'Q' new game
 
