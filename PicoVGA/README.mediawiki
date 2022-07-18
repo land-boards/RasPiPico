@@ -128,6 +128,13 @@ Mandelbrot - fractal pattern generator
 	'O' decrease number of steps, 'P' increase number of steps, 'U' increase system clock,
 	'T' decrease system clock, space redraw
 
+MandelbrotJS - fractal pattern generator
+	JoyPad control: Up, left, right, down, Fire zoom in, upper left zoom out,
+	'L' low resolution 132x100, 'M' medium resolution 264x200, 'H' high resolution 528x400,
+	'I' integer arithmetics, 'F' float arithmetics, 'B' double arithmetics,
+	'O' decrease number of steps, 'P' increase number of steps, 'U' increase system clock,
+	'T' decrease system clock, space redraw
+
 Matrix Rain - simulation of Matrix code rain
 
 Maze - game, simple maze with maze generator
@@ -140,6 +147,9 @@ Oscilloscope - demo oscilloscope simulator
 
 Pacman - game of popular Pac-man
 	keyboard control: 'J' left, 'I' up, 'L' right, 'K' down, 'A' pause
+
+PacmanJS - game of popular Pac-man
+	JoyPad control: left, up, right, down, upper right pause
 
 Pi - calculate Pi at 4800 digits
 
@@ -157,6 +167,9 @@ Spots - draw random dot spots
 
 Tetris - game
 	keyboard control: 'L' right, 'I' turn, 'J' left, 'K' drop, 'A' pause
+
+TetrisJS - game
+	JoyPad control: right, center fire turn, left, down = drop, upper right = pause
 
 Train - puzzle game with 50 levels and with their solutions
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help (solution), Enter OK, Esc escape, BS backspace
