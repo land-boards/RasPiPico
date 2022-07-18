@@ -83,6 +83,8 @@ DEFINE += -DPICO_STDIO_UART=1
 
 == PicoVGA examples ==
 
+* filenameJS = My Joystick version of the programs
+
 <pre>
 Ants - card game
 	keyboard control: 'J' left, 'L' right, space select, 'D' discard, 'H' help, 'Q' quit
