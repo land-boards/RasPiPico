@@ -89,6 +89,9 @@ DEFINE += -DPICO_STDIO_UART=1
 Ants - card game
 	keyboard control: 'J' left, 'L' right, space select, 'D' discard, 'H' help, 'Q' quit
 
+AntsJS - card game
+	JoyPad control: left, right, center fire = select, upper left = discard, Fire = help move, upper right = quit
+
 Balloons - sprite demo, floating balloons
 
 Draw - draw graphics demo
