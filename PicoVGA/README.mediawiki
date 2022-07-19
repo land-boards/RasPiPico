@@ -78,7 +78,7 @@ DEFINE += -DPICO_STDIO_UART=1
 
 == PicoVGA examples ==
 
-* filenameJS = My Joystick version of the programs
+* ProgramsJS = My Joystick version of the programs
 
 <pre>
 Ants - card game
