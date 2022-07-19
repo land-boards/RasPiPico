@@ -82,7 +82,7 @@ Ants - card game
 	keyboard control: 'J' left, 'L' right, space select, 'D' discard, 'H' help, 'Q' quit
 
 AntsJS - card game
-	JoyPad control: left, right, center fire = select, upper left = discard, Fire = help move, upper right = quit
+	JoyPad control: left, right, centerFire=select, upperLeft=discard, Fire=help move, upperRight=quit
 
 Balloons - sprite demo, floating balloons
 
@@ -94,13 +94,14 @@ Eggs - game of Eggs+Chickens+Hens, variant of the Reversi game
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help, 'Q' quit, 'P' 2 players, 'D' demo, space stone, Enter ok
 
 EggsJS - game of Eggs+Chickens+Hens, variant of the Reversi game
-	  JoyPad control: right, up, left, down, fire = help, uper right = quit, 'P' 2 players, 'D' demo, center fire = stone, upper left = ok
+	  JoyPad control: right, up, left, down, fire=help, upoerRight=quit, centerFire=stone, upperLeft=ok
+	  keyboard control: 'P' 2 players, 'D' demo
 
 Fifteen - game
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'Q' new game
 
 FifteenJS - game
-	     JoyPad control: right, up, left, down, upper right = new game
+	     JoyPad control: right, up, left, down, upperRight=new game
 
 Flag - animation of flag fluttering in the wind
 
@@ -108,13 +109,13 @@ Ghost Racing - car racing game, racing with player's ghost copy, demonstration o
 	keyboard control: 'I' gear up, 'K' gear down, 'J' turn left, 'L' turn right
 
 Ghost RacingJS - car racing game, racing with player's ghost copy, demonstration of 3D perspective projection
-	keyboard control: up = gear up, down = gear down, left = turn left, right = turn right
+	JoyPad control: up=gear up, down=gear down, left=turn left, right=turn right
 
 Ginger House - picture fairy tale book
 	keyboard control: 'J' previous page, 'L' next page
 
 Ginger HouseJS - picture fairy tale book
-	JoyPad control: left = previous page, right = next page
+	JoyPad control: left=previous page, right=next page
 
 Hello - simple demonstration, print text "Hello world!" on the screen
 
@@ -125,6 +126,10 @@ Level Meter - demo of music volume level indication
 Life - game, reproducing cells
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'C' copy, 'V' paste, 'D' clear,
 		space flip state, Enter run life, 0..9 select slot
+
+LifeJS - game, reproducing cells
+	JoyPad control: right=right, up=up, left=left, dowb=down, upperLeft=copy, Fire=paste, centerFire=flip state, UpperRight=run life
+	keyboard control: 'D' clear, 0..9 select slot
 
 Lines - moving line patterns
 
@@ -137,7 +142,7 @@ Mandelbrot - fractal pattern generator
 
 MandelbrotJS - fractal pattern generator
 	JoyPad control: Up, left, right, down, Fire zoom in, upper left zoom out,
-	'L' low resolution 132x100, 'M' medium resolution 264x200, 'H' high resolution 528x400,
+	keyboard control: 'L' low resolution 132x100, 'M' medium resolution 264x200, 'H' high resolution 528x400,
 	'I' integer arithmetics, 'F' float arithmetics, 'B' double arithmetics,
 	'O' decrease number of steps, 'P' increase number of steps, 'U' increase system clock,
 	'T' decrease system clock, space redraw
@@ -146,6 +151,9 @@ Matrix Rain - simulation of Matrix code rain
 
 Maze - game, simple maze with maze generator
 	keyboard control: 'J' left, 'I' up, 'L' right, 'K' down, 'H' help (show door)
+
+MazeJS - game, simple maze with maze generator
+	JoyPad control: left, up, right, down, upperRight=help (show door)
 
 Monoscope - test of various graphic modes
 	keyboard control: '0'..'9', 'A'..'U' select videomode
