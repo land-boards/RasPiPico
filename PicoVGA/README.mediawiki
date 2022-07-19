@@ -193,6 +193,9 @@ TetrisJS - game
 Train - puzzle game with 50 levels and with their solutions
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help (solution), Enter OK, Esc escape, BS backspace
 
+TrainJS - puzzle game with 50 levels and with their solutions
+	JoyPad control: right, up, left, down, centerFire=OK, upperLeft=escape, fire=backspace, upperRight=help (solution), 
+
 Twister - deformable block covered with 4 textures
 
 Water surface - simulation of a rippling water surface
