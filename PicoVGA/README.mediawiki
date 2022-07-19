@@ -8,7 +8,7 @@ Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
 
 == Hardware ==
 
- Uses cards
+Uses cards
 
 * [http://land-boards.com/blwiki/index.php?title=PicoVGA01#Prototype_Build_Hardware Raspberry Pi Pico Breakout Board]
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
