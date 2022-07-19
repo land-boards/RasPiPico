@@ -6,12 +6,26 @@ Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
 
 [https://github.com/Panda381/PicoVGA PicoVGA Source GitHub]
 
+== Hardware ==
+
+Uses cards
+
+* [http://land-boards.com/blwiki/index.php?title=PicoVGA01#Prototype_Build_Hardware Raspberry Pi Pico Breakout Board]
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
+* [http://land-boards.com/blwiki/index.php?title=VGAX49 VGAX49 Card]
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico_MM_BASIC_Build#GRID49_-_Audio_Filter Audio Filter Card]
+* [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD Card]
+
+== C/C++ SDK ==
+
+* [https://shawnhymel.com/2096/how-to-set-up-raspberry-pi-pico-c-c-toolchain-on-windows-with-vs-code/ SDK Easier Install] - working following instructions and comments after...
+
 == How to install ==
 
-* Install compiler gcc-arm-none-eabi-10-2020 into folder C:\ARM10
+* Install C/C++ SDK
 * Unpack this package into some folder
 * If you have gcc compiler installed in another folder, edit PATH in files _c1.bat and _boot2\c.bat
-* I [Miroslav Nemecek] recommend FAR Manager as program editor - it contains very useful console output.
+* Miroslav Nemecek recommends FAR Manager as program editor - it contains very useful console output.
 * To compile demo project, run c.bat (or c_all.bat to compile all).
 * To clear demo project, run d.bat (or d_all.bat to clear all).
 * To write demo project to the Pico board:
@@ -22,15 +36,6 @@ Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
 *** Copy /b program.uf2 r:
 ** and then run e.bat 
 ** or drag and drop file 'program.uf2' to Pico drive.
-
-== Hardware ==
-
-* Uses cards
-** Raspberry Pi Pico Breakout Board
-** Raspberry Pi Pico
-** VGAX49
-** Audio Filter Card
-** JOYPAD Card
 
 == How to connect Pico to PC with serial port ==
 
@@ -45,7 +50,8 @@ DEFINE += -DPICO_STDIO_USB=1
 DEFINE += -DPICO_STDIO_UART=1
 </pre>
 
-* To connect Pico to PC via serial port, you need either convertor from RS232 COM port from 3.3V levels of Pico board, or you need convertor to USB port. Good choise is USB-serial adaptor PL2303TA.
+* To connect Pico to PC via serial port, you need either convertor from RS232 COM port from 3.3V levels of Pico board, or you need convertor to USB port. 
+  Good choise is USB-serial adaptor PL2303TA.
 * How to connect UART to Pico:
 
 <pre>
@@ -128,7 +134,8 @@ Life - game, reproducing cells
 		space flip state, Enter run life, 0..9 select slot
 
 LifeJS - game, reproducing cells
-	JoyPad control: right=right, up=up, left=left, dowb=down, upperLeft=copy, Fire=paste, centerFire=flip state, UpperRight=run life
+	JoyPad control: right=right, up=up, left=left, dowb=down, upperLeft=copy, Fire=paste, centerFire=flip state, 
+		UpperRight=run life
 	keyboard control: 'D' clear, 0..9 select slot
 
 Lines - moving line patterns
