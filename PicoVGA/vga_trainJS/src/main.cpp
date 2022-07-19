@@ -118,6 +118,30 @@ char GetChar()
 			sleep_ms(20);
 		rVal =  'K';
 	}
+	else if (!gpio_get(PB_CF))
+	{
+		while (!gpio_get(PB_CF))
+			sleep_ms(20);
+		rVal =  KEY_OK;
+	}
+	else if (!gpio_get(PB_UL))
+	{
+		while (!gpio_get(PB_UL))
+			sleep_ms(20);
+		rVal =  KEY_ESC;
+	}
+	else if (!gpio_get(PB_FR))
+	{
+		while (!gpio_get(PB_FR))
+			sleep_ms(20);
+		rVal =  KEY_BS;
+	}
+	else if (!gpio_get(PB_UR))
+	{
+		while (!gpio_get(PB_UR))
+			sleep_ms(20);
+		rVal =  'K';
+	}
 	return (rVal);
 	// char c = getchar_timeout_us(0);
 	// if (c == (char)PICO_ERROR_TIMEOUT)
