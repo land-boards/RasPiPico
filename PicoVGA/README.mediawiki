@@ -6,6 +6,16 @@ Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
 
 [https://github.com/Panda381/PicoVGA PicoVGA Source GitHub]
 
+== Hardware ==
+
+ Uses cards
+
+* [http://land-boards.com/blwiki/index.php?title=PicoVGA01#Prototype_Build_Hardware Raspberry Pi Pico Breakout Board]
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
+* [http://land-boards.com/blwiki/index.php?title=VGAX49 VGAX49 Card]
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico_MM_BASIC_Build#GRID49_-_Audio_Filter Audio Filter Card]
+* [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD Card]
+
 == C/C++ SDK ==
 
 * [https://shawnhymel.com/2096/how-to-set-up-raspberry-pi-pico-c-c-toolchain-on-windows-with-vs-code/ SDK Easier Install] - working following instructions and comments after...
@@ -26,15 +36,6 @@ Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
 *** Copy /b program.uf2 r:
 ** and then run e.bat 
 ** or drag and drop file 'program.uf2' to Pico drive.
-
-== Hardware ==
-
-* Uses cards
-** [http://land-boards.com/blwiki/index.php?title=PicoVGA01#Prototype_Build_Hardware Raspberry Pi Pico Breakout Board]
-** [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
-** [http://land-boards.com/blwiki/index.php?title=VGAX49 VGAX49 Card]
-** [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico_MM_BASIC_Build#GRID49_-_Audio_Filter Audio Filter Card]
-** [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD Card]
 
 == How to connect Pico to PC with serial port ==
 
