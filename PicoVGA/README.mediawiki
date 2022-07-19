@@ -1,14 +1,14 @@
 = PicoVGA - VGA/TV display on Raspberry Pico =
 
+== Credits ==
+
+Miroslav Nemecek is the original author of PicoBGA, [panda38.sweb.cz], Panda38@seznam.cz. His [https://github.com/Panda381/PicoVGA PicoVGA Source GitHub] page. His [http://www.breatharian.eu/hw/picovga/index_en.html PicoVGA project web page].
+
+== Our Hardware Build ==
+
 <img src="http://land-boards.com/blwiki/images/6/66/PicoVGA_P1080432-720px.jpg"></img>
 
-Miroslav Nemecek, panda38.sweb.cz, Panda38@seznam.cz
-
-[https://github.com/Panda381/PicoVGA PicoVGA Source GitHub]
-
-== Hardware ==
-
-Uses cards
+Uses Land Boards cards
 
 * [http://land-boards.com/blwiki/index.php?title=PicoVGA01#Prototype_Build_Hardware Raspberry Pi Pico Breakout Board]
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
