@@ -113,6 +113,9 @@ Ghost RacingJS - car racing game, racing with player's ghost copy, demonstration
 Ginger House - picture fairy tale book
 	keyboard control: 'J' previous page, 'L' next page
 
+Ginger HouseJS - picture fairy tale book
+	JoyPad control: left = previous page, right = next page
+
 Hello - simple demonstration, print text "Hello world!" on the screen
 
 Hypno - hypnotizing rotating pattern
