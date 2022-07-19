@@ -176,6 +176,10 @@ Sokoban - game with 3000 puzzles and with their solutions
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help (solution),
 	'R' restart scene, 'Q' previous level, 'W' next level, 'P' info
 
+SokobanJS - game with 3000 puzzles and with their solutions
+	JoyPad control: right, up, left, down, upperLeft=previous level, fire=next level, uppperRight=restart scene, 
+	keyboard 'H' help (solution), 'P' info
+
 Spheres - draw random spheres
 
 Spots - draw random dot spots
