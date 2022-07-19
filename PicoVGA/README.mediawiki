@@ -126,6 +126,10 @@ Life - game, reproducing cells
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'C' copy, 'V' paste, 'D' clear,
 		space flip state, Enter run life, 0..9 select slot
 
+LifeJS - game, reproducing cells
+	JoyPad control: right=right, up=up, left=left, dowb=down, upperLeft=copy, Fire=paste, centerFire=flip state, UpperRight=run life
+	keyboard control: 'D' clear, 0..9 select slot
+
 Lines - moving line patterns
 
 Mandelbrot - fractal pattern generator
