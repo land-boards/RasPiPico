@@ -2,7 +2,7 @@
 
 == Credits ==
 
-Miroslav Nemecek is the original author of PicoBGA, [panda38.sweb.cz], Panda38@seznam.cz. His [https://github.com/Panda381/PicoVGA PicoVGA Source GitHub] page. His [http://www.breatharian.eu/hw/picovga/index_en.html PicoVGA project web page].
+Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@seznam.cz. His [https://github.com/Panda381/PicoVGA PicoVGA Source GitHub] page. His [http://www.breatharian.eu/hw/picovga/index_en.html PicoVGA project web page].
 
 == Our Hardware Build ==
 
