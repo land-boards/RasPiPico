@@ -16,13 +16,10 @@ Uses cards
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico_MM_BASIC_Build#GRID49_-_Audio_Filter Audio Filter Card]
 * [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD Card]
 
-== C/C++ SDK ==
-
-* [https://shawnhymel.com/2096/how-to-set-up-raspberry-pi-pico-c-c-toolchain-on-windows-with-vs-code/ SDK Easier Install] - working following instructions and comments after...
-
 == How to install ==
 
 * Install C/C++ SDK
+** [https://shawnhymel.com/2096/how-to-set-up-raspberry-pi-pico-c-c-toolchain-on-windows-with-vs-code/ SDK Easier Install] - working following instructions and comments after...
 * Unpack this package into some folder
 * If you have gcc compiler installed in another folder, edit PATH in files _c1.bat and _boot2\c.bat
 * Miroslav Nemecek recommends FAR Manager as program editor - it contains very useful console output.
