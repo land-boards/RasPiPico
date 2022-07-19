@@ -45,7 +45,8 @@ DEFINE += -DPICO_STDIO_USB=1
 DEFINE += -DPICO_STDIO_UART=1
 </pre>
 
-* To connect Pico to PC via serial port, you need either convertor from RS232 COM port from 3.3V levels of Pico board, or you need convertor to USB port. Good choise is USB-serial adaptor PL2303TA.
+* To connect Pico to PC via serial port, you need either convertor from RS232 COM port from 3.3V levels of Pico board, or you need convertor to USB port. 
+  Good choise is USB-serial adaptor PL2303TA.
 * How to connect UART to Pico:
 
 <pre>
@@ -128,7 +129,8 @@ Life - game, reproducing cells
 		space flip state, Enter run life, 0..9 select slot
 
 LifeJS - game, reproducing cells
-	JoyPad control: right=right, up=up, left=left, dowb=down, upperLeft=copy, Fire=paste, centerFire=flip state, UpperRight=run life
+	JoyPad control: right=right, up=up, left=left, dowb=down, upperLeft=copy, Fire=paste, centerFire=flip state, 
+		UpperRight=run life
 	keyboard control: 'D' clear, 0..9 select slot
 
 Lines - moving line patterns
