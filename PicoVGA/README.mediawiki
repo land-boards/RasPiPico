@@ -86,7 +86,7 @@ DEFINE += -DPICO_STDIO_UART=1
 * In Device Manager, USB adaptor can be found under name:
 ** "Prolific USB-to-Serial Comm Port (COM10)".
 
-== PicoVGA examples ==
+= PicoVGA examples =
 
 * ProgramsJS = My Joystick version of the programs
 
