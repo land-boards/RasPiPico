@@ -2,6 +2,8 @@
 
 = Land Boards PiPicoMite01 card =
 
+<a href="https://www.tindie.com/products/26931/"><img src="http://land-boards.com/blwiki/images/5/51/Tindie-mediums.png" alt="Tindie Logo"></img></a>
+
 <img src="http://land-boards.com/blwiki/images/b/b4/PiPicoMite01_P18182_720px.jpg"></img>
 
 * Uses [http://land-boards.com/blwiki/index.php?title=PiPicoMite01 Land Boards PiPicoMite01 card]
@@ -21,6 +23,8 @@
 
 = Land Boards PiPicoMite02 card =
 
+<a href="https://www.tindie.com/products/27221/"><img src="http://land-boards.com/blwiki/images/5/51/Tindie-mediums.png" alt="Tindie Logo"></img></a>
+
 <img src="http://land-boards.com/blwiki/images/d/de/PiPicoMite-02_P18268_720px.jpg"></img>
 
 * Uses [http://land-boards.com/blwiki/index.php?title=PiPicoMite02 Land Boards PiPicoMite02 card]
@@ -39,6 +43,8 @@
 * 2x20 pin headers breaks out all Pico pins
 
 = Land Boards PiPicoMite03 card =
+
+<a href="https://www.tindie.com/products/land_boards/raspberry-pi-pico-card-with-vga-sound-kbd-v3/"><img src="http://land-boards.com/blwiki/images/5/51/Tindie-mediums.png" alt="Tindie Logo"></img></a>
 
 <img src="http://land-boards.com/blwiki/images/2/24/PiPicoMite03_P18397-720px.jpg"></img>
 
