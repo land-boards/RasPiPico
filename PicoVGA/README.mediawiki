@@ -4,7 +4,17 @@
 
 Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@seznam.cz. His [https://github.com/Panda381/PicoVGA PicoVGA Source GitHub] page. His [http://www.breatharian.eu/hw/picovga/index_en.html PicoVGA project web page].
 
-== Our Hardware Build ==
+= Land Boards Card =
+
+<img src="http://land-boards.com/blwiki/images/5/59/PicoVGA_FRONT_3D.png"></img>
+
+* VGA (3:3:2)
+* Joystick (DB-9M)
+* Audio (3.5mm to amplified speaker)
+* 5V (USB B)
+* Fits into standard 100x76mm extruded Aluminum enclosure
+
+= Our Prototype Hardware Build =
 
 <img src="http://land-boards.com/blwiki/images/6/66/PicoVGA_P1080432-720px.jpg"></img>
 
@@ -16,7 +26,7 @@ Uses Land Boards cards
 * [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico_MM_BASIC_Build#GRID49_-_Audio_Filter Audio Filter Card]
 * [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD Card]
 
-== How to install ==
+= How to install =
 
 * Install C/C++ SDK
 ** [https://shawnhymel.com/2096/how-to-set-up-raspberry-pi-pico-c-c-toolchain-on-windows-with-vs-code/ SDK Easier Install] - working following instructions and comments after...
