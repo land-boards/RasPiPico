@@ -9,8 +9,8 @@ Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@s
 <img src="http://land-boards.com/blwiki/images/5/56/PicoVGA01_P1080468-720px.jpg"></img>
 
 * VGA (3:3:2)
-* Joystick (DB-9M)
-* Audio (3.5mm to amplified speaker)
+* Joystick (DB-9M) or [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD]
+* Mono Audio (3.5mm to amplified stereo speaker)
 * 5V (USB B)
 * Fits into standard 100x76mm extruded Aluminum enclosure
 
