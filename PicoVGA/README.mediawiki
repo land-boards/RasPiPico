@@ -14,18 +14,6 @@ Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@s
 * 5V (USB B)
 * Fits into standard 100x76mm extruded Aluminum enclosure
 
-= Our Prototype Hardware Build =
-
-<img src="http://land-boards.com/blwiki/images/6/66/PicoVGA_P1080432-720px.jpg"></img>
-
-Uses Land Boards cards
-
-* [http://land-boards.com/blwiki/index.php?title=PicoVGA01#Prototype_Build_Hardware Raspberry Pi Pico Breakout Board]
-* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
-* [http://land-boards.com/blwiki/index.php?title=VGAX49 VGAX49 Card]
-* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico_MM_BASIC_Build#GRID49_-_Audio_Filter Audio Filter Card]
-* [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD Card]
-
 = How to install =
 
 * Install C/C++ SDK
@@ -214,3 +202,15 @@ Twister - deformable block covered with 4 textures
 
 Water surface - simulation of a rippling water surface
 </pre>
+
+= Our Prototype Hardware Build =
+
+<img src="http://land-boards.com/blwiki/images/6/66/PicoVGA_P1080432-720px.jpg"></img>
+
+Uses Land Boards cards
+
+* [http://land-boards.com/blwiki/index.php?title=PicoVGA01#Prototype_Build_Hardware Raspberry Pi Pico Breakout Board]
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico Raspberry Pi Pico]
+* [http://land-boards.com/blwiki/index.php?title=VGAX49 VGAX49 Card]
+* [http://land-boards.com/blwiki/index.php?title=Raspberry_Pi_Pico_MM_BASIC_Build#GRID49_-_Audio_Filter Audio Filter Card]
+* [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD Card]
