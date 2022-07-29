@@ -6,7 +6,7 @@ Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@s
 
 = Land Boards Card =
 
-<img src="http://land-boards.com/blwiki/images/5/59/PicoVGA_FRONT_3D.png"></img>
+<img src="http://land-boards.com/blwiki/images/5/56/PicoVGA01_P1080468-720px.jpg"></img>
 
 * VGA (3:3:2)
 * Joystick (DB-9M)
