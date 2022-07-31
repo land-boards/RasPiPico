@@ -117,14 +117,14 @@ const char* PageText[PAGES] = {
 
 	// 2
 	"1) Once upon a time there lived a poor wood-cutter, his wife and their two\n"
-	"children. The children were called John and Mary. Their father used to go to\n"
+	"children. The children were called Max and Xenia. Their father used to go to\n"
 	"the forest to dig the stubs. In the summer nice weather, he used to take the\n"
-	"kids with him. John and Mary picked up strawberries and they always brought\n"
+	"kids with him. Max and Xenia picked up strawberries and they always brought\n"
 	"a full jug for their mother.",
 
 	// 3
 	"2) One day the father had his job far in the forest and he didn't want the\n"
-	"children to go with him, because their legs could hurt them. But John and Mary\n"
+	"children to go with him, because their legs could hurt them. But Max and Xenia\n"
 	"promised that their legs would not hurt so their father took them with him.\n",
 
 	// 4
@@ -133,7 +133,7 @@ const char* PageText[PAGES] = {
 	"lose their way. Afterwards he began to work.",
 
 	// 5
-	"4) John and Mary went to picked up strawberries. They weren't afraid of\n"
+	"4) Max and Xenia went to picked up strawberries. They weren't afraid of\n"
 	"losing their way, because all the time they heard the wooden axe of their\n"
 	"father striking at the stubs.",
 
@@ -141,35 +141,35 @@ const char* PageText[PAGES] = {
 	"5) When they picked up the full jug and ate bread their mother had given to\n"
 	"them for their way, they sat down under a big tree, because their legs would\n"
 	"carry them no longer. But after a while, their eyes closed of fatigue and\n"
-	"John and Mary fell fast asleep.",
+	"Max and Xenia fell fast asleep.",
 
 	// 7
 	"6) When they awoke at last, it was getting dark in the forest. The children\n"
 	"got frightened and looked quickly for their father. They shouted: \"Daddy!,\n"
 	"Daddy!\", but their father did not answer. Only the cuckoo gossiped somewhere\n"
 	"in the forest brushwood: \"Cuckoo, cuckoo, cuckoo\" and owl had hooted:\n"
-	"\"Hoo, hoo\". The darkness thickened and John and Mary searched for their way\n"
+	"\"Hoo, hoo\". The darkness thickened and Max and Xenia searched for their way\n"
 	"in vain. They had lost it.",
 
 	// 8
 	"7) They stayed alone in the forest and the night was falling. They walked\n"
 	"through the brushwood and were frightened. When they didn't know how to get\n"
-	"out, Mary, completely depressed, told John: \"John, climb up the tree as high\n"
+	"out, Xenia, completely depressed, told Max: \"Max, climb up the tree as high\n"
 	"as you can and look at all sides. You may see the light from our house\n"
-	"somewhere. Are you frightened?\" \"No, I am not, Mary. Wait a moment, I will\n"
+	"somewhere. Are you frightened?\" \"No, I am not, Xenia. Wait a moment, I will\n"
 	"be up immediately.\"",
 
 	// 9
-	"8) John climbed up the tree, looked around, and suddenly caught sight of a\n"
-	"small light afar. He climbed down the tree quickly and told Mary what he had\n"
+	"8) Max climbed up the tree, looked around, and suddenly caught sight of a\n"
+	"small light afar. He climbed down the tree quickly and told Xenia what he had\n"
 	"seen. And they went on this direction. At that moment, the clouds dispersed,\n"
 	"the moon came out and showed them their way.",
 
 	// 10
 	"9) They reached a big meadow, where a nice little house stood. When they\n"
 	"approached this house, they wondered. It was made from the gingerbread. They\n"
-	"gazed at the house for a while and in the end John broke off a piece from it.\n"
-	"Oh, it was such a sweet gingerbread. Mary broke off a piece as well.",
+	"gazed at the house for a while and in the end Max broke off a piece from it.\n"
+	"Oh, it was such a sweet gingerbread. Xenia broke off a piece as well.",
 
 	// 11
 	"10) The door of this gingerbread house opened suddenly and an ugly witch went\n"
@@ -184,41 +184,41 @@ const char* PageText[PAGES] = {
 	"again.",
 
 	// 13
-	"12) In the morning, she pulled Mary out of the stable, but John remained\n"
-	"closed there. Mary had to help her and the witch cooked good meals and fed\n"
-	"John to get fat as soon as possible. She was a very wicked witch and she\n"
+	"12) In the morning, she pulled Xenia out of the stable, but Max remained\n"
+	"closed there. Xenia had to help her and the witch cooked good meals and fed\n"
+	"Max to get fat as soon as possible. She was a very wicked witch and she\n"
 	"wanted to eat those children.",
 
 	// 14
-	"13) She smacked her lips again and again and proved daily whether John was\n"
-	"getting fat: \"Show me your finger John. Show it and I'll look at it.\" She\n"
-	"wanted to test whether John was already thick enough. But John was a clever\n"
+	"13) She smacked her lips again and again and proved daily whether Max was\n"
+	"getting fat: \"Show me your finger Max. Show it and I'll look at it.\" She\n"
+	"wanted to test whether Max was already thick enough. But Max was a clever\n"
 	"boy and stretched out always a little piece of wood on the witch. The witch\n"
 	"did not recognize anything. She always cut into the piece of wood by her\n"
-	"knife and recognized that John was still too thin.",
+	"knife and recognized that Max was still too thin.",
 
 	// 15
-	"14) However, one morning the witch ordered Mary to bring a lot of wood,\n"
+	"14) However, one morning the witch ordered Xenia to bring a lot of wood,\n"
 	"because she was going to roast some meat that day. Afterwards, she made a\n"
 	"fire in the stove and prepared a big shovel. As soon as she brought the stove\n"
 	"to a great heat, she said: \"And now we bring the meat to be roasted.\" She\n"
-	"went into the stable and brought John. The things were looking bad.",
+	"went into the stable and brought Max. The things were looking bad.",
 
 	// 16
-	"15) The witch already kept the shovel, opened the stove and grimaced at John.\n"
+	"15) The witch already kept the shovel, opened the stove and grimaced at Max.\n"
 	"\"Come on, you dear kid, do sit down on the shovel and look into the stove\n"
-	"whether it is already warm enough. I will bake you cakes.\" But John\n"
+	"whether it is already warm enough. I will bake you cakes.\" But Max\n"
 	"purposely sat only on the edge of the shovel and immediately fell from it.\n"
 	"The witch was angry and grumbled.",
 
 	// 17
-	"16) Suddenly, Mary had a good idea and said: \"So, granny, show us how to sit\n"
+	"16) Suddenly, Xenia had a good idea and said: \"So, granny, show us how to sit\n"
 	"on the shovel.\" \"I will show it to you, kids, I will. Do keep the shovel\n"
 	"well.\"",
 
 	// 18
 	"17) The children leapt to the shovel, the witch sat down on it properly, and\n"
-	"John and Mary pushed her into the stove and closed the door. Done. So much\n"
+	"Max and Xenia pushed her into the stove and closed the door. Done. So much\n"
 	"cry. The witch shook the stove door so that the whole gingerbread house\n"
 	"vibrated.",
 
@@ -228,7 +228,7 @@ const char* PageText[PAGES] = {
 	"look back at all.",
 
 	// 20
-	"19) Fortunately, the path led directly to their parent's house. John and Mary\n"
+	"19) Fortunately, the path led directly to their parent's house. Max and Xenia\n"
 	"ran home quite out of breath. Their father and mother sat there sadly and\n"
 	"they were crying. But suddenly the children appeared. They were so happy.",
 
@@ -398,11 +398,11 @@ int main()
 			OpenPage();
 			break;
 
-		default:
-			printf("J ... previous page\n");
-			printf("L ... next page\n");
-			printf("sys_clk = %ukHz\n", clock_get_hz(clk_sys)/1000);
-			break;
+		// default:
+			// printf("J ... previous page\n");
+			// printf("L ... next page\n");
+			// printf("sys_clk = %ukHz\n", clock_get_hz(clk_sys)/1000);
+			// break;
 		}
 	}
 }

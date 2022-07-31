@@ -67,6 +67,8 @@ Discarded input sections
  .text          0x00000000        0x0 ./build/divider.o
  .data          0x00000000        0x0 ./build/divider.o
  .bss           0x00000000        0x0 ./build/divider.o
+ .text.__wrap___aeabi_idiv
+                0x00000000       0x58 ./build/divider.o
  .text.divmod_s64s64_rem
                 0x00000000        0xc ./build/divider.o
  .text.divmod_u64u64_rem
@@ -85,11 +87,31 @@ Discarded input sections
                 0x00000000        0xc ./build/double_aeabi.o
  .text.pop_r8_r11
                 0x00000000        0xc ./build/double_aeabi.o
+ .text.__wrap___aeabi_darithmetic
+                0x00000000       0x54 ./build/double_aeabi.o
+ .text.__wrap___aeabi_cdcmple
+                0x00000000       0x6c ./build/double_aeabi.o
  .text.__wrap___aeabi_dcmpeq
                 0x00000000       0x10 ./build/double_aeabi.o
+ .text.__wrap___aeabi_dcmplt
+                0x00000000        0xc ./build/double_aeabi.o
+ .text.__wrap___aeabi_dcmple
+                0x00000000       0x10 ./build/double_aeabi.o
+ .text.__wrap___aeabi_dcmpge
+                0x00000000       0x10 ./build/double_aeabi.o
+ .text.__wrap___aeabi_dcmpgt
+                0x00000000        0xa ./build/double_aeabi.o
+ .text.__wrap___aeabi_dcmpun
+                0x00000000       0x1c ./build/double_aeabi.o
  .text.__wrap___aeabi_ui2d
                 0x00000000       0x18 ./build/double_aeabi.o
+ .text.__wrap___aeabi_i2d
+                0x00000000       0x38 ./build/double_aeabi.o
+ .text.__wrap___aeabi_d2iz
+                0x00000000       0x48 ./build/double_aeabi.o
  .text.double2int
+                0x00000000       0x18 ./build/double_aeabi.o
+ .text.__wrap___aeabi_d2uiz
                 0x00000000       0x18 ./build/double_aeabi.o
  .text.fix2double
                 0x00000000       0x18 ./build/double_aeabi.o
@@ -138,18 +160,34 @@ Discarded input sections
  .text          0x00000000        0x0 ./build/double_v1_rom_shim.o
  .data          0x00000000        0x0 ./build/double_v1_rom_shim.o
  .bss           0x00000000        0x0 ./build/double_v1_rom_shim.o
+ .text.__wrap___aeabi_dsub
+                0x00000000       0x10 ./build/double_v1_rom_shim.o
+ .text.dadd_shim
+                0x00000000      0x15c ./build/double_v1_rom_shim.o
+ .text.dmul_shim
+                0x00000000      0x15c ./build/double_v1_rom_shim.o
+ .text.ddiv_shim
+                0x00000000      0x1b0 ./build/double_v1_rom_shim.o
  .text.dsqrt_shim
                 0x00000000      0x1a8 ./build/double_v1_rom_shim.o
  .text.dcordic_vec_step
                 0x00000000        0xe ./build/double_v1_rom_shim.o
+ .text.dcordic_rot_step
+                0x00000000       0x7c ./build/double_v1_rom_shim.o
  .text.double2int_shim
+                0x00000000        0xe ./build/double_v1_rom_shim.o
+ .text.double2uint_shim
                 0x00000000        0xe ./build/double_v1_rom_shim.o
  .text.double2int64_shim
                 0x00000000       0x1a ./build/double_v1_rom_shim.o
+ .text.double2uint64_shim
+                0x00000000       0x6c ./build/double_v1_rom_shim.o
  .text.double2float_shim
                 0x00000000       0x5c ./build/double_v1_rom_shim.o
  .text.x2double_shims
                 0x00000000       0x90 ./build/double_v1_rom_shim.o
+ .text.dunpacks
+                0x00000000       0x3c ./build/double_v1_rom_shim.o
  .text.dreduce  0x00000000       0x82 ./build/double_v1_rom_shim.o
  .text.dtan_shim
                 0x00000000       0x20 ./build/double_v1_rom_shim.o
@@ -2441,14 +2479,34 @@ Discarded input sections
  .bss           0x00000000        0x0 ./build/printf.o
  .text._out_buffer
                 0x00000000        0x8 ./build/printf.o
+ .text._out_null
+                0x00000000        0x4 ./build/printf.o
+ .text._out_rev
+                0x00000000       0x9c ./build/printf.o
+ .text._ntoa_format
+                0x00000000      0x1cc ./build/printf.o
+ .text._out_fct
+                0x00000000       0x10 ./build/printf.o
+ .text._etoa    0x00000000      0x420 ./build/printf.o
+ .rodata._ftoa.str1.4
+                0x00000000       0x15 ./build/printf.o
+ .text._ftoa    0x00000000      0x398 ./build/printf.o
+ .text._vsnprintf
+                0x00000000      0xb04 ./build/printf.o
+ .rodata._vsnprintf
+                0x00000000      0x1e0 ./build/printf.o
  .text.__wrap_sprintf
                 0x00000000       0x28 ./build/printf.o
  .text.__wrap_snprintf
                 0x00000000       0x28 ./build/printf.o
  .text.__wrap_vsnprintf
                 0x00000000       0x1c ./build/printf.o
+ .text.vfctprintf
+                0x00000000       0x20 ./build/printf.o
  .text.weak_raw_printf
                 0x00000000       0x40 ./build/printf.o
+ .rodata.pow10.0
+                0x00000000       0x50 ./build/printf.o
  .debug_macro   0x00000000      0xac6 ./build/printf.o
  .debug_macro   0x00000000       0x22 ./build/printf.o
  .debug_macro   0x00000000       0x22 ./build/printf.o
@@ -3137,6 +3195,8 @@ Discarded input sections
  .text          0x00000000        0x0 ./build/stdio.o
  .data          0x00000000        0x0 ./build/stdio.o
  .bss           0x00000000        0x0 ./build/stdio.o
+ .text.stdio_buffered_printer
+                0x00000000       0x78 ./build/stdio.o
  .text.stdout_serialize_begin
                 0x00000000       0x30 ./build/stdio.o
  .text.stdout_serialize_end
@@ -3145,6 +3205,10 @@ Discarded input sections
  .text._write   0x00000000       0x20 ./build/stdio.o
  .text.stdio_flush
                 0x00000000       0x28 ./build/stdio.o
+ .text.__wrap_vprintf
+                0x00000000       0xe8 ./build/stdio.o
+ .text.__wrap_printf
+                0x00000000       0x18 ./build/stdio.o
  .text.__wrap_getchar
                 0x00000000       0xa0 ./build/stdio.o
  .text.getchar_timeout_us
@@ -23878,7 +23942,7 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
                 0x10000100                __boot2_end__ = .
                 0x00000001                ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
-.text           0x10000100     0x8bb0
+.text           0x10000100     0x6cf0
                 0x10000100                __logical_binary_start = .
  *(.vectors)
  .vectors       0x10000100       0xd4 ./build/crt0.o
@@ -23938,720 +24002,620 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .text*)
  .text          0x100002c4       0x48 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
  .text          0x1000030c       0x10 ./build/bit_ops_aeabi.o
- .text.__wrap___aeabi_idiv
-                0x1000031c       0x58 ./build/divider.o
-                0x1000031c                __wrap___aeabi_idivmod
-                0x1000031c                divmod_s32s32
-                0x1000031c                div_s32s32
-                0x1000031c                __wrap___aeabi_idiv
-                0x10000324                divmod_s32s32_unsafe
-                0x10000350                divmod_s32s32_savestate
  .text.__wrap___aeabi_uidiv
-                0x10000374       0x54 ./build/divider.o
-                0x10000374                __wrap___aeabi_uidiv
-                0x10000374                __wrap___aeabi_uidivmod
-                0x10000374                div_u32u32
-                0x10000374                divmod_u32u32
-                0x1000037c                divmod_u32u32_unsafe
-                0x100003a4                divmod_u32u32_savestate
+                0x1000031c       0x54 ./build/divider.o
+                0x1000031c                __wrap___aeabi_uidiv
+                0x1000031c                __wrap___aeabi_uidivmod
+                0x1000031c                div_u32u32
+                0x1000031c                divmod_u32u32
+                0x10000324                divmod_u32u32_unsafe
+                0x1000034c                divmod_u32u32_savestate
  .text.__wrap___aeabi_ldiv
-                0x100003c8      0x430 ./build/divider.o
-                0x100003c8                div_s64s64
-                0x100003c8                divmod_s64s64
-                0x100003c8                __wrap___aeabi_ldivmod
-                0x10000400                divmod_u64u64
-                0x10000400                div_u64u64
-                0x10000400                __wrap___aeabi_uldivmod
-                0x10000410                divmod_u64u64_savestate
-                0x10000438                divmod_s64s64_unsafe
-                0x100004c0                divmod_u64u64_unsafe
+                0x10000370      0x430 ./build/divider.o
+                0x10000370                div_s64s64
+                0x10000370                divmod_s64s64
+                0x10000370                __wrap___aeabi_ldivmod
+                0x100003a8                divmod_u64u64
+                0x100003a8                div_u64u64
+                0x100003a8                __wrap___aeabi_uldivmod
+                0x100003b8                divmod_u64u64_savestate
+                0x100003e0                divmod_s64s64_unsafe
+                0x10000468                divmod_u64u64_unsafe
  .text.hw_divider_save_state
-                0x100007f8       0x1c ./build/divider0.o
-                0x100007f8                hw_divider_save_state
+                0x100007a0       0x1c ./build/divider0.o
+                0x100007a0                hw_divider_save_state
  .text.hw_divider_restore_state
-                0x10000814       0x14 ./build/divider0.o
-                0x10000814                hw_divider_restore_state
- .text.__wrap___aeabi_darithmetic
-                0x10000828       0x54 ./build/double_aeabi.o
-                0x10000828                __wrap___aeabi_drsub
-                0x1000082e                __wrap___aeabi_dsub
-                0x10000840                __wrap___aeabi_dadd
-                0x10000852                __wrap___aeabi_ddiv
-                0x10000864                __wrap___aeabi_dmul
- .text.__wrap___aeabi_cdcmple
-                0x1000087c       0x6c ./build/double_aeabi.o
-                0x1000087c                __wrap___aeabi_cdrcmple
-                0x1000088c                __wrap___aeabi_cdcmpeq
-                0x1000088c                __wrap___aeabi_cdcmple
- .text.__wrap___aeabi_dcmplt
-                0x100008e8        0xc ./build/double_aeabi.o
-                0x100008e8                __wrap___aeabi_dcmplt
- .text.__wrap___aeabi_dcmple
-                0x100008f4       0x10 ./build/double_aeabi.o
-                0x100008f4                __wrap___aeabi_dcmple
- .text.__wrap___aeabi_dcmpge
-                0x10000904       0x10 ./build/double_aeabi.o
-                0x10000904                __wrap___aeabi_dcmpge
- .text.__wrap___aeabi_dcmpgt
-                0x10000914        0xa ./build/double_aeabi.o
-                0x10000914                __wrap___aeabi_dcmpgt
- .text.__wrap___aeabi_dcmpun
-                0x1000091e       0x1c ./build/double_aeabi.o
-                0x1000091e                __wrap___aeabi_dcmpun
- *fill*         0x1000093a        0x2 
- .text.__wrap___aeabi_i2d
-                0x1000093c       0x38 ./build/double_aeabi.o
-                0x1000093c                __wrap___aeabi_ui2d
-                0x10000944                __wrap___aeabi_i2d
- .text.__wrap___aeabi_d2iz
-                0x10000974       0x48 ./build/double_aeabi.o
-                0x10000974                double2int_z
-                0x10000974                __wrap___aeabi_d2iz
- .text.__wrap___aeabi_d2uiz
-                0x100009bc       0x18 ./build/double_aeabi.o
-                0x100009bc                __wrap___aeabi_d2uiz
-                0x100009bc                double2uint
+                0x100007bc       0x14 ./build/divider0.o
+                0x100007bc                hw_divider_restore_state
  .text.double_table_shim_on_use_helper
-                0x100009d4       0x2c ./build/double_v1_rom_shim.o
-                0x100009d4                double_table_shim_on_use_helper
- .text.__wrap___aeabi_dsub
-                0x10000a00       0x10 ./build/double_v1_rom_shim.o
-                0x10000a00                drsub_shim
-                0x10000a06                dsub_shim
- .text.dadd_shim
-                0x10000a10      0x15c ./build/double_v1_rom_shim.o
-                0x10000a10                dadd_shim
- .text.dmul_shim
-                0x10000b6c      0x15c ./build/double_v1_rom_shim.o
-                0x10000b6c                dmul_shim
- .text.ddiv_shim
-                0x10000cc8      0x1b0 ./build/double_v1_rom_shim.o
-                0x10000cc8                ddiv_shim
- .text.dcordic_rot_step
-                0x10000e78       0x7c ./build/double_v1_rom_shim.o
-                0x10000e78                dcordic_rot_step
- .text.double2uint_shim
-                0x10000ef4        0xe ./build/double_v1_rom_shim.o
-                0x10000ef4                double2uint_shim
-                0x10000ef6                double2ufix_shim
- *fill*         0x10000f02        0x2 
- .text.double2uint64_shim
-                0x10000f04       0x6c ./build/double_v1_rom_shim.o
-                0x10000f04                double2uint64_shim
-                0x10000f06                double2ufix64_shim
-                0x10000f20                d2fix_a
- .text.dunpacks
-                0x10000f70       0x3c ./build/double_v1_rom_shim.o
-                0x10000f70                dunpacks
+                0x100007d0       0x2c ./build/double_v1_rom_shim.o
+                0x100007d0                double_table_shim_on_use_helper
  .text.__wrap___aeabi_farithmetic
-                0x10000fac       0x24 ./build/float_aeabi.o
-                0x10000fac                __wrap___aeabi_frsub
-                0x10000fb2                __wrap___aeabi_fsub
-                0x10000fb8                __wrap___aeabi_fadd
-                0x10000fbe                __wrap___aeabi_fdiv
-                0x10000fc4                __wrap___aeabi_fmul
+                0x100007fc       0x24 ./build/float_aeabi.o
+                0x100007fc                __wrap___aeabi_frsub
+                0x10000802                __wrap___aeabi_fsub
+                0x10000808                __wrap___aeabi_fadd
+                0x1000080e                __wrap___aeabi_fdiv
+                0x10000814                __wrap___aeabi_fmul
  .text.__wrap___aeabi_ui2f
-                0x10000fd0        0xa ./build/float_aeabi.o
-                0x10000fd0                __wrap___aeabi_ui2f
- *fill*         0x10000fda        0x2 
+                0x10000820        0xa ./build/float_aeabi.o
+                0x10000820                __wrap___aeabi_ui2f
+ *fill*         0x1000082a        0x2 
  .text.__wrap___aeabi_i2f
-                0x10000fdc       0x44 ./build/float_aeabi.o
-                0x10000fdc                __wrap___aeabi_i2f
+                0x1000082c       0x44 ./build/float_aeabi.o
+                0x1000082c                __wrap___aeabi_i2f
  .text.__wrap___aeabi_f2iz
-                0x10001020       0x4e ./build/float_aeabi.o
-                0x10001020                float2int_z
-                0x10001020                __wrap___aeabi_f2iz
- *fill*         0x1000106e        0x2 
+                0x10000870       0x4e ./build/float_aeabi.o
+                0x10000870                float2int_z
+                0x10000870                __wrap___aeabi_f2iz
+ *fill*         0x100008be        0x2 
  .text.float2int
-                0x10001070       0x14 ./build/float_aeabi.o
-                0x10001070                float2int
+                0x100008c0       0x14 ./build/float_aeabi.o
+                0x100008c0                float2int
  .text.__wrap___aeabi_f2uiz
-                0x10001084        0xc ./build/float_aeabi.o
-                0x10001084                __wrap___aeabi_f2uiz
+                0x100008d4        0xc ./build/float_aeabi.o
+                0x100008d4                __wrap___aeabi_f2uiz
  .text.float_table_shim_on_use_helper
-                0x10001090       0x2c ./build/float_v1_rom_shim.o
-                0x10001090                float_table_shim_on_use_helper
+                0x100008e0       0x2c ./build/float_v1_rom_shim.o
+                0x100008e0                float_table_shim_on_use_helper
  .text.float232_shims
-                0x100010bc       0x18 ./build/float_v1_rom_shim.o
-                0x100010bc                float2int_shim
-                0x100010be                float2fix_shim
- .text          0x100010d4       0x10 ./build/mem_ops_aeabi.o
-                0x100010d4                __aeabi_mem_init
- .text.memset   0x100010e4        0xc ./build/mem_ops_aeabi.o
-                0x100010e4                __wrap_memset
- .text.memcpy   0x100010f0        0xc ./build/mem_ops_aeabi.o
-                0x100010f0                __wrap_memcpy
-                0x100010f0                __wrap___aeabi_memcpy
+                0x1000090c       0x18 ./build/float_v1_rom_shim.o
+                0x1000090c                float2int_shim
+                0x1000090e                float2fix_shim
+ .text          0x10000924       0x10 ./build/mem_ops_aeabi.o
+                0x10000924                __aeabi_mem_init
+ .text.memset   0x10000934        0xc ./build/mem_ops_aeabi.o
+                0x10000934                __wrap_memset
+ .text.memcpy   0x10000940        0xc ./build/mem_ops_aeabi.o
+                0x10000940                __wrap_memcpy
+                0x10000940                __wrap___aeabi_memcpy
  .text.__aeabi_lmul
-                0x100010fc       0x32 ./build/pico_int64_ops_aeabi.o
-                0x100010fc                __wrap___aeabi_lmul
- *fill*         0x1000112e        0x2 
+                0x1000094c       0x32 ./build/pico_int64_ops_aeabi.o
+                0x1000094c                __wrap___aeabi_lmul
+ *fill*         0x1000097e        0x2 
  .text.rom_func_lookup
-                0x10001130       0x10 ./build/bootrom.o
-                0x10001130                rom_func_lookup
+                0x10000980       0x10 ./build/bootrom.o
+                0x10000980                rom_func_lookup
  .text.rom_data_lookup
-                0x10001140       0x10 ./build/bootrom.o
-                0x10001140                rom_data_lookup
+                0x10000990       0x10 ./build/bootrom.o
+                0x10000990                rom_data_lookup
  .text.rom_funcs_lookup
-                0x10001150       0x44 ./build/bootrom.o
-                0x10001150                rom_funcs_lookup
+                0x100009a0       0x44 ./build/bootrom.o
+                0x100009a0                rom_funcs_lookup
  .text.hw_claim_lock
-                0x10001194       0x18 ./build/claim.o
-                0x10001194                hw_claim_lock
+                0x100009e4       0x18 ./build/claim.o
+                0x100009e4                hw_claim_lock
  .text.hw_claim_unlock
-                0x100011ac       0x14 ./build/claim.o
-                0x100011ac                hw_claim_unlock
+                0x100009fc       0x14 ./build/claim.o
+                0x100009fc                hw_claim_unlock
  .text.hw_claim_or_assert
-                0x100011c0       0x58 ./build/claim.o
-                0x100011c0                hw_claim_or_assert
+                0x10000a10       0x58 ./build/claim.o
+                0x10000a10                hw_claim_or_assert
  .text.hw_claim_unused_from_range
-                0x10001218       0x9c ./build/claim.o
-                0x10001218                hw_claim_unused_from_range
+                0x10000a68       0x9c ./build/claim.o
+                0x10000a68                hw_claim_unused_from_range
  .text.clock_configure
-                0x100012b4       0xf0 ./build/clocks.o
-                0x100012b4                clock_configure
+                0x10000b04       0xf0 ./build/clocks.o
+                0x10000b04                clock_configure
  .text.clocks_init
-                0x100013a4      0x2e0 ./build/clocks.o
-                0x100013a4                clocks_init
+                0x10000bf4      0x2e0 ./build/clocks.o
+                0x10000bf4                clocks_init
  .text.clock_get_hz
-                0x10001684        0xc ./build/clocks.o
-                0x10001684                clock_get_hz
+                0x10000ed4        0xc ./build/clocks.o
+                0x10000ed4                clock_get_hz
  .text.critical_section_init
-                0x10001690       0x18 ./build/critical_section.o
-                0x10001690                critical_section_init
+                0x10000ee0       0x18 ./build/critical_section.o
+                0x10000ee0                critical_section_init
  .text.__aeabi_double_init
-                0x100016a8       0x80 ./build/double_init_rom.o
-                0x100016a8                __aeabi_double_init
+                0x10000ef8       0x80 ./build/double_init_rom.o
+                0x10000ef8                __aeabi_double_init
  .text.flash_get_unique_id
-                0x10001728       0x40 ./build/flash.o
-                0x10001728                flash_get_unique_id
+                0x10000f78       0x40 ./build/flash.o
+                0x10000f78                flash_get_unique_id
  .text.__aeabi_float_init
-                0x10001768       0x64 ./build/float_init_rom.o
-                0x10001768                __aeabi_float_init
+                0x10000fb8       0x64 ./build/float_init_rom.o
+                0x10000fb8                __aeabi_float_init
  .text.gpio_set_function
-                0x100017cc       0x30 ./build/gpio.o
-                0x100017cc                gpio_set_function
+                0x1000101c       0x30 ./build/gpio.o
+                0x1000101c                gpio_set_function
  .text.gpio_set_pulls
-                0x100017fc       0x30 ./build/gpio.o
-                0x100017fc                gpio_set_pulls
+                0x1000104c       0x30 ./build/gpio.o
+                0x1000104c                gpio_set_pulls
  .text.gpio_set_outover
-                0x1000182c       0x24 ./build/gpio.o
-                0x1000182c                gpio_set_outover
+                0x1000107c       0x24 ./build/gpio.o
+                0x1000107c                gpio_set_outover
  .text.gpio_init
-                0x10001850       0x3c ./build/gpio.o
-                0x10001850                gpio_init
+                0x100010a0       0x3c ./build/gpio.o
+                0x100010a0                gpio_init
  .text.irq_set_enabled
-                0x1000188c       0x24 ./build/irq.o
-                0x1000188c                irq_set_enabled
+                0x100010dc       0x24 ./build/irq.o
+                0x100010dc                irq_set_enabled
  .text.irq_set_pending
-                0x100018b0       0x10 ./build/irq.o
-                0x100018b0                irq_set_pending
+                0x10001100       0x10 ./build/irq.o
+                0x10001100                irq_set_pending
  .text.irq_get_vtable_handler
-                0x100018c0       0x10 ./build/irq.o
-                0x100018c0                irq_get_vtable_handler
+                0x10001110       0x10 ./build/irq.o
+                0x10001110                irq_get_vtable_handler
  .text.irq_set_exclusive_handler
-                0x100018d0       0x54 ./build/irq.o
-                0x100018d0                irq_set_exclusive_handler
+                0x10001120       0x54 ./build/irq.o
+                0x10001120                irq_set_exclusive_handler
  .text.irq_remove_handler
-                0x10001924      0x1c0 ./build/irq.o
-                0x10001924                irq_remove_handler
+                0x10001174      0x1c0 ./build/irq.o
+                0x10001174                irq_remove_handler
  .text.irq_set_priority
-                0x10001ae4       0x28 ./build/irq.o
-                0x10001ae4                irq_set_priority
+                0x10001334       0x28 ./build/irq.o
+                0x10001334                irq_set_priority
  .text.irq_add_tail_to_free_list
-                0x10001b0c       0xbc ./build/irq.o
-                0x10001b0c                irq_add_tail_to_free_list
+                0x1000135c       0xbc ./build/irq.o
+                0x1000135c                irq_add_tail_to_free_list
  .text.irq_init_priorities
-                0x10001bc8       0x38 ./build/irq.o
-                0x10001bc8                irq_init_priorities
+                0x10001418       0x38 ./build/irq.o
+                0x10001418                irq_init_priorities
  .text.lock_init
-                0x10001c00       0x10 ./build/lock_core.o
-                0x10001c00                lock_init
+                0x10001450       0x10 ./build/lock_core.o
+                0x10001450                lock_init
  .text.core1_trampoline
-                0x10001c10        0x4 ./build/multicore.o
+                0x10001460        0x4 ./build/multicore.o
  .text.core1_wrapper
-                0x10001c14        0xc ./build/multicore.o
-                0x10001c14                core1_wrapper
+                0x10001464        0xc ./build/multicore.o
+                0x10001464                core1_wrapper
  .text.multicore_launch_core1
-                0x10001c20       0xa8 ./build/multicore.o
-                0x10001c20                multicore_launch_core1
+                0x10001470       0xa8 ./build/multicore.o
+                0x10001470                multicore_launch_core1
  .text.mutex_init
-                0x10001cc8       0x1c ./build/mutex.o
-                0x10001cc8                mutex_init
+                0x10001518       0x1c ./build/mutex.o
+                0x10001518                mutex_init
  .text.ph_merge_nodes
-                0x10001ce4       0x68 ./build/pheap.o
+                0x10001534       0x68 ./build/pheap.o
  .text.ph_create
-                0x10001d4c       0x64 ./build/pheap.o
-                0x10001d4c                ph_create
+                0x1000159c       0x64 ./build/pheap.o
+                0x1000159c                ph_create
  .text.ph_merge_two_pass
-                0x10001db0       0x90 ./build/pheap.o
-                0x10001db0                ph_merge_two_pass
+                0x10001600       0x90 ./build/pheap.o
+                0x10001600                ph_merge_two_pass
  .text.ph_remove_any_head
-                0x10001e40       0xf8 ./build/pheap.o
+                0x10001690       0xf8 ./build/pheap.o
  .text.ph_remove_head_reserve
-                0x10001f38       0xfc ./build/pheap.o
-                0x10001f38                ph_remove_head_reserve
+                0x10001788       0xfc ./build/pheap.o
+                0x10001788                ph_remove_head_reserve
  .text.ph_delete
-                0x10002034       0x7c ./build/pheap.o
-                0x10002034                ph_delete
+                0x10001884       0x7c ./build/pheap.o
+                0x10001884                ph_delete
  .text.__wrap_malloc
-                0x100020b0        0x8 ./build/pico_malloc.o
-                0x100020b0                __wrap_malloc
+                0x10001900        0x8 ./build/pico_malloc.o
+                0x10001900                __wrap_malloc
  .text.__wrap_calloc
-                0x100020b8        0x8 ./build/pico_malloc.o
-                0x100020b8                __wrap_calloc
+                0x10001908        0x8 ./build/pico_malloc.o
+                0x10001908                __wrap_calloc
  .text.pio_add_program
-                0x100020c0       0xc8 ./build/pio.o
-                0x100020c0                pio_add_program
+                0x10001910       0xc8 ./build/pio.o
+                0x10001910                pio_add_program
  .text.pio_clear_instruction_memory
-                0x10002188       0x38 ./build/pio.o
-                0x10002188                pio_clear_instruction_memory
+                0x100019d8       0x38 ./build/pio.o
+                0x100019d8                pio_clear_instruction_memory
  .text.pio_sm_set_consecutive_pindirs
-                0x100021c0       0x84 ./build/pio.o
-                0x100021c0                pio_sm_set_consecutive_pindirs
+                0x10001a10       0x84 ./build/pio.o
+                0x10001a10                pio_sm_set_consecutive_pindirs
  .text.pio_sm_init
-                0x10002244       0x90 ./build/pio.o
-                0x10002244                pio_sm_init
+                0x10001a94       0x90 ./build/pio.o
+                0x10001a94                pio_sm_init
  .text.running_on_fpga
-                0x100022d4       0x10 ./build/platform.o
-                0x100022d4                running_on_fpga
+                0x10001b24       0x10 ./build/platform.o
+                0x10001b24                running_on_fpga
  .text.pll_init
-                0x100022e4       0x5c ./build/pll.o
-                0x100022e4                pll_init
- .text._out_null
-                0x10002340        0x4 ./build/printf.o
- .text._out_rev
-                0x10002344       0x9c ./build/printf.o
- .text._ntoa_format
-                0x100023e0      0x1cc ./build/printf.o
+                0x10001b34       0x5c ./build/pll.o
+                0x10001b34                pll_init
  .text._out_char
-                0x100025ac       0x10 ./build/printf.o
- .text._out_fct
-                0x100025bc       0x10 ./build/printf.o
- .text._etoa    0x100025cc      0x420 ./build/printf.o
- .text._ftoa    0x100029ec      0x398 ./build/printf.o
- .text._vsnprintf
-                0x10002d84      0xb04 ./build/printf.o
- .text.vfctprintf
-                0x10003888       0x20 ./build/printf.o
-                0x10003888                vfctprintf
+                0x10001b90       0x10 ./build/printf.o
  .text.weak_raw_vprintf
-                0x100038a8       0x30 ./build/printf.o
-                0x100038a8                weak_raw_vprintf
+                0x10001ba0       0x30 ./build/printf.o
+                0x10001ba0                weak_raw_vprintf
  .text.runtime_init
-                0x100038d8       0xec ./build/runtime.o
-                0x100038d8                runtime_init
- .text._sbrk    0x100039c4       0x34 ./build/runtime.o
-                0x100039c4                _sbrk
- .text.exit     0x100039f8        0x4 ./build/runtime.o
-                0x100039f8                exit
- .text.panic    0x100039fc       0x30 ./build/runtime.o
-                0x100039fc                panic
+                0x10001bd0       0xec ./build/runtime.o
+                0x10001bd0                runtime_init
+ .text._sbrk    0x10001cbc       0x34 ./build/runtime.o
+                0x10001cbc                _sbrk
+ .text.exit     0x10001cf0        0x4 ./build/runtime.o
+                0x10001cf0                exit
+ .text.panic    0x10001cf4       0x30 ./build/runtime.o
+                0x10001cf4                panic
  .text.hard_assertion_failure
-                0x10003a2c        0xc ./build/runtime.o
-                0x10003a2c                hard_assertion_failure
+                0x10001d24        0xc ./build/runtime.o
+                0x10001d24                hard_assertion_failure
  .text.stdio_out_chars_crlf.part.0
-                0x10003a38       0xa0 ./build/stdio.o
- .text.stdio_buffered_printer
-                0x10003ad8       0x78 ./build/stdio.o
+                0x10001d30       0xa0 ./build/stdio.o
  .text.stdio_put_string.isra.0
-                0x10003b50       0xf8 ./build/stdio.o
+                0x10001dd0       0xf8 ./build/stdio.o
  .text.__wrap_putchar
-                0x10003c48       0x1c ./build/stdio.o
-                0x10003c48                __wrap_putchar
+                0x10001ec8       0x1c ./build/stdio.o
+                0x10001ec8                __wrap_putchar
  .text.__wrap_puts
-                0x10003c64       0x3c ./build/stdio.o
-                0x10003c64                __wrap_puts
+                0x10001ee4       0x3c ./build/stdio.o
+                0x10001ee4                __wrap_puts
  .text.stdio_set_driver_enabled
-                0x10003ca0       0x3c ./build/stdio.o
-                0x10003ca0                stdio_set_driver_enabled
- .text.__wrap_vprintf
-                0x10003cdc       0xe8 ./build/stdio.o
-                0x10003cdc                __wrap_vprintf
- .text.__wrap_printf
-                0x10003dc4       0x18 ./build/stdio.o
-                0x10003dc4                __wrap_printf
+                0x10001f20       0x3c ./build/stdio.o
+                0x10001f20                stdio_set_driver_enabled
  .text.stdio_init_all
-                0x10003ddc        0x8 ./build/stdio.o
-                0x10003ddc                stdio_init_all
+                0x10001f5c        0x8 ./build/stdio.o
+                0x10001f5c                stdio_init_all
  .text.stdio_usb_in_chars
-                0x10003de4       0x68 ./build/stdio_usb.o
-                0x10003de4                stdio_usb_in_chars
+                0x10001f64       0x68 ./build/stdio_usb.o
+                0x10001f64                stdio_usb_in_chars
  .text.stdio_usb_out_chars
-                0x10003e4c       0xe4 ./build/stdio_usb.o
+                0x10001fcc       0xe4 ./build/stdio_usb.o
  .text.timer_task
-                0x10003f30       0x10 ./build/stdio_usb.o
+                0x100020b0       0x10 ./build/stdio_usb.o
  .text.low_priority_worker_irq
-                0x10003f40       0x24 ./build/stdio_usb.o
+                0x100020c0       0x24 ./build/stdio_usb.o
  .text.stdio_usb_init
-                0x10003f64       0x90 ./build/stdio_usb.o
-                0x10003f64                stdio_usb_init
+                0x100020e4       0x90 ./build/stdio_usb.o
+                0x100020e4                stdio_usb_init
  .text.tud_descriptor_device_cb
-                0x10003ff4        0x8 ./build/stdio_usb_descriptors.o
-                0x10003ff4                tud_descriptor_device_cb
+                0x10002174        0x8 ./build/stdio_usb_descriptors.o
+                0x10002174                tud_descriptor_device_cb
  .text.tud_descriptor_configuration_cb
-                0x10003ffc        0x8 ./build/stdio_usb_descriptors.o
-                0x10003ffc                tud_descriptor_configuration_cb
+                0x1000217c        0x8 ./build/stdio_usb_descriptors.o
+                0x1000217c                tud_descriptor_configuration_cb
  .text.tud_descriptor_string_cb
-                0x10004004       0x5c ./build/stdio_usb_descriptors.o
-                0x10004004                tud_descriptor_string_cb
+                0x10002184       0x5c ./build/stdio_usb_descriptors.o
+                0x10002184                tud_descriptor_string_cb
  .text.set_sys_clock_pll
-                0x10004060       0x7c ./build/stdlib.o
-                0x10004060                set_sys_clock_pll
+                0x100021e0       0x7c ./build/stdlib.o
+                0x100021e0                set_sys_clock_pll
  .text.spin_locks_reset
-                0x100040dc       0x1c ./build/sync.o
-                0x100040dc                spin_locks_reset
+                0x1000225c       0x1c ./build/sync.o
+                0x1000225c                spin_locks_reset
  .text.next_striped_spin_lock_num
-                0x100040f8       0x18 ./build/sync.o
-                0x100040f8                next_striped_spin_lock_num
+                0x10002278       0x18 ./build/sync.o
+                0x10002278                next_striped_spin_lock_num
  .text.spin_lock_claim_unused
-                0x10004110       0x20 ./build/sync.o
-                0x10004110                spin_lock_claim_unused
+                0x10002290       0x20 ./build/sync.o
+                0x10002290                spin_lock_claim_unused
  .text.timer_pool_entry_comparator
-                0x10004130       0x34 ./build/time.o
-                0x10004130                timer_pool_entry_comparator
+                0x100022b0       0x34 ./build/time.o
+                0x100022b0                timer_pool_entry_comparator
  .text.sev_callback
-                0x10004164        0x8 ./build/time.o
+                0x100022e4        0x8 ./build/time.o
  .text.add_alarm_under_lock.isra.0
-                0x1000416c      0x120 ./build/time.o
+                0x100022ec      0x120 ./build/time.o
  .text.alarm_pool_alarm_callback
-                0x1000428c      0x1c8 ./build/time.o
+                0x1000240c      0x1c8 ./build/time.o
  .text.alarm_pool_add_alarm_at.constprop.0
-                0x10004454      0x11c ./build/time.o
+                0x100025d4      0x11c ./build/time.o
  .text.alarm_pool_init_default
-                0x10004570       0x78 ./build/time.o
-                0x10004570                alarm_pool_init_default
+                0x100026f0       0x78 ./build/time.o
+                0x100026f0                alarm_pool_init_default
  .text.alarm_pool_get_default
-                0x100045e8        0xc ./build/time.o
-                0x100045e8                alarm_pool_get_default
+                0x10002768        0xc ./build/time.o
+                0x10002768                alarm_pool_get_default
  .text.alarm_pool_add_alarm_at
-                0x100045f4      0x1ac ./build/time.o
-                0x100045f4                alarm_pool_add_alarm_at
+                0x10002774      0x1ac ./build/time.o
+                0x10002774                alarm_pool_add_alarm_at
  .text.alarm_pool_cancel_alarm
-                0x100047a0       0x74 ./build/time.o
-                0x100047a0                alarm_pool_cancel_alarm
+                0x10002920       0x74 ./build/time.o
+                0x10002920                alarm_pool_cancel_alarm
  .text.sleep_ms
-                0x10004814       0xb8 ./build/time.o
-                0x10004814                sleep_ms
+                0x10002994       0xb8 ./build/time.o
+                0x10002994                sleep_ms
  .text.best_effort_wfe_or_timeout
-                0x100048cc       0x44 ./build/time.o
-                0x100048cc                best_effort_wfe_or_timeout
+                0x10002a4c       0x44 ./build/time.o
+                0x10002a4c                best_effort_wfe_or_timeout
  .text.hardware_alarm_irq_handler
-                0x10004910       0xb8 ./build/timer.o
+                0x10002a90       0xb8 ./build/timer.o
  .text.hardware_alarm_claim
-                0x100049c8       0x18 ./build/timer.o
-                0x100049c8                hardware_alarm_claim
+                0x10002b48       0x18 ./build/timer.o
+                0x10002b48                hardware_alarm_claim
  .text.time_us_64
-                0x100049e0       0x14 ./build/timer.o
-                0x100049e0                time_us_64
+                0x10002b60       0x14 ./build/timer.o
+                0x10002b60                time_us_64
  .text.busy_wait_until
-                0x100049f4       0x20 ./build/timer.o
-                0x100049f4                busy_wait_until
+                0x10002b74       0x20 ./build/timer.o
+                0x10002b74                busy_wait_until
  .text.hardware_alarm_set_callback
-                0x10004a14       0x8c ./build/timer.o
-                0x10004a14                hardware_alarm_set_callback
+                0x10002b94       0x8c ./build/timer.o
+                0x10002b94                hardware_alarm_set_callback
  .text.hardware_alarm_set_target
-                0x10004aa0       0xc4 ./build/timer.o
-                0x10004aa0                hardware_alarm_set_target
+                0x10002c20       0xc4 ./build/timer.o
+                0x10002c20                hardware_alarm_set_target
  .text.hardware_alarm_cancel
-                0x10004b64       0x3c ./build/timer.o
-                0x10004b64                hardware_alarm_cancel
+                0x10002ce4       0x3c ./build/timer.o
+                0x10002ce4                hardware_alarm_cancel
  .text.startup._retrieve_unique_id_on_boot
-                0x10004ba0       0x10 ./build/unique_id.o
+                0x10002d20       0x10 ./build/unique_id.o
  .text.watchdog_start_tick
-                0x10004bb0       0x10 ./build/watchdog.o
-                0x10004bb0                watchdog_start_tick
+                0x10002d30       0x10 ./build/watchdog.o
+                0x10002d30                watchdog_start_tick
  .text.xosc_init
-                0x10004bc0       0x28 ./build/xosc.o
-                0x10004bc0                xosc_init
+                0x10002d40       0x28 ./build/xosc.o
+                0x10002d40                xosc_init
  .text.tud_cdc_n_connected
-                0x10004be8       0x34 ./build/cdc_device.o
-                0x10004be8                tud_cdc_n_connected
+                0x10002d68       0x34 ./build/cdc_device.o
+                0x10002d68                tud_cdc_n_connected
  .text.tud_cdc_n_available
-                0x10004c1c       0x1c ./build/cdc_device.o
-                0x10004c1c                tud_cdc_n_available
+                0x10002d9c       0x1c ./build/cdc_device.o
+                0x10002d9c                tud_cdc_n_available
  .text.tud_cdc_n_read
-                0x10004c38       0x74 ./build/cdc_device.o
-                0x10004c38                tud_cdc_n_read
+                0x10002db8       0x74 ./build/cdc_device.o
+                0x10002db8                tud_cdc_n_read
  .text.tud_cdc_n_write_flush
-                0x10004cac       0xa4 ./build/cdc_device.o
-                0x10004cac                tud_cdc_n_write_flush
+                0x10002e2c       0xa4 ./build/cdc_device.o
+                0x10002e2c                tud_cdc_n_write_flush
  .text.tud_cdc_n_write
-                0x10004d50       0x38 ./build/cdc_device.o
-                0x10004d50                tud_cdc_n_write
+                0x10002ed0       0x38 ./build/cdc_device.o
+                0x10002ed0                tud_cdc_n_write
  .text.tud_cdc_n_write_available
-                0x10004d88       0x1c ./build/cdc_device.o
-                0x10004d88                tud_cdc_n_write_available
+                0x10002f08       0x1c ./build/cdc_device.o
+                0x10002f08                tud_cdc_n_write_available
  .text.cdcd_init
-                0x10004da4       0x78 ./build/cdc_device.o
-                0x10004da4                cdcd_init
+                0x10002f24       0x78 ./build/cdc_device.o
+                0x10002f24                cdcd_init
  .text.cdcd_reset
-                0x10004e1c       0x24 ./build/cdc_device.o
-                0x10004e1c                cdcd_reset
+                0x10002f9c       0x24 ./build/cdc_device.o
+                0x10002f9c                cdcd_reset
  .text.cdcd_open
-                0x10004e40       0xec ./build/cdc_device.o
-                0x10004e40                cdcd_open
+                0x10002fc0       0xec ./build/cdc_device.o
+                0x10002fc0                cdcd_open
  .text.cdcd_control_complete
-                0x10004f2c       0x44 ./build/cdc_device.o
-                0x10004f2c                cdcd_control_complete
+                0x100030ac       0x44 ./build/cdc_device.o
+                0x100030ac                cdcd_control_complete
  .text.cdcd_control_request
-                0x10004f70       0x68 ./build/cdc_device.o
-                0x10004f70                cdcd_control_request
+                0x100030f0       0x68 ./build/cdc_device.o
+                0x100030f0                cdcd_control_request
  .text.cdcd_xfer_cb
-                0x10004fd8      0x154 ./build/cdc_device.o
-                0x10004fd8                cdcd_xfer_cb
+                0x10003158      0x154 ./build/cdc_device.o
+                0x10003158                cdcd_xfer_cb
  .text.tu_fifo_config
-                0x1000512c       0x78 ./build/tusb_fifo.o
-                0x1000512c                tu_fifo_config
+                0x100032ac       0x78 ./build/tusb_fifo.o
+                0x100032ac                tu_fifo_config
  .text.tu_fifo_count
-                0x100051a4       0x18 ./build/tusb_fifo.o
-                0x100051a4                tu_fifo_count
+                0x10003324       0x18 ./build/tusb_fifo.o
+                0x10003324                tu_fifo_count
  .text.tu_fifo_remaining
-                0x100051bc       0x1c ./build/tusb_fifo.o
-                0x100051bc                tu_fifo_remaining
+                0x1000333c       0x1c ./build/tusb_fifo.o
+                0x1000333c                tu_fifo_remaining
  .text.tu_fifo_read
-                0x100051d8       0xa8 ./build/tusb_fifo.o
-                0x100051d8                tu_fifo_read
+                0x10003358       0xa8 ./build/tusb_fifo.o
+                0x10003358                tu_fifo_read
  .text.tu_fifo_read_n
-                0x10005280       0xfc ./build/tusb_fifo.o
-                0x10005280                tu_fifo_read_n
+                0x10003400       0xfc ./build/tusb_fifo.o
+                0x10003400                tu_fifo_read_n
  .text.tu_fifo_write
-                0x1000537c       0x84 ./build/tusb_fifo.o
-                0x1000537c                tu_fifo_write
+                0x100034fc       0x84 ./build/tusb_fifo.o
+                0x100034fc                tu_fifo_write
  .text.tu_fifo_write_n
-                0x10005400       0xfc ./build/tusb_fifo.o
-                0x10005400                tu_fifo_write_n
+                0x10003580       0xfc ./build/tusb_fifo.o
+                0x10003580                tu_fifo_write_n
  .text.tu_fifo_clear
-                0x100054fc       0x2c ./build/tusb_fifo.o
-                0x100054fc                tu_fifo_clear
+                0x1000367c       0x2c ./build/tusb_fifo.o
+                0x1000367c                tu_fifo_clear
  .text.tud_mounted
-                0x10005528       0x10 ./build/usbd.o
-                0x10005528                tud_mounted
+                0x100036a8       0x10 ./build/usbd.o
+                0x100036a8                tud_mounted
  .text.tud_suspended
-                0x10005538       0x10 ./build/usbd.o
-                0x10005538                tud_suspended
+                0x100036b8       0x10 ./build/usbd.o
+                0x100036b8                tud_suspended
  .text.tud_init
-                0x10005548       0xb0 ./build/usbd.o
-                0x10005548                tud_init
+                0x100036c8       0xb0 ./build/usbd.o
+                0x100036c8                tud_init
  .text.tud_task
-                0x100055f8      0x804 ./build/usbd.o
-                0x100055f8                tud_task
+                0x10003778      0x804 ./build/usbd.o
+                0x10003778                tud_task
  .text.dcd_event_bus_signal
-                0x10005dfc       0xe0 ./build/usbd.o
-                0x10005dfc                dcd_event_bus_signal
+                0x10003f7c       0xe0 ./build/usbd.o
+                0x10003f7c                dcd_event_bus_signal
  .text.dcd_event_setup_received
-                0x10005edc       0x50 ./build/usbd.o
-                0x10005edc                dcd_event_setup_received
+                0x1000405c       0x50 ./build/usbd.o
+                0x1000405c                dcd_event_setup_received
  .text.dcd_event_xfer_complete
-                0x10005f2c       0x68 ./build/usbd.o
-                0x10005f2c                dcd_event_xfer_complete
+                0x100040ac       0x68 ./build/usbd.o
+                0x100040ac                dcd_event_xfer_complete
  .text.usbd_open_edpt_pair
-                0x10005f94       0x68 ./build/usbd.o
-                0x10005f94                usbd_open_edpt_pair
+                0x10004114       0x68 ./build/usbd.o
+                0x10004114                usbd_open_edpt_pair
  .text.usbd_edpt_open
-                0x10005ffc        0x8 ./build/usbd.o
-                0x10005ffc                usbd_edpt_open
+                0x1000417c        0x8 ./build/usbd.o
+                0x1000417c                usbd_edpt_open
  .text.usbd_edpt_claim
-                0x10006004       0x64 ./build/usbd.o
-                0x10006004                usbd_edpt_claim
+                0x10004184       0x64 ./build/usbd.o
+                0x10004184                usbd_edpt_claim
  .text.usbd_edpt_release
-                0x10006068       0x4c ./build/usbd.o
-                0x10006068                usbd_edpt_release
+                0x100041e8       0x4c ./build/usbd.o
+                0x100041e8                usbd_edpt_release
  .text.usbd_edpt_xfer
-                0x100060b4       0x48 ./build/usbd.o
-                0x100060b4                usbd_edpt_xfer
+                0x10004234       0x48 ./build/usbd.o
+                0x10004234                usbd_edpt_xfer
  .text.tud_control_status
-                0x100060fc       0x30 ./build/usbd_control.o
-                0x100060fc                tud_control_status
+                0x1000427c       0x30 ./build/usbd_control.o
+                0x1000427c                tud_control_status
  .text.tud_control_xfer
-                0x1000612c       0xbc ./build/usbd_control.o
-                0x1000612c                tud_control_xfer
+                0x100042ac       0xbc ./build/usbd_control.o
+                0x100042ac                tud_control_xfer
  .text.usbd_control_reset
-                0x100061e8       0x14 ./build/usbd_control.o
-                0x100061e8                usbd_control_reset
+                0x10004368       0x14 ./build/usbd_control.o
+                0x10004368                usbd_control_reset
  .text.usbd_control_set_complete_callback
-                0x100061fc        0xc ./build/usbd_control.o
-                0x100061fc                usbd_control_set_complete_callback
+                0x1000437c        0xc ./build/usbd_control.o
+                0x1000437c                usbd_control_set_complete_callback
  .text.usbd_control_set_request
-                0x10006208       0x1c ./build/usbd_control.o
-                0x10006208                usbd_control_set_request
+                0x10004388       0x1c ./build/usbd_control.o
+                0x10004388                usbd_control_set_request
  .text.usbd_control_xfer_cb
-                0x10006224       0xec ./build/usbd_control.o
-                0x10006224                usbd_control_xfer_cb
+                0x100043a4       0xec ./build/usbd_control.o
+                0x100043a4                usbd_control_xfer_cb
  .text.dcd_rp2040_irq
-                0x10006310      0x134 ./build/dcd_rp2040.o
+                0x10004490      0x134 ./build/dcd_rp2040.o
  .text.dcd_int_enable
-                0x10006444        0xc ./build/dcd_rp2040.o
-                0x10006444                dcd_int_enable
+                0x100045c4        0xc ./build/dcd_rp2040.o
+                0x100045c4                dcd_int_enable
  .text.dcd_set_address
-                0x10006450       0x30 ./build/dcd_rp2040.o
-                0x10006450                dcd_set_address
+                0x100045d0       0x30 ./build/dcd_rp2040.o
+                0x100045d0                dcd_set_address
  .text.dcd_connect
-                0x10006480       0x10 ./build/dcd_rp2040.o
-                0x10006480                dcd_connect
+                0x10004600       0x10 ./build/dcd_rp2040.o
+                0x10004600                dcd_connect
  .text.dcd_init
-                0x10006490       0xa4 ./build/dcd_rp2040.o
-                0x10006490                dcd_init
+                0x10004610       0xa4 ./build/dcd_rp2040.o
+                0x10004610                dcd_init
  .text.dcd_edpt0_status_complete
-                0x10006534       0x38 ./build/dcd_rp2040.o
-                0x10006534                dcd_edpt0_status_complete
+                0x100046b4       0x38 ./build/dcd_rp2040.o
+                0x100046b4                dcd_edpt0_status_complete
  .text.dcd_edpt_open
-                0x1000656c      0x14c ./build/dcd_rp2040.o
-                0x1000656c                dcd_edpt_open
+                0x100046ec      0x14c ./build/dcd_rp2040.o
+                0x100046ec                dcd_edpt_open
  .text.dcd_edpt_xfer
-                0x100066b8       0x2c ./build/dcd_rp2040.o
-                0x100066b8                dcd_edpt_xfer
+                0x10004838       0x2c ./build/dcd_rp2040.o
+                0x10004838                dcd_edpt_xfer
  .text.dcd_edpt_stall
-                0x100066e4       0x50 ./build/dcd_rp2040.o
-                0x100066e4                dcd_edpt_stall
+                0x10004864       0x50 ./build/dcd_rp2040.o
+                0x10004864                dcd_edpt_stall
  .text.dcd_edpt_clear_stall
-                0x10006734       0x50 ./build/dcd_rp2040.o
-                0x10006734                dcd_edpt_clear_stall
+                0x100048b4       0x50 ./build/dcd_rp2040.o
+                0x100048b4                dcd_edpt_clear_stall
  .text._hw_endpoint_buffer_control_update32.part.0.isra.0
-                0x10006784       0x18 ./build/rp2040_usb.o
+                0x10004904       0x18 ./build/rp2040_usb.o
  .text.rp2040_usb_init
-                0x1000679c       0x50 ./build/rp2040_usb.o
-                0x1000679c                rp2040_usb_init
+                0x1000491c       0x50 ./build/rp2040_usb.o
+                0x1000491c                rp2040_usb_init
  .text.hw_endpoint_reset_transfer
-                0x100067ec       0x14 ./build/rp2040_usb.o
-                0x100067ec                hw_endpoint_reset_transfer
+                0x1000496c       0x14 ./build/rp2040_usb.o
+                0x1000496c                hw_endpoint_reset_transfer
  .text._hw_endpoint_buffer_control_update32
-                0x10006800       0x44 ./build/rp2040_usb.o
-                0x10006800                _hw_endpoint_buffer_control_update32
+                0x10004980       0x44 ./build/rp2040_usb.o
+                0x10004980                _hw_endpoint_buffer_control_update32
  .text._hw_endpoint_xfer_continue
-                0x10006844      0x100 ./build/rp2040_usb.o
-                0x10006844                _hw_endpoint_xfer_continue
+                0x100049c4      0x100 ./build/rp2040_usb.o
+                0x100049c4                _hw_endpoint_xfer_continue
  .text._hw_endpoint_xfer
-                0x10006944       0xb0 ./build/rp2040_usb.o
-                0x10006944                _hw_endpoint_xfer
+                0x10004ac4       0xb0 ./build/rp2040_usb.o
+                0x10004ac4                _hw_endpoint_xfer
  .text.tusb_init
-                0x100069f4       0x20 ./build/tusb.o
-                0x100069f4                tusb_init
+                0x10004b74       0x20 ./build/tusb.o
+                0x10004b74                tusb_init
  .text.tusb_inited
-                0x10006a14        0xc ./build/tusb.o
-                0x10006a14                tusb_inited
+                0x10004b94        0xc ./build/tusb.o
+                0x10004b94                tusb_inited
  .text._Z8OpenPagev
-                0x10006a20       0x90 ./build/main.o
-                0x10006a20                OpenPage()
+                0x10004ba0       0x90 ./build/main.o
+                0x10004ba0                OpenPage()
  .text._Z9VideoInitv
-                0x10006ab0       0xd4 ./build/main.o
-                0x10006ab0                VideoInit()
+                0x10004c30       0xd4 ./build/main.o
+                0x10004c30                VideoInit()
  .text._Z10initJoyPadv
-                0x10006b84       0xb8 ./build/main.o
-                0x10006b84                initJoyPad()
+                0x10004d04       0xb8 ./build/main.o
+                0x10004d04                initJoyPad()
  .text.startup.main
-                0x10006c3c       0xe4 ./build/main.o
-                0x10006c3c                main
+                0x10004dbc       0xa4 ./build/main.o
+                0x10004dbc                main
  .text._Z10VgaDmaInitv
-                0x10006d20      0x11c ./build/vga.o
-                0x10006d20                VgaDmaInit()
+                0x10004e60      0x11c ./build/vga.o
+                0x10004e60                VgaDmaInit()
  .text._Z10VgaPioInitv
-                0x10006e3c      0x1ac ./build/vga.o
-                0x10006e3c                VgaPioInit()
+                0x10004f7c      0x1ac ./build/vga.o
+                0x10004f7c                VgaPioInit()
  .text._Z10VgaBufInitv
-                0x10006fe8      0x1ac ./build/vga.o
-                0x10006fe8                VgaBufInit()
+                0x10005128      0x1ac ./build/vga.o
+                0x10005128                VgaBufInit()
  .text._Z7VgaTermv
-                0x10007194       0xc8 ./build/vga.o
-                0x10007194                VgaTerm()
+                0x100052d4       0xc8 ./build/vga.o
+                0x100052d4                VgaTerm()
  .text._Z16ScanlineTypeInitPK6sVmode
-                0x1000725c      0x1bc ./build/vga.o
-                0x1000725c                ScanlineTypeInit(sVmode const*)
+                0x1000539c      0x1bc ./build/vga.o
+                0x1000539c                ScanlineTypeInit(sVmode const*)
  .text._Z7VgaInitPK6sVmode
-                0x10007418      0x1d0 ./build/vga.o
-                0x10007418                VgaInit(sVmode const*)
+                0x10005558      0x1d0 ./build/vga.o
+                0x10005558                VgaInit(sVmode const*)
  .text._Z7VgaCorev
-                0x100075e8       0x4c ./build/vga.o
-                0x100075e8                VgaCore()
+                0x10005728       0x4c ./build/vga.o
+                0x10005728                VgaCore()
  .text._Z10VgaInitReqPK6sVmode
-                0x10007634       0x28 ./build/vga.o
-                0x10007634                VgaInitReq(sVmode const*)
+                0x10005774       0x28 ./build/vga.o
+                0x10005774                VgaInitReq(sVmode const*)
  .text._Z7LayerOnh
-                0x1000765c       0x20 ./build/vga_layer.o
-                0x1000765c                LayerOn(unsigned char)
+                0x1000579c       0x20 ./build/vga_layer.o
+                0x1000579c                LayerOn(unsigned char)
  .text._Z8LayerOffh
-                0x1000767c       0x20 ./build/vga_layer.o
-                0x1000767c                LayerOff(unsigned char)
+                0x100057bc       0x20 ./build/vga_layer.o
+                0x100057bc                LayerOff(unsigned char)
  .text._Z10LayerSetuphPKhPK6sVmodetthPKv
-                0x1000769c      0x108 ./build/vga_layer.o
-                0x1000769c                LayerSetup(unsigned char, unsigned char const*, sVmode const*, unsigned short, unsigned short, unsigned char, void const*)
+                0x100057dc      0x108 ./build/vga_layer.o
+                0x100057dc                LayerSetup(unsigned char, unsigned char const*, sVmode const*, unsigned short, unsigned short, unsigned char, void const*)
  .text._Z11ScreenClearP7sScreen
-                0x100077a4       0x10 ./build/vga_screen.o
-                0x100077a4                ScreenClear(sScreen*)
+                0x100058e4       0x10 ./build/vga_screen.o
+                0x100058e4                ScreenClear(sScreen*)
  .text._Z14ScreenAddStripP7sScreeni
-                0x100077b4       0x24 ./build/vga_screen.o
-                0x100077b4                ScreenAddStrip(sScreen*, int)
+                0x100058f4       0x24 ./build/vga_screen.o
+                0x100058f4                ScreenAddStrip(sScreen*, int)
  .text._Z13ScreenAddSegmP6sStripi
-                0x100077d8       0x38 ./build/vga_screen.o
-                0x100077d8                ScreenAddSegm(sStrip*, int)
+                0x10005918       0x38 ./build/vga_screen.o
+                0x10005918                ScreenAddSegm(sStrip*, int)
  .text._Z15ScreenSegmColorP5sSegmmm
-                0x10007810       0x14 ./build/vga_screen.o
-                0x10007810                ScreenSegmColor(sSegm*, unsigned long, unsigned long)
+                0x10005950       0x14 ./build/vga_screen.o
+                0x10005950                ScreenSegmColor(sSegm*, unsigned long, unsigned long)
  .text._Z15ScreenSegmATextP5sSegmPKvS2_tS2_i
-                0x10007824       0x28 ./build/vga_screen.o
-                0x10007824                ScreenSegmAText(sSegm*, void const*, void const*, unsigned short, void const*, int)
+                0x10005964       0x28 ./build/vga_screen.o
+                0x10005964                ScreenSegmAText(sSegm*, void const*, void const*, unsigned short, void const*, int)
  .text._Z9VgaCfgDefP7sVgaCfg
-                0x1000784c       0x2c ./build/vga_vmode.o
-                0x1000784c                VgaCfgDef(sVgaCfg*)
+                0x1000598c       0x2c ./build/vga_vmode.o
+                0x1000598c                VgaCfgDef(sVgaCfg*)
  .text._Z6VgaCfgPK7sVgaCfgP6sVmode
-                0x10007878      0x5f0 ./build/vga_vmode.o
-                0x10007878                VgaCfg(sVgaCfg const*, sVmode*)
+                0x100059b8      0x5f0 ./build/vga_vmode.o
+                0x100059b8                VgaCfg(sVgaCfg const*, sVmode*)
  .text._Z12FindSysClockmPmS_PtPhS1_
-                0x10007e68      0x274 ./build/overclock.o
-                0x10007e68                FindSysClock(unsigned long, unsigned long*, unsigned long*, unsigned short*, unsigned char*, unsigned char*)
+                0x10005fa8      0x274 ./build/overclock.o
+                0x10005fa8                FindSysClock(unsigned long, unsigned long*, unsigned long*, unsigned short*, unsigned char*, unsigned char*)
  .text._Z10PrintSetupPhiii
-                0x100080dc       0x54 ./build/print.o
-                0x100080dc                PrintSetup(unsigned char*, int, int, int)
+                0x1000621c       0x54 ./build/print.o
+                0x1000621c                PrintSetup(unsigned char*, int, int, int)
  .text._Z10PrintClearv
-                0x10008130       0x98 ./build/print.o
-                0x10008130                PrintClear()
+                0x10006270       0x98 ./build/print.o
+                0x10006270                PrintClear()
  .text._Z11PrintSetPosii
-                0x100081c8       0x14 ./build/print.o
-                0x100081c8                PrintSetPos(int, int)
+                0x10006308       0x14 ./build/print.o
+                0x10006308                PrintSetPos(int, int)
  .text._Z11PrintSetColh
-                0x100081dc        0xc ./build/print.o
-                0x100081dc                PrintSetCol(unsigned char)
+                0x1000631c        0xc ./build/print.o
+                0x1000631c                PrintSetCol(unsigned char)
  .text._Z9PrintTextPKc
-                0x100081e8       0xf0 ./build/print.o
-                0x100081e8                PrintText(char const*)
- .text.calloc   0x100082d8       0x18 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-calloc.o)
-                0x100082d8                calloc
+                0x10006328       0xf0 ./build/print.o
+                0x10006328                PrintText(char const*)
+ .text.calloc   0x10006418       0x18 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-calloc.o)
+                0x10006418                calloc
  .text._calloc_r
-                0x100082f0       0x9c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-callocr.o)
-                0x100082f0                _calloc_r
- .text.__errno  0x1000838c        0xc c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-errno.o)
-                0x1000838c                __errno
- .text.malloc   0x10008398       0x14 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-malloc.o)
-                0x10008398                malloc
+                0x10006430       0x9c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-callocr.o)
+                0x10006430                _calloc_r
+ .text.__errno  0x100064cc        0xc c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-errno.o)
+                0x100064cc                __errno
+ .text.malloc   0x100064d8       0x14 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-malloc.o)
+                0x100064d8                malloc
  .text._malloc_r
-                0x100083ac      0x584 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mallocr.o)
-                0x100083ac                _malloc_r
+                0x100064ec      0x584 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mallocr.o)
+                0x100064ec                _malloc_r
  .text.__malloc_lock
-                0x10008930       0x10 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mlock.o)
-                0x10008930                __malloc_lock
+                0x10006a70       0x10 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mlock.o)
+                0x10006a70                __malloc_lock
  .text.__malloc_unlock
-                0x10008940       0x10 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mlock.o)
-                0x10008940                __malloc_unlock
- .text._sbrk_r  0x10008950       0x24 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-sbrkr.o)
-                0x10008950                _sbrk_r
- .text.strlen   0x10008974       0x5c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
-                0x10008974                strlen
+                0x10006a80       0x10 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mlock.o)
+                0x10006a80                __malloc_unlock
+ .text._sbrk_r  0x10006a90       0x24 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-sbrkr.o)
+                0x10006a90                _sbrk_r
+ .text.strlen   0x10006ab4       0x5c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+                0x10006ab4                strlen
  .text._malloc_trim_r
-                0x100089d0       0x9c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-freer.o)
-                0x100089d0                _malloc_trim_r
- .text._free_r  0x10008a6c      0x1c4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-freer.o)
-                0x10008a6c                _free_r
+                0x10006b10       0x9c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-freer.o)
+                0x10006b10                _malloc_trim_r
+ .text._free_r  0x10006bac      0x1c4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-freer.o)
+                0x10006bac                _free_r
  .text.__retarget_lock_acquire_recursive
-                0x10008c30        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-lock.o)
-                0x10008c30                __retarget_lock_acquire_recursive
+                0x10006d70        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-lock.o)
+                0x10006d70                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x10008c34        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-lock.o)
-                0x10008c34                __retarget_lock_release_recursive
+                0x10006d74        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-lock.o)
+                0x10006d74                __retarget_lock_release_recursive
  *(.fini)
- .fini          0x10008c38        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
-                0x10008c38                _fini
- *fill*         0x10008c3c        0x4 
- .fini.__stub   0x10008c40       0x70 linker stubs
+ .fini          0x10006d78        0x4 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
+                0x10006d78                _fini
+ *fill*         0x10006d7c        0x4 
+ .fini.__stub   0x10006d80       0x70 linker stubs
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -24663,327 +24627,316 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
  *(.eh_frame*)
- .eh_frame      0x10008cb0        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
-                0x10008cb0                . = ALIGN (0x4)
+ .eh_frame      0x10006df0        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x10006df0                . = ALIGN (0x4)
 
-.glue_7         0x10008cb0        0x0
- .glue_7        0x10008cb0        0x0 linker stubs
+.glue_7         0x10006df0        0x0
+ .glue_7        0x10006df0        0x0 linker stubs
 
-.glue_7t        0x10008cb0        0x0
- .glue_7t       0x10008cb0        0x0 linker stubs
+.glue_7t        0x10006df0        0x0
+ .glue_7t       0x10006df0        0x0 linker stubs
 
-.vfp11_veneer   0x10008cb0        0x0
- .vfp11_veneer  0x10008cb0        0x0 linker stubs
+.vfp11_veneer   0x10006df0        0x0
+ .vfp11_veneer  0x10006df0        0x0 linker stubs
 
-.v4_bx          0x10008cb0        0x0
- .v4_bx         0x10008cb0        0x0 linker stubs
+.v4_bx          0x10006df0        0x0
+ .v4_bx         0x10006df0        0x0 linker stubs
 
-.iplt           0x10008cb0        0x0
- .iplt          0x10008cb0        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x10006df0        0x0
+ .iplt          0x10006df0        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x10008cb0   0x1a6bd0
+.rodata         0x10006df0   0x1a6940
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .rodata*)
  .rodata.str1.4
-                0x10008cb0       0x54 ./build/binary_info.o
+                0x10006df0       0x54 ./build/binary_info.o
  .rodata.__bi_40
-                0x10008d04        0xc ./build/binary_info.o
+                0x10006e44        0xc ./build/binary_info.o
  .rodata.__bi_65
-                0x10008d10        0xc ./build/binary_info.o
+                0x10006e50        0xc ./build/binary_info.o
  .rodata.__bi_71
-                0x10008d1c        0xc ./build/binary_info.o
+                0x10006e5c        0xc ./build/binary_info.o
  .rodata.pio_add_program.str1.4
-                0x10008d28       0x11 ./build/pio.o
- *fill*         0x10008d39        0x3 
- .rodata._ftoa.str1.4
-                0x10008d3c       0x15 ./build/printf.o
- *fill*         0x10008d51        0x3 
- .rodata._vsnprintf
-                0x10008d54      0x1e0 ./build/printf.o
- *fill*         0x10008f34        0x4 
- .rodata.pow10.0
-                0x10008f38       0x50 ./build/printf.o
+                0x10006e68       0x11 ./build/pio.o
+ *fill*         0x10006e79        0x3 
  .rodata.panic.str1.4
-                0x10008f88       0x12 ./build/runtime.o
- *fill*         0x10008f9a        0x2 
+                0x10006e7c       0x12 ./build/runtime.o
+ *fill*         0x10006e8e        0x2 
  .rodata.hard_assertion_failure.str1.4
-                0x10008f9c        0xc ./build/runtime.o
+                0x10006e90        0xc ./build/runtime.o
  .rodata.crlf_str.0
-                0x10008fa8        0x2 ./build/stdio.o
- *fill*         0x10008faa        0x2 
+                0x10006e9c        0x2 ./build/stdio.o
+ *fill*         0x10006e9e        0x2 
  .rodata.str1.4
-                0x10008fac       0x13 ./build/stdio_usb.o
- *fill*         0x10008fbf        0x1 
+                0x10006ea0       0x13 ./build/stdio_usb.o
+ *fill*         0x10006eb3        0x1 
  .rodata.__bi_93.0
-                0x10008fc0        0xc ./build/stdio_usb.o
+                0x10006eb4        0xc ./build/stdio_usb.o
  .rodata.str1.4
-                0x10008fcc       0x32 ./build/stdio_usb_descriptors.o
- *fill*         0x10008ffe        0x2 
+                0x10006ec0       0x32 ./build/stdio_usb_descriptors.o
+ *fill*         0x10006ef2        0x2 
  .rodata.usbd_desc_cfg
-                0x10009000       0x4b ./build/stdio_usb_descriptors.o
- *fill*         0x1000904b        0x1 
+                0x10006ef4       0x4b ./build/stdio_usb_descriptors.o
+ *fill*         0x10006f3f        0x1 
  .rodata.usbd_desc_device
-                0x1000904c       0x12 ./build/stdio_usb_descriptors.o
- *fill*         0x1000905e        0x2 
+                0x10006f40       0x12 ./build/stdio_usb_descriptors.o
+ *fill*         0x10006f52        0x2 
  .rodata.usbd_desc_str
-                0x10009060       0x14 ./build/stdio_usb_descriptors.o
+                0x10006f54       0x14 ./build/stdio_usb_descriptors.o
  .rodata.spin_lock_claim_unused.str1.4
-                0x10009074       0x1b ./build/sync.o
- *fill*         0x1000908f        0x1 
+                0x10006f68       0x1b ./build/sync.o
+ *fill*         0x10006f83        0x1 
  .rodata.hardware_alarm_claim.str1.4
-                0x10009090       0x22 ./build/timer.o
- *fill*         0x100090b2        0x2 
+                0x10006f84       0x22 ./build/timer.o
+ *fill*         0x10006fa6        0x2 
  .rodata.tud_task
-                0x100090b4       0x8c ./build/usbd.o
+                0x10006fa8       0x8c ./build/usbd.o
  .rodata._usbd_driver
-                0x10009140       0x1c ./build/usbd.o
+                0x10007034       0x1c ./build/usbd.o
  .rodata.dcd_rp2040_irq.str1.4
-                0x1000915c       0x14 ./build/dcd_rp2040.o
+                0x10007050       0x14 ./build/dcd_rp2040.o
  .rodata.dcd_edpt_open.str1.4
-                0x10009170       0x28 ./build/dcd_rp2040.o
+                0x10007064       0x28 ./build/dcd_rp2040.o
  .rodata._hw_endpoint_buffer_control_update32.part.0.isra.0.str1.4
-                0x10009198       0x1f ./build/rp2040_usb.o
- *fill*         0x100091b7        0x1 
+                0x1000708c       0x1f ./build/rp2040_usb.o
+ *fill*         0x100070ab        0x1 
  .rodata._hw_endpoint_xfer_continue.str1.4
-                0x100091b8       0x50 ./build/rp2040_usb.o
+                0x100070ac       0x50 ./build/rp2040_usb.o
  .rodata.str1.4
-                0x10009208        0x7 ./build/rp2040_usb.o
- *fill*         0x1000920f        0x1 
- .rodata.Img01  0x10009210    0x153a8 ./build/01.o
-                0x10009210                Img01
+                0x100070fc        0x7 ./build/rp2040_usb.o
+ *fill*         0x10007103        0x1 
+ .rodata.Img01  0x10007104    0x153a8 ./build/01.o
+                0x10007104                Img01
  .rodata.Img01_rows
-                0x1001e5b8      0x362 ./build/01.o
-                0x1001e5b8                Img01_rows
- *fill*         0x1001e91a        0x2 
- .rodata.Img02  0x1001e91c    0x12e90 ./build/02.o
-                0x1001e91c                Img02
+                0x1001c4ac      0x362 ./build/01.o
+                0x1001c4ac                Img01_rows
+ *fill*         0x1001c80e        0x2 
+ .rodata.Img02  0x1001c810    0x12e90 ./build/02.o
+                0x1001c810                Img02
  .rodata.Img02_rows
-                0x100317ac      0x362 ./build/02.o
-                0x100317ac                Img02_rows
- *fill*         0x10031b0e        0x2 
- .rodata.Img03  0x10031b10    0x1614c ./build/03.o
-                0x10031b10                Img03
+                0x1002f6a0      0x362 ./build/02.o
+                0x1002f6a0                Img02_rows
+ *fill*         0x1002fa02        0x2 
+ .rodata.Img03  0x1002fa04    0x1614c ./build/03.o
+                0x1002fa04                Img03
  .rodata.Img03_rows
-                0x10047c5c      0x362 ./build/03.o
-                0x10047c5c                Img03_rows
- *fill*         0x10047fbe        0x2 
- .rodata.Img04  0x10047fc0    0x197b0 ./build/04.o
-                0x10047fc0                Img04
+                0x10045b50      0x362 ./build/03.o
+                0x10045b50                Img03_rows
+ *fill*         0x10045eb2        0x2 
+ .rodata.Img04  0x10045eb4    0x197b0 ./build/04.o
+                0x10045eb4                Img04
  .rodata.Img04_rows
-                0x10061770      0x362 ./build/04.o
-                0x10061770                Img04_rows
- *fill*         0x10061ad2        0x2 
- .rodata.Img05  0x10061ad4    0x12a80 ./build/05.o
-                0x10061ad4                Img05
+                0x1005f664      0x362 ./build/04.o
+                0x1005f664                Img04_rows
+ *fill*         0x1005f9c6        0x2 
+ .rodata.Img05  0x1005f9c8    0x12a80 ./build/05.o
+                0x1005f9c8                Img05
  .rodata.Img05_rows
-                0x10074554      0x362 ./build/05.o
-                0x10074554                Img05_rows
- *fill*         0x100748b6        0x2 
- .rodata.Img06  0x100748b8    0x120cc ./build/06.o
-                0x100748b8                Img06
+                0x10072448      0x362 ./build/05.o
+                0x10072448                Img05_rows
+ *fill*         0x100727aa        0x2 
+ .rodata.Img06  0x100727ac    0x120cc ./build/06.o
+                0x100727ac                Img06
  .rodata.Img06_rows
-                0x10086984      0x362 ./build/06.o
-                0x10086984                Img06_rows
- *fill*         0x10086ce6        0x2 
- .rodata.Img07  0x10086ce8    0x12ff4 ./build/07.o
-                0x10086ce8                Img07
+                0x10084878      0x362 ./build/06.o
+                0x10084878                Img06_rows
+ *fill*         0x10084bda        0x2 
+ .rodata.Img07  0x10084bdc    0x12ff4 ./build/07.o
+                0x10084bdc                Img07
  .rodata.Img07_rows
-                0x10099cdc      0x362 ./build/07.o
-                0x10099cdc                Img07_rows
- *fill*         0x1009a03e        0x2 
- .rodata.Img08  0x1009a040    0x12898 ./build/08.o
-                0x1009a040                Img08
+                0x10097bd0      0x362 ./build/07.o
+                0x10097bd0                Img07_rows
+ *fill*         0x10097f32        0x2 
+ .rodata.Img08  0x10097f34    0x12898 ./build/08.o
+                0x10097f34                Img08
  .rodata.Img08_rows
-                0x100ac8d8      0x362 ./build/08.o
-                0x100ac8d8                Img08_rows
- *fill*         0x100acc3a        0x2 
- .rodata.Img09  0x100acc3c     0xf570 ./build/09.o
-                0x100acc3c                Img09
+                0x100aa7cc      0x362 ./build/08.o
+                0x100aa7cc                Img08_rows
+ *fill*         0x100aab2e        0x2 
+ .rodata.Img09  0x100aab30     0xf570 ./build/09.o
+                0x100aab30                Img09
  .rodata.Img09_rows
-                0x100bc1ac      0x362 ./build/09.o
-                0x100bc1ac                Img09_rows
- *fill*         0x100bc50e        0x2 
- .rodata.Img10  0x100bc510    0x11110 ./build/10.o
-                0x100bc510                Img10
+                0x100ba0a0      0x362 ./build/09.o
+                0x100ba0a0                Img09_rows
+ *fill*         0x100ba402        0x2 
+ .rodata.Img10  0x100ba404    0x11110 ./build/10.o
+                0x100ba404                Img10
  .rodata.Img10_rows
-                0x100cd620      0x362 ./build/10.o
-                0x100cd620                Img10_rows
- *fill*         0x100cd982        0x2 
- .rodata.Img11  0x100cd984    0x15288 ./build/11.o
-                0x100cd984                Img11
+                0x100cb514      0x362 ./build/10.o
+                0x100cb514                Img10_rows
+ *fill*         0x100cb876        0x2 
+ .rodata.Img11  0x100cb878    0x15288 ./build/11.o
+                0x100cb878                Img11
  .rodata.Img11_rows
-                0x100e2c0c      0x362 ./build/11.o
-                0x100e2c0c                Img11_rows
- *fill*         0x100e2f6e        0x2 
- .rodata.Img12  0x100e2f70    0x148b8 ./build/12.o
-                0x100e2f70                Img12
+                0x100e0b00      0x362 ./build/11.o
+                0x100e0b00                Img11_rows
+ *fill*         0x100e0e62        0x2 
+ .rodata.Img12  0x100e0e64    0x148b8 ./build/12.o
+                0x100e0e64                Img12
  .rodata.Img12_rows
-                0x100f7828      0x362 ./build/12.o
-                0x100f7828                Img12_rows
- *fill*         0x100f7b8a        0x2 
- .rodata.Img13  0x100f7b8c    0x1573c ./build/13.o
-                0x100f7b8c                Img13
+                0x100f571c      0x362 ./build/12.o
+                0x100f571c                Img12_rows
+ *fill*         0x100f5a7e        0x2 
+ .rodata.Img13  0x100f5a80    0x1573c ./build/13.o
+                0x100f5a80                Img13
  .rodata.Img13_rows
-                0x1010d2c8      0x362 ./build/13.o
-                0x1010d2c8                Img13_rows
- *fill*         0x1010d62a        0x2 
- .rodata.Img14  0x1010d62c    0x15650 ./build/14.o
-                0x1010d62c                Img14
+                0x1010b1bc      0x362 ./build/13.o
+                0x1010b1bc                Img13_rows
+ *fill*         0x1010b51e        0x2 
+ .rodata.Img14  0x1010b520    0x15650 ./build/14.o
+                0x1010b520                Img14
  .rodata.Img14_rows
-                0x10122c7c      0x362 ./build/14.o
-                0x10122c7c                Img14_rows
- *fill*         0x10122fde        0x2 
- .rodata.Img15  0x10122fe0    0x147ec ./build/15.o
-                0x10122fe0                Img15
+                0x10120b70      0x362 ./build/14.o
+                0x10120b70                Img14_rows
+ *fill*         0x10120ed2        0x2 
+ .rodata.Img15  0x10120ed4    0x147ec ./build/15.o
+                0x10120ed4                Img15
  .rodata.Img15_rows
-                0x101377cc      0x362 ./build/15.o
-                0x101377cc                Img15_rows
- *fill*         0x10137b2e        0x2 
- .rodata.Img16  0x10137b30    0x12238 ./build/16.o
-                0x10137b30                Img16
+                0x101356c0      0x362 ./build/15.o
+                0x101356c0                Img15_rows
+ *fill*         0x10135a22        0x2 
+ .rodata.Img16  0x10135a24    0x12238 ./build/16.o
+                0x10135a24                Img16
  .rodata.Img16_rows
-                0x10149d68      0x362 ./build/16.o
-                0x10149d68                Img16_rows
- *fill*         0x1014a0ca        0x2 
- .rodata.Img17  0x1014a0cc    0x11e90 ./build/17.o
-                0x1014a0cc                Img17
+                0x10147c5c      0x362 ./build/16.o
+                0x10147c5c                Img16_rows
+ *fill*         0x10147fbe        0x2 
+ .rodata.Img17  0x10147fc0    0x11e90 ./build/17.o
+                0x10147fc0                Img17
  .rodata.Img17_rows
-                0x1015bf5c      0x362 ./build/17.o
-                0x1015bf5c                Img17_rows
- *fill*         0x1015c2be        0x2 
- .rodata.Img18  0x1015c2c0    0x18454 ./build/18.o
-                0x1015c2c0                Img18
+                0x10159e50      0x362 ./build/17.o
+                0x10159e50                Img17_rows
+ *fill*         0x1015a1b2        0x2 
+ .rodata.Img18  0x1015a1b4    0x18454 ./build/18.o
+                0x1015a1b4                Img18
  .rodata.Img18_rows
-                0x10174714      0x362 ./build/18.o
-                0x10174714                Img18_rows
- *fill*         0x10174a76        0x2 
- .rodata.Img19  0x10174a78    0x17308 ./build/19.o
-                0x10174a78                Img19
+                0x10172608      0x362 ./build/18.o
+                0x10172608                Img18_rows
+ *fill*         0x1017296a        0x2 
+ .rodata.Img19  0x1017296c    0x17308 ./build/19.o
+                0x1017296c                Img19
  .rodata.Img19_rows
-                0x1018bd80      0x362 ./build/19.o
-                0x1018bd80                Img19_rows
- *fill*         0x1018c0e2        0x2 
- .rodata.Img20  0x1018c0e4    0x151b0 ./build/20.o
-                0x1018c0e4                Img20
+                0x10189c74      0x362 ./build/19.o
+                0x10189c74                Img19_rows
+ *fill*         0x10189fd6        0x2 
+ .rodata.Img20  0x10189fd8    0x151b0 ./build/20.o
+                0x10189fd8                Img20
  .rodata.Img20_rows
-                0x101a1294      0x362 ./build/20.o
-                0x101a1294                Img20_rows
- *fill*         0x101a15f6        0x2 
- .rodata.Img22  0x101a15f8     0xbc40 ./build/22.o
-                0x101a15f8                Img22
+                0x1019f188      0x362 ./build/20.o
+                0x1019f188                Img20_rows
+ *fill*         0x1019f4ea        0x2 
+ .rodata.Img22  0x1019f4ec     0xbc40 ./build/22.o
+                0x1019f4ec                Img22
  .rodata.Img22_rows
-                0x101ad238      0x362 ./build/22.o
-                0x101ad238                Img22_rows
- *fill*         0x101ad59a        0x2 
- .rodata.main.str1.4
-                0x101ad59c       0x35 ./build/main.o
- *fill*         0x101ad5d1        0x3 
+                0x101ab12c      0x362 ./build/22.o
+                0x101ab12c                Img22_rows
+ *fill*         0x101ab48e        0x2 
  .rodata.str1.4
-                0x101ad5d4     0x15eb ./build/main.o
- *fill*         0x101aebbf        0x1 
+                0x101ab490     0x15df ./build/main.o
+ *fill*         0x101aca6f        0x1 
  .rodata._ZL11ImgRowsList
-                0x101aebc0       0x58 ./build/main.o
+                0x101aca70       0x58 ./build/main.o
  .rodata._ZL11ImgSizeList
-                0x101aec18       0x58 ./build/main.o
+                0x101acac8       0x58 ./build/main.o
  .rodata._ZL5Title
-                0x101aec70       0x16 ./build/main.o
- *fill*         0x101aec86        0x2 
+                0x101acb20       0x16 ./build/main.o
+ *fill*         0x101acb36        0x2 
  .rodata._ZL7ImgList
-                0x101aec88       0x58 ./build/main.o
- .rodata        0x101aece0       0x74 ./build/vga.o
+                0x101acb38       0x58 ./build/main.o
+ .rodata        0x101acb90       0x74 ./build/vga.o
  .rodata._ZL24vga_program_instructions
-                0x101aed54       0x1e ./build/vga.o
- *fill*         0x101aed72        0x2 
+                0x101acc04       0x1e ./build/vga.o
+ *fill*         0x101acc22        0x2 
  .rodata._Z10LayerSetuphPKhPK6sVmodetthPKv
-                0x101aed74       0x4c ./build/vga_layer.o
+                0x101acc24       0x4c ./build/vga_layer.o
  .rodata.LayerMode
-                0x101aedc0       0x39 ./build/vga_layer.o
-                0x101aedc0                LayerMode
- *fill*         0x101aedf9        0x3 
+                0x101acc70       0x39 ./build/vga_layer.o
+                0x101acc70                LayerMode
+ *fill*         0x101acca9        0x3 
  .rodata.LayerProg
-                0x101aedfc      0x120 ./build/vga_layer.o
-                0x101aedfc                LayerProg
+                0x101accac      0x120 ./build/vga_layer.o
+                0x101accac                LayerProg
  .rodata._ZL11vga_program
-                0x101aef1c        0x6 ./build/vga_layer.o
- *fill*         0x101aef22        0x2 
+                0x101acdcc        0x6 ./build/vga_layer.o
+ *fill*         0x101acdd2        0x2 
  .rodata._ZL16keylayer_program
-                0x101aef24        0x6 ./build/vga_layer.o
- *fill*         0x101aef2a        0x2 
+                0x101acdd4        0x6 ./build/vga_layer.o
+ *fill*         0x101acdda        0x2 
  .rodata._ZL16rlelayer_program
-                0x101aef2c        0x6 ./build/vga_layer.o
- *fill*         0x101aef32        0x2 
+                0x101acddc        0x6 ./build/vga_layer.o
+ *fill*         0x101acde2        0x2 
  .rodata._ZL17monolayer_program
-                0x101aef34        0x6 ./build/vga_layer.o
- *fill*         0x101aef3a        0x2 
+                0x101acde4        0x6 ./build/vga_layer.o
+ *fill*         0x101acdea        0x2 
  .rodata._ZL18blacklayer_program
-                0x101aef3c        0x6 ./build/vga_layer.o
- *fill*         0x101aef42        0x2 
+                0x101acdec        0x6 ./build/vga_layer.o
+ *fill*         0x101acdf2        0x2 
  .rodata._ZL18whitelayer_program
-                0x101aef44        0x6 ./build/vga_layer.o
- *fill*         0x101aef4a        0x2 
+                0x101acdf4        0x6 ./build/vga_layer.o
+ *fill*         0x101acdfa        0x2 
  .rodata._ZL24vga_program_instructions
-                0x101aef4c       0x1e ./build/vga_layer.o
- *fill*         0x101aef6a        0x2 
+                0x101acdfc       0x1e ./build/vga_layer.o
+ *fill*         0x101ace1a        0x2 
  .rodata._ZL29keylayer_program_instructions
-                0x101aef6c       0x1a ./build/vga_layer.o
- *fill*         0x101aef86        0x2 
+                0x101ace1c       0x1a ./build/vga_layer.o
+ *fill*         0x101ace36        0x2 
  .rodata._ZL29rlelayer_program_instructions
-                0x101aef88       0x22 ./build/vga_layer.o
- *fill*         0x101aefaa        0x2 
+                0x101ace38       0x22 ./build/vga_layer.o
+ *fill*         0x101ace5a        0x2 
  .rodata._ZL30monolayer_program_instructions
-                0x101aefac       0x20 ./build/vga_layer.o
+                0x101ace5c       0x20 ./build/vga_layer.o
  .rodata._ZL31blacklayer_program_instructions
-                0x101aefcc       0x16 ./build/vga_layer.o
- *fill*         0x101aefe2        0x2 
+                0x101ace7c       0x16 ./build/vga_layer.o
+ *fill*         0x101ace92        0x2 
  .rodata._ZL31whitelayer_program_instructions
-                0x101aefe4       0x14 ./build/vga_layer.o
+                0x101ace94       0x14 ./build/vga_layer.o
  .rodata.str1.4
-                0x101aeff8       0x4e ./build/vga_vmode.o
- *fill*         0x101af046        0x2 
+                0x101acea8       0x4e ./build/vga_vmode.o
+ *fill*         0x101acef6        0x2 
  .rodata.VideoVGA
-                0x101af048       0x38 ./build/vga_vmode.o
-                0x101af048                VideoVGA
+                0x101acef8       0x38 ./build/vga_vmode.o
+                0x101acef8                VideoVGA
  .rodata.FontBold8x8
-                0x101af080      0x800 ./build/font_bold_8x8.o
-                0x101af080                FontBold8x8
-                0x101af880                . = ALIGN (0x4)
+                0x101acf30      0x800 ./build/font_bold_8x8.o
+                0x101acf30                FontBold8x8
+                0x101ad730                . = ALIGN (0x4)
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.flashdata*)))
-                0x101af880                . = ALIGN (0x4)
+                0x101ad730                . = ALIGN (0x4)
 
-.rel.dyn        0x101af880        0x0
- .rel.iplt      0x101af880        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x101ad730        0x0
+ .rel.iplt      0x101ad730        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x101af880                __exidx_start = .
+                0x101ad730                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x101af880                __exidx_end = .
-                0x101af880                . = ALIGN (0x4)
-                0x101af880                __binary_info_start = .
+                0x101ad730                __exidx_end = .
+                0x101ad730                . = ALIGN (0x4)
+                0x101ad730                __binary_info_start = .
 
-.binary_info    0x101af880       0x20
+.binary_info    0x101ad730       0x20
  *(.binary_info.keep.*)
  .binary_info.keep.__bi_ptr18
-                0x101af880        0x4 ./build/binary_info.o
+                0x101ad730        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr26
-                0x101af884        0x4 ./build/binary_info.o
+                0x101ad734        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr34
-                0x101af888        0x4 ./build/binary_info.o
+                0x101ad738        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr40
-                0x101af88c        0x4 ./build/binary_info.o
+                0x101ad73c        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr46
-                0x101af890        0x4 ./build/binary_info.o
+                0x101ad740        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr65
-                0x101af894        0x4 ./build/binary_info.o
+                0x101ad744        0x4 ./build/binary_info.o
  .binary_info.keep.__bi_ptr71
-                0x101af898        0x4 ./build/binary_info.o
+                0x101ad748        0x4 ./build/binary_info.o
  *(.binary_info.*)
  .binary_info.__bi_ptr93
-                0x101af89c        0x4 ./build/stdio_usb.o
-                0x101af8a0                __binary_info_end = .
-                0x101af8a0                . = ALIGN (0x4)
-                0x101af8a0                __etext = .
+                0x101ad74c        0x4 ./build/stdio_usb.o
+                0x101ad750                __binary_info_end = .
+                0x101ad750                . = ALIGN (0x4)
+                0x101ad750                __etext = .
 
 .ram_vector_table
                 0x20000000       0xc0
@@ -24992,7 +24945,7 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
                 0x20000000       0xc0 ./build/runtime.o
                 0x20000000                ram_vector_table
 
-.data           0x200000c0     0x2f88 load address 0x101af8a0
+.data           0x200000c0     0x2f88 load address 0x101ad750
                 0x200000c0                __data_start__ = .
  *(vtable)
  *(.time_critical*)
@@ -25232,27 +25185,27 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
                 0x20003048                . = ALIGN (0x4)
                 0x20003048                __data_end__ = .
 
-.igot.plt       0x20003048        0x0 load address 0x101b2828
+.igot.plt       0x20003048        0x0 load address 0x101b06d8
  .igot.plt      0x20003048        0x0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
 .uninitialized_data
-                0x20003048        0x0 load address 0x101b2828
+                0x20003048        0x0 load address 0x101b06d8
                 0x20003048                . = ALIGN (0x4)
  *(.uninitialized_data*)
 
-.scratch_x      0x20040000        0x0 load address 0x101b2828
+.scratch_x      0x20040000        0x0 load address 0x101b06d8
                 0x20040000                __scratch_x_start__ = .
  *(.scratch_x.*)
                 0x20040000                . = ALIGN (0x4)
                 0x20040000                __scratch_x_end__ = .
-                0x101b2828                __scratch_x_source__ = LOADADDR (.scratch_x)
+                0x101b06d8                __scratch_x_source__ = LOADADDR (.scratch_x)
 
-.scratch_y      0x20041000        0x0 load address 0x101b2828
+.scratch_y      0x20041000        0x0 load address 0x101b06d8
                 0x20041000                __scratch_y_start__ = .
  *(.scratch_y.*)
                 0x20041000                . = ALIGN (0x4)
                 0x20041000                __scratch_y_end__ = .
-                0x101b2828                __scratch_y_source__ = LOADADDR (.scratch_y)
+                0x101b06d8                __scratch_y_source__ = LOADADDR (.scratch_y)
 
 .bss            0x20003048    0x20b44
                 0x20003048                . = ALIGN (0x4)
@@ -25476,8 +25429,8 @@ LOAD c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../a
  *(.stack*)
  .stack         0x20041000      0x800 ./build/crt0.o
 
-.flash_end      0x101b2828        0x0
-                0x101b2828                __flash_binary_end = .
+.flash_end      0x101b06d8        0x0
+                0x101b06d8                __flash_binary_end = .
                 0x20040000                __StackLimit = (ORIGIN (RAM) + LENGTH (RAM))
                 0x20041000                __StackOneTop = (ORIGIN (SCRATCH_X) + LENGTH (SCRATCH_X))
                 0x20042000                __StackTop = (ORIGIN (SCRATCH_Y) + LENGTH (SCRATCH_Y))
@@ -25997,7 +25950,7 @@ LOAD linker stubs
  .comment       0x00000049       0x4a ./build/print.o
  .comment       0x00000049       0x4a ./build/font_bold_8x8.o
 
-.debug_info     0x00000000    0x61273
+.debug_info     0x00000000    0x6119c
  .debug_info    0x00000000      0x2fa ./build/binary_info.o
  .debug_info    0x000002fa      0x285 ./build/bootrom.o
  .debug_info    0x0000057f      0xb40 ./build/claim.o
@@ -26056,17 +26009,17 @@ LOAD linker stubs
  .debug_info    0x00043694     0x1aaa ./build/19.o
  .debug_info    0x0004513e     0x1aaa ./build/20.o
  .debug_info    0x00046be8     0x1aa8 ./build/22.o
- .debug_info    0x00048690     0x3545 ./build/main.o
- .debug_info    0x0004bbd5     0x4c7b ./build/vga.o
- .debug_info    0x00050850     0x2c3f ./build/vga_layer.o
- .debug_info    0x0005348f     0x1c67 ./build/vga_pal.o
- .debug_info    0x000550f6     0x3488 ./build/vga_screen.o
- .debug_info    0x0005857e     0x2e8a ./build/vga_vmode.o
- .debug_info    0x0005b408     0x20ad ./build/overclock.o
- .debug_info    0x0005d4b5     0x2357 ./build/print.o
- .debug_info    0x0005f80c     0x1a67 ./build/font_bold_8x8.o
+ .debug_info    0x00048690     0x346e ./build/main.o
+ .debug_info    0x0004bafe     0x4c7b ./build/vga.o
+ .debug_info    0x00050779     0x2c3f ./build/vga_layer.o
+ .debug_info    0x000533b8     0x1c67 ./build/vga_pal.o
+ .debug_info    0x0005501f     0x3488 ./build/vga_screen.o
+ .debug_info    0x000584a7     0x2e8a ./build/vga_vmode.o
+ .debug_info    0x0005b331     0x20ad ./build/overclock.o
+ .debug_info    0x0005d3de     0x2357 ./build/print.o
+ .debug_info    0x0005f735     0x1a67 ./build/font_bold_8x8.o
 
-.debug_abbrev   0x00000000     0xb3aa
+.debug_abbrev   0x00000000     0xb38c
  .debug_abbrev  0x00000000       0xb0 ./build/binary_info.o
  .debug_abbrev  0x000000b0      0x163 ./build/bootrom.o
  .debug_abbrev  0x00000213      0x2a5 ./build/claim.o
@@ -26125,15 +26078,15 @@ LOAD linker stubs
  .debug_abbrev  0x00008c3c      0x1f7 ./build/19.o
  .debug_abbrev  0x00008e33      0x1f7 ./build/20.o
  .debug_abbrev  0x0000902a      0x1ee ./build/22.o
- .debug_abbrev  0x00009218      0x45e ./build/main.o
- .debug_abbrev  0x00009676      0x6d4 ./build/vga.o
- .debug_abbrev  0x00009d4a      0x3b8 ./build/vga_layer.o
- .debug_abbrev  0x0000a102      0x288 ./build/vga_pal.o
- .debug_abbrev  0x0000a38a      0x395 ./build/vga_screen.o
- .debug_abbrev  0x0000a71f      0x3c7 ./build/vga_vmode.o
- .debug_abbrev  0x0000aae6      0x357 ./build/overclock.o
- .debug_abbrev  0x0000ae3d      0x392 ./build/print.o
- .debug_abbrev  0x0000b1cf      0x1db ./build/font_bold_8x8.o
+ .debug_abbrev  0x00009218      0x440 ./build/main.o
+ .debug_abbrev  0x00009658      0x6d4 ./build/vga.o
+ .debug_abbrev  0x00009d2c      0x3b8 ./build/vga_layer.o
+ .debug_abbrev  0x0000a0e4      0x288 ./build/vga_pal.o
+ .debug_abbrev  0x0000a36c      0x395 ./build/vga_screen.o
+ .debug_abbrev  0x0000a701      0x3c7 ./build/vga_vmode.o
+ .debug_abbrev  0x0000aac8      0x357 ./build/overclock.o
+ .debug_abbrev  0x0000ae1f      0x392 ./build/print.o
+ .debug_abbrev  0x0000b1b1      0x1db ./build/font_bold_8x8.o
 
 .debug_aranges  0x00000000     0x12e0
  .debug_aranges
@@ -26507,7 +26460,7 @@ LOAD linker stubs
  .debug_macro   0x0003a9dc      0xadc ./build/print.o
  .debug_macro   0x0003b4b8      0xadc ./build/font_bold_8x8.o
 
-.debug_line     0x00000000    0x4158c
+.debug_line     0x00000000    0x4156f
  .debug_line    0x00000000      0x335 ./build/binary_info.o
  .debug_line    0x00000335      0x3ca ./build/bootrom.o
  .debug_line    0x000006ff      0x8c5 ./build/claim.o
@@ -26566,17 +26519,17 @@ LOAD linker stubs
  .debug_line    0x0002e456     0x1095 ./build/19.o
  .debug_line    0x0002f4eb     0x1095 ./build/20.o
  .debug_line    0x00030580     0x1095 ./build/22.o
- .debug_line    0x00031615     0x1617 ./build/main.o
- .debug_line    0x00032c2c     0x36d2 ./build/vga.o
- .debug_line    0x000362fe     0x1a6a ./build/vga_layer.o
- .debug_line    0x00037d68     0x118f ./build/vga_pal.o
- .debug_line    0x00038ef7     0x24cd ./build/vga_screen.o
- .debug_line    0x0003b3c4     0x1e68 ./build/vga_vmode.o
- .debug_line    0x0003d22c     0x1755 ./build/overclock.o
- .debug_line    0x0003e981     0x1b5e ./build/print.o
- .debug_line    0x000404df     0x10ad ./build/font_bold_8x8.o
+ .debug_line    0x00031615     0x15fa ./build/main.o
+ .debug_line    0x00032c0f     0x36d2 ./build/vga.o
+ .debug_line    0x000362e1     0x1a6a ./build/vga_layer.o
+ .debug_line    0x00037d4b     0x118f ./build/vga_pal.o
+ .debug_line    0x00038eda     0x24cd ./build/vga_screen.o
+ .debug_line    0x0003b3a7     0x1e68 ./build/vga_vmode.o
+ .debug_line    0x0003d20f     0x1755 ./build/overclock.o
+ .debug_line    0x0003e964     0x1b5e ./build/print.o
+ .debug_line    0x000404c2     0x10ad ./build/font_bold_8x8.o
 
-.debug_str      0x00000000   0x125b5e
+.debug_str      0x00000000   0x125b4f
  .debug_str     0x00000000     0x82c3 ./build/binary_info.o
                                0x84ed (size before relaxing)
  .debug_str     0x000082c3       0xdf ./build/bootrom.o
@@ -26693,26 +26646,26 @@ LOAD linker stubs
                              0x1160ec (size before relaxing)
  .debug_str     0x00123e44       0x1c ./build/22.o
                              0x1160ec (size before relaxing)
- .debug_str     0x00123e60      0x4b8 ./build/main.o
-                             0x116a62 (size before relaxing)
- .debug_str     0x00124318      0xa50 ./build/vga.o
+ .debug_str     0x00123e60      0x4a9 ./build/main.o
+                             0x1169b9 (size before relaxing)
+ .debug_str     0x00124309      0xa50 ./build/vga.o
                              0x11730d (size before relaxing)
- .debug_str     0x00124d68      0x16d ./build/vga_layer.o
+ .debug_str     0x00124d59      0x16d ./build/vga_layer.o
                              0x1164c3 (size before relaxing)
- .debug_str     0x00124ed5       0xc2 ./build/vga_pal.o
+ .debug_str     0x00124ec6       0xc2 ./build/vga_pal.o
                              0x1161a9 (size before relaxing)
- .debug_str     0x00124f97      0x6cf ./build/vga_screen.o
+ .debug_str     0x00124f88      0x6cf ./build/vga_screen.o
                              0x116936 (size before relaxing)
- .debug_str     0x00125666      0x259 ./build/vga_vmode.o
+ .debug_str     0x00125657      0x259 ./build/vga_vmode.o
                              0x11688e (size before relaxing)
- .debug_str     0x001258bf       0xd0 ./build/overclock.o
+ .debug_str     0x001258b0       0xd0 ./build/overclock.o
                              0x116331 (size before relaxing)
- .debug_str     0x0012598f      0x1ac ./build/print.o
+ .debug_str     0x00125980      0x1ac ./build/print.o
                              0x116310 (size before relaxing)
- .debug_str     0x00125b3b       0x23 ./build/font_bold_8x8.o
+ .debug_str     0x00125b2c       0x23 ./build/font_bold_8x8.o
                              0x1160ff (size before relaxing)
 
-.debug_loc      0x00000000    0x28553
+.debug_loc      0x00000000    0x28545
  .debug_loc     0x00000000      0x264 ./build/bootrom.o
  .debug_loc     0x00000264      0x789 ./build/claim.o
  .debug_loc     0x000009ed     0x1e3b ./build/clocks.o
@@ -26748,16 +26701,16 @@ LOAD linker stubs
  .debug_loc     0x0001c911      0x58c ./build/usbd_control.o
  .debug_loc     0x0001ce9d     0x19c5 ./build/dcd_rp2040.o
  .debug_loc     0x0001e862      0xaba ./build/rp2040_usb.o
- .debug_loc     0x0001f31c      0x4d7 ./build/main.o
- .debug_loc     0x0001f7f3     0x2a61 ./build/vga.o
- .debug_loc     0x00022254     0x238b ./build/vga_layer.o
- .debug_loc     0x000245df      0x232 ./build/vga_pal.o
- .debug_loc     0x00024811     0x1635 ./build/vga_screen.o
- .debug_loc     0x00025e46     0x101e ./build/vga_vmode.o
- .debug_loc     0x00026e64      0xa53 ./build/overclock.o
- .debug_loc     0x000278b7      0xc9c ./build/print.o
+ .debug_loc     0x0001f31c      0x4c9 ./build/main.o
+ .debug_loc     0x0001f7e5     0x2a61 ./build/vga.o
+ .debug_loc     0x00022246     0x238b ./build/vga_layer.o
+ .debug_loc     0x000245d1      0x232 ./build/vga_pal.o
+ .debug_loc     0x00024803     0x1635 ./build/vga_screen.o
+ .debug_loc     0x00025e38     0x101e ./build/vga_vmode.o
+ .debug_loc     0x00026e56      0xa53 ./build/overclock.o
+ .debug_loc     0x000278a9      0xc9c ./build/print.o
 
-.debug_ranges   0x00000000     0xaaa8
+.debug_ranges   0x00000000     0xaab0
  .debug_ranges  0x00000000       0x60 ./build/bootrom.o
  .debug_ranges  0x00000060      0x4f0 ./build/claim.o
  .debug_ranges  0x00000550      0x498 ./build/clocks.o
@@ -26794,16 +26747,16 @@ LOAD linker stubs
  .debug_ranges  0x00008d58      0x6d0 ./build/dcd_rp2040.o
  .debug_ranges  0x00009428      0x2a8 ./build/rp2040_usb.o
  .debug_ranges  0x000096d0       0x18 ./build/tusb.o
- .debug_ranges  0x000096e8       0xb0 ./build/main.o
- .debug_ranges  0x00009798      0xba8 ./build/vga.o
- .debug_ranges  0x0000a340      0x1d0 ./build/vga_layer.o
- .debug_ranges  0x0000a510       0x18 ./build/vga_pal.o
- .debug_ranges  0x0000a528      0x198 ./build/vga_screen.o
- .debug_ranges  0x0000a6c0       0x68 ./build/vga_vmode.o
- .debug_ranges  0x0000a728       0x38 ./build/overclock.o
- .debug_ranges  0x0000a760      0x348 ./build/print.o
+ .debug_ranges  0x000096e8       0xb8 ./build/main.o
+ .debug_ranges  0x000097a0      0xba8 ./build/vga.o
+ .debug_ranges  0x0000a348      0x1d0 ./build/vga_layer.o
+ .debug_ranges  0x0000a518       0x18 ./build/vga_pal.o
+ .debug_ranges  0x0000a530      0x198 ./build/vga_screen.o
+ .debug_ranges  0x0000a6c8       0x68 ./build/vga_vmode.o
+ .debug_ranges  0x0000a730       0x38 ./build/overclock.o
+ .debug_ranges  0x0000a768      0x348 ./build/print.o
 
-.debug_frame    0x00000000     0x30ec
+.debug_frame    0x00000000     0x30e4
  .debug_frame   0x00000000       0x68 ./build/bootrom.o
  .debug_frame   0x00000068       0xb8 ./build/claim.o
  .debug_frame   0x00000120      0x11c ./build/clocks.o
@@ -26840,22 +26793,22 @@ LOAD linker stubs
  .debug_frame   0x000020b4      0x170 ./build/dcd_rp2040.o
  .debug_frame   0x00002224       0xf8 ./build/rp2040_usb.o
  .debug_frame   0x0000231c       0x3c ./build/tusb.o
- .debug_frame   0x00002358       0x8c ./build/main.o
- .debug_frame   0x000023e4      0x1f4 ./build/vga.o
- .debug_frame   0x000025d8      0x164 ./build/vga_layer.o
- .debug_frame   0x0000273c       0x50 ./build/vga_pal.o
- .debug_frame   0x0000278c      0x3a8 ./build/vga_screen.o
- .debug_frame   0x00002b34       0x94 ./build/vga_vmode.o
- .debug_frame   0x00002bc8       0x78 ./build/overclock.o
- .debug_frame   0x00002c40      0x1d4 ./build/print.o
- .debug_frame   0x00002e14       0x28 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-calloc.o)
- .debug_frame   0x00002e3c       0x2c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-callocr.o)
- .debug_frame   0x00002e68       0x20 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-errno.o)
- .debug_frame   0x00002e88       0x40 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-malloc.o)
- .debug_frame   0x00002ec8       0x3c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mallocr.o)
- .debug_frame   0x00002f04       0x40 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mlock.o)
- .debug_frame   0x00002f44       0x2c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-sbrkr.o)
- .debug_frame   0x00002f70       0x28 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
- .debug_frame   0x00002f98       0x54 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-freer.o)
- .debug_frame   0x00002fec       0xb0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-lock.o)
- .debug_frame   0x0000309c       0x50 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-reent.o)
+ .debug_frame   0x00002358       0x84 ./build/main.o
+ .debug_frame   0x000023dc      0x1f4 ./build/vga.o
+ .debug_frame   0x000025d0      0x164 ./build/vga_layer.o
+ .debug_frame   0x00002734       0x50 ./build/vga_pal.o
+ .debug_frame   0x00002784      0x3a8 ./build/vga_screen.o
+ .debug_frame   0x00002b2c       0x94 ./build/vga_vmode.o
+ .debug_frame   0x00002bc0       0x78 ./build/overclock.o
+ .debug_frame   0x00002c38      0x1d4 ./build/print.o
+ .debug_frame   0x00002e0c       0x28 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-calloc.o)
+ .debug_frame   0x00002e34       0x2c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-callocr.o)
+ .debug_frame   0x00002e60       0x20 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-errno.o)
+ .debug_frame   0x00002e80       0x40 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-malloc.o)
+ .debug_frame   0x00002ec0       0x3c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mallocr.o)
+ .debug_frame   0x00002efc       0x40 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-mlock.o)
+ .debug_frame   0x00002f3c       0x2c c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-sbrkr.o)
+ .debug_frame   0x00002f68       0x28 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-strlen-stub.o)
+ .debug_frame   0x00002f90       0x54 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-freer.o)
+ .debug_frame   0x00002fe4       0xb0 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-lock.o)
+ .debug_frame   0x00003094       0x50 c:/vsarm/armcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a(lib_a-reent.o)
