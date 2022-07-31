@@ -1,4 +1,4 @@
-= PicoVGA - VGA/TV display on Raspberry Pico =
+= PicoVGA - VGA display on Raspberry Pico =
 
 == Credits ==
 
