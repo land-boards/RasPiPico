@@ -1,5 +1,5 @@
 // Near top of file
-// JOYPAD pushbutton to Pico pin mounting
+// JOYPAD pushbutton to Pico pin mapping
 #define PB_UL 16		// Upper Left pushbutton
 #define PB_RT 17		// Right direction
 #define PB_FR 18		// Fire
