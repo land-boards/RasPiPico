@@ -15,15 +15,12 @@
 
 #define LEVELNUM	10	// number of levels
 
-// JOYPAD pushbutton to Pico pin mounting
-#define PB_UL 16		// Upper Left pushbutton
-#define PB_RT 17		// Right direction
-#define PB_FR 18		// Fire
+// Atari Joystick DB-9 pushbutton to Pico pin mounting
+#define PB_UP 16		// Up direction
+#define PB_DN 18		// Down direction
 #define PB_LT 20		// Left direction
-#define PB_CF 21		// Center Fire
-#define PB_DN 22		// Down direction
-#define PB_UR 26		// Upper right
-#define PB_UP 27		// Up direction
+#define PB_RT 21		// Right direction
+#define PB_FR 17		// Fire
 
 u8 Level;	// current level (1..)
 u8 LevelBest;	// best level
@@ -234,34 +231,31 @@ void DispHelp()
 
 // get character from keyboard (0 = no key)
 // Tetris - game
-// #define PB_UL 16		// Upper Left pushbutton
-// #define PB_RT 17		// Right direction
-// #define PB_FR 18		// Fire
+// #define PB_UP 16		// Up direction
+// #define PB_DN 18		// Down direction
 // #define PB_LT 20		// Left direction
-// #define PB_CF 21		// Center Fire
-// #define PB_DN 22		// Down direction
-// #define PB_UR 26		// Upper right
-// #define PB_UP 27		// Up direction
+// #define PB_RT 21		// Right direction
+// #define PB_FR 17		// Fire
 //	keyboard control: 
-//		'L' right, RT - BRN - RIGHT
-//		'I' turn, CF - YEL - CENTER FIRE ROTATE
-//		'J' left, LF - ORG - LEFT
-//		'K' drop, DN - BLU - DOWN
-//		'A' pause UR - GRY - UPPER RIGHT
+//		'L' right, RT - RIGHT
+//		'I' turn, UP - ROTATE
+//		'J' left, LF - LEFT
+//		'K' drop, DN - DOWN
+//		'A' pause FR - FIRE
 
 char GetChar()
 {
 	char rVal = 0;
-	if (!gpio_get(PB_LT))
-		rVal =  'J';
-	else if (!gpio_get(PB_RT))
-		rVal =  'L';
-	else if (!gpio_get(PB_DN))
-		rVal =  'K';
-	else if (!gpio_get(PB_CF))
-		rVal =  'I';
-	else if (!gpio_get(PB_UR))
-		rVal =  'A';
+	if (!gpio_get(PB_RT))		// RIGHT
+		rVal =  KEY_R;
+	else if (!gpio_get(PB_UP))	// ROTATE=UP
+		rVal =  KEY_U;
+	else if (!gpio_get(PB_LT))	// LEFT
+		rVal =  KEY_L;
+	else if (!gpio_get(PB_DN))	// DROP=DOWN
+		rVal =  KEY_D;
+	else if (!gpio_get(PB_FR))	// PAUSE=FIRE
+		rVal =  KEY_PAUSE;
 	else
 		return 0;
 	sleep_ms(100);
@@ -772,6 +766,8 @@ void Game()
 {
 	u8 b;
 	char ch;
+	
+	printf("start game\n");
 
 	// start new game
 	NewGame();
@@ -1047,33 +1043,18 @@ void PlayDemo()
 	Demo = False;
 }
 
-// Init the JoyPad pins
-// #define PB_UL 16		// Upper Left pushbutton
-// #define PB_RT 17		// Right direction
-// #define PB_FR 18		// Fire
+// Init the JoyStick pins
+// #define PB_UP 16		// Up direction
+// #define PB_DN 18		// Down direction
 // #define PB_LT 20		// Left direction
-// #define PB_CF 21		// Center Fire
-// #define PB_DN 22		// Down direction
-// #define PB_UR 26		// Upper right
-// #define PB_UP 27		// Up direction
+// #define PB_RT 21		// Right direction
+// #define PB_FR 17		// Fire
 
-void initJoyPad()
+void initJoyStick()
 {
-	gpio_init(PB_UL);
-	gpio_set_dir(PB_UL, GPIO_IN);
-	gpio_pull_up(PB_UL);
-	
-	gpio_init(PB_FR);
-	gpio_set_dir(PB_FR, GPIO_IN);
-	gpio_pull_up(PB_FR);
-	
 	gpio_init(PB_UP);
 	gpio_set_dir(PB_UP, GPIO_IN);
 	gpio_pull_up(PB_UP);
-	
-	gpio_init(PB_UR);
-	gpio_set_dir(PB_UR, GPIO_IN);
-	gpio_pull_up(PB_UR);
 	
 	gpio_init(PB_DN);
 	gpio_set_dir(PB_DN, GPIO_IN);
@@ -1086,11 +1067,22 @@ void initJoyPad()
 	gpio_init(PB_RT);
 	gpio_set_dir(PB_RT, GPIO_IN);
 	gpio_pull_up(PB_RT);
-	
-	gpio_init(PB_CF);
-	gpio_set_dir(PB_CF, GPIO_IN);
-	gpio_pull_up(PB_CF);
 
+	gpio_init(PB_FR);
+	gpio_set_dir(PB_FR, GPIO_IN);
+	gpio_pull_up(PB_FR);
+
+	gpio_init(26);
+	gpio_set_dir(26, GPIO_IN);
+	gpio_pull_up(26);
+
+	gpio_init(27);
+	gpio_set_dir(27, GPIO_IN);
+	gpio_pull_up(27);
+
+	gpio_init(22);
+	gpio_set_dir(22, GPIO_IN);
+	gpio_pull_up(22);
 }
 
 int main()
@@ -1116,7 +1108,7 @@ int main()
 
 	// initialize stdio
 	stdio_init_all();
-	initJoyPad();
+	initJoyStick();
 
 	// initialize sound output
 	PWMSndInit();
@@ -1129,7 +1121,7 @@ int main()
 	ScoreBest = 0;
 	LinesBest = 0;
 	Demo = False;
-
+	
 	// main loop
 	while (True)
 	{
