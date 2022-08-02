@@ -84,6 +84,9 @@ Ants - card game
 
 AntsJP - card game
 	JoyPad control: left, right, centerFire=select, upperLeft=discard, Fire=help move, upperRight=quit
+	
+AntsJS - card game
+	JoyStick control: left, right, Up=select, down=discard, 'H'=help move, Fire=quit
 
 Balloons - sprite demo, floating balloons
 
@@ -95,14 +98,21 @@ Eggs - game of Eggs+Chickens+Hens, variant of the Reversi game
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help, 'Q' quit, 'P' 2 players, 'D' demo, space stone, Enter ok
 
 EggsJP - game of Eggs+Chickens+Hens, variant of the Reversi game
-	  JoyPad control: right, up, left, down, fire=help, upoerRight=quit, centerFire=stone, upperLeft=ok
+	  JoyPad control: right, up, left, down, fire=help, upperRight=quit, centerFire=stone, upperLeft=ok
 	  keyboard control: 'P' 2 players, 'D' demo
+
+EggsJS - game of Eggs+Chickens+Hens, variant of the Reversi game
+	  JoyStick control: right, up, left, down, Fire=stone
+	  keyboard control: 'H'=help, Enter=ok, 'Q'=quit, 'P' 2 players, 'D' demo
 
 Fifteen - game
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'Q' new game
 
 FifteenJP - game
-	     JoyPad control: right, up, left, down, upperRight=new game
+	     JoyStick control: right, up, left, down, upperRight=new game
+
+FifteenJS - game
+	     JoyPad control: right, up, left, down, Fire=new game
 
 Flag - animation of flag fluttering in the wind
 
@@ -110,13 +120,22 @@ Ghost Racing - car racing game, racing with player's ghost copy, demonstration o
 	keyboard control: 'I' gear up, 'K' gear down, 'J' turn left, 'L' turn right
 
 Ghost RacingJP - car racing game, racing with player's ghost copy, demonstration of 3D perspective projection
-	JoyPad control: up=gear up, down=gear down, left=turn left, right=turn right
+	JoyPad control: up=shift gear up, down=shift gear down, left=turn left, right=turn right
+
+Ghost RacingJS - car racing game, racing with player's ghost copy, demonstration of 3D perspective projection
+	JoyStick control: up=shift gear up, down=shift gear down, left=turn left, right=turn right
 
 Ginger House - picture fairy tale book
 	keyboard control: 'J' previous page, 'L' next page
 
 Ginger HouseJP - picture fairy tale book
 	JoyPad control: left=previous page, right=next page
+
+Ginger HouseJP - picture fairy tale book
+	JoyPad control: left=previous page, right=next page
+
+Ginger HouseJS - picture fairy tale book
+	JoyStick control: left=previous page, right=next page
 
 Hello - simple demonstration, print text "Hello world!" on the screen
 
@@ -132,6 +151,10 @@ LifeJP - game, reproducing cells
 	JoyPad control: right=right, up=up, left=left, dowb=down, upperLeft=copy, Fire=paste, centerFire=flip state, 
 		UpperRight=run life
 	keyboard control: 'D' clear, 0..9 select slot
+
+LifeJS - game, reproducing cells
+	JoyStick control: right=right, up=up, left=left, dowb=down, Fire=flip state, 
+	keyboard control: 'D' clear, 0..9 select slot, 'C'=copy, 'V'=paste, Enter=run life
 
 Lines - moving line patterns
 
@@ -149,6 +172,14 @@ MandelbrotJP - fractal pattern generator
 	'O' decrease number of steps, 'P' increase number of steps, 'U' increase system clock,
 	'T' decrease system clock, space redraw
 
+MandelbrotJS - fractal pattern generator
+	JoyStick control: Up, left, right, down, Fire zoom in 
+	keyboard control: 'A' zoom out,
+	'L' low resolution 132x100, 'M' medium resolution 264x200, 'H' high resolution 528x400,
+	'I' integer arithmetics, 'F' float arithmetics, 'B' double arithmetics,
+	'O' decrease number of steps, 'P' increase number of steps, 'U' increase system clock,
+	'T' decrease system clock, space redraw
+
 Matrix Rain - simulation of Matrix code rain
 
 Maze - game, simple maze with maze generator
@@ -156,6 +187,9 @@ Maze - game, simple maze with maze generator
 
 MazeJP - game, simple maze with maze generator
 	JoyPad control: left, up, right, down, upperRight=help (show door)
+
+MazeJS - game, simple maze with maze generator
+	JoyStick control: left, up, right, down, Fire=help (show door)
 
 Monoscope - test of various graphic modes
 	keyboard control: '0'..'9', 'A'..'U' select videomode
@@ -182,6 +216,11 @@ SokobanJP - game with 3000 puzzles and with their solutions
 	JoyPad control: right, up, left, down, upperLeft=previous level, fire=next level, uppperRight=restart scene, 
 	keyboard 'H' help (solution), 'P' info
 
+SokobanJS - game with 3000 puzzles and with their solutions
+	JoyStick control: right, up, left, down, Fire=restart scene, 
+	'Q' previous level, 'W' next level, 'P' info
+	keyboard 'H' help (solution), 'P' info
+
 Spheres - draw random spheres
 
 Spots - draw random dot spots
@@ -192,11 +231,18 @@ Tetris - game
 TetrisJP - game
 	JoyPad control: right, center fire turn, left, down = drop, upper right = pause
 
+TetrisJS - game
+	JoyStick control: right, up turn, left, down = drop, Fire = pause
+
 Train - puzzle game with 50 levels and with their solutions
 	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help (solution), Enter OK, Esc escape, BS backspace
 
 TrainJP - puzzle game with 50 levels and with their solutions
 	JoyPad control: right, up, left, down, centerFire=OK, upperLeft=escape, fire=backspace, upperRight=help (solution), 
+
+TrainJS - puzzle game with 50 levels and with their solutions
+	JoyStick control: right, up, left, down, Fire=OK, 
+	Esc=escape, BS=backspace, 'H'=help (solution), 
 
 Twister - deformable block covered with 4 textures
 
