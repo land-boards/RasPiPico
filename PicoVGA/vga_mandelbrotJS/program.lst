@@ -19551,7 +19551,7 @@ void initJoyPad()
 {
 100073e4:	b510      	push	{r4, lr}
 	gpio_init(PB_UL);
-100073e6:	2010      	movs	r0, #16
+100073e6:	201a      	movs	r0, #26
 100073e8:	f7fa fb0e 	bl	10001a08 <gpio_init>
  *  \ingroup hardware_gpio
  *
@@ -19562,72 +19562,72 @@ static inline void gpio_set_dir_in_masked(uint32_t mask) {
 100073ec:	24d0      	movs	r4, #208	; 0xd0
 100073ee:	2380      	movs	r3, #128	; 0x80
 100073f0:	0624      	lsls	r4, r4, #24
-100073f2:	025b      	lsls	r3, r3, #9
+100073f2:	04db      	lsls	r3, r3, #19
 100073f4:	62a3      	str	r3, [r4, #40]	; 0x28
     gpio_set_pulls(gpio, true, false);
 100073f6:	2200      	movs	r2, #0
 100073f8:	2101      	movs	r1, #1
-100073fa:	2010      	movs	r0, #16
+100073fa:	201a      	movs	r0, #26
 100073fc:	f7fa fada 	bl	100019b4 <gpio_set_pulls>
 	gpio_set_dir(PB_UL, GPIO_IN);
 	gpio_pull_up(PB_UL);
 	
 	gpio_init(PB_FR);
-10007400:	2012      	movs	r0, #18
+10007400:	2011      	movs	r0, #17
 10007402:	f7fa fb01 	bl	10001a08 <gpio_init>
     sio_hw->gpio_oe_clr = mask;
 10007406:	2380      	movs	r3, #128	; 0x80
-10007408:	02db      	lsls	r3, r3, #11
+10007408:	029b      	lsls	r3, r3, #10
 1000740a:	62a3      	str	r3, [r4, #40]	; 0x28
     gpio_set_pulls(gpio, true, false);
 1000740c:	2200      	movs	r2, #0
 1000740e:	2101      	movs	r1, #1
-10007410:	2012      	movs	r0, #18
+10007410:	2011      	movs	r0, #17
 10007412:	f7fa facf 	bl	100019b4 <gpio_set_pulls>
 	gpio_set_dir(PB_FR, GPIO_IN);
 	gpio_pull_up(PB_FR);
 	
 	gpio_init(PB_UP);
-10007416:	201b      	movs	r0, #27
+10007416:	2010      	movs	r0, #16
 10007418:	f7fa faf6 	bl	10001a08 <gpio_init>
     sio_hw->gpio_oe_clr = mask;
 1000741c:	2380      	movs	r3, #128	; 0x80
-1000741e:	051b      	lsls	r3, r3, #20
+1000741e:	025b      	lsls	r3, r3, #9
 10007420:	62a3      	str	r3, [r4, #40]	; 0x28
     gpio_set_pulls(gpio, true, false);
 10007422:	2200      	movs	r2, #0
 10007424:	2101      	movs	r1, #1
-10007426:	201b      	movs	r0, #27
+10007426:	2010      	movs	r0, #16
 10007428:	f7fa fac4 	bl	100019b4 <gpio_set_pulls>
 	gpio_set_dir(PB_UP, GPIO_IN);
 	gpio_pull_up(PB_UP);
 	
 	gpio_init(PB_UR);
-1000742c:	201a      	movs	r0, #26
+1000742c:	2016      	movs	r0, #22
 1000742e:	f7fa faeb 	bl	10001a08 <gpio_init>
     sio_hw->gpio_oe_clr = mask;
 10007432:	2380      	movs	r3, #128	; 0x80
-10007434:	04db      	lsls	r3, r3, #19
+10007434:	03db      	lsls	r3, r3, #15
 10007436:	62a3      	str	r3, [r4, #40]	; 0x28
     gpio_set_pulls(gpio, true, false);
 10007438:	2200      	movs	r2, #0
 1000743a:	2101      	movs	r1, #1
-1000743c:	201a      	movs	r0, #26
+1000743c:	2016      	movs	r0, #22
 1000743e:	f7fa fab9 	bl	100019b4 <gpio_set_pulls>
 	gpio_set_dir(PB_UR, GPIO_IN);
 	gpio_pull_up(PB_UR);
 	
 	gpio_init(PB_DN);
-10007442:	2016      	movs	r0, #22
+10007442:	2012      	movs	r0, #18
 10007444:	f7fa fae0 	bl	10001a08 <gpio_init>
     sio_hw->gpio_oe_clr = mask;
 10007448:	2380      	movs	r3, #128	; 0x80
-1000744a:	03db      	lsls	r3, r3, #15
+1000744a:	02db      	lsls	r3, r3, #11
 1000744c:	62a3      	str	r3, [r4, #40]	; 0x28
     gpio_set_pulls(gpio, true, false);
 1000744e:	2200      	movs	r2, #0
 10007450:	2101      	movs	r1, #1
-10007452:	2016      	movs	r0, #22
+10007452:	2012      	movs	r0, #18
 10007454:	f7fa faae 	bl	100019b4 <gpio_set_pulls>
 	gpio_set_dir(PB_DN, GPIO_IN);
 	gpio_pull_up(PB_DN);
@@ -19648,30 +19648,30 @@ static inline void gpio_set_dir_in_masked(uint32_t mask) {
 	gpio_pull_up(PB_LT);
 	
 	gpio_init(PB_RT);
-1000746e:	2011      	movs	r0, #17
+1000746e:	2015      	movs	r0, #21
 10007470:	f7fa faca 	bl	10001a08 <gpio_init>
     sio_hw->gpio_oe_clr = mask;
 10007474:	2380      	movs	r3, #128	; 0x80
-10007476:	029b      	lsls	r3, r3, #10
+10007476:	039b      	lsls	r3, r3, #14
 10007478:	62a3      	str	r3, [r4, #40]	; 0x28
     gpio_set_pulls(gpio, true, false);
 1000747a:	2200      	movs	r2, #0
 1000747c:	2101      	movs	r1, #1
-1000747e:	2011      	movs	r0, #17
+1000747e:	2015      	movs	r0, #21
 10007480:	f7fa fa98 	bl	100019b4 <gpio_set_pulls>
 	gpio_set_dir(PB_RT, GPIO_IN);
 	gpio_pull_up(PB_RT);
 	
 	gpio_init(PB_CF);
-10007484:	2015      	movs	r0, #21
+10007484:	201b      	movs	r0, #27
 10007486:	f7fa fabf 	bl	10001a08 <gpio_init>
     sio_hw->gpio_oe_clr = mask;
 1000748a:	2380      	movs	r3, #128	; 0x80
-1000748c:	039b      	lsls	r3, r3, #14
+1000748c:	051b      	lsls	r3, r3, #20
     gpio_set_pulls(gpio, true, false);
 1000748e:	2200      	movs	r2, #0
 10007490:	2101      	movs	r1, #1
-10007492:	2015      	movs	r0, #21
+10007492:	201b      	movs	r0, #27
     sio_hw->gpio_oe_clr = mask;
 10007494:	62a3      	str	r3, [r4, #40]	; 0x28
     gpio_set_pulls(gpio, true, false);
@@ -19952,35 +19952,35 @@ int main()
 10007624:	d400      	bmi.n	10007628 <main+0x18c>
 10007626:	e117      	b.n	10007858 <main+0x3bc>
 10007628:	6862      	ldr	r2, [r4, #4]
-1000762a:	0ed2      	lsrs	r2, r2, #27
+1000762a:	0c12      	lsrs	r2, r2, #16
 			else if (!gpio_get(PB_UP))	// Up
 1000762c:	4213      	tst	r3, r2
 1000762e:	d100      	bne.n	10007632 <main+0x196>
 10007630:	e21c      	b.n	10007a6c <main+0x5d0>
 10007632:	6862      	ldr	r2, [r4, #4]
-10007634:	0c52      	lsrs	r2, r2, #17
+10007634:	0d52      	lsrs	r2, r2, #21
 			else if (!gpio_get(PB_RT))	// Right
 10007636:	4213      	tst	r3, r2
 10007638:	d05f      	beq.n	100076fa <main+0x25e>
 1000763a:	6862      	ldr	r2, [r4, #4]
-1000763c:	0d92      	lsrs	r2, r2, #22
+1000763c:	0c92      	lsrs	r2, r2, #18
 			else if (!gpio_get(PB_DN))	// Down
 1000763e:	4213      	tst	r3, r2
 10007640:	d03b      	beq.n	100076ba <main+0x21e>
 10007642:	6862      	ldr	r2, [r4, #4]
-10007644:	0c12      	lsrs	r2, r2, #16
+10007644:	0e92      	lsrs	r2, r2, #26
 			else if (!gpio_get(PB_UL))	// Zoom Out
 10007646:	4213      	tst	r3, r2
 10007648:	d100      	bne.n	1000764c <main+0x1b0>
 1000764a:	e254      	b.n	10007af6 <main+0x65a>
 1000764c:	6862      	ldr	r2, [r4, #4]
-1000764e:	0c92      	lsrs	r2, r2, #18
+1000764e:	0c52      	lsrs	r2, r2, #17
 			else if (!gpio_get(PB_FR))	//Zoom In
 10007650:	4213      	tst	r3, r2
 10007652:	d000      	beq.n	10007656 <main+0x1ba>
 10007654:	e75c      	b.n	10007510 <main+0x74>
 10007656:	6862      	ldr	r2, [r4, #4]
-10007658:	0c92      	lsrs	r2, r2, #18
+10007658:	0c52      	lsrs	r2, r2, #17
 				while (!gpio_get(PB_FR))
 1000765a:	4213      	tst	r3, r2
 1000765c:	d107      	bne.n	1000766e <main+0x1d2>
@@ -19989,7 +19989,7 @@ int main()
 10007660:	2014      	movs	r0, #20
 10007662:	f7fd fa17 	bl	10004a94 <sleep_ms>
 10007666:	6863      	ldr	r3, [r4, #4]
-10007668:	0c9b      	lsrs	r3, r3, #18
+10007668:	0c5b      	lsrs	r3, r3, #17
 				while (!gpio_get(PB_FR))
 1000766a:	421d      	tst	r5, r3
 1000766c:	d0f8      	beq.n	10007660 <main+0x1c4>
@@ -20044,7 +20044,7 @@ int main()
 100076b8:	e72a      	b.n	10007510 <main+0x74>
     return !!((1ul << gpio) & sio_hw->gpio_in);
 100076ba:	6862      	ldr	r2, [r4, #4]
-100076bc:	0d92      	lsrs	r2, r2, #22
+100076bc:	0c92      	lsrs	r2, r2, #18
 				while (!gpio_get(PB_DN))
 100076be:	4213      	tst	r3, r2
 100076c0:	d107      	bne.n	100076d2 <main+0x236>
@@ -20053,7 +20053,7 @@ int main()
 100076c4:	2014      	movs	r0, #20
 100076c6:	f7fd f9e5 	bl	10004a94 <sleep_ms>
 100076ca:	6863      	ldr	r3, [r4, #4]
-100076cc:	0d9b      	lsrs	r3, r3, #22
+100076cc:	0c9b      	lsrs	r3, r3, #18
 				while (!gpio_get(PB_DN))
 100076ce:	421d      	tst	r5, r3
 100076d0:	d0f8      	beq.n	100076c4 <main+0x228>
@@ -20078,7 +20078,7 @@ int main()
 				break;
 100076f8:	e70a      	b.n	10007510 <main+0x74>
 100076fa:	6862      	ldr	r2, [r4, #4]
-100076fc:	0c52      	lsrs	r2, r2, #17
+100076fc:	0d52      	lsrs	r2, r2, #21
 				while (!gpio_get(PB_RT))
 100076fe:	4213      	tst	r3, r2
 10007700:	d107      	bne.n	10007712 <main+0x276>
@@ -20087,7 +20087,7 @@ int main()
 10007704:	2014      	movs	r0, #20
 10007706:	f7fd f9c5 	bl	10004a94 <sleep_ms>
 1000770a:	6863      	ldr	r3, [r4, #4]
-1000770c:	0c5b      	lsrs	r3, r3, #17
+1000770c:	0d5b      	lsrs	r3, r3, #21
 				while (!gpio_get(PB_RT))
 1000770e:	421d      	tst	r5, r3
 10007710:	d0f8      	beq.n	10007704 <main+0x268>
@@ -20536,7 +20536,7 @@ int main()
 10007a68:	2300      	movs	r3, #0
 10007a6a:	e7e0      	b.n	10007a2e <main+0x592>
 10007a6c:	6862      	ldr	r2, [r4, #4]
-10007a6e:	0ed2      	lsrs	r2, r2, #27
+10007a6e:	0c12      	lsrs	r2, r2, #16
 				while (!gpio_get(PB_UP))
 10007a70:	4213      	tst	r3, r2
 10007a72:	d107      	bne.n	10007a84 <main+0x5e8>
@@ -20545,7 +20545,7 @@ int main()
 10007a76:	2014      	movs	r0, #20
 10007a78:	f7fd f80c 	bl	10004a94 <sleep_ms>
 10007a7c:	6863      	ldr	r3, [r4, #4]
-10007a7e:	0edb      	lsrs	r3, r3, #27
+10007a7e:	0c1b      	lsrs	r3, r3, #16
 				while (!gpio_get(PB_UP))
 10007a80:	421d      	tst	r5, r3
 10007a82:	d0f8      	beq.n	10007a76 <main+0x5da>
@@ -20608,7 +20608,7 @@ int main()
 10007af0:	f000 fcf6 	bl	100084e0 <_Z9Core1ExecPFvvE>
 10007af4:	e7ab      	b.n	10007a4e <main+0x5b2>
 10007af6:	6862      	ldr	r2, [r4, #4]
-10007af8:	0c12      	lsrs	r2, r2, #16
+10007af8:	0e92      	lsrs	r2, r2, #26
 				while (!gpio_get(PB_UL))
 10007afa:	4213      	tst	r3, r2
 10007afc:	d107      	bne.n	10007b0e <main+0x672>
@@ -20617,7 +20617,7 @@ int main()
 10007b00:	2014      	movs	r0, #20
 10007b02:	f7fc ffc7 	bl	10004a94 <sleep_ms>
 10007b06:	6863      	ldr	r3, [r4, #4]
-10007b08:	0c1b      	lsrs	r3, r3, #16
+10007b08:	0e9b      	lsrs	r3, r3, #26
 				while (!gpio_get(PB_UL))
 10007b0a:	421d      	tst	r5, r3
 10007b0c:	d0f8      	beq.n	10007b00 <main+0x664>

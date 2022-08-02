@@ -38,15 +38,15 @@ We will use 32-bit integer with highest 7 bits as integer part and 25 lower bits
 #define RES_MED	 1	// medium resolution 264x200
 #define RES_HIGH 2	// high resolution 528x400
 
-// JOYPAD pushbutton to Pico pin mounting
-#define PB_UL 16		// Upper Left pushbutton
-#define PB_RT 17		// Right direction
-#define PB_FR 18		// Fire
+// JoyStick pushbutton to Pico pin mounting
+#define PB_UL 26		// Upper Left pushbutton
+#define PB_RT 21		// Right direction
+#define PB_FR 17		// Fire
 #define PB_LT 20		// Left direction
-#define PB_CF 21		// Center Fire
-#define PB_DN 22		// Down direction
-#define PB_UR 26		// Upper right
-#define PB_UP 27		// Up direction
+#define PB_CF 27		// Center Fire
+#define PB_DN 18		// Down direction
+#define PB_UR 22		// Upper right
+#define PB_UP 16		// Up direction
 
 int HighRes = RES_MED; // resolution
 int Arithm = USE_INT; // used arithmetics
