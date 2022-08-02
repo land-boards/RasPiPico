@@ -18319,22 +18319,22 @@ static inline bool gpio_get(uint gpio) {
 10006ada:	6862      	ldr	r2, [r4, #4]
 	char rVal = 0;
 10006adc:	2000      	movs	r0, #0
-10006ade:	0e92      	lsrs	r2, r2, #26
-	else if (!gpio_get(PB_UR))
+10006ade:	0c52      	lsrs	r2, r2, #17
+	else if (!gpio_get(PB_FR))
 10006ae0:	4213      	tst	r3, r2
 10006ae2:	d1c3      	bne.n	10006a6c <_Z7GetCharv+0x28>
 10006ae4:	6862      	ldr	r2, [r4, #4]
 10006ae6:	2501      	movs	r5, #1
-10006ae8:	0e92      	lsrs	r2, r2, #26
-		while (!gpio_get(PB_UR))
+10006ae8:	0c52      	lsrs	r2, r2, #17
+		while (!gpio_get(PB_FR))
 10006aea:	4213      	tst	r3, r2
 10006aec:	d106      	bne.n	10006afc <_Z7GetCharv+0xb8>
 			sleep_ms(20);
 10006aee:	2014      	movs	r0, #20
 10006af0:	f7fd fea2 	bl	10004838 <sleep_ms>
 10006af4:	6863      	ldr	r3, [r4, #4]
-10006af6:	0e9b      	lsrs	r3, r3, #26
-		while (!gpio_get(PB_UR))
+10006af6:	0c5b      	lsrs	r3, r3, #17
+		while (!gpio_get(PB_FR))
 10006af8:	421d      	tst	r5, r3
 10006afa:	d0f8      	beq.n	10006aee <_Z7GetCharv+0xaa>
 		rVal =  'Q';

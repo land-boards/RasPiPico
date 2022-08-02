@@ -72,9 +72,9 @@ char GetChar()
 			sleep_ms(20);
 		rVal =  'K';
 	}
-	else if (!gpio_get(PB_UR))
+	else if (!gpio_get(PB_FR))
 	{
-		while (!gpio_get(PB_UR))
+		while (!gpio_get(PB_FR))
 			sleep_ms(20);
 		rVal =  'Q';
 	}
