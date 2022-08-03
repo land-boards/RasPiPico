@@ -18,6 +18,7 @@ Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@s
 
 * [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD]
 ** Configured as Atari JoyStick
+* DB-9 Male to Female cable (wired 1:1)
 
 <img src="http://land-boards.com/blwiki/images/a/aa/PicoVGA_JOYPAD_P18499-720px.jpg"></img>
 
