@@ -1,9 +1,5 @@
 = PicoVGA - VGA display on Raspberry Pico =
 
-== Credits ==
-
-Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@seznam.cz. His [https://github.com/Panda381/PicoVGA PicoVGA Source GitHub] page. His [http://www.breatharian.eu/hw/picovga/index_en.html PicoVGA project web page].
-
 = Land Boards PicoVGA01 Card =
 
 <img src="http://land-boards.com/blwiki/images/5/56/PicoVGA01_P1080468-720px.jpg"></img>
@@ -21,6 +17,10 @@ Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@s
 * DB-9 Male to Female cable (wired 1:1)
 
 <img src="http://land-boards.com/blwiki/images/a/aa/PicoVGA_JOYPAD_P18499-720px.jpg"></img>
+
+== Credits ==
+
+Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@seznam.cz. His [https://github.com/Panda381/PicoVGA PicoVGA Source GitHub] page. His [http://www.breatharian.eu/hw/picovga/index_en.html PicoVGA project web page].
 
 = How to install =
 
