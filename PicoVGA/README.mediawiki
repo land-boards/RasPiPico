@@ -132,9 +132,6 @@ Ginger House - picture fairy tale book
 Ginger HouseJP - picture fairy tale book
 	JoyPad control: left=previous page, right=next page
 
-Ginger HouseJP - picture fairy tale book
-	JoyPad control: left=previous page, right=next page
-
 Ginger HouseJS - picture fairy tale book
 	JoyStick control: left=previous page, right=next page
 
