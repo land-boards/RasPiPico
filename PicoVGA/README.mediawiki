@@ -6,6 +6,7 @@
 
 <img src="http://land-boards.com/blwiki/images/5/56/PicoVGA01_P1080468-720px.jpg"></img>
 
+* [http://land-boards.com/blwiki/index.php?title=PicoVGA01 PicoVGA01 Wiki page]
 * VGA (3:3:2)
 * Joystick (DB-9M) or [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD]
 * Mono Audio (3.5mm to amplified stereo speaker)
