@@ -14,6 +14,10 @@ Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@s
 * 5V (USB B)
 * Fits into standard 100x76mm extruded Aluminum enclosure
 
+== JOYPAD ==
+
+<img src="PicoVGA_JOYPAD_P18499-720px.jpg"></img>
+
 = How to install =
 
 * Install C/C++ SDK
