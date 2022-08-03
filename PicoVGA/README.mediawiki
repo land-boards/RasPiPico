@@ -1,6 +1,8 @@
 = PicoVGA - VGA display on Raspberry Pico =
 
-= Land Boards PicoVGA01 Card =
+= Hardware =
+
+== Land Boards PicoVGA01 Card ==
 
 <img src="http://land-boards.com/blwiki/images/5/56/PicoVGA01_P1080468-720px.jpg"></img>
 
