@@ -73,6 +73,8 @@ DEFINE += -DPICO_STDIO_UART=1
 * Setup port to 115200 Baud, 8 bits, 1 stop bit, no parity, flow control None.
 * In Device Manager, USB adaptor can be found under name:
 ** "Prolific USB-to-Serial Comm Port (COM10)".
+* Non JoyStick and non-[[JOYPAD]] version of the programs
+* Some JoyStick and non-[[JOYPAD]] programs use the USB Serial interface for additional functions
 
 = PicoVGA examples =
 
