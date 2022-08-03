@@ -16,7 +16,7 @@ Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@s
 
 == JOYPAD ==
 
-<img src="PicoVGA_JOYPAD_P18499-720px.jpg"></img>
+<img src="http://land-boards.com/blwiki/images/a/aa/PicoVGA_JOYPAD_P18499-720px.jpg"></img>
 
 = How to install =
 
