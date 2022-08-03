@@ -8,7 +8,9 @@
 
 * [http://land-boards.com/blwiki/index.php?title=PicoVGA01 PicoVGA01 Wiki page]
 * VGA (3:3:2)
-* Joystick (DB-9M) or [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD]
+* JoyStick support
+** Atari Joystick (DB-9M) or 
+** [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD]
 * Mono Audio (3.5mm to amplified stereo speaker)
 * 5V (USB B)
 * Fits into standard 100x76mm extruded Aluminum enclosure
