@@ -1,18 +1,31 @@
 = PicoVGA - VGA display on Raspberry Pico =
 
-== Credits ==
+= Hardware =
 
-Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@seznam.cz. His [https://github.com/Panda381/PicoVGA PicoVGA Source GitHub] page. His [http://www.breatharian.eu/hw/picovga/index_en.html PicoVGA project web page].
-
-= Land Boards Card =
+== Land Boards PicoVGA01 Card ==
 
 <img src="http://land-boards.com/blwiki/images/5/56/PicoVGA01_P1080468-720px.jpg"></img>
 
+* [http://land-boards.com/blwiki/index.php?title=PicoVGA01 PicoVGA01 Wiki page]
 * VGA (3:3:2)
-* Joystick (DB-9M) or [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD]
+* JoyStick support
+** Atari Joystick (DB-9M) or 
+** [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD]
 * Mono Audio (3.5mm to amplified stereo speaker)
 * 5V (USB B)
 * Fits into standard 100x76mm extruded Aluminum enclosure
+
+== JOYPAD ==
+
+* [http://land-boards.com/blwiki/index.php?title=JOYPAD JOYPAD]
+** Configured as Atari JoyStick
+* DB-9 Male to Female cable (wired 1:1)
+
+<img src="http://land-boards.com/blwiki/images/a/aa/PicoVGA_JOYPAD_P18499-720px.jpg"></img>
+
+= Credits =
+
+Miroslav Nemecek is the original author of PicoVGA, [panda38.sweb.cz], Panda38@seznam.cz. His [https://github.com/Panda381/PicoVGA PicoVGA Source GitHub] page. His [http://www.breatharian.eu/hw/picovga/index_en.html PicoVGA project web page].
 
 = How to install =
 
@@ -73,17 +86,23 @@ DEFINE += -DPICO_STDIO_UART=1
 * Setup port to 115200 Baud, 8 bits, 1 stop bit, no parity, flow control None.
 * In Device Manager, USB adaptor can be found under name:
 ** "Prolific USB-to-Serial Comm Port (COM10)".
+* Non JoyStick and non-[[JOYPAD]] version of the programs
+* Some JoyStick and non-[[JOYPAD]] programs use the USB Serial interface for additional functions
 
 = PicoVGA examples =
 
 * ProgramsJP = My JOYPAD version of the programs
+* ProgramsJS = My JoyStick version of the programs
 
 <pre>
 Ants - card game
-	keyboard control: 'J' left, 'L' right, space select, 'D' discard, 'H' help, 'Q' quit
+       keyboard control: 'J' left, 'L' right, space select, 'D' discard, 'H' help, 'Q' quit
 
 AntsJP - card game
-	JoyPad control: left, right, centerFire=select, upperLeft=discard, Fire=help move, upperRight=quit
+         JoyPad control: left, right, centerFire=select, upperLeft=discard, Fire=help move, upperRight=quit
+	
+AntsJS - card game
+         JoyStick control: left, right, Up=select, down=discard, 'H'=help move, Fire=quit
 
 Balloons - sprite demo, floating balloons
 
@@ -92,31 +111,44 @@ Draw - draw graphics demo
 Earth - rotating Earth globe
 
 Eggs - game of Eggs+Chickens+Hens, variant of the Reversi game
-	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help, 'Q' quit, 'P' 2 players, 'D' demo, space stone, Enter ok
+       keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help, 'Q' quit, 'P' 2 players, 'D' demo, space stone, Enter ok
 
 EggsJP - game of Eggs+Chickens+Hens, variant of the Reversi game
-	  JoyPad control: right, up, left, down, fire=help, upoerRight=quit, centerFire=stone, upperLeft=ok
-	  keyboard control: 'P' 2 players, 'D' demo
+         JoyPad control: right, up, left, down, fire=help, upperRight=quit, centerFire=stone, upperLeft=ok
+         keyboard control: 'P' 2 players, 'D' demo
+
+EggsJS - game of Eggs+Chickens+Hens, variant of the Reversi game
+         JoyStick control: right, up, left, down, Fire=stone
+         keyboard control: 'H'=help, Enter=ok, 'Q'=quit, 'P' 2 players, 'D' demo
 
 Fifteen - game
-	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'Q' new game
+          keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'Q' new game
 
 FifteenJP - game
-	     JoyPad control: right, up, left, down, upperRight=new game
+            JoyPad control: right, up, left, down, upperRight=new game
+
+FifteenJS - game
+            JoyStick control: right, up, left, down, Fire=new game
 
 Flag - animation of flag fluttering in the wind
 
 Ghost Racing - car racing game, racing with player's ghost copy, demonstration of 3D perspective projection
-	keyboard control: 'I' gear up, 'K' gear down, 'J' turn left, 'L' turn right
+               keyboard control: 'I' gear up, 'K' gear down, 'J' turn left, 'L' turn right
 
 Ghost RacingJP - car racing game, racing with player's ghost copy, demonstration of 3D perspective projection
-	JoyPad control: up=gear up, down=gear down, left=turn left, right=turn right
+                 JoyPad control: up=shift gear up, down=shift gear down, left=turn left, right=turn right
+
+Ghost RacingJS - car racing game, racing with player's ghost copy, demonstration of 3D perspective projection
+                 JoyStick control: up=shift gear up, down=shift gear down, left=turn left, right=turn right
 
 Ginger House - picture fairy tale book
-	keyboard control: 'J' previous page, 'L' next page
+               keyboard control: 'J' previous page, 'L' next page
 
 Ginger HouseJP - picture fairy tale book
-	JoyPad control: left=previous page, right=next page
+                 JoyPad control: left=previous page, right=next page
+
+Ginger HouseJS - picture fairy tale book
+                 JoyStick control: left=previous page, right=next page
 
 Hello - simple demonstration, print text "Hello world!" on the screen
 
@@ -125,48 +157,66 @@ Hypno - hypnotizing rotating pattern
 Level Meter - demo of music volume level indication
 
 Life - game, reproducing cells
-	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'C' copy, 'V' paste, 'D' clear,
-		space flip state, Enter run life, 0..9 select slot
+       keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'C' copy, 'V' paste, 'D' clear,
+       space flip state, Enter run life, 0..9 select slot
 
 LifeJP - game, reproducing cells
-	JoyPad control: right=right, up=up, left=left, dowb=down, upperLeft=copy, Fire=paste, centerFire=flip state, 
-		UpperRight=run life
-	keyboard control: 'D' clear, 0..9 select slot
+         JoyPad control: right=right, up=up, left=left, dowb=down, upperLeft=copy, Fire=paste, centerFire=flip state, 
+         UpperRight=run life
+	 keyboard control: 'D' clear, 0..9 select slot
+
+LifeJS - game, reproducing cells
+         JoyStick control: right=right, up=up, left=left, dowb=down, Fire=flip state, 
+         keyboard control: 'D' clear, 0..9 select slot, 'C'=copy, 'V'=paste, Enter=run life
 
 Lines - moving line patterns
 
 Mandelbrot - fractal pattern generator
-	keyboard control: 'E' up, 'S' left, 'D' right, 'X' down, 'Q' zoom in, 'A' zoom out,
-	'L' low resolution 132x100, 'M' medium resolution 264x200, 'H' high resolution 528x400,
-	'I' integer arithmetics, 'F' float arithmetics, 'B' double arithmetics,
-	'O' decrease number of steps, 'P' increase number of steps, 'U' increase system clock,
-	'T' decrease system clock, space redraw
+             keyboard control: 'E' up, 'S' left, 'D' right, 'X' down, 'Q' zoom in, 'A' zoom out,
+             'L' low resolution 132x100, 'M' medium resolution 264x200, 'H' high resolution 528x400,
+             'I' integer arithmetics, 'F' float arithmetics, 'B' double arithmetics,
+             'O' decrease number of steps, 'P' increase number of steps, 'U' increase system clock,
+             'T' decrease system clock, space redraw
 
 MandelbrotJP - fractal pattern generator
-	JoyPad control: Up, left, right, down, Fire zoom in, upper left zoom out,
-	keyboard control: 'L' low resolution 132x100, 'M' medium resolution 264x200, 'H' high resolution 528x400,
-	'I' integer arithmetics, 'F' float arithmetics, 'B' double arithmetics,
-	'O' decrease number of steps, 'P' increase number of steps, 'U' increase system clock,
-	'T' decrease system clock, space redraw
+               JoyPad control: Up, left, right, down, Fire zoom in, upper left zoom out,
+               keyboard control: 'L' low resolution 132x100, 'M' medium resolution 264x200, 'H' high resolution 528x400,
+              'I' integer arithmetics, 'F' float arithmetics, 'B' double arithmetics,
+              'O' decrease number of steps, 'P' increase number of steps, 'U' increase system clock,
+              'T' decrease system clock, space redraw
+
+MandelbrotJS - fractal pattern generator
+               JoyStick control: Up, left, right, down, Fire zoom in 
+               keyboard control: 'A' zoom out,
+               'L' low resolution 132x100, 'M' medium resolution 264x200, 'H' high resolution 528x400,
+               'I' integer arithmetics, 'F' float arithmetics, 'B' double arithmetics,
+               'O' decrease number of steps, 'P' increase number of steps, 'U' increase system clock,
+               'T' decrease system clock, space redraw
 
 Matrix Rain - simulation of Matrix code rain
 
 Maze - game, simple maze with maze generator
-	keyboard control: 'J' left, 'I' up, 'L' right, 'K' down, 'H' help (show door)
+       keyboard control: 'J' left, 'I' up, 'L' right, 'K' down, 'H' help (show door)
 
 MazeJP - game, simple maze with maze generator
-	JoyPad control: left, up, right, down, upperRight=help (show door)
+         JoyPad control: left, up, right, down, upperRight=help (show door)
+
+MazeJS - game, simple maze with maze generator
+         JoyStick control: left, up, right, down, Fire=help (show door)
 
 Monoscope - test of various graphic modes
-	keyboard control: '0'..'9', 'A'..'U' select videomode
+            keyboard control: '0'..'9', 'A'..'U' select videomode
 
 Oscilloscope - demo oscilloscope simulator
 
 Pacman - game of popular Pac-man
-	keyboard control: 'J' left, 'I' up, 'L' right, 'K' down, 'A' pause
+         keyboard control: 'J' left, 'I' up, 'L' right, 'K' down, 'A' pause
 
 PacmanJP - game of popular Pac-man
-	JoyPad control: left, up, right, down, upper right pause
+           JoyPad control: left, up, right, down, upper right pause
+
+PacmanJS - game of popular Pac-man
+           JoyStick control: left, up, right, down, Fire=pause
 
 Pi - calculate Pi at 4800 digits
 
@@ -175,28 +225,40 @@ Pixels - random pixels
 Raytrace - ray tracing 3D demonstration of mirror spheres
 
 Sokoban - game with 3000 puzzles and with their solutions
-	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help (solution),
-	'R' restart scene, 'Q' previous level, 'W' next level, 'P' info
+          keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help (solution),
+          'R' restart scene, 'Q' previous level, 'W' next level, 'P' info
 
 SokobanJP - game with 3000 puzzles and with their solutions
-	JoyPad control: right, up, left, down, upperLeft=previous level, fire=next level, uppperRight=restart scene, 
-	keyboard 'H' help (solution), 'P' info
+            JoyPad control: right, up, left, down, upperLeft=previous level, fire=next level, uppperRight=restart scene, 
+            keyboard 'H' help (solution), 'P' info
+
+SokobanJS - game with 3000 puzzles and with their solutions
+            JoyStick control: right, up, left, down, Fire=restart scene, 
+            'Q' previous level, 'W' next level, 'P' info
+            keyboard 'H' help (solution), 'P' info
 
 Spheres - draw random spheres
 
 Spots - draw random dot spots
 
 Tetris - game
-	keyboard control: 'L' right, 'I' turn, 'J' left, 'K' drop, 'A' pause
+         keyboard control: 'L' right, 'I' turn, 'J' left, 'K' drop, 'A' pause
 
 TetrisJP - game
-	JoyPad control: right, center fire turn, left, down = drop, upper right = pause
+           JoyPad control: right, center fire turn, left, down = drop, upper right = pause
+
+TetrisJS - game
+           JoyStick control: right, up turn, left, down = drop, Fire = pause
 
 Train - puzzle game with 50 levels and with their solutions
-	keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help (solution), Enter OK, Esc escape, BS backspace
+        keyboard control: 'L' right, 'I' up, 'J' left, 'K' down, 'H' help (solution), Enter OK, Esc escape, BS backspace
 
 TrainJP - puzzle game with 50 levels and with their solutions
-	JoyPad control: right, up, left, down, centerFire=OK, upperLeft=escape, fire=backspace, upperRight=help (solution), 
+          JoyPad control: right, up, left, down, centerFire=OK, upperLeft=escape, fire=backspace, upperRight=help (solution), 
+
+TrainJS - puzzle game with 50 levels and with their solutions
+          JoyStick control: right, up, left, down, Fire=OK, 
+          Esc=escape, BS=backspace, 'H'=help (solution), 
 
 Twister - deformable block covered with 4 textures
 
