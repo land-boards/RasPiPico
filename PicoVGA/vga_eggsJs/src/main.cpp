@@ -68,34 +68,36 @@ char GetChar()
 	char rVal = 0;
 	if (!gpio_get(PB_LT))
 	{
-		while (!gpio_get(PB_LT))
-			sleep_ms(20);
+		// while (!gpio_get(PB_LT))
+			// sleep_ms(20);
 		rVal =  'J';
 	}
 	else if (!gpio_get(PB_RT))
 	{
-		while (!gpio_get(PB_RT))
-			sleep_ms(20);
+		// while (!gpio_get(PB_RT))
+			// sleep_ms(20);
 		rVal =  'L';
 	}
 	else if (!gpio_get(PB_UP))
 	{
-		while (!gpio_get(PB_UP))
-			sleep_ms(20);
+		// while (!gpio_get(PB_UP))
+			// sleep_ms(20);
 		rVal =  'I';
 	}
 	else if (!gpio_get(PB_DN))
 	{
-		while (!gpio_get(PB_DN))
-			sleep_ms(20);
+		// while (!gpio_get(PB_DN))
+			// sleep_ms(20);
 		rVal =  'K';
 	}
 	else if (!gpio_get(PB_FR))
 	{
-		while (!gpio_get(PB_FR))
-			sleep_ms(20);
+		// while (!gpio_get(PB_FR))
+			// sleep_ms(20);
 		rVal =  ' ';
 	}
+	if (rVal != 0)
+		sleep_ms(250);
 	return (rVal);
 	
 	// char c = getchar_timeout_us(0);

@@ -1,2 +1,2 @@
    text	   data	    bss	    dec	    hex	filename
- 732908	     32	 237060	 970000	  ecd10	build/program.elf
+ 732836	     32	 237060	 969928	  eccc8	build/program.elf
