@@ -137,35 +137,37 @@ char GetChar()
 	{
 		if (!gpio_get(PB_LT))
 		{
-			while (!gpio_get(PB_LT))
-				sleep_ms(20);
+			// while (!gpio_get(PB_LT))
+				// sleep_ms(20);
 			c =  'J';
 		}
 		else if (!gpio_get(PB_RT))
 		{
-			while (!gpio_get(PB_RT))
-				sleep_ms(20);
+			// while (!gpio_get(PB_RT))
+				// sleep_ms(20);
 			c =  'L';
 		}
 		else if (!gpio_get(PB_UP))
 		{
-			while (!gpio_get(PB_UP))
-				sleep_ms(20);
+			// while (!gpio_get(PB_UP))
+				// sleep_ms(20);
 			c =  'I';
 		}
 		else if (!gpio_get(PB_DN))
 		{
-			while (!gpio_get(PB_DN))
-				sleep_ms(20);
+			// while (!gpio_get(PB_DN))
+				// sleep_ms(20);
 			c =  'K';
 		}
 		else if (!gpio_get(PB_FR))
 		{
-			while (!gpio_get(PB_FR))
-				sleep_ms(20);
+			// while (!gpio_get(PB_FR))
+				// sleep_ms(20);
 			c =  'R';
 		}
 	}
+	if (c != 0)
+		sleep_ms(20);
 	return (c);
 }
 
@@ -183,15 +185,15 @@ void FlushChar()
 	while (GetChar() != 0) {}
 }
 
-// Init the JoyPad pins
-// #define PB_UL 16		// Upper Left pushbutton
-// #define PB_RT 17		// Right direction
-// #define PB_FR 18		// Fire
+// Init the JoyStick pins
+// #define PB_UL 26		// Upper Left pushbutton
+// #define PB_RT 21		// Right direction
+// #define PB_FR 17		// Fire
 // #define PB_LT 20		// Left direction
-// #define PB_CF 21		// Center Fire
-// #define PB_DN 22		// Down direction
-// #define PB_UR 26		// Upper right
-// #define PB_UP 27		// Up direction
+// #define PB_CF 27		// Center Fire
+// #define PB_DN 18		// Down direction
+// #define PB_UR 22		// Upper right
+// #define PB_UP 16		// Up direction
 void initJoyPad()
 {
 	gpio_init(PB_UL);

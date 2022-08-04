@@ -538,17 +538,20 @@ Bool SolvedAnim()
 }
 
 // display help
+// keyboard control: 'L' right(JS), 'I' up(JS), 'J' left(JS), 'K' down(JS),
+// 'H' help (solution),'R' restart scene(JS fire), 'Q' previous level, 
+// 'W' next level, 'P' info
 void DispHelp()
 {
 	printf("\n");
-	printf("right\n");
-	printf("up\n");
-	printf("left\n");
-	printf("down\n");
+	printf("right JoyStick\n");
+	printf("up JoyStick\n");
+	printf("left JoyStick\n");
+	printf("down JoyStick\n");
+	printf("fire JoyStick ... restart scene\n", KEY_RESTART);
 	printf("%c ... help solve scene\n", KEY_HELP);
-	printf("upper right = restart scene\n", KEY_RESTART);
-	printf("upper left = previous scene\n");
-	printf("fire = next scene\n");
+	printf("%c ... previous scene\n", KEY_PREV);
+	printf("%c ... next scene\n", KEY_NEXT);
 	printf("%c ... program info\n", KEY_INFO);
 	printf("Esc ... leave scene\n");
 }
