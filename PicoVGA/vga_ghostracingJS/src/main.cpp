@@ -326,34 +326,38 @@ char GetChar()
 	char rVal = 0;
 	if (!gpio_get(PB_LT))
 	{
-		while (!gpio_get(PB_LT))
-			sleep_ms(20);
+		// while (!gpio_get(PB_LT))
+			// sleep_ms(20);
 		rVal =  'J';
 	}
 	else if (!gpio_get(PB_RT))
 	{
-		while (!gpio_get(PB_RT))
-			sleep_ms(20);
+		// while (!gpio_get(PB_RT))
+			// sleep_ms(20);
 		rVal =  'L';
 	}
 	else if (!gpio_get(PB_UP))
 	{
-		while (!gpio_get(PB_UP))
-			sleep_ms(20);
+		// while (!gpio_get(PB_UP))
+			// sleep_ms(20);
 		rVal =  'I';
 	}
 	else if (!gpio_get(PB_DN))
 	{
-		while (!gpio_get(PB_DN))
-			sleep_ms(20);
+		// while (!gpio_get(PB_DN))
+			// sleep_ms(20);
 		rVal =  'K';
 	}
-	return (rVal);
+	if (rVal != 0)
+	{
+		sleep_ms(250);
+		return (rVal);
+	}
 	
-	// char c = getchar_timeout_us(0);
-	// if (c == (char)PICO_ERROR_TIMEOUT) c = 0;
-	// if ((c >= 'a') && (c <= 'z')) c -= 32;
-	// return c;
+	char c = getchar_timeout_us(0);
+	if (c == (char)PICO_ERROR_TIMEOUT) c = 0;
+	if ((c >= 'a') && (c <= 'z')) c -= 32;
+	return c;
 }
 
 // flush characters from keyboard
@@ -478,11 +482,11 @@ int main()
 		case 0:
 			break;
 
-		// flush another keys
+		// flush other keys
 		default:
 			printf("\nKeys:\n");
-			printf("Up ... gear up\n");
-			printf("Down ... gear down\n");
+			printf("Up ... shift gear up\n");
+			printf("Down ... shift gear down\n");
 			printf("Left ... turn left\n");
 			printf("Right ... turn right\n");
 			FlushChar();

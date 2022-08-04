@@ -222,11 +222,11 @@ const int LevSpeed[LEVELNUM] = { 1000, 700, 500, 350, 250, 200, 180, 150, 120, 1
 void DispHelp()
 {
 	printf("\n");
-	printf("%c ... right\n", KEY_R);
-	printf("%c ... up\n", KEY_U);
-	printf("%c ... left\n", KEY_L);
-	printf("%c or space ... down\n", KEY_D);
-	printf("%c ... pause\n", KEY_PAUSE);
+	printf("JoyStick ... right\n");
+	printf("JoyStick ... up\n");
+	printf("JoyStick ... left\n");
+	printf("JoyStick ... down\n");
+	printf("JoyStick fire ... pause\n");
 }
 
 // get character from keyboard (0 = no key)
@@ -256,16 +256,15 @@ char GetChar()
 		rVal =  KEY_D;
 	else if (!gpio_get(PB_FR))	// PAUSE=FIRE
 		rVal =  KEY_PAUSE;
-	else
-		return 0;
-	sleep_ms(100);
-	if (rVal == 'I')
-		sleep_ms(150);
-	return (rVal);
-	// char c = getchar_timeout_us(0);
-	// if (c == (char)PICO_ERROR_TIMEOUT) c = 0;
-	// if ((c >= 'a') && (c <= 'z')) c -= 32;
-	// return c;
+	if (rVal != 0)
+	{
+		sleep_ms(250);
+		return (rVal);
+	}
+	char c = getchar_timeout_us(0);
+	if (c == (char)PICO_ERROR_TIMEOUT) c = 0;
+	if ((c >= 'a') && (c <= 'z')) c -= 32;
+	return c;
 }
 
 // flush characters from keyboard
