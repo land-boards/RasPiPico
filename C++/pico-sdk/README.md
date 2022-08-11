@@ -1,5 +1,7 @@
 # Raspberry Pi Pico SDK
 
+https://github.com/raspberrypi/pico-sdk
+
 The Raspberry Pi Pico SDK (henceforth the SDK) provides the headers, libraries and build system
 necessary to write programs for the RP2040-based devices such as the Raspberry Pi Pico
 in C, C++ or assembly language.
