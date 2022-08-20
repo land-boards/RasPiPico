@@ -1,9 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Program Files/CMake/share/cmake-3.23/Modules/CMakeASMInformation.cmake
-C:/Program Files/CMake/share/cmake-3.23/Modules/Compiler/GNU-ASM.cmake
-C:/Program Files/CMake/share/cmake-3.23/Modules/Compiler/GNU.cmake
-C:/VSARM/sdk/pico/pico-sdk/src/CMakeLists.txt
-C:/VSARM/sdk/pico/pico-sdk/src/board_setup.cmake
-C:/VSARM/sdk/pico/pico-sdk/src/boards/generic_board.cmake
-C:/VSARM/sdk/pico/pico-sdk/src/rp2040.cmake
-C:/VSARM/sdk/pico/pico-sdk/src/rp2_common.cmake

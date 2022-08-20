@@ -1,6 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Program Files/CMake/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake
-C:/Program Files/CMake/share/cmake-3.23/Modules/FindPackageMessage.cmake
-C:/Program Files/CMake/share/cmake-3.23/Modules/FindPython/Support.cmake
-C:/Program Files/CMake/share/cmake-3.23/Modules/FindPython3.cmake
-C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/boot_stage2/CMakeLists.txt
