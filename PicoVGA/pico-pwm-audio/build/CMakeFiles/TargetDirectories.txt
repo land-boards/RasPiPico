@@ -1,0 +1,8 @@
+C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/CMakeFiles/pico-pwm-audio.dir
+C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/CMakeFiles/ELF2UF2Build.dir
+C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/pico-sdk/CMakeFiles/ALL_BUILD.dir
+C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir
+C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir
+C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir

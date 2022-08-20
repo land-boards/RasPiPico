@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\687cc5c5dba21cdbf5ebf20b158bc2fb\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{518F2458-F1E6-3568-AC52-201CEAF5B969}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

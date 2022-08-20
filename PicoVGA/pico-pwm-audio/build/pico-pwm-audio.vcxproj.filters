@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\pico-pwm-audio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdlib\stdlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\gpio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\platform.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\sync.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\uart.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\sem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\lock_core.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\mutex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\critical_section.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\clocks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\irq.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\pll.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\vreg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\watchdog.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\xosc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\printf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\bootrom.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\double_init_rom.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\double_math.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\float_init_rom.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\float_math.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\pico_malloc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_standard_link\new_delete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_standard_link\binary_info.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\stdio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\stdio_uart.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\dma.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\pio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\divider.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\irq_handler_chain.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bit_ops\bit_ops_aeabi.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_divider\divider.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\double_aeabi.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\double_v1_rom_shim.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\pico_int64_ops_aeabi.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\float_aeabi.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\float_v1_rom_shim.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_mem_ops\mem_ops_aeabi.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_standard_link\crt0.S" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{FF13BC93-EBFB-3E6A-8917-F6B5A4011E05}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{36249800-D62D-3B4C-8AAA-F450864A85EC}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>pico-pwm-audio</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pico-pwm-audio.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pico-pwm-audio</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.elf</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pico-pwm-audio.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pico-pwm-audio</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.elf</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">pico-pwm-audio.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">pico-pwm-audio</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.elf</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">pico-pwm-audio.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">pico-pwm-audio</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.elf</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -mcpu=cortex-m0plus -mthumb -Og -ffunction-sections -fdata-sections -fno-use-cxa-atexit</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);PICO_PROGRAM_NAME="pico-pwm-audio";PICO_PROGRAM_VERSION_STRING="0.1";PICO_TARGET_NAME="pico-pwm-audio";LIB_PICO_STDLIB=1;PICO_BOARD="pico";PICO_NO_HARDWARE=0;PICO_ON_DEVICE=1;PICO_BUILD=1;LIB_PICO_PLATFORM=1;LIB_PICO_TIME=1;LIB_PICO_SYNC=1;LIB_PICO_SYNC_SEM=1;LIB_PICO_SYNC_CORE=1;LIB_PICO_SYNC_MUTEX=1;LIB_PICO_SYNC_CRITICAL_SECTION=1;LIB_PICO_UTIL=1;LIB_PICO_RUNTIME=1;LIB_PICO_PRINTF=1;LIB_PICO_PRINTF_PICO=1;LIB_PICO_BIT_OPS=1;LIB_PICO_BIT_OPS_PICO=1;LIB_PICO_DIVIDER=1;LIB_PICO_DIVIDER_HARDWARE=1;LIB_PICO_DOUBLE=1;LIB_PICO_DOUBLE_PICO=1;LIB_PICO_INT64_OPS=1;LIB_PICO_INT64_OPS_PICO=1;LIB_PICO_FLOAT=1;LIB_PICO_FLOAT_PICO=1;LIB_PICO_MALLOC=1;LIB_PICO_MEM_OPS=1;LIB_PICO_MEM_OPS_PICO=1;LIB_PICO_STANDARD_LINK=1;PICO_NO_FLASH=0;PICO_USE_BLOCKED_RAM=0;PICO_COPY_TO_RAM=0;PICO_CMAKE_BUILD_TYPE="Release";PICO_CXX_ENABLE_EXCEPTIONS=1;LIB_PICO_STDIO=1;LIB_PICO_STDIO_UART=1;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);PICO_PROGRAM_NAME=\"pico-pwm-audio\";PICO_PROGRAM_VERSION_STRING=\"0.1\";PICO_TARGET_NAME=\"pico-pwm-audio\";LIB_PICO_STDLIB=1;PICO_BOARD=\"pico\";PICO_NO_HARDWARE=0;PICO_ON_DEVICE=1;PICO_BUILD=1;LIB_PICO_PLATFORM=1;LIB_PICO_TIME=1;LIB_PICO_SYNC=1;LIB_PICO_SYNC_SEM=1;LIB_PICO_SYNC_CORE=1;LIB_PICO_SYNC_MUTEX=1;LIB_PICO_SYNC_CRITICAL_SECTION=1;LIB_PICO_UTIL=1;LIB_PICO_RUNTIME=1;LIB_PICO_PRINTF=1;LIB_PICO_PRINTF_PICO=1;LIB_PICO_BIT_OPS=1;LIB_PICO_BIT_OPS_PICO=1;LIB_PICO_DIVIDER=1;LIB_PICO_DIVIDER_HARDWARE=1;LIB_PICO_DOUBLE=1;LIB_PICO_DOUBLE_PICO=1;LIB_PICO_INT64_OPS=1;LIB_PICO_INT64_OPS_PICO=1;LIB_PICO_FLOAT=1;LIB_PICO_FLOAT_PICO=1;LIB_PICO_MALLOC=1;LIB_PICO_MEM_OPS=1;LIB_PICO_MEM_OPS_PICO=1;LIB_PICO_STANDARD_LINK=1;PICO_NO_FLASH=0;PICO_USE_BLOCKED_RAM=0;PICO_COPY_TO_RAM=0;PICO_CMAKE_BUILD_TYPE=\"Release\";PICO_CXX_ENABLE_EXCEPTIONS=1;LIB_PICO_STDIO=1;LIB_PICO_STDIO_UART=1;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>			</Message>
+      <Command>setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objcopy.exe" -Oihex C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Debug/pico-pwm-audio.elf pico-pwm-audio.hex
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objcopy.exe" -Obinary C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Debug/pico-pwm-audio.elf pico-pwm-audio.bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objdump.exe" -h C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Debug/pico-pwm-audio.elf &gt;pico-pwm-audio.dis
+if %errorlevel% neq 0 goto :cmEnd
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objdump.exe" -d C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Debug/pico-pwm-audio.elf &gt;&gt;pico-pwm-audio.dis
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+elf2uf2\elf2uf2 C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Debug/pico-pwm-audio.elf pico-pwm-audio.uf2
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>pico-sdk\src\rp2_common\boot_stage2\bs2_default_padded_checksummed.S</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) --specs=nosys.specs --wrap=sprintf --wrap=snprintf --wrap=vsnprintf --wrap=__clzsi2 --wrap=__clzdi2 --wrap=__ctzsi2 --wrap=__ctzdi2 --wrap=__popcountsi2 --wrap=__popcountdi2 --wrap=__clz --wrap=__clzl --wrap=__clzll --wrap=__aeabi_idiv --wrap=__aeabi_idivmod --wrap=__aeabi_ldivmod --wrap=__aeabi_uidiv --wrap=__aeabi_uidivmod --wrap=__aeabi_uldivmod --wrap=__aeabi_dadd --wrap=__aeabi_ddiv --wrap=__aeabi_dmul --wrap=__aeabi_drsub --wrap=__aeabi_dsub --wrap=__aeabi_cdcmpeq --wrap=__aeabi_cdrcmple --wrap=__aeabi_cdcmple --wrap=__aeabi_dcmpeq --wrap=__aeabi_dcmplt --wrap=__aeabi_dcmple --wrap=__aeabi_dcmpge --wrap=__aeabi_dcmpgt --wrap=__aeabi_dcmpun --wrap=__aeabi_i2d --wrap=__aeabi_l2d --wrap=__aeabi_ui2d --wrap=__aeabi_ul2d --wrap=__aeabi_d2iz --wrap=__aeabi_d2lz --wrap=__aeabi_d2uiz --wrap=__aeabi_d2ulz --wrap=__aeabi_d2f --wrap=sqrt --wrap=cos --wrap=sin --wrap=tan --wrap=atan2 --wrap=exp --wrap=log --wrap=ldexp --wrap=copysign --wrap=trunc --wrap=floor --wrap=ceil --wrap=round --wrap=sincos --wrap=asin --wrap=acos --wrap=atan --wrap=sinh --wrap=cosh --wrap=tanh --wrap=asinh --wrap=acosh --wrap=atanh --wrap=exp2 --wrap=log2 --wrap=exp10 --wrap=log10 --wrap=pow --wrap=powint --wrap=hypot --wrap=cbrt --wrap=fmod --wrap=drem --wrap=remainder --wrap=remquo --wrap=expm1 --wrap=log1p --wrap=fma --wrap=__aeabi_lmul --wrap=__aeabi_fadd --wrap=__aeabi_fdiv --wrap=__aeabi_fmul --wrap=__aeabi_frsub --wrap=__aeabi_fsub --wrap=__aeabi_cfcmpeq --wrap=__aeabi_cfrcmple --wrap=__aeabi_cfcmple --wrap=__aeabi_fcmpeq --wrap=__aeabi_fcmplt --wrap=__aeabi_fcmple --wrap=__aeabi_fcmpge --wrap=__aeabi_fcmpgt --wrap=__aeabi_fcmpun --wrap=__aeabi_i2f --wrap=__aeabi_l2f --wrap=__aeabi_ui2f --wrap=__aeabi_ul2f --wrap=__aeabi_f2iz --wrap=__aeabi_f2lz --wrap=__aeabi_f2uiz --wrap=__aeabi_f2ulz --wrap=__aeabi_f2d --wrap=sqrtf --wrap=cosf --wrap=sinf --wrap=tanf --wrap=atan2f --wrap=expf --wrap=logf --wrap=ldexpf --wrap=copysignf --wrap=truncf --wrap=floorf --wrap=ceilf --wrap=roundf --wrap=sincosf --wrap=asinf --wrap=acosf --wrap=atanf --wrap=sinhf --wrap=coshf --wrap=tanhf --wrap=asinhf --wrap=acoshf --wrap=atanhf --wrap=exp2f --wrap=log2f --wrap=exp10f --wrap=log10f --wrap=powf --wrap=powintf --wrap=hypotf --wrap=cbrtf --wrap=fmodf --wrap=dremf --wrap=remainderf --wrap=remquof --wrap=expm1f --wrap=log1pf --wrap=fmaf --wrap=malloc --wrap=calloc --wrap=free --wrap=memcpy --wrap=memset --wrap=__aeabi_memcpy --wrap=__aeabi_memset --wrap=__aeabi_memcpy4 --wrap=__aeabi_memset4 --wrap=__aeabi_memcpy8 --wrap=__aeabi_memset8 -Map=pico-pwm-audio.elf.map --script=C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/memmap_default.ld -z max-page-size=4096 --gc-sections --wrap=printf --wrap=vprintf --wrap=puts --wrap=putchar --wrap=getchar</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDataBaseFile>C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Debug/pico-pwm-audio.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -fno-use-cxa-atexit</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);PICO_PROGRAM_NAME="pico-pwm-audio";PICO_PROGRAM_VERSION_STRING="0.1";PICO_TARGET_NAME="pico-pwm-audio";LIB_PICO_STDLIB=1;PICO_BOARD="pico";PICO_NO_HARDWARE=0;PICO_ON_DEVICE=1;PICO_BUILD=1;LIB_PICO_PLATFORM=1;LIB_PICO_TIME=1;LIB_PICO_SYNC=1;LIB_PICO_SYNC_SEM=1;LIB_PICO_SYNC_CORE=1;LIB_PICO_SYNC_MUTEX=1;LIB_PICO_SYNC_CRITICAL_SECTION=1;LIB_PICO_UTIL=1;LIB_PICO_RUNTIME=1;LIB_PICO_PRINTF=1;LIB_PICO_PRINTF_PICO=1;LIB_PICO_BIT_OPS=1;LIB_PICO_BIT_OPS_PICO=1;LIB_PICO_DIVIDER=1;LIB_PICO_DIVIDER_HARDWARE=1;LIB_PICO_DOUBLE=1;LIB_PICO_DOUBLE_PICO=1;LIB_PICO_INT64_OPS=1;LIB_PICO_INT64_OPS_PICO=1;LIB_PICO_FLOAT=1;LIB_PICO_FLOAT_PICO=1;LIB_PICO_MALLOC=1;LIB_PICO_MEM_OPS=1;LIB_PICO_MEM_OPS_PICO=1;LIB_PICO_STANDARD_LINK=1;PICO_NO_FLASH=0;PICO_USE_BLOCKED_RAM=0;PICO_COPY_TO_RAM=0;PICO_CMAKE_BUILD_TYPE="Release";PICO_CXX_ENABLE_EXCEPTIONS=1;LIB_PICO_STDIO=1;LIB_PICO_STDIO_UART=1;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);PICO_PROGRAM_NAME=\"pico-pwm-audio\";PICO_PROGRAM_VERSION_STRING=\"0.1\";PICO_TARGET_NAME=\"pico-pwm-audio\";LIB_PICO_STDLIB=1;PICO_BOARD=\"pico\";PICO_NO_HARDWARE=0;PICO_ON_DEVICE=1;PICO_BUILD=1;LIB_PICO_PLATFORM=1;LIB_PICO_TIME=1;LIB_PICO_SYNC=1;LIB_PICO_SYNC_SEM=1;LIB_PICO_SYNC_CORE=1;LIB_PICO_SYNC_MUTEX=1;LIB_PICO_SYNC_CRITICAL_SECTION=1;LIB_PICO_UTIL=1;LIB_PICO_RUNTIME=1;LIB_PICO_PRINTF=1;LIB_PICO_PRINTF_PICO=1;LIB_PICO_BIT_OPS=1;LIB_PICO_BIT_OPS_PICO=1;LIB_PICO_DIVIDER=1;LIB_PICO_DIVIDER_HARDWARE=1;LIB_PICO_DOUBLE=1;LIB_PICO_DOUBLE_PICO=1;LIB_PICO_INT64_OPS=1;LIB_PICO_INT64_OPS_PICO=1;LIB_PICO_FLOAT=1;LIB_PICO_FLOAT_PICO=1;LIB_PICO_MALLOC=1;LIB_PICO_MEM_OPS=1;LIB_PICO_MEM_OPS_PICO=1;LIB_PICO_STANDARD_LINK=1;PICO_NO_FLASH=0;PICO_USE_BLOCKED_RAM=0;PICO_COPY_TO_RAM=0;PICO_CMAKE_BUILD_TYPE=\"Release\";PICO_CXX_ENABLE_EXCEPTIONS=1;LIB_PICO_STDIO=1;LIB_PICO_STDIO_UART=1;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>			</Message>
+      <Command>setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objcopy.exe" -Oihex C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Release/pico-pwm-audio.elf pico-pwm-audio.hex
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objcopy.exe" -Obinary C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Release/pico-pwm-audio.elf pico-pwm-audio.bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objdump.exe" -h C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Release/pico-pwm-audio.elf &gt;pico-pwm-audio.dis
+if %errorlevel% neq 0 goto :cmEnd
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objdump.exe" -d C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Release/pico-pwm-audio.elf &gt;&gt;pico-pwm-audio.dis
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+elf2uf2\elf2uf2 C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Release/pico-pwm-audio.elf pico-pwm-audio.uf2
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>pico-sdk\src\rp2_common\boot_stage2\bs2_default_padded_checksummed.S</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) --specs=nosys.specs --wrap=sprintf --wrap=snprintf --wrap=vsnprintf --wrap=__clzsi2 --wrap=__clzdi2 --wrap=__ctzsi2 --wrap=__ctzdi2 --wrap=__popcountsi2 --wrap=__popcountdi2 --wrap=__clz --wrap=__clzl --wrap=__clzll --wrap=__aeabi_idiv --wrap=__aeabi_idivmod --wrap=__aeabi_ldivmod --wrap=__aeabi_uidiv --wrap=__aeabi_uidivmod --wrap=__aeabi_uldivmod --wrap=__aeabi_dadd --wrap=__aeabi_ddiv --wrap=__aeabi_dmul --wrap=__aeabi_drsub --wrap=__aeabi_dsub --wrap=__aeabi_cdcmpeq --wrap=__aeabi_cdrcmple --wrap=__aeabi_cdcmple --wrap=__aeabi_dcmpeq --wrap=__aeabi_dcmplt --wrap=__aeabi_dcmple --wrap=__aeabi_dcmpge --wrap=__aeabi_dcmpgt --wrap=__aeabi_dcmpun --wrap=__aeabi_i2d --wrap=__aeabi_l2d --wrap=__aeabi_ui2d --wrap=__aeabi_ul2d --wrap=__aeabi_d2iz --wrap=__aeabi_d2lz --wrap=__aeabi_d2uiz --wrap=__aeabi_d2ulz --wrap=__aeabi_d2f --wrap=sqrt --wrap=cos --wrap=sin --wrap=tan --wrap=atan2 --wrap=exp --wrap=log --wrap=ldexp --wrap=copysign --wrap=trunc --wrap=floor --wrap=ceil --wrap=round --wrap=sincos --wrap=asin --wrap=acos --wrap=atan --wrap=sinh --wrap=cosh --wrap=tanh --wrap=asinh --wrap=acosh --wrap=atanh --wrap=exp2 --wrap=log2 --wrap=exp10 --wrap=log10 --wrap=pow --wrap=powint --wrap=hypot --wrap=cbrt --wrap=fmod --wrap=drem --wrap=remainder --wrap=remquo --wrap=expm1 --wrap=log1p --wrap=fma --wrap=__aeabi_lmul --wrap=__aeabi_fadd --wrap=__aeabi_fdiv --wrap=__aeabi_fmul --wrap=__aeabi_frsub --wrap=__aeabi_fsub --wrap=__aeabi_cfcmpeq --wrap=__aeabi_cfrcmple --wrap=__aeabi_cfcmple --wrap=__aeabi_fcmpeq --wrap=__aeabi_fcmplt --wrap=__aeabi_fcmple --wrap=__aeabi_fcmpge --wrap=__aeabi_fcmpgt --wrap=__aeabi_fcmpun --wrap=__aeabi_i2f --wrap=__aeabi_l2f --wrap=__aeabi_ui2f --wrap=__aeabi_ul2f --wrap=__aeabi_f2iz --wrap=__aeabi_f2lz --wrap=__aeabi_f2uiz --wrap=__aeabi_f2ulz --wrap=__aeabi_f2d --wrap=sqrtf --wrap=cosf --wrap=sinf --wrap=tanf --wrap=atan2f --wrap=expf --wrap=logf --wrap=ldexpf --wrap=copysignf --wrap=truncf --wrap=floorf --wrap=ceilf --wrap=roundf --wrap=sincosf --wrap=asinf --wrap=acosf --wrap=atanf --wrap=sinhf --wrap=coshf --wrap=tanhf --wrap=asinhf --wrap=acoshf --wrap=atanhf --wrap=exp2f --wrap=log2f --wrap=exp10f --wrap=log10f --wrap=powf --wrap=powintf --wrap=hypotf --wrap=cbrtf --wrap=fmodf --wrap=dremf --wrap=remainderf --wrap=remquof --wrap=expm1f --wrap=log1pf --wrap=fmaf --wrap=malloc --wrap=calloc --wrap=free --wrap=memcpy --wrap=memset --wrap=__aeabi_memcpy --wrap=__aeabi_memset --wrap=__aeabi_memcpy4 --wrap=__aeabi_memset4 --wrap=__aeabi_memcpy8 --wrap=__aeabi_memset8 -Map=pico-pwm-audio.elf.map --script=C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/memmap_default.ld -z max-page-size=4096 --gc-sections --wrap=printf --wrap=vprintf --wrap=puts --wrap=putchar --wrap=getchar</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDataBaseFile>C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/Release/pico-pwm-audio.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -fno-use-cxa-atexit</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);PICO_PROGRAM_NAME="pico-pwm-audio";PICO_PROGRAM_VERSION_STRING="0.1";PICO_TARGET_NAME="pico-pwm-audio";LIB_PICO_STDLIB=1;PICO_BOARD="pico";PICO_NO_HARDWARE=0;PICO_ON_DEVICE=1;PICO_BUILD=1;LIB_PICO_PLATFORM=1;LIB_PICO_TIME=1;LIB_PICO_SYNC=1;LIB_PICO_SYNC_SEM=1;LIB_PICO_SYNC_CORE=1;LIB_PICO_SYNC_MUTEX=1;LIB_PICO_SYNC_CRITICAL_SECTION=1;LIB_PICO_UTIL=1;LIB_PICO_RUNTIME=1;LIB_PICO_PRINTF=1;LIB_PICO_PRINTF_PICO=1;LIB_PICO_BIT_OPS=1;LIB_PICO_BIT_OPS_PICO=1;LIB_PICO_DIVIDER=1;LIB_PICO_DIVIDER_HARDWARE=1;LIB_PICO_DOUBLE=1;LIB_PICO_DOUBLE_PICO=1;LIB_PICO_INT64_OPS=1;LIB_PICO_INT64_OPS_PICO=1;LIB_PICO_FLOAT=1;LIB_PICO_FLOAT_PICO=1;LIB_PICO_MALLOC=1;LIB_PICO_MEM_OPS=1;LIB_PICO_MEM_OPS_PICO=1;LIB_PICO_STANDARD_LINK=1;PICO_NO_FLASH=0;PICO_USE_BLOCKED_RAM=0;PICO_COPY_TO_RAM=0;PICO_CMAKE_BUILD_TYPE="Release";PICO_CXX_ENABLE_EXCEPTIONS=1;LIB_PICO_STDIO=1;LIB_PICO_STDIO_UART=1;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);PICO_PROGRAM_NAME=\"pico-pwm-audio\";PICO_PROGRAM_VERSION_STRING=\"0.1\";PICO_TARGET_NAME=\"pico-pwm-audio\";LIB_PICO_STDLIB=1;PICO_BOARD=\"pico\";PICO_NO_HARDWARE=0;PICO_ON_DEVICE=1;PICO_BUILD=1;LIB_PICO_PLATFORM=1;LIB_PICO_TIME=1;LIB_PICO_SYNC=1;LIB_PICO_SYNC_SEM=1;LIB_PICO_SYNC_CORE=1;LIB_PICO_SYNC_MUTEX=1;LIB_PICO_SYNC_CRITICAL_SECTION=1;LIB_PICO_UTIL=1;LIB_PICO_RUNTIME=1;LIB_PICO_PRINTF=1;LIB_PICO_PRINTF_PICO=1;LIB_PICO_BIT_OPS=1;LIB_PICO_BIT_OPS_PICO=1;LIB_PICO_DIVIDER=1;LIB_PICO_DIVIDER_HARDWARE=1;LIB_PICO_DOUBLE=1;LIB_PICO_DOUBLE_PICO=1;LIB_PICO_INT64_OPS=1;LIB_PICO_INT64_OPS_PICO=1;LIB_PICO_FLOAT=1;LIB_PICO_FLOAT_PICO=1;LIB_PICO_MALLOC=1;LIB_PICO_MEM_OPS=1;LIB_PICO_MEM_OPS_PICO=1;LIB_PICO_STANDARD_LINK=1;PICO_NO_FLASH=0;PICO_USE_BLOCKED_RAM=0;PICO_COPY_TO_RAM=0;PICO_CMAKE_BUILD_TYPE=\"Release\";PICO_CXX_ENABLE_EXCEPTIONS=1;LIB_PICO_STDIO=1;LIB_PICO_STDIO_UART=1;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>			</Message>
+      <Command>setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objcopy.exe" -Oihex C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/MinSizeRel/pico-pwm-audio.elf pico-pwm-audio.hex
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objcopy.exe" -Obinary C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/MinSizeRel/pico-pwm-audio.elf pico-pwm-audio.bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objdump.exe" -h C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/MinSizeRel/pico-pwm-audio.elf &gt;pico-pwm-audio.dis
+if %errorlevel% neq 0 goto :cmEnd
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objdump.exe" -d C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/MinSizeRel/pico-pwm-audio.elf &gt;&gt;pico-pwm-audio.dis
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+elf2uf2\elf2uf2 C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/MinSizeRel/pico-pwm-audio.elf pico-pwm-audio.uf2
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>pico-sdk\src\rp2_common\boot_stage2\bs2_default_padded_checksummed.S</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) --specs=nosys.specs --wrap=sprintf --wrap=snprintf --wrap=vsnprintf --wrap=__clzsi2 --wrap=__clzdi2 --wrap=__ctzsi2 --wrap=__ctzdi2 --wrap=__popcountsi2 --wrap=__popcountdi2 --wrap=__clz --wrap=__clzl --wrap=__clzll --wrap=__aeabi_idiv --wrap=__aeabi_idivmod --wrap=__aeabi_ldivmod --wrap=__aeabi_uidiv --wrap=__aeabi_uidivmod --wrap=__aeabi_uldivmod --wrap=__aeabi_dadd --wrap=__aeabi_ddiv --wrap=__aeabi_dmul --wrap=__aeabi_drsub --wrap=__aeabi_dsub --wrap=__aeabi_cdcmpeq --wrap=__aeabi_cdrcmple --wrap=__aeabi_cdcmple --wrap=__aeabi_dcmpeq --wrap=__aeabi_dcmplt --wrap=__aeabi_dcmple --wrap=__aeabi_dcmpge --wrap=__aeabi_dcmpgt --wrap=__aeabi_dcmpun --wrap=__aeabi_i2d --wrap=__aeabi_l2d --wrap=__aeabi_ui2d --wrap=__aeabi_ul2d --wrap=__aeabi_d2iz --wrap=__aeabi_d2lz --wrap=__aeabi_d2uiz --wrap=__aeabi_d2ulz --wrap=__aeabi_d2f --wrap=sqrt --wrap=cos --wrap=sin --wrap=tan --wrap=atan2 --wrap=exp --wrap=log --wrap=ldexp --wrap=copysign --wrap=trunc --wrap=floor --wrap=ceil --wrap=round --wrap=sincos --wrap=asin --wrap=acos --wrap=atan --wrap=sinh --wrap=cosh --wrap=tanh --wrap=asinh --wrap=acosh --wrap=atanh --wrap=exp2 --wrap=log2 --wrap=exp10 --wrap=log10 --wrap=pow --wrap=powint --wrap=hypot --wrap=cbrt --wrap=fmod --wrap=drem --wrap=remainder --wrap=remquo --wrap=expm1 --wrap=log1p --wrap=fma --wrap=__aeabi_lmul --wrap=__aeabi_fadd --wrap=__aeabi_fdiv --wrap=__aeabi_fmul --wrap=__aeabi_frsub --wrap=__aeabi_fsub --wrap=__aeabi_cfcmpeq --wrap=__aeabi_cfrcmple --wrap=__aeabi_cfcmple --wrap=__aeabi_fcmpeq --wrap=__aeabi_fcmplt --wrap=__aeabi_fcmple --wrap=__aeabi_fcmpge --wrap=__aeabi_fcmpgt --wrap=__aeabi_fcmpun --wrap=__aeabi_i2f --wrap=__aeabi_l2f --wrap=__aeabi_ui2f --wrap=__aeabi_ul2f --wrap=__aeabi_f2iz --wrap=__aeabi_f2lz --wrap=__aeabi_f2uiz --wrap=__aeabi_f2ulz --wrap=__aeabi_f2d --wrap=sqrtf --wrap=cosf --wrap=sinf --wrap=tanf --wrap=atan2f --wrap=expf --wrap=logf --wrap=ldexpf --wrap=copysignf --wrap=truncf --wrap=floorf --wrap=ceilf --wrap=roundf --wrap=sincosf --wrap=asinf --wrap=acosf --wrap=atanf --wrap=sinhf --wrap=coshf --wrap=tanhf --wrap=asinhf --wrap=acoshf --wrap=atanhf --wrap=exp2f --wrap=log2f --wrap=exp10f --wrap=log10f --wrap=powf --wrap=powintf --wrap=hypotf --wrap=cbrtf --wrap=fmodf --wrap=dremf --wrap=remainderf --wrap=remquof --wrap=expm1f --wrap=log1pf --wrap=fmaf --wrap=malloc --wrap=calloc --wrap=free --wrap=memcpy --wrap=memset --wrap=__aeabi_memcpy --wrap=__aeabi_memset --wrap=__aeabi_memcpy4 --wrap=__aeabi_memset4 --wrap=__aeabi_memcpy8 --wrap=__aeabi_memset8 -Map=pico-pwm-audio.elf.map --script=C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/memmap_default.ld -z max-page-size=4096 --gc-sections --wrap=printf --wrap=vprintf --wrap=puts --wrap=putchar --wrap=getchar</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDataBaseFile>C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/MinSizeRel/pico-pwm-audio.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -mcpu=cortex-m0plus -mthumb -ffunction-sections -fdata-sections -fno-use-cxa-atexit</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);PICO_PROGRAM_NAME="pico-pwm-audio";PICO_PROGRAM_VERSION_STRING="0.1";PICO_TARGET_NAME="pico-pwm-audio";LIB_PICO_STDLIB=1;PICO_BOARD="pico";PICO_NO_HARDWARE=0;PICO_ON_DEVICE=1;PICO_BUILD=1;LIB_PICO_PLATFORM=1;LIB_PICO_TIME=1;LIB_PICO_SYNC=1;LIB_PICO_SYNC_SEM=1;LIB_PICO_SYNC_CORE=1;LIB_PICO_SYNC_MUTEX=1;LIB_PICO_SYNC_CRITICAL_SECTION=1;LIB_PICO_UTIL=1;LIB_PICO_RUNTIME=1;LIB_PICO_PRINTF=1;LIB_PICO_PRINTF_PICO=1;LIB_PICO_BIT_OPS=1;LIB_PICO_BIT_OPS_PICO=1;LIB_PICO_DIVIDER=1;LIB_PICO_DIVIDER_HARDWARE=1;LIB_PICO_DOUBLE=1;LIB_PICO_DOUBLE_PICO=1;LIB_PICO_INT64_OPS=1;LIB_PICO_INT64_OPS_PICO=1;LIB_PICO_FLOAT=1;LIB_PICO_FLOAT_PICO=1;LIB_PICO_MALLOC=1;LIB_PICO_MEM_OPS=1;LIB_PICO_MEM_OPS_PICO=1;LIB_PICO_STANDARD_LINK=1;PICO_NO_FLASH=0;PICO_USE_BLOCKED_RAM=0;PICO_COPY_TO_RAM=0;PICO_CMAKE_BUILD_TYPE="Release";PICO_CXX_ENABLE_EXCEPTIONS=1;LIB_PICO_STDIO=1;LIB_PICO_STDIO_UART=1;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);PICO_PROGRAM_NAME=\"pico-pwm-audio\";PICO_PROGRAM_VERSION_STRING=\"0.1\";PICO_TARGET_NAME=\"pico-pwm-audio\";LIB_PICO_STDLIB=1;PICO_BOARD=\"pico\";PICO_NO_HARDWARE=0;PICO_ON_DEVICE=1;PICO_BUILD=1;LIB_PICO_PLATFORM=1;LIB_PICO_TIME=1;LIB_PICO_SYNC=1;LIB_PICO_SYNC_SEM=1;LIB_PICO_SYNC_CORE=1;LIB_PICO_SYNC_MUTEX=1;LIB_PICO_SYNC_CRITICAL_SECTION=1;LIB_PICO_UTIL=1;LIB_PICO_RUNTIME=1;LIB_PICO_PRINTF=1;LIB_PICO_PRINTF_PICO=1;LIB_PICO_BIT_OPS=1;LIB_PICO_BIT_OPS_PICO=1;LIB_PICO_DIVIDER=1;LIB_PICO_DIVIDER_HARDWARE=1;LIB_PICO_DOUBLE=1;LIB_PICO_DOUBLE_PICO=1;LIB_PICO_INT64_OPS=1;LIB_PICO_INT64_OPS_PICO=1;LIB_PICO_FLOAT=1;LIB_PICO_FLOAT_PICO=1;LIB_PICO_MALLOC=1;LIB_PICO_MEM_OPS=1;LIB_PICO_MEM_OPS_PICO=1;LIB_PICO_STANDARD_LINK=1;PICO_NO_FLASH=0;PICO_USE_BLOCKED_RAM=0;PICO_COPY_TO_RAM=0;PICO_CMAKE_BUILD_TYPE=\"Release\";PICO_CXX_ENABLE_EXCEPTIONS=1;LIB_PICO_STDIO=1;LIB_PICO_STDIO_UART=1;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\generated\pico_base;C:\VSARM\sdk\pico\pico-sdk\src\boards\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_resets\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_bit_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_divider\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2\include;C:\VSARM\sdk\pico\pico-sdk\src\common\pico_binary_info\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\include;C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pwm\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>			</Message>
+      <Command>setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objcopy.exe" -Oihex C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/RelWithDebInfo/pico-pwm-audio.elf pico-pwm-audio.hex
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objcopy.exe" -Obinary C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/RelWithDebInfo/pico-pwm-audio.elf pico-pwm-audio.bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objdump.exe" -h C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/RelWithDebInfo/pico-pwm-audio.elf &gt;pico-pwm-audio.dis
+if %errorlevel% neq 0 goto :cmEnd
+"C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objdump.exe" -d C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/RelWithDebInfo/pico-pwm-audio.elf &gt;&gt;pico-pwm-audio.dis
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+elf2uf2\elf2uf2 C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/RelWithDebInfo/pico-pwm-audio.elf pico-pwm-audio.uf2
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>pico-sdk\src\rp2_common\boot_stage2\bs2_default_padded_checksummed.S</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) --specs=nosys.specs --wrap=sprintf --wrap=snprintf --wrap=vsnprintf --wrap=__clzsi2 --wrap=__clzdi2 --wrap=__ctzsi2 --wrap=__ctzdi2 --wrap=__popcountsi2 --wrap=__popcountdi2 --wrap=__clz --wrap=__clzl --wrap=__clzll --wrap=__aeabi_idiv --wrap=__aeabi_idivmod --wrap=__aeabi_ldivmod --wrap=__aeabi_uidiv --wrap=__aeabi_uidivmod --wrap=__aeabi_uldivmod --wrap=__aeabi_dadd --wrap=__aeabi_ddiv --wrap=__aeabi_dmul --wrap=__aeabi_drsub --wrap=__aeabi_dsub --wrap=__aeabi_cdcmpeq --wrap=__aeabi_cdrcmple --wrap=__aeabi_cdcmple --wrap=__aeabi_dcmpeq --wrap=__aeabi_dcmplt --wrap=__aeabi_dcmple --wrap=__aeabi_dcmpge --wrap=__aeabi_dcmpgt --wrap=__aeabi_dcmpun --wrap=__aeabi_i2d --wrap=__aeabi_l2d --wrap=__aeabi_ui2d --wrap=__aeabi_ul2d --wrap=__aeabi_d2iz --wrap=__aeabi_d2lz --wrap=__aeabi_d2uiz --wrap=__aeabi_d2ulz --wrap=__aeabi_d2f --wrap=sqrt --wrap=cos --wrap=sin --wrap=tan --wrap=atan2 --wrap=exp --wrap=log --wrap=ldexp --wrap=copysign --wrap=trunc --wrap=floor --wrap=ceil --wrap=round --wrap=sincos --wrap=asin --wrap=acos --wrap=atan --wrap=sinh --wrap=cosh --wrap=tanh --wrap=asinh --wrap=acosh --wrap=atanh --wrap=exp2 --wrap=log2 --wrap=exp10 --wrap=log10 --wrap=pow --wrap=powint --wrap=hypot --wrap=cbrt --wrap=fmod --wrap=drem --wrap=remainder --wrap=remquo --wrap=expm1 --wrap=log1p --wrap=fma --wrap=__aeabi_lmul --wrap=__aeabi_fadd --wrap=__aeabi_fdiv --wrap=__aeabi_fmul --wrap=__aeabi_frsub --wrap=__aeabi_fsub --wrap=__aeabi_cfcmpeq --wrap=__aeabi_cfrcmple --wrap=__aeabi_cfcmple --wrap=__aeabi_fcmpeq --wrap=__aeabi_fcmplt --wrap=__aeabi_fcmple --wrap=__aeabi_fcmpge --wrap=__aeabi_fcmpgt --wrap=__aeabi_fcmpun --wrap=__aeabi_i2f --wrap=__aeabi_l2f --wrap=__aeabi_ui2f --wrap=__aeabi_ul2f --wrap=__aeabi_f2iz --wrap=__aeabi_f2lz --wrap=__aeabi_f2uiz --wrap=__aeabi_f2ulz --wrap=__aeabi_f2d --wrap=sqrtf --wrap=cosf --wrap=sinf --wrap=tanf --wrap=atan2f --wrap=expf --wrap=logf --wrap=ldexpf --wrap=copysignf --wrap=truncf --wrap=floorf --wrap=ceilf --wrap=roundf --wrap=sincosf --wrap=asinf --wrap=acosf --wrap=atanf --wrap=sinhf --wrap=coshf --wrap=tanhf --wrap=asinhf --wrap=acoshf --wrap=atanhf --wrap=exp2f --wrap=log2f --wrap=exp10f --wrap=log10f --wrap=powf --wrap=powintf --wrap=hypotf --wrap=cbrtf --wrap=fmodf --wrap=dremf --wrap=remainderf --wrap=remquof --wrap=expm1f --wrap=log1pf --wrap=fmaf --wrap=malloc --wrap=calloc --wrap=free --wrap=memcpy --wrap=memset --wrap=__aeabi_memcpy --wrap=__aeabi_memset --wrap=__aeabi_memcpy4 --wrap=__aeabi_memset4 --wrap=__aeabi_memcpy8 --wrap=__aeabi_memset8 -Map=pico-pwm-audio.elf.map --script=C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/memmap_default.ld -z max-page-size=4096 --gc-sections --wrap=printf --wrap=vprintf --wrap=puts --wrap=putchar --wrap=getchar</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDataBaseFile>C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/RelWithDebInfo/pico-pwm-audio.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio -BC:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build --check-stamp-file C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\GNU.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\cfgcmd.txt.in;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\mkdirs.cmake.in;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeASMCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeCCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeCXXCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeSystem.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\elf2uf2\tmp\ELF2UF2Build-mkdirs.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\pico_sdk_import.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\Platform\PICO.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_pre_load_platform.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_pre_load_toolchain.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_utils.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\platforms\pico\pico.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\platforms\rp2040.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\toolchains\find_compiler.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\toolchains\pico_arm_gcc.cmake;C:\VSARM\sdk\pico\pico-sdk\pico_sdk_init.cmake;C:\VSARM\sdk\pico\pico-sdk\pico_sdk_version.cmake;C:\VSARM\sdk\pico\pico-sdk\tools\FindELF2UF2.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio -BC:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build --check-stamp-file C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\GNU.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\cfgcmd.txt.in;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\mkdirs.cmake.in;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeASMCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeCCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeCXXCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeSystem.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\elf2uf2\tmp\ELF2UF2Build-mkdirs.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\pico_sdk_import.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\Platform\PICO.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_pre_load_platform.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_pre_load_toolchain.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_utils.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\platforms\pico\pico.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\platforms\rp2040.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\toolchains\find_compiler.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\toolchains\pico_arm_gcc.cmake;C:\VSARM\sdk\pico\pico-sdk\pico_sdk_init.cmake;C:\VSARM\sdk\pico\pico-sdk\pico_sdk_version.cmake;C:\VSARM\sdk\pico\pico-sdk\tools\FindELF2UF2.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio -BC:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build --check-stamp-file C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\GNU.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\cfgcmd.txt.in;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\mkdirs.cmake.in;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeASMCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeCCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeCXXCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeSystem.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\elf2uf2\tmp\ELF2UF2Build-mkdirs.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\pico_sdk_import.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\Platform\PICO.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_pre_load_platform.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_pre_load_toolchain.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_utils.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\platforms\pico\pico.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\platforms\rp2040.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\toolchains\find_compiler.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\toolchains\pico_arm_gcc.cmake;C:\VSARM\sdk\pico\pico-sdk\pico_sdk_init.cmake;C:\VSARM\sdk\pico\pico-sdk\pico_sdk_version.cmake;C:\VSARM\sdk\pico\pico-sdk\tools\FindELF2UF2.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio -BC:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build --check-stamp-file C:/Users/HPz420/Documents/GitHub/land-boards/RasPiPico/PicoVGA/pico-pwm-audio/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeASMInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\GNU-ASM.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\GNU.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\RepositoryInfo.txt.in;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\cfgcmd.txt.in;C:\Program Files\CMake\share\cmake-3.23\Modules\ExternalProject\mkdirs.cmake.in;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeASMCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeCCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeCXXCompiler.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\3.23.2\CMakeSystem.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\elf2uf2\tmp\ELF2UF2Build-mkdirs.cmake;C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\pico_sdk_import.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\Platform\PICO.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_pre_load_platform.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_pre_load_toolchain.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\pico_utils.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\platforms\pico\pico.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\platforms\rp2040.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\toolchains\find_compiler.cmake;C:\VSARM\sdk\pico\pico-sdk\cmake\preload\toolchains\pico_arm_gcc.cmake;C:\VSARM\sdk\pico\pico-sdk\pico_sdk_init.cmake;C:\VSARM\sdk\pico\pico-sdk\pico_sdk_version.cmake;C:\VSARM\sdk\pico\pico-sdk\tools\FindELF2UF2.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\pico-pwm-audio.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdlib\stdlib.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\gpio.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_claim\claim.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\platform.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_sync\sync.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\uart.c" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_divider\divider.S">
+      <ObjectFileName>$(IntDir)/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj</ObjectFileName>
+    </None>
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\time.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\timeout_helper.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\timer.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\sem.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\lock_core.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\mutex.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_sync\critical_section.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\datetime.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\pheap.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\common\pico_util\queue.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_runtime\runtime.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_clocks\clocks.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\irq.c" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\irq_handler_chain.S" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pll\pll.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_vreg\vreg.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_watchdog\watchdog.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_xosc\xosc.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_printf\printf.c" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bit_ops\bit_ops_aeabi.S" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_bootrom\bootrom.c" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_divider\divider.S">
+      <ObjectFileName>$(IntDir)/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj</ObjectFileName>
+    </None>
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\double_aeabi.S" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\double_init_rom.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\double_math.c" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_double\double_v1_rom_shim.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_int64_ops\pico_int64_ops_aeabi.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\float_aeabi.S" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\float_init_rom.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\float_math.c" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_float\float_v1_rom_shim.S" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_malloc\pico_malloc.c" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_mem_ops\mem_ops_aeabi.S" />
+    <None Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_standard_link\crt0.S" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_standard_link\new_delete.cpp" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_standard_link\binary_info.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\stdio.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_uart\stdio_uart.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\dma.c" />
+    <ClCompile Include="C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_pio\pio.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\ZERO_CHECK.vcxproj">
+      <Project>{B66E2BAC-6E76-375E-8E55-3C644C81764A}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\ELF2UF2Build.vcxproj">
+      <Project>{49A89D98-F93E-3D97-A39D-C2650EAFA986}</Project>
+      <Name>ELF2UF2Build</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\HPz420\Documents\GitHub\land-boards\RasPiPico\PicoVGA\pico-pwm-audio\build\pico-sdk\src\rp2_common\boot_stage2\bs2_default_padded_checksummed_asm.vcxproj">
+      <Project>{C74D3BD4-F49B-31D4-B704-960D7168F173}</Project>
+      <Name>bs2_default_padded_checksummed_asm</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

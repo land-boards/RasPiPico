@@ -1,0 +1,7 @@
+# CMake generation dependency list for this directory.
+C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/hw/bsp/family_support.cmake
+C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/hw/bsp/rp2040/boards/pico_sdk/board.cmake
+C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/hw/bsp/rp2040/family.cmake
+C:/VSARM/sdk/pico/pico-sdk/lib/tinyusb/hw/bsp/rp2040/pico_sdk_import.cmake
+C:/VSARM/sdk/pico/pico-sdk/pico_sdk_init.cmake
+C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/tinyusb/CMakeLists.txt
