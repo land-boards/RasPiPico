@@ -3,7 +3,8 @@
 * Builds project using cmake
 * This requires Raspberry Pi Pico C/C++ SDK to be installed
 * Can be used as a baseline for new code development
-* Raspberry Pi Pico Build Template with Arduino style setup() and loop() functions
+* Raspberry Pi Pico main.cpp Build Template
+** Arduino style setup() and loop() functions
 * Source code in src folder = main.cpp file
 
 = Building =
