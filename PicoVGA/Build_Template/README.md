@@ -1,5 +1,5 @@
-# pico-pwm-audio
-Raspberry Pi Pico Build Template
+# Build_Template
+Raspberry Pi Pico Build Template with Arduino styl setup() and loop() functions
 
 ## Building
 
