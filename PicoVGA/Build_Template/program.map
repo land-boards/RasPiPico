@@ -17725,7 +17725,7 @@ LOAD linker stubs
  .debug_aranges
                 0x00000710       0x28 ./build/main.o
 
-.debug_macro    0x00000000     0xbb00
+.debug_macro    0x00000000     0xbb0a
  .debug_macro   0x00000000      0x182 ./build/binary_info.o
  .debug_macro   0x00000182       0x16 ./build/binary_info.o
  .debug_macro   0x00000198       0xbe ./build/binary_info.o
@@ -17788,10 +17788,10 @@ LOAD linker stubs
  .debug_macro   0x0000aa26      0x327 ./build/watchdog.o
  .debug_macro   0x0000ad4d      0x182 ./build/xosc.o
  .debug_macro   0x0000aecf       0x10 ./build/xosc.o
- .debug_macro   0x0000aedf       0x17 ./build/main.o
- .debug_macro   0x0000aef6      0xc0a ./build/main.o
+ .debug_macro   0x0000aedf       0x21 ./build/main.o
+ .debug_macro   0x0000af00      0xc0a ./build/main.o
 
-.debug_line     0x00000000     0xed8a
+.debug_line     0x00000000     0xed94
  .debug_line    0x00000000      0x335 ./build/binary_info.o
  .debug_line    0x00000335      0x3ca ./build/bootrom.o
  .debug_line    0x000006ff      0x8c5 ./build/claim.o
@@ -17815,9 +17815,9 @@ LOAD linker stubs
  .debug_line    0x0000dd7c      0x34a ./build/unique_id.o
  .debug_line    0x0000e0c6      0x81e ./build/watchdog.o
  .debug_line    0x0000e8e4      0x444 ./build/xosc.o
- .debug_line    0x0000ed28       0x62 ./build/main.o
+ .debug_line    0x0000ed28       0x6c ./build/main.o
 
-.debug_str      0x00000000    0x5498e
+.debug_str      0x00000000    0x54997
  .debug_str     0x00000000     0x82b8 ./build/binary_info.o
                                0x84d9 (size before relaxing)
  .debug_str     0x000082b8       0xdf ./build/bootrom.o
@@ -17864,8 +17864,8 @@ LOAD linker stubs
                                0xc21f (size before relaxing)
  .debug_str     0x00054090       0x53 ./build/xosc.o
                               0x14bbf (size before relaxing)
- .debug_str     0x000540e3      0x8ab ./build/main.o
-                               0x34a1 (size before relaxing)
+ .debug_str     0x000540e3      0x8b4 ./build/main.o
+                               0x34aa (size before relaxing)
 
 .debug_loc      0x00000000    0x1190b
  .debug_loc     0x00000000      0x264 ./build/bootrom.o

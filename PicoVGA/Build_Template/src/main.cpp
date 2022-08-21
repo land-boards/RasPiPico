@@ -1,5 +1,5 @@
 // Build Template
-// Coded in Arduino style with setup() and loop() style
+// Coded in Arduino style with setup() and loop() functions
 // Runs on 
 //	http://land-boards.com/blwiki/index.php?title=PicoVGA01
 
@@ -7,7 +7,9 @@
 // #include "pico/stdlib.h"   // stdlib 
 // #include "hardware/irq.h"  // interrupts
 // #include "hardware/pwm.h"  // pwm 
-// #include "hardware/sync.h" // wait for interrupt 
+// #include "hardware/sync.h" // wait for interrupt
+
+#include "main.h"
  
 #define AUDIO_PIN 19
 
