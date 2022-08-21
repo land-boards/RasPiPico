@@ -91,6 +91,7 @@ DEFINE += -DPICO_STDIO_UART=1
 
 = PicoVGA examples =
 
+* [https://github.com/land-boards/RasPiPico/tree/main/PicoVGA/Build_Template Build Template for new code]
 * ProgramsJP = My JOYPAD version of the programs
 * ProgramsJS = My JoyStick version of the programs
 
