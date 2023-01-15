@@ -53,6 +53,8 @@
 * SD Card
 * Stereo Audio
 * USB B power
+* 99.5mmx69.5mm outline
+** Board is designed to fit into Aluminum Project Box Enclosure DIY 100*76*35mm - [https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313&_nkw=100*76*35mm+aluminum&_sacat=0&LH_TitleDesc=0&_odkw=100*76*35mm+Aluminum+PCB+Instrument+Box+Enclosure+Electronic+Project+Case+Set&_id=174408274566 ebay search]
 
 = Raspberry Pi Pico Prototyping =
 
